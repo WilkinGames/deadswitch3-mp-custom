@@ -1,0 +1,1409 @@
+{
+  "id": "map_overgrown",
+  "width": 8000,
+  "height": 2000,
+  "ambience": "forest",
+  "emitterType": "leaves",
+  "sky": "world_bg_riverside",
+  "bgLayerType": "world_layer_trees",
+  "numBgLayers": 3,
+  "bgLayerOffsetY": 60,
+  "heliMaxY": 1200,
+  "sun": {
+    "x": 1000,
+    "y": 500,
+    "type": "sun"
+  },
+  "spawn_store": [ 4000, 1036 ],
+  "spawns_bomb": [
+    [ 4000, 1036 ],
+    [ 4000, 1228 ],
+    [ 4000, 1418 ],
+    [ 4000, 1638 ]
+  ],
+  "spawns": [
+    [ 300, 1428 ],
+    [ 7800, 1428 ],
+    [ 450, 1650 ],
+    [ 1250, 1760 ],
+    [ 1850, 1760 ],
+    [ 1740, 1030 ],
+    [ 1740, 1170 ],
+    [ 1580, 1344 ],
+    [ 2585, 1418 ],
+    [ 2370, 1648 ],
+    [ 3000, 1750 ],
+    [ 3390, 1648 ],
+    [ 3340, 1390 ],
+    [ 4000, 1390 ],
+    [ 3340, 1200 ],
+    [ 4000, 1200 ],
+    [ 3340, 1000 ],
+    [ 4000, 1000 ],
+    [ 7550, 1650 ],
+    [ 6750, 1760 ],
+    [ 6150, 1760 ],
+    [ 6260, 1030 ],
+    [ 6260, 1170 ],
+    [ 6420, 1344 ],
+    [ 5415, 1418 ],
+    [ 5630, 1648 ],
+    [ 5000, 1750 ],
+    [ 4610, 1648 ],
+    [ 4660, 1390 ],
+    [ 4660, 1200 ],
+    [ 4660, 1000 ]
+  ],
+  "spawns_team": [
+    [ 300, 1428 ],
+    [ 7800, 1428 ]
+  ],
+  "spawns_survival": [
+    [ 100, 1428 ],
+    [ 7900, 1428 ]
+  ],
+  "flags_domination": [
+    [ 850, 1418 ],
+    [ 4000, 1401 ],
+    [ 7150, 1418 ]
+  ],
+  "flags_ctf": [
+    [ 850, 1418 ],
+    [ 7150, 1418 ]
+  ],
+  "flags_headquarters": [
+    [ 4000, 1022 ],
+    [ 4000, 1212 ],
+    [ 4000, 1402 ],
+    [ 4000, 1622 ]
+  ],
+  "flag_defender": [ 4000, 1020 ],
+  "campSpots": [
+    [ 520, 1655 ],
+    [ 1980, 1046 ],
+    [ 1980, 1168 ],
+    [ 1980, 1353 ],
+    [ 3306, 1216 ],
+    [ 3306, 1042 ],
+    [ 2524, 1663 ],
+    [ 4000, 1631 ],
+    [ 7480, 1655 ],
+    [ 6020, 1046 ],
+    [ 6020, 1168 ],
+    [ 6020, 1353 ],
+    [ 4694, 1216 ],
+    [ 4694, 1042 ],
+    [ 5476, 1663 ]
+  ],
+  "heliExploreSpots": [
+    [ 700, 1000 ],
+    [ 2600, 1000 ],
+    [ 4000, 800 ],
+    [ 7300, 1000 ],
+    [ 5400, 1000 ]
+  ],
+  "objects": [
+    {
+      "type": "polygon",
+      "spriteId": "map_overgrown",
+      "width": 8000,
+      "height": 2000,
+      "position": [ 4000, 1000 ]
+    },
+    {
+      "id": "ladder_0",
+      "type": "ladder",
+      "position": [ 400, 1560 ],
+      "direction": -1,
+      "height": 240
+    },
+    {
+      "id": "ladder_1",
+      "type": "ladder",
+      "position": [ 1426, 1186 ],
+      "direction": 1,
+      "height": 280
+    },
+    {
+      "id": "ladder_2",
+      "type": "ladder",
+      "position": [ 1704, 1550 ],
+      "direction": -1,
+      "height": 360
+    },
+    {
+      "id": "ladder_3",
+      "type": "ladder",
+      "position": [ 2875, 1578 ],
+      "direction": -1,
+      "height": 280
+    },
+    {
+      "id": "ladder_4",
+      "type": "ladder",
+      "position": [ 3114, 1720 ],
+      "direction": 1,
+      "height": 100
+    },
+    {
+      "id": "ladder_5",
+      "type": "ladder",
+      "position": [ 3221, 1200 ],
+      "direction": 1,
+      "height": 322
+    },
+    {
+      "id": "ladder_6",
+      "type": "ladder",
+      "position": [ 3506, 1302 ],
+      "direction": 1,
+      "height": 140
+    },
+    {
+      "id": "ladder_7",
+      "type": "ladder",
+      "position": [ 3656, 1530 ],
+      "direction": -1,
+      "height": 200
+    },
+    {
+      "id": "ladder_9",
+      "type": "ladder",
+      "position": [ 4494, 1302 ],
+      "direction": -1,
+      "height": 140
+    },
+    {
+      "id": "ladder_roof_0",
+      "type": "ladder",
+      "position": [ 3610, 1100 ],
+      "direction": -1,
+      "height": 140
+    },
+    {
+      "id": "ladder_roof_1",
+      "type": "ladder",
+      "position": [ 4390, 1100 ],
+      "direction": 1,
+      "height": 140
+    },
+
+    {
+      "id": "ladder_10",
+      "type": "ladder",
+      "position": [ 7600, 1560 ],
+      "direction": 1,
+      "height": 240
+    },
+    {
+      "id": "ladder_11",
+      "type": "ladder",
+      "position": [ 6574, 1186 ],
+      "direction": -1,
+      "height": 280
+    },
+    {
+      "id": "ladder_12",
+      "type": "ladder",
+      "position": [ 6296, 1550 ],
+      "direction": 1,
+      "height": 360
+    },
+    {
+      "id": "ladder_13",
+      "type": "ladder",
+      "position": [ 5125, 1578 ],
+      "direction": 1,
+      "height": 280
+    },
+    {
+      "id": "ladder_14",
+      "type": "ladder",
+      "position": [ 4886, 1720 ],
+      "direction": -1,
+      "height": 100
+    },
+    {
+      "id": "ladder_15",
+      "type": "ladder",
+      "position": [ 4779, 1201 ],
+      "direction": -1,
+      "height": 322
+    },
+    {
+      "id": "ladder_16",
+      "type": "ladder",
+      "position": [ 4344, 1530 ],
+      "direction": 1,
+      "height": 200
+    },
+    {
+      "id": "ladder_p_0",
+      "type": "ladder",
+      "position": [ 2034, 1074 ],
+      "direction": -1,
+      "height": 60,
+      "bPlayer": true
+    },
+    {
+      "id": "ladder_p_1",
+      "type": "ladder",
+      "position": [ 5966, 1074 ],
+      "direction": 1,
+      "height": 60,
+      "bPlayer": true
+    },
+    {
+      "id": "ladder_p_2",
+      "type": "ladder",
+      "position": [ 2034, 1225 ],
+      "direction": -1,
+      "height": 100,
+      "bPlayer": true
+    },
+    {
+      "id": "ladder_p_3",
+      "type": "ladder",
+      "position": [ 5966, 1225 ],
+      "direction": 1,
+      "height": 100,
+      "bPlayer": true
+    },
+
+    {
+      "id": "door_0",
+      "type": "door",
+      "position": [ 3254, 1403 ],
+      "width": 20,
+      "height": 102,
+      "bClosed": true
+    },
+    {
+      "id": "door_1",
+      "type": "door",
+      "position": [ 3696, 1212 ],
+      "width": 20,
+      "height": 102,
+      "bClosed": true
+    },
+    {
+      "id": "door_2",
+      "type": "door",
+      "position": [ 3822, 1403 ],
+      "width": 20,
+      "height": 102,
+      "bClosed": true
+    },
+    {
+      "id": "door_3",
+      "type": "door",
+      "position": [ 4177, 1403 ],
+      "width": 20,
+      "height": 102,
+      "bClosed": true
+    },
+    {
+      "id": "door_4",
+      "type": "door",
+      "position": [ 4302, 1212 ],
+      "width": 20,
+      "height": 102,
+      "bClosed": true
+    },
+    {
+      "id": "door_5",
+      "type": "door",
+      "position": [ 4745, 1403 ],
+      "width": 20,
+      "height": 102,
+      "bClosed": true
+    },
+
+    {
+      "type": "ground",
+      "position": [ 4000, 1855 ],
+      "width": 8000,
+      "height": 100,
+      "material": "water"
+    },
+
+    {
+      "type": "platform",
+      "position": [ 4000, 1076 ],
+      "width": 1500,
+      "height": 8,
+      "material": "wood"
+    },
+    {
+      "type": "platform",
+      "position": [ 4000, 1265 ],
+      "width": 1500,
+      "height": 8,
+      "material": "wood"
+    },
+    {
+      "type": "platform",
+      "position": [ 4000, 1456 ],
+      "width": 1490,
+      "height": 8,
+      "material": "wood"
+    },
+
+    {
+      "type": "platform",
+      "position": [ 590, 1472 ],
+      "width": 1182,
+      "height": 8
+    },
+    {
+      "type": "platform",
+      "position": [ 1726, 1403 ],
+      "width": 750,
+      "height": 8
+    },
+    {
+      "type": "platform",
+      "position": [ 2732, 1472 ],
+      "width": 1000,
+      "height": 8
+    },
+
+    {
+      "type": "platform",
+      "position": [ 7410, 1472 ],
+      "width": 1182,
+      "height": 8
+    },
+    {
+      "type": "platform",
+      "position": [ 6274, 1403 ],
+      "width": 750,
+      "height": 8
+    },
+    {
+      "type": "platform",
+      "position": [ 5268, 1472 ],
+      "width": 1000,
+      "height": 8
+    },
+
+    {
+      "type": "ground",
+      "position": [ 1732, 1087 ],
+      "width": 555,
+      "height": 17,
+      "material": "wood"
+    },
+    {
+      "type": "ground",
+      "position": [ 1732, 1240 ],
+      "width": 555,
+      "height": 58,
+      "material": "wood"
+    },
+
+    {
+      "type": "ground",
+      "position": [ 6268, 1087 ],
+      "width": 555,
+      "height": 17,
+      "material": "wood"
+    },
+    {
+      "type": "ground",
+      "position": [ 6268, 1240 ],
+      "width": 555,
+      "height": 58,
+      "material": "wood"
+    },
+
+    {
+      "id": "barrel_0",
+      "type": "obstacle",
+      "obstacleId": "barrel_explosive",
+      "position": [ 1820, 1192 ],
+      "bDark": true
+    },
+    {
+      "id": "barrel_1",
+      "type": "obstacle",
+      "obstacleId": "barrel_explosive",
+      "position": [ 2380, 1686 ]
+    },
+    {
+      "id": "barrel_2",
+      "type": "obstacle",
+      "obstacleId": "barrel_explosive",
+      "position": [ 6180, 1192 ],
+      "bDark": true
+    },
+    {
+      "id": "barrel_3",
+      "type": "obstacle",
+      "obstacleId": "barrel_explosive",
+      "position": [ 5620, 1686 ]
+    },
+
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags",
+      "position": [ 3904, 1657 ]
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags",
+      "position": [ 4096, 1657 ]
+    },
+
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags",
+      "position": [ 3544, 1057 ]
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags_large",
+      "position": [ 3820, 1430 ]
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags_edge",
+      "position": [ 3264, 1240 ],
+      "scale": -1
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags_large",
+      "position": [ 2966, 1445 ]
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags_edge",
+      "position": [ 1995, 1190 ],
+      "scale": 1
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags",
+      "position": [ 1977, 1064 ]
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags_large",
+      "position": [ 1994, 1374 ]
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags_large",
+      "position": [ 524, 1444 ]
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags_edge",
+      "position": [ 564, 1679 ],
+      "scale": 1
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags_large",
+      "position": [ 1612, 1785 ]
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags",
+      "position": [ 2527, 1692 ]
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags_edge",
+      "position": [ 3154, 1684 ],
+      "scale": -1
+    },
+
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags_edge",
+      "position": [ 4736, 1240 ],
+      "scale": 1
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags",
+      "position": [ 4456, 1057 ]
+    },
+
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags",
+      "position": [ 4456, 1057 ]
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags_large",
+      "position": [ 4180, 1430 ]
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags_edge",
+      "position": [ 4736, 1240 ],
+      "scale": 1
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags_large",
+      "position": [ 5034, 1445 ]
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags_edge",
+      "position": [ 6005, 1190 ],
+      "scale": -1
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags",
+      "position": [ 6023, 1064 ]
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags_large",
+      "position": [ 6006, 1374 ]
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags_large",
+      "position": [ 7476, 1444 ]
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags_edge",
+      "position": [ 7436, 1679 ],
+      "scale": -1
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags_large",
+      "position": [ 6388, 1785 ]
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags",
+      "position": [ 5473, 1692 ]
+    },
+    {
+      "type": "obstacle",
+      "obstacleId": "sandbags_edge",
+      "position": [ 4846, 1684 ],
+      "scale": 1
+    }
+  ],
+  "nodes": [
+    {
+      "data": {
+        "position": [ 157, 1428.85 ],
+        "type": "node_walk"
+      },
+      "id": "n_0"
+    },
+    {
+      "data": {
+        "position": [ 853.95, 1428.85 ],
+        "type": "node_walk"
+      },
+      "id": "n_1"
+    },
+    {
+      "data": {
+        "position": [ 1426, 1358.9 ],
+        "type": "node_walk"
+      },
+      "id": "n_2"
+    },
+    {
+      "data": {
+        "position": [ 1925.85, 1358.9 ],
+        "type": "node_walk"
+      },
+      "id": "n_3"
+    },
+    {
+      "data": {
+        "position": [ 2344.8, 1430.85 ],
+        "type": "node_walk"
+      },
+      "id": "n_6"
+    },
+    {
+      "data": {
+        "position": [ 3222.75, 1415.35 ],
+        "type": "node_walk"
+      },
+      "id": "n_7"
+    },
+    {
+      "data": {
+        "position": [ 1739.85, 1170 ],
+        "type": "node_walk"
+      },
+      "id": "n_4"
+    },
+    {
+      "data": {
+        "position": [ 1739.85, 1043.35 ],
+        "type": "node_walk"
+      },
+      "id": "n_5"
+    },
+    {
+      "data": {
+        "position": [ 3507.75, 1409.35 ],
+        "type": "node_walk"
+      },
+      "id": "n_8"
+    },
+    {
+      "data": {
+        "position": [ 3340.75, 1216.9 ],
+        "type": "node_walk"
+      },
+      "id": "n_9"
+    },
+    {
+      "data": {
+        "position": [ 3611, 1216.9 ],
+        "type": "node_walk"
+      },
+      "id": "n_10"
+    },
+    {
+      "data": {
+        "position": [ 4000, 1216.9 ],
+        "type": "node_walk"
+      },
+      "id": "n_11"
+    },
+    {
+      "data": {
+        "position": [ 4389, 1216.9 ],
+        "type": "node_walk"
+      },
+      "id": "n_12"
+    },
+    {
+      "data": {
+        "position": [ 4626.8, 1216.9 ],
+        "type": "node_walk"
+      },
+      "id": "n_13"
+    },
+    {
+      "data": {
+        "position": [ 3379.85, 1036 ],
+        "type": "node_walk"
+      },
+      "id": "n_14"
+    },
+    {
+      "data": {
+        "position": [ 4000, 1036 ],
+        "type": "node_walk"
+      },
+      "id": "n_15"
+    },
+    {
+      "data": {
+        "position": [ 4626.8, 1036 ],
+        "type": "node_walk"
+      },
+      "id": "n_16"
+    },
+    {
+      "data": {
+        "position": [ 4000, 1408.4 ],
+        "type": "node_walk"
+      },
+      "id": "n_17"
+    },
+    {
+      "data": {
+        "position": [ 4494.4, 1408.4 ],
+        "type": "node_walk"
+      },
+      "id": "n_18"
+    },
+    {
+      "data": {
+        "position": [ 4781.7, 1418.85 ],
+        "type": "node_walk"
+      },
+      "id": "n_19"
+    },
+    {
+      "data": {
+        "position": [ 5653.9, 1434.85 ],
+        "type": "node_walk"
+      },
+      "id": "n_20"
+    },
+    {
+      "data": {
+        "position": [ 6025.8, 1362.9 ],
+        "type": "node_walk"
+      },
+      "id": "n_21"
+    },
+    {
+      "data": {
+        "position": [ 6579.6, 1362.9 ],
+        "type": "node_walk"
+      },
+      "id": "n_22"
+    },
+    {
+      "data": {
+        "position": [ 7187.3, 1428.85 ],
+        "type": "node_walk"
+      },
+      "id": "n_23"
+    },
+    {
+      "data": {
+        "position": [ 7853.1, 1428.85 ],
+        "type": "node_walk"
+      },
+      "id": "n_24"
+    },
+    {
+      "data": {
+        "position": [ 6263.65, 1168 ],
+        "type": "node_walk"
+      },
+      "id": "n_25"
+    },
+    {
+      "data": {
+        "position": [ 6017.6, 1035 ],
+        "type": "node_walk"
+      },
+      "id": "n_26"
+    },
+    {
+      "data": {
+        "position": [ 403.95, 1656 ],
+        "type": "node_walk"
+      },
+      "id": "u_0"
+    },
+    {
+      "data": {
+        "position": [ 873.95, 1769 ],
+        "type": "node_walk"
+      },
+      "id": "u_1"
+    },
+    {
+      "data": {
+        "position": [ 1704.85, 1769 ],
+        "type": "node_walk"
+      },
+      "id": "u_2"
+    },
+    {
+      "data": {
+        "position": [ 2364.8, 1676.35 ],
+        "type": "node_walk"
+      },
+      "id": "u_3"
+    },
+    {
+      "data": {
+        "position": [ 2881.8, 1769 ],
+        "type": "node_walk"
+      },
+      "id": "u_4"
+    },
+    {
+      "data": {
+        "position": [ 3114.85, 1769 ],
+        "type": "node_walk"
+      },
+      "id": "u_5"
+    },
+    {
+      "data": {
+        "position": [ 3205.85, 1663.9 ],
+        "type": "node_walk"
+      },
+      "id": "u_6"
+    },
+    {
+      "data": {
+        "position": [ 3656.75, 1663.9 ],
+        "type": "node_walk"
+      },
+      "id": "u_7"
+    },
+    {
+      "data": {
+        "position": [ 4000, 1631.35 ],
+        "type": "node_walk"
+      },
+      "id": "u_8"
+    },
+    {
+      "data": {
+        "position": [ 4342.7, 1663.35 ],
+        "type": "node_walk"
+      },
+      "id": "u_9"
+    },
+    {
+      "data": {
+        "position": [ 4785.7, 1663.35 ],
+        "type": "node_walk"
+      },
+      "id": "u_10"
+    },
+    {
+      "data": {
+        "position": [ 4885.65, 1767 ],
+        "type": "node_walk"
+      },
+      "id": "u_11"
+    },
+    {
+      "data": {
+        "position": [ 5118.65, 1767 ],
+        "type": "node_walk"
+      },
+      "id": "u_12"
+    },
+    {
+      "data": {
+        "position": [ 5617.6, 1680 ],
+        "type": "node_walk"
+      },
+      "id": "u_13"
+    },
+    {
+      "data": {
+        "position": [ 6037.6, 1769 ],
+        "type": "node_walk"
+      },
+      "id": "u_14"
+    },
+    {
+      "data": {
+        "position": [ 6294.55, 1769 ],
+        "type": "node_walk"
+      },
+      "id": "u_15"
+    },
+    {
+      "data": {
+        "position": [ 1970.8, 1769 ],
+        "type": "node_walk"
+      },
+      "id": "u_2_1"
+    },
+    {
+      "data": {
+        "position": [ 7175.5, 1769 ],
+        "type": "node_walk"
+      },
+      "id": "u_16"
+    },
+    {
+      "data": {
+        "position": [ 7593.5, 1655.15 ],
+        "type": "node_walk"
+      },
+      "id": "u_17"
+    },
+    {
+      "data": {
+        "type": "node_climb",
+        "ladderId": "ladder_0",
+        "position": [ 403.95, 1637 ]
+      },
+      "id": "u_0_climb"
+    },
+    {
+      "data": {
+        "type": "node_climb",
+        "ladderId": "ladder_2",
+        "position": [ 1704.85, 1750 ]
+      },
+      "id": "u_2_climb"
+    },
+    {
+      "data": {
+        "type": "node_climb",
+        "ladderId": "ladder_3",
+        "position": [ 2881.8, 1750 ]
+      },
+      "id": "u_4_climb"
+    },
+    {
+      "data": {
+        "type": "node_climb",
+        "ladderId": "ladder_4",
+        "position": [ 3114.85, 1750 ]
+      },
+      "id": "u_5_climb"
+    },
+    {
+      "data": {
+        "type": "node_climb",
+        "ladderId": "ladder_7",
+        "position": [ 3656.75, 1644.9 ]
+      },
+      "id": "u_7_climb"
+    },
+    {
+      "data": {
+        "type": "node_climb",
+        "ladderId": "ladder_16",
+        "position": [ 4342.7, 1645.35 ]
+      },
+      "id": "u_9_climb"
+    },
+    {
+      "data": {
+        "type": "node_climb",
+        "ladderId": "ladder_13",
+        "position": [ 5118.65, 1750 ]
+      },
+      "id": "u_12_climb"
+    },
+    {
+      "data": {
+        "type": "node_climb",
+        "ladderId": "ladder_14",
+        "position": [ 4885.65, 1749 ]
+      },
+      "id": "u_11_climb"
+    },
+    {
+      "data": {
+        "type": "node_climb",
+        "ladderId": "ladder_12",
+        "position": [ 6294.55, 1750 ]
+      },
+      "id": "u_15_climb"
+    },
+    {
+      "data": {
+        "type": "node_climb",
+        "ladderId": "ladder_10",
+        "position": [ 7593.5, 1637.15 ]
+      },
+      "id": "u_17_climb"
+    },
+    {
+      "data": {
+        "type": "node_climb",
+        "ladderId": "ladder_11",
+        "position": [ 6579.6, 1344.9 ]
+      },
+      "id": "n_22_climb"
+    },
+    {
+      "data": {
+        "type": "node_climb",
+        "ladderId": "ladder_1",
+        "position": [ 1426, 1340.9 ]
+      },
+      "id": "n_2_climb"
+    },
+    {
+      "data": {
+        "type": "node_climb",
+        "ladderId": "ladder_6",
+        "position": [ 3507.75, 1390.35 ]
+      },
+      "id": "n_8_climb"
+    },
+    {
+      "data": {
+        "type": "node_climb",
+        "ladderId": "ladder_roof_0",
+        "position": [ 3611, 1197.9 ]
+      },
+      "id": "n_10_climb"
+    },
+    {
+      "data": {
+        "type": "node_climb",
+        "ladderId": "ladder_roof_1",
+        "position": [ 4389, 1197.9 ]
+      },
+      "id": "n_12_climb"
+    },
+    {
+      "data": {
+        "type": "node_climb",
+        "ladderId": "ladder_9",
+        "position": [ 4494.4, 1390.4 ]
+      },
+      "id": "n_18_climb"
+    },
+    {
+      "data": {
+        "position": [ 2767.8, 1769 ],
+        "type": "node_walk"
+      },
+      "id": "u_4_1"
+    },
+    {
+      "data": {
+        "position": [ 5228.6, 1767 ],
+        "type": "node_walk"
+      },
+      "id": "u_12_1"
+    }
+  ],
+
+  "links": [
+    {
+      "target": "n_10",
+      "source": "n_9"
+    },
+    {
+      "target": "n_11",
+      "source": "n_10"
+    },
+    {
+      "target": "n_12",
+      "source": "n_11"
+    },
+    {
+      "target": "n_13",
+      "source": "n_12"
+    },
+    {
+      "target": "n_15",
+      "source": "n_14"
+    },
+    {
+      "target": "n_16",
+      "source": "n_15"
+    },
+    {
+      "target": "n_1",
+      "source": "n_0"
+    },
+    {
+      "target": "n_2",
+      "source": "n_1"
+    },
+    {
+      "target": "n_3",
+      "source": "n_2"
+    },
+    {
+      "target": "n_6",
+      "source": "n_3"
+    },
+    {
+      "target": "n_7",
+      "source": "n_6"
+    },
+    {
+      "target": "n_8",
+      "source": "n_7"
+    },
+    {
+      "target": "n_17",
+      "source": "n_8"
+    },
+    {
+      "target": "n_18",
+      "source": "n_17"
+    },
+    {
+      "target": "n_19",
+      "source": "n_18"
+    },
+    {
+      "target": "n_20",
+      "source": "n_19"
+    },
+    {
+      "target": "n_21",
+      "source": "n_20"
+    },
+    {
+      "target": "n_22",
+      "source": "n_21"
+    },
+    {
+      "target": "n_23",
+      "source": "n_22"
+    },
+    {
+      "target": "n_24",
+      "source": "n_23"
+    },
+    {
+      "target": "u_1",
+      "source": "u_0"
+    },
+    {
+      "target": "u_1",
+      "source": "u_0"
+    },
+    {
+      "target": "u_2",
+      "source": "u_1"
+    },
+    {
+      "target": "u_2_1",
+      "source": "u_2"
+    },
+    {
+      "target": "u_3",
+      "source": "u_2_1"
+    },
+    {
+      "target": "u_4_1",
+      "source": "u_3"
+    },
+    {
+      "target": "u_4_1",
+      "source": "u_4"
+    },
+    {
+      "target": "u_5",
+      "source": "u_4"
+    },
+    {
+      "target": "u_7",
+      "source": "u_6"
+    },
+    {
+      "target": "u_8",
+      "source": "u_7"
+    },
+    {
+      "target": "u_9",
+      "source": "u_8"
+    },
+    {
+      "target": "u_10",
+      "source": "u_9"
+    },
+    {
+      "target": "u_12",
+      "source": "u_11"
+    },
+    {
+      "target": "u_12_1",
+      "source": "u_12"
+    },
+    {
+      "target": "u_13",
+      "source": "u_12_1"
+    },
+    {
+      "target": "u_14",
+      "source": "u_13"
+    },
+    {
+      "target": "u_15",
+      "source": "u_14"
+    },
+    {
+      "target": "u_16",
+      "source": "u_15"
+    },
+    {
+      "target": "u_17",
+      "source": "u_16"
+    },
+    {
+      "target": "u_0",
+      "source": "u_0_climb"
+    },
+    {
+      "target": "n_0",
+      "source": "u_0_climb"
+    },
+    {
+      "target": "n_1",
+      "source": "u_0_climb"
+    },
+    {
+      "target": "u_2",
+      "source": "u_2_climb"
+    },
+    {
+      "target": "n_2",
+      "source": "u_2_climb"
+    },
+    {
+      "target": "n_3",
+      "source": "u_2_climb"
+    },
+    {
+      "target": "u_4",
+      "source": "u_4_climb"
+    },
+    {
+      "target": "n_6",
+      "source": "u_4_climb"
+    },
+    {
+      "target": "n_7",
+      "source": "u_4_climb"
+    },
+    {
+      "target": "u_5",
+      "source": "u_5_climb"
+    },
+    {
+      "target": "u_6",
+      "source": "u_5_climb"
+    },
+    {
+      "target": "u_7",
+      "source": "u_7_climb"
+    },
+    {
+      "target": "n_8",
+      "source": "u_7_climb"
+    },
+    {
+      "target": "n_17",
+      "source": "u_7_climb"
+    },
+    {
+      "target": "u_9",
+      "source": "u_9_climb"
+    },
+    {
+      "target": "n_17",
+      "source": "u_9_climb"
+    },
+    {
+      "target": "n_18",
+      "source": "u_9_climb"
+    },
+    {
+      "target": "u_11",
+      "source": "u_11_climb"
+    },
+    {
+      "target": "u_10",
+      "source": "u_11_climb"
+    },
+    {
+      "target": "u_12",
+      "source": "u_12_climb"
+    },
+    {
+      "target": "n_19",
+      "source": "u_12_climb"
+    },
+    {
+      "target": "n_20",
+      "source": "u_12_climb"
+    },
+    {
+      "target": "u_15",
+      "source": "u_15_climb"
+    },
+    {
+      "target": "n_21",
+      "source": "u_15_climb"
+    },
+    {
+      "target": "n_22",
+      "source": "u_15_climb"
+    },
+    {
+      "target": "u_17",
+      "source": "u_17_climb"
+    },
+    {
+      "target": "n_23",
+      "source": "u_17_climb"
+    },
+    {
+      "target": "n_24",
+      "source": "u_17_climb"
+    },
+    {
+      "target": "n_2",
+      "source": "n_2_climb"
+    },
+    {
+      "target": "n_4",
+      "source": "n_2_climb"
+    },
+    {
+      "target": "n_5",
+      "source": "n_2_climb"
+    },
+    {
+      "target": "n_8",
+      "source": "n_8_climb"
+    },
+    {
+      "target": "n_9",
+      "source": "n_8_climb"
+    },
+    {
+      "target": "n_10",
+      "source": "n_8_climb"
+    },
+    {
+      "target": "n_10",
+      "source": "n_10_climb"
+    },
+    {
+      "target": "n_14",
+      "source": "n_10_climb"
+    },
+    {
+      "target": "n_15",
+      "source": "n_10_climb"
+    },
+    {
+      "target": "n_12",
+      "source": "n_12_climb"
+    },
+    {
+      "target": "n_15",
+      "source": "n_12_climb"
+    },
+    {
+      "target": "n_16",
+      "source": "n_12_climb"
+    },
+    {
+      "target": "n_18",
+      "source": "n_18_climb"
+    },
+    {
+      "target": "n_12",
+      "source": "n_18_climb"
+    },
+    {
+      "target": "n_13",
+      "source": "n_18_climb"
+    },
+    {
+      "target": "n_22",
+      "source": "n_22_climb"
+    },
+    {
+      "target": "n_25",
+      "source": "n_22_climb"
+    },
+    {
+      "target": "n_26",
+      "source": "n_22_climb"
+    }
+  ]
+}

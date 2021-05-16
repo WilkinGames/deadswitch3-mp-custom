@@ -1,0 +1,1867 @@
+{
+  "items": {
+    "ak47": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 110 ],
+      "sounds": [
+        {
+          "frame": 30,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 85,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "flamethrower": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 131 ],
+      "sounds": [
+        {
+          "frame": 38,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 79,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 96,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "an94": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 121 ],
+      "sounds": [
+        {
+          "frame": 30,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 85,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "saiga12": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 121 ],
+      "sounds": [
+        {
+          "frame": 30,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 85,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "rpk": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 110 ],
+      "sounds": [
+        {
+          "frame": 30,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 85,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "ak74u": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 110 ],
+      "sounds": [
+        {
+          "frame": 30,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 85,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "deagle": {
+      "aim": 1,
+      "fire": [ 2, 11 ],
+      "idle": 0,
+      "reload": [ 12, 124 ],
+      "empty": 12,
+      "sounds": [
+        {
+          "frame": 18,
+          "sound": "sfx_spin"
+        },
+        {
+          "frame": 33,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 58,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 85,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 88,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "rhino": {
+      "aim": 1,
+      "fire": [ 2, 12 ],
+      "idle": 0,
+      "reload": [ 12, 126 ],
+      "sounds": [
+        {
+          "frame": 20,
+          "sound": "sfx_foley"
+        },
+        {
+          "frame": 25,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 53,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 70,
+          "sound": "sfx_spin"
+        },
+        {
+          "frame": 75,
+          "sound": "sfx_revolver"
+        }
+      ]
+    },
+    "famas": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 97 ],
+      "sounds": [
+        {
+          "frame": 20,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 68,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "pdr": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 97 ],
+      "sounds": [
+        {
+          "frame": 20,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 68,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "qbb95": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 159 ],
+      "sounds": [
+        {
+          "frame": 40,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 110,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "aughbar": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 129 ],
+      "sounds": [
+        {
+          "frame": 35,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 83,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 95,
+          "sound": "sfx_reload_bolt_open"
+        }
+      ]
+    },
+    "aug": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 129 ],
+      "sounds": [
+        {
+          "frame": 35,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 83,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 95,
+          "sound": "sfx_reload_bolt_open"
+        }
+      ]
+    },
+    "fiveseven": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 74 ],
+      "empty": 9,
+      "sounds": [
+        {
+          "frame": 14,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 54,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "fmg9": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 98 ],
+      "sounds": [
+        {
+          "frame": 33,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 78,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "g18": {
+      "aim": 1,
+      "fire": [ 2, 6 ],
+      "idle": 0,
+      "reload": [ 6, 82 ],
+      "empty": 6,
+      "sounds": [
+        {
+          "frame": 11,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 64,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "mac11": {
+      "aim": 1,
+      "fire": [ 2, 6 ],
+      "idle": 0,
+      "reload": [ 6, 82 ],
+      "empty": 6,
+      "sounds": [
+        {
+          "frame": 11,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 64,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "kard": {
+      "aim": 1,
+      "fire": [ 2, 6 ],
+      "idle": 0,
+      "reload": [ 6, 82 ],
+      "empty": 6,
+      "sounds": [
+        {
+          "frame": 11,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 64,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "grenade": { "throw": [ 0, 14 ] },
+    "equipment": { "place": [ 0, 14 ] },
+    "stim": { "use": [ 0, 29 ] },
+    "hk416": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 106 ],
+      "sounds": [
+        {
+          "frame": 39,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 82,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "m47": {
+      "aim": 1,
+      "fire": [ 2, 18 ],
+      "idle": 0,
+      "reload_end": [ 47, 59 ],
+      "reload_shell": [ 19, 47 ],
+      "pump": [ 59, 75 ],
+      "sounds": [
+        {
+          "frame": 61,
+          "sound": "sfx_reload_pump"
+        }
+      ]
+    },
+    "ksg": {
+      "aim": 1,
+      "fire": [ 2, 18 ],
+      "idle": 0,
+      "reload_end": [ 47, 59 ],
+      "reload_shell": [ 19, 47 ],
+      "pump": [ 59, 75 ],
+      "sounds": [
+        {
+          "frame": 61,
+          "sound": "sfx_reload_pump"
+        }
+      ]
+    },
+    "hamr": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 178 ],
+      "sounds": [
+        {
+          "frame": 46,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 95,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 139,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 155,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "aa12": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 110 ],
+      "sounds": [
+        {
+          "frame": 30,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 85,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "msr": {
+      "aim": 1,
+      "fire": [ 2, 22 ],
+      "bolt": [ 23, 73 ],
+      "idle": 0,
+      "reload": [ 74, 233 ],
+      "sounds": [
+        {
+          "frame": 40,
+          "sound": "sfx_reload_bolt"
+        },
+        {
+          "frame": 84,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 122,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 171,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 213,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "l115a3": {
+      "aim": 1,
+      "fire": [ 2, 22 ],
+      "bolt": [ 23, 74 ],
+      "idle": 0,
+      "reload": [ 74, 233 ],
+      "sounds": [
+        {
+          "frame": 40,
+          "sound": "sfx_reload_bolt"
+        },
+        {
+          "frame": 84,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 122,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 171,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 213,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "intervention": {
+      "aim": 1,
+      "fire": [ 2, 22 ],
+      "bolt": [ 23, 74 ],
+      "idle": 0,
+      "reload": [ 74, 233 ],
+      "sounds": [
+        {
+          "frame": 40,
+          "sound": "sfx_reload_bolt"
+        },
+        {
+          "frame": 84,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 122,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 171,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 213,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "climb": {
+      "idle": 0,
+      "up": [ 0, 39 ],
+      "down": [ 40, 79 ]
+    },
+    "laptop": {
+      "open": [ 0, 11 ],
+      "close": [ 11, 23 ],
+      "sounds": [
+        {
+          "frame": 3,
+          "sound": "sfx_laptop"
+        }
+      ]
+    },
+    "m1014": {
+      "aim": 1,
+      "fire": [ 2, 18 ],
+      "idle": 0,
+      "reload_end": [ 48, 61 ],
+      "reload_shell": [ 19, 48 ]
+    },
+    "m16a4": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 106 ],
+      "sounds": [
+        {
+          "frame": 39,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 82,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "m1216": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 106 ],
+      "sounds": [
+        {
+          "frame": 39,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 82,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "bizon": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 106 ],
+      "sounds": [
+        {
+          "frame": 39,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 82,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "arp": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 106 ],
+      "sounds": [
+        {
+          "frame": 39,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 82,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "bren": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 154 ],
+      "sounds": [
+        {
+          "frame": 54,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 117,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "sr25": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 106 ],
+      "sounds": [
+        {
+          "frame": 39,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 82,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "scarh": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 125 ],
+      "sounds": [
+        {
+          "frame": 39,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 82,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 95,
+          "sound": "sfx_reload_bolt_open"
+        }
+      ]
+    },
+    "fal": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 125 ],
+      "sounds": [
+        {
+          "frame": 39,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 82,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 95,
+          "sound": "sfx_reload_bolt_open"
+        }
+      ]
+    },
+    "g36c": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 125 ],
+      "sounds": [
+        {
+          "frame": 39,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 82,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 95,
+          "sound": "sfx_reload_bolt_open"
+        }
+      ]
+    },
+    "honeybadger": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 125 ],
+      "sounds": [
+        {
+          "frame": 39,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 82,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 95,
+          "sound": "sfx_reload_bolt_open"
+        }
+      ]
+    },
+    "acr": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 125 ],
+      "sounds": [
+        {
+          "frame": 39,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 82,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 95,
+          "sound": "sfx_reload_bolt_open"
+        }
+      ]
+    },
+    "m1911": {
+      "aim": 1,
+      "fire": [ 2, 11 ],
+      "idle": 0,
+      "reload": [ 12, 102 ],
+      "empty": 12,
+      "sounds": [
+        {
+          "frame": 18,
+          "sound": "sfx_spin"
+        },
+        {
+          "frame": 33,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 55,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 73,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 76,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "m3": {
+      "aim": 1,
+      "fire": [ 2, 18 ],
+      "idle": 0,
+      "reload_end": [ 47, 59 ],
+      "reload_shell": [ 19, 47 ],
+      "pump": [ 59, 75 ],
+      "sounds": [
+        {
+          "frame": 61,
+          "sound": "sfx_reload_pump"
+        }
+      ]
+    },
+    "m40a3": {
+      "aim": 1,
+      "bolt": [ 23, 73 ],
+      "fire": [ 2, 22 ],
+      "idle": 0,
+      "reload_end": [ 120, 134 ],
+      "reload_shell": [ 74, 120 ],
+      "sounds": [
+        {
+          "frame": 38,
+          "sound": "sfx_reload_bolt"
+        }
+      ]
+    },
+    "r700": {
+      "aim": 1,
+      "bolt": [ 23, 73 ],
+      "fire": [ 2, 22 ],
+      "idle": 0,
+      "reload_end": [ 120, 134 ],
+      "reload_shell": [ 74, 120 ],
+      "sounds": [
+        {
+          "frame": 38,
+          "sound": "sfx_reload_bolt"
+        }
+      ]
+    },
+    "m4a1": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 106 ],
+      "sounds": [
+        {
+          "frame": 37,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 80,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "lvoa": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 106 ],
+      "sounds": [
+        {
+          "frame": 10,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 61,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 81,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "m9": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 74 ],
+      "empty": 9,
+      "sounds": [
+        {
+          "frame": 14,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 54,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "tazer": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 74 ],
+      "empty": 9,
+      "sounds": [
+        {
+          "frame": 14,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 54,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "g17": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 66 ],
+      "empty": 9,
+      "sounds": [
+        {
+          "frame": 14,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 49,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "m93r": {
+      "aim": 1,
+      "fire": [ 2, 7 ],
+      "idle": 0,
+      "reload": [ 7, 71 ],
+      "empty": 7,
+      "sounds": [
+        {
+          "frame": 11,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 51,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "vp70": {
+      "aim": 1,
+      "fire": [ 2, 7 ],
+      "idle": 0,
+      "reload": [ 7, 71 ],
+      "empty": 7,
+      "sounds": [
+        {
+          "frame": 11,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 51,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "magnum": {
+      "aim": 1,
+      "fire": [ 2, 12 ],
+      "idle": 0,
+      "reload": [ 12, 126 ],
+      "sounds": [
+        {
+          "frame": 20,
+          "sound": "sfx_foley"
+        },
+        {
+          "frame": 25,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 53,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 70,
+          "sound": "sfx_spin"
+        },
+        {
+          "frame": 75,
+          "sound": "sfx_revolver"
+        }
+      ]
+    },
+    "snub": {
+      "aim": 1,
+      "fire": [ 2, 12 ],
+      "idle": 0,
+      "reload": [ 12, 126 ],
+      "sounds": [
+        {
+          "frame": 20,
+          "sound": "sfx_foley"
+        },
+        {
+          "frame": 25,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 53,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 70,
+          "sound": "sfx_spin"
+        },
+        {
+          "frame": 75,
+          "sound": "sfx_revolver"
+        }
+      ]
+    },
+    "melee": { "attack": [ 0, 16 ] },
+    "mg4": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 201 ],
+      "sounds": [
+        {
+          "frame": 49,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 74,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 115,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 141,
+          "sound": "sfx_reload_chain"
+        },
+        {
+          "frame": 173,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "m249": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 201 ],
+      "sounds": [
+        {
+          "frame": 49,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 74,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 115,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 141,
+          "sound": "sfx_reload_chain"
+        },
+        {
+          "frame": 173,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "m60e4": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 201 ],
+      "sounds": [
+        {
+          "frame": 49,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 74,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 115,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 141,
+          "sound": "sfx_reload_chain"
+        },
+        {
+          "frame": 173,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "m240": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 201 ],
+      "sounds": [
+        {
+          "frame": 49,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 74,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 115,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 141,
+          "sound": "sfx_reload_chain"
+        },
+        {
+          "frame": 173,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "pecheneg": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 201 ],
+      "sounds": [
+        {
+          "frame": 49,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 74,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 115,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 141,
+          "sound": "sfx_reload_chain"
+        },
+        {
+          "frame": 173,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "vector": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 105 ],
+      "sounds": [
+        {
+          "frame": 29,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 82,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "p90": {
+      "aim": 1,
+      "fire": [ 2, 7 ],
+      "idle": 0,
+      "reload": [ 7, 134 ],
+      "sounds": [
+        {
+          "frame": 29,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 76,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 85,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "mp5": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 100 ],
+      "sounds": [
+        {
+          "frame": 25,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 53,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 66,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 80,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "skorpion": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 105 ],
+      "sounds": [
+        {
+          "frame": 29,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 82,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "evo3": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 105 ],
+      "sounds": [
+        {
+          "frame": 29,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 82,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "mp7": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 98 ],
+      "sounds": [
+        {
+          "frame": 33,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 78,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "mp9": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 98 ],
+      "sounds": [
+        {
+          "frame": 33,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 78,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "mpa57": {
+      "aim": 1,
+      "fire": [ 2, 6 ],
+      "idle": 0,
+      "reload": [ 6, 83 ],
+      "sounds": [
+        {
+          "frame": 11,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 60,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "msg90": {
+      "aim": 1,
+      "fire": [ 2, 22 ],
+      "idle": 0,
+      "reload": [ 22, 183 ],
+      "sounds": [
+        {
+          "frame": 36,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 67,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 120,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 160,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "sg550": {
+      "aim": 1,
+      "fire": [ 2, 15 ],
+      "idle": 0,
+      "reload": [ 15, 176 ],
+      "sounds": [
+        {
+          "frame": 29,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 60,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 113,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 153,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "m82": {
+      "aim": 1,
+      "fire": [ 2, 22 ],
+      "idle": 0,
+      "reload": [ 22, 259 ],
+      "sounds": [
+        {
+          "frame": 42,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 84,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 167,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 230,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "none": {
+      "aim": 1,
+      "attack": [ 2, 9 ],
+      "attack2": [ 10, 17 ],
+      "idle": 0
+    },
+    "melee_knife": {
+      "aim": 1,
+      "attack": [ 2, 10 ],
+      "attack2": [ 2, 10 ],
+      "idle": 0
+    },
+    "melee_bowie": {
+      "aim": 1,
+      "attack": [ 2, 10 ],
+      "attack2": [ 2, 10 ],
+      "idle": 0
+    },
+    "melee_machete": {
+      "aim": 1,
+      "attack": [ 2, 10 ],
+      "attack2": [ 2, 10 ],
+      "idle": 0
+    },
+    "melee_crowbar": {
+      "aim": 1,
+      "attack": [ 2, 10 ],
+      "attack2": [ 2, 10 ],
+      "idle": 0
+    },
+    "melee_katana": {
+      "aim": 1,
+      "attack": [ 2, 10 ],
+      "attack2": [ 2, 10 ],
+      "idle": 0
+    },
+    "melee_hatchet": {
+      "aim": 1,
+      "attack": [ 2, 10 ],
+      "attack2": [ 2, 10 ],
+      "idle": 0
+    },
+    "riot_shield": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0
+    },
+    "zombie": {
+      "aim": 1,
+      "attack": [ 2, 14 ],
+      "attack2": [ 15, 29 ],
+      "idle": 0
+    },
+    "zombie_fat": {
+      "aim": 1,
+      "attack": [ 2, 14 ],
+      "attack2": [ 15, 29 ],
+      "idle": 0
+    },
+    "zombie_exploder": {
+      "aim": 1,
+      "idle": 0
+    },
+    "zombie_sprinter": {
+      "aim": [ 1, 13 ],
+      "attack": [ 14, 26 ],
+      "attack2": [ 27, 41 ],
+      "idle": 0
+    },
+    "rpg": {
+      "aim": 1,
+      "fire": [ 2, 19 ],
+      "idle": 0,
+      "reload": [ 20, 142 ],
+      "empty": 20,
+      "sounds": [
+        {
+          "frame": 112,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "rsass": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 136 ],
+      "sounds": [
+        {
+          "frame": 37,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 85,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 102,
+          "sound": "sfx_reload_bolt_open"
+        }
+      ]
+    },
+    "dragunov": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 114 ],
+      "sounds": [
+        {
+          "frame": 37,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 85,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "samr": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 164 ],
+      "sounds": [
+        {
+          "frame": 37,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 85,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "ultimax": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 164 ],
+      "sounds": [
+        {
+          "frame": 37,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 85,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 128,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 142,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "smaw": {
+      "aim": 1,
+      "fire": [ 2, 19 ],
+      "idle": 0,
+      "reload": [ 19, 170 ],
+      "sounds": [
+        {
+          "frame": 84,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 143,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "m202": {
+      "aim": 1,
+      "fire": [ 2, 19 ],
+      "idle": 0,
+      "reload": [ 19, 170 ],
+      "sounds": [
+        {
+          "frame": 84,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 143,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "javelin": {
+      "aim": 1,
+      "fire": [ 2, 19 ],
+      "idle": 0,
+      "reload": [ 19, 149 ],
+      "sounds": [
+        {
+          "frame": 114,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "stinger": {
+      "aim": 1,
+      "fire": [ 2, 19 ],
+      "idle": 0,
+      "reload": [ 19, 149 ],
+      "sounds": [
+        {
+          "frame": 114,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "spas12": {
+      "aim": 1,
+      "fire": [ 2, 18 ],
+      "idle": 0,
+      "reload_end": [ 48, 61 ],
+      "reload_shell": [ 19, 48 ]
+    },
+    "striker": {
+      "aim": 1,
+      "fire": [ 2, 18 ],
+      "idle": 0,
+      "reload_end": [ 49, 59 ],
+      "reload_shell": [ 19, 49 ]
+    },
+    "dp12": {
+      "aim": 1,
+      "fire": [ 2, 18 ],
+      "idle": 0,
+      "reload_end": [ 49, 59 ],
+      "reload_shell": [ 19, 49 ],
+      "pump": [ 59, 75 ],
+      "sounds": [
+        {
+          "frame": 61,
+          "sound": "sfx_reload_pump"
+        }
+      ]
+    },
+    "tar21": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 97 ],
+      "sounds": [
+        {
+          "frame": 20,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 68,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "xm25": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 97 ],
+      "sounds": [
+        {
+          "frame": 20,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 68,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "thumper": {
+      "aim": 1,
+      "fire": [ 2, 18 ],
+      "idle": 0,
+      "reload": [ 18, 92 ],
+      "sounds": [
+        {
+          "frame": 28,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 64,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 83,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "db": {
+      "aim": 1,
+      "fire": [ 2, 18 ],
+      "idle": 0,
+      "reload_end": [ 80, 92 ],
+      "reload_shell": [ 45, 80 ],
+      "sounds": [
+        {
+          "frame": 28,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 88,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "m203": {
+      "aim": 1,
+      "fire": [ 2, 18 ],
+      "idle": 0,
+      "reload": [ 18, 92 ],
+      "sounds": [
+        {
+          "frame": 28,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 64,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 80,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "m320": {
+      "aim": 1,
+      "fire": [ 2, 18 ],
+      "idle": 0,
+      "reload": [ 18, 92 ],
+      "sounds": [
+        {
+          "frame": 28,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 64,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 80,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "mgl": {
+      "aim": 1,
+      "fire": [ 2, 18 ],
+      "idle": 0,
+      "reload_end": [ 54, 66 ],
+      "reload_shell": [ 19, 54 ]
+    },
+    "ump45": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 105 ],
+      "sounds": [
+        {
+          "frame": 29,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 82,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "usp45": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 74 ],
+      "empty": 9,
+      "sounds": [
+        {
+          "frame": 14,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 54,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "p320": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 74 ],
+      "empty": 9,
+      "sounds": [
+        {
+          "frame": 14,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 54,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "luger": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 74 ],
+      "empty": 9,
+      "sounds": [
+        {
+          "frame": 14,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 54,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "mk22": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 74 ],
+      "empty": 9,
+      "sounds": [
+        {
+          "frame": 14,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 54,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "cz75": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 74 ],
+      "empty": 9,
+      "sounds": [
+        {
+          "frame": 14,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 54,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    }
+  },
+  "infestor": {
+    "sounds": [
+      {
+        "frame": 6,
+        "sound": "sfx_step"
+      },
+      {
+        "frame": 25,
+        "sound": "sfx_step"
+      },
+      {
+        "frame": 34,
+        "sound": "sfx_step"
+      },
+      {
+        "frame": 50,
+        "sound": "sfx_step"
+      }
+    ]
+  },
+  "legs": {
+    "back": [ 40, 78 ],
+    "idle": 0,
+    "walk": [ 1, 39 ],
+    "idle_crouch": 79,
+    "walk_crouch": [ 80, 138 ],
+    "back_crouch": [ 139, 197 ],
+    "climb_idle": 198,
+    "climb_up": [ 198, 238 ],
+    "climb_down": [ 239, 279 ],
+    "jump": [ 280, 289 ],
+    "sounds": [
+      {
+        "frame": 6,
+        "sound": "sfx_step"
+      },
+      {
+        "frame": 25,
+        "sound": "sfx_step"
+      },
+      {
+        "frame": 56,
+        "sound": "sfx_step"
+      },
+      {
+        "frame": 75,
+        "sound": "sfx_step"
+      },
+      {
+        "frame": 108,
+        "sound": "sfx_step"
+      },
+      {
+        "frame": 137,
+        "sound": "sfx_step"
+      },
+      {
+        "frame": 169,
+        "sound": "sfx_step"
+      },
+      {
+        "frame": 196,
+        "sound": "sfx_step"
+      },
+      {
+        "frame": 199,
+        "sound": "sfx_step"
+      },
+      {
+        "frame": 219,
+        "sound": "sfx_step"
+      },
+      {
+        "frame": 240,
+        "sound": "sfx_step"
+      },
+      {
+        "frame": 260,
+        "sound": "sfx_step"
+      }
+    ]
+  }
+}

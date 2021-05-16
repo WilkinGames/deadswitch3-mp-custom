@@ -1,0 +1,26 @@
+[
+  {
+    "id": "usmc",
+    "name": "STR_FACTION_DELTA_FORCE"
+  },
+  {
+    "id": "gsg9",
+    "name": "STR_FACTION_GSG9"
+  },
+  {
+    "id": "gign",
+    "name": "STR_FACTION_GIGN"
+  },
+  {
+    "id": "opfor",
+    "name": "STR_FACTION_OPFOR"
+  },
+  {
+    "id": "rus",
+    "name": "STR_FACTION_SPETSNAZ"
+  },
+  {
+    "id": "militia",
+    "name": "STR_FACTION_MILITIA"
+  }
+]

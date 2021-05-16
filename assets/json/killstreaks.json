@@ -1,0 +1,613 @@
+[
+  {
+    "id": "sam_turret_place",
+    "name": "STR_STREAK_SAM_TURRET",
+    "desc": "STR_STREAK_SAM_TURRET_DESC",
+    "sound": "ui_killstreak_samturret",
+    "xpReward": 100,
+    "moneyCost": 3000
+  },
+  {
+    "id": "sentry_gun_place",
+    "name": "STR_STREAK_SENTRY_GUN",
+    "desc": "STR_STREAK_SENTRY_GUN_DESC",
+    "sound": "ui_killstreak_sentrygun",
+    "moneyCost": 4000,
+    "xpReward": 100
+  },
+  {
+    "id": "uav",
+    "name": "STR_STREAK_UAV",
+    "desc": "STR_STREAK_UAV_DESC",
+    "sound": "ui_killstreak_uav",
+    "type": "TYPE_ASSAULT",
+    "kills": 3,
+    "cost": 1,
+    "moneyCost": 0,
+    "xpReward": 100
+  },
+  {
+    "id": "care_package",
+    "name": "STR_STREAK_CARE_PACKAGE",
+    "desc": "STR_STREAK_CARE_PACKAGE_DESC",
+    "sound": "ui_killstreak_carepackage",
+    "type": "TYPE_ASSAULT",
+    "kills": 4,
+    "cost": 3,
+    "unlockLevel": 5,
+    "moneyCost": 0,
+    "xpReward": 150,
+    "bWorldMenu": true
+  },
+  {
+    "id": "hellfire",
+    "name": "STR_STREAK_PREDATOR_MISSILE",
+    "desc": "STR_STREAK_PREDATOR_MISSILE_DESC",
+    "sound": "ui_killstreak_hellfire",
+    "type": "TYPE_ASSAULT",
+    "kills": 5,
+    "cost": 1,
+    "moneyCost": 1000,
+    "xpReward": 150,
+    "bWorldMenu": true
+  },
+  {
+    "id": "airstrike",
+    "name": "STR_STREAK_AIRSTRIKE",
+    "desc": "STR_STREAK_AIRSTRIKE_DESC",
+    "sound": "ui_killstreak_airstrike",
+    "type": "TYPE_ASSAULT",
+    "kills": 5,
+    "cost": 2,
+    "unlockLevel": 10,
+    "moneyCost": 2000,
+    "xpReward": 150,
+    "bWorldMenu": true
+  },
+  {
+    "id": "airstrike_napalm",
+    "name": "STR_STREAK_NAPALM_STRIKE",
+    "desc": "STR_STREAK_NAPALM_STRIKE_DESC",
+    "sound": "ui_killstreak_airstrike",
+    "type": "TYPE_ASSAULT",
+    "kills": 6,
+    "cost": 4,
+    "unlockLevel": 36,
+    "moneyCost": 4000,
+    "xpReward": 150,
+    "bWorldMenu": true
+  },
+  {
+    "id": "cobra",
+    "name": "STR_STREAK_COBRA",
+    "desc": "STR_STREAK_COBRA_DESC",
+    "sound": "ui_killstreak_cobra",
+    "type": "TYPE_ASSAULT",
+    "kills": 7,
+    "cost": 3,
+    "moneyCost": 8000,
+    "xpReward": 200
+  },
+  {
+    "id": "sentry_gun",
+    "name": "STR_STREAK_SENTRY_GUN",
+    "desc": "STR_STREAK_SENTRY_GUN_DESC",
+    "sound": "ui_killstreak_sentrygun",
+    "type": "TYPE_ASSAULT",
+    "kills": 6,
+    "cost": 3,
+    "unlockLevel": 10,
+    "moneyCost": 6000,
+    "xpReward": 200,
+    "bWorldMenu": true
+  },
+  {
+    "id": "scout",
+    "name": "STR_STREAK_SCOUT",
+    "desc": "STR_STREAK_SCOUT_DESC",
+    "sound": "ui_killstreak_cobra",
+    "type": "TYPE_ASSAULT",
+    "kills": 10,
+    "cost": 5,
+    "moneyCost": 15000,
+    "xpReward": 200,
+    "unlockLevel": 8
+  },
+  {
+    "id": "chopper_gunner",
+    "name": "STR_STREAK_CHOPPER_GUNNER",
+    "desc": "STR_STREAK_CHOPPER_GUNNER_DESC",
+    "sound": "ui_killstreak_choppergunner",
+    "type": "TYPE_ASSAULT",
+    "kills": 10,
+    "cost": 5,
+    "unlockLevel": 15,
+    "moneyCost": 15000,
+    "xpReward": 200
+  },
+  {
+    "id": "pave_low",
+    "name": "STR_STREAK_PAVE_LOW",
+    "desc": "STR_STREAK_PAVE_LOW_DESC",
+    "sound": "ui_killstreak_pavelow",
+    "type": "TYPE_ASSAULT",
+    "kills": 12,
+    "cost": 5,
+    "unlockLevel": 35,
+    "moneyCost": 12000,
+    "xpReward": 300
+  },
+  {
+    "id": "reaper",
+    "name": "STR_STREAK_REAPER",
+    "desc": "STR_STREAK_REAPER_DESC",
+    "sound": "ui_killstreak_reaper",
+    "type": "TYPE_ASSAULT",
+    "kills": 15,
+    "cost": 10,
+    "unlockLevel": 20,
+    "moneyCost": 30000,
+    "xpReward": 300
+  },
+  {
+    "id": "cobra_controllable",
+    "name": "STR_STREAK_UPGRADED_COBRA",
+    "desc": "STR_STREAK_UPGRADED_COBRA_DESC",
+    "sound": "ui_killstreak_cobra",
+    "type": "TYPE_ASSAULT",
+    "moneyCost": 30000,
+    "kills": 15,
+    "cost": 10,
+    "unlockLevel": 28,
+    "xpReward": 300
+  },
+  {
+    "id": "juggernaut",
+    "name": "STR_STREAK_JUGGERNAUT",
+    "desc": "STR_STREAK_JUGGERNAUT_DESC",
+    "sound": "ui_killstreak_carepackage",
+    "type": "TYPE_ASSAULT",
+    "kills": 15,
+    "cost": 10,
+    "unlockLevel": 9,
+    "xpReward": 300,
+    "moneyCost": 20000,
+    "bWorldMenu": true
+  },
+  {
+    "id": "juggernaut_use",
+    "name": "STR_STREAK_JUGGERNAUT",
+    "desc": "STR_STREAK_JUGGERNAUT_USE_DESC",
+    "sound": "ui_killstreak_choppergunner",
+    "xpReward": 300
+  },
+  {
+    "id": "juggernaut_recon",
+    "name": "STR_STREAK_JUGGERNAUT_RECON",
+    "desc": "STR_STREAK_JUGGERNAUT_DESC",
+    "sound": "ui_killstreak_carepackage",
+    "type": "TYPE_SUPPORT",
+    "kills": 20,
+    "cost": 10,
+    "unlockLevel": 29,
+    "xpReward": 300,
+    "moneyCost": 20000,
+    "bWorldMenu": true
+  },
+  {
+    "id": "juggernaut_recon_use",
+    "name": "STR_STREAK_JUGGERNAUT_RECON",
+    "desc": "STR_STREAK_JUGGERNAUT_RECON_USE_DESC",
+    "sound": "ui_killstreak_choppergunner",
+    "xpReward": 300
+  },
+  {
+    "id": "deadswitch",
+    "name": "STR_STREAK_DEADSWITCH",
+    "desc": "STR_STREAK_DEADSWITCH_DESC",
+    "survivalDesc": "STR_STREAK_DEADSWITCH_SURVIVAL_DESC",
+    "sound": "ui_killstreak_deadswitch",
+    "type": "TYPE_ASSAULT",
+    "kills": 25,
+    "cost": 15,
+    "unlockLevel": 10,
+    "moneyCost": 50000,
+    "xpReward": 500
+  },
+  {
+    "id": "ammo",
+    "name": "STR_STREAK_AMMO",
+    "desc": "STR_STREAK_AMMO_DESC",
+    "sound": "ui_killstreak_carepackage",
+    "type": "TYPE_SUPPORT",
+    "kills": 4,
+    "cost": 1,
+    "moneyCost": 500,
+    "xpReward": 100,
+    "bWorldMenu": true
+  },
+  {
+    "id": "counter_uav",
+    "name": "STR_STREAK_COUNTER_UAV",
+    "desc": "STR_STREAK_COUNTER_UAV_DESC",
+    "sound": "ui_killstreak_counteruav",
+    "type": "TYPE_SUPPORT",
+    "kills": 6,
+    "cost": 1,
+    "unlockLevel": 8,
+    "moneyCost": 0,
+    "xpReward": 100
+  },
+  {
+    "id": "uav_support",
+    "name": "STR_STREAK_UAV",
+    "desc": "STR_STREAK_UAV_DESC",
+    "sound": "ui_killstreak_uav",
+    "hqId": "uav",
+    "type": "TYPE_SUPPORT",
+    "kills": 6,
+    "cost": 1,
+    "moneyCost": 0,
+    "xpReward": 100
+  },
+  {
+    "id": "decoy",
+    "name": "STR_STREAK_DECOY",
+    "desc": "STR_STREAK_DECOY_DESC",
+    "sound": "ui_killstreak_carepackage",
+    "type": "TYPE_SUPPORT",
+    "kills": 5,
+    "cost": 2,
+    "unlockLevel": 10,
+    "moneyCost": 0,
+    "xpReward": 150,
+    "bWorldMenu": true
+  },
+  {
+    "id": "sam_turret",
+    "name": "STR_STREAK_SAM_TURRET",
+    "desc": "STR_STREAK_SAM_TURRET_DESC",
+    "sound": "ui_killstreak_samturret",
+    "type": "TYPE_SUPPORT",
+    "kills": 8,
+    "cost": 1,
+    "xpReward": 150,
+    "bWorldMenu": true
+  },
+  {
+    "id": "remote_turret_place",
+    "name": "STR_STREAK_REMOTE_SENTRY",
+    "desc": "STR_STREAK_REMOTE_SENTRY_DESC",
+    "sound": "ui_killstreak_remoteturret",
+    "type": "TYPE_SUPPORT",
+    "kills": 10,
+    "cost": 3,
+    "unlockLevel": 30,
+    "moneyCost": 3000,
+    "xpReward": 200
+  },
+  {
+    "id": "stealth_bomber",
+    "name": "STR_STREAK_STEALTH_AIRSTRIKE",
+    "desc": "STR_STREAK_STEALTH_AIRSTRIKE_DESC",
+    "sound": "ui_killstreak_stealthbomber",
+    "type": "TYPE_SUPPORT",
+    "kills": 10,
+    "cost": 5,
+    "moneyCost": 2000,
+    "unlockLevel": 20,
+    "xpReward": 200,
+    "bWorldMenu": true,
+    "bStealth": true
+  },
+  {
+    "id": "dragonfire",
+    "name": "STR_STREAK_DRAGONFIRE",
+    "desc": "STR_STREAK_DRAGONFIRE_DESC",
+    "sound": "ui_killstreak_reaper",
+    "type": "TYPE_SUPPORT",
+    "kills": 12,
+    "cost": 5,
+    "unlockLevel": 18,
+    "xpReward": 200,
+    "moneyCost": 8000
+  },
+  {
+    "id": "heli_sniper",
+    "name": "STR_STREAK_HELI_SNIPER",
+    "desc": "STR_STREAK_HELI_SNIPER_DESC",
+    "sound": "ui_killstreak_helisniper",
+    "type": "TYPE_SUPPORT",
+    "kills": 15,
+    "cost": 5,
+    "unlockLevel": 35,
+    "moneyCost": 10000,
+    "xpReward": 300
+  },
+  {
+    "id": "emp",
+    "name": "STR_STREAK_EMP",
+    "desc": "STR_STREAK_EMP_DESC",
+    "sound": "ui_killstreak_emp",
+    "type": "TYPE_SUPPORT",
+    "kills": 18,
+    "cost": 5,
+    "unlockLevel": 40,
+    "xpReward": 300
+  },
+  {
+    "id": "escort_airdrop",
+    "name": "STR_STREAK_ESCORT_AIRDROP",
+    "desc": "STR_STREAK_ESCORT_AIRDROP_DESC",
+    "sound": "ui_killstreak_escortairdrop",
+    "type": "TYPE_SUPPORT",
+    "kills": 20,
+    "cost": 10,
+    "unlockLevel": 22,
+    "xpReward": 300,
+    "bWorldMenu": true
+  },
+  {
+    "id": "weapon",
+    "name": "STR_STREAK_WEAPON_AIRDROP",
+    "desc": "STR_STREAK_WEAPON_AIRDROP_DESC",
+    "sound": "ui_killstreak_carepackage",
+    "hqId": "ammo",
+    "type": "TYPE_SUPPORT",
+    "moneyCost": 3000,
+    "bWorldMenu": true,
+    "bSurvival": true,
+    "kills": 6,
+    "cost": 2,
+    "unlockLevel": 12
+  },
+  {
+    "id": "support_airdrop",
+    "name": "STR_STREAK_SUPPORT_AIRDROP",
+    "desc": "STR_STREAK_SUPPORT_AIRDROP_DESC",
+    "sound": "ui_killstreak_carepackage",
+    "hqId": "ammo",
+    "type": "TYPE_SUPPORT",
+    "moneyCost": 3000,
+    "bWorldMenu": true,
+    "kills": 6,
+    "cost": 2,
+    "unlockLevel": 38
+  },
+  {
+    "id": "perk",
+    "name": "STR_STREAK_PERK_AIRDROP",
+    "desc": "STR_STREAK_PERK_AIRDROP_DESC",
+    "sound": "ui_killstreak_carepackage",
+    "hqId": "ammo",
+    "moneyCost": 5000,
+    "bSurvival": true,
+    "bWorldMenu": true
+  },
+  {
+    "id": "mh6",
+    "name": "STR_STREAK_MH6",
+    "desc": "STR_STREAK_MH6_DESC",
+    "sound": "ui_killstreak_cobra",
+    "type": "TYPE_ASSAULT",
+    "moneyCost": 6000,
+    "xpReward": 200,
+    "cost": 3,
+    "kills": 7,
+    "unlockLevel": 20
+  },
+  {
+    "id": "mh6_grenade",
+    "name": "STR_STREAK_UPGRADED_MH6",
+    "desc": "STR_STREAK_UPGRADED_MH6_DESC",
+    "sound": "ui_killstreak_cobra",
+    "type": "TYPE_ASSAULT",
+    "moneyCost": 25000,
+    "kills": 15,
+    "cost": 10,
+    "xpReward": 200,
+    "unlockLevel": 32
+  },
+  {
+    "id": "advanced_turret_place",
+    "name": "STR_STREAK_BALLISTIC_TURRET",
+    "desc": "STR_STREAK_BALLISTIC_TURRET_DESC",
+    "sound": "ui_killstreak_remoteturret",
+    "type": "TYPE_SUPPORT",
+    "kills": 12,
+    "cost": 5,
+    "unlockLevel": 21,
+    "moneyCost": 6000,
+    "xpReward": 200
+  },
+  {
+    "id": "weapon_m202",
+    "name": "STR_STREAK_M202_AIRDROP",
+    "desc": "STR_STREAK_M202_AIRDROP_DESC",
+    "sound": "ui_killstreak_carepackage",
+    "type": "TYPE_SUPPORT",
+    "hqId": "ammo",
+    "kills": 8,
+    "cost": 3,
+    "unlockLevel": 15,
+    "xpReward": 200,
+    "bWorldMenu": true
+  },
+  {
+    "id": "grenade_turret_place",
+    "name": "STR_STREAK_GRENADE_TURRET",
+    "desc": "STR_STREAK_GRENADE_TURRET_DESC",
+    "sound": "ui_killstreak_remoteturret",
+    "type": "TYPE_SUPPORT",
+    "kills": 15,
+    "cost": 5,
+    "unlockLevel": 32,
+    "moneyCost": 15000,
+    "xpReward": 200
+  },
+  {
+    "id": "escort_airdrop_survival",
+    "name": "STR_STREAK_ESCORT_AIRDROP",
+    "desc": "STR_STREAK_ESCORT_AIRDROP_SURVIVAL_DESC",
+    "sound": "ui_killstreak_escortairdrop",
+    "hqId": "escort_airdrop",
+    "type": "TYPE_SUPPORT",
+    "moneyCost": 15000,
+    "cost": 5,
+    "bSurvival": true,
+    "bWorldMenu": true
+  },
+  {
+    "id": "airstrike_survival",
+    "name": "STR_STREAK_BOMBARDMENT",
+    "desc": "STR_STREAK_BOMBARDMENT_DESC",
+    "survivalDesc": "STR_STREAK_BOMBARDMENT_SURVIVAL_DESC",
+    "sound": "ui_killstreak_airstrike",
+    "type": "TYPE_ASSAULT",
+    "cost": 5,
+    "kills": 12,
+    "moneyCost": 10000,
+    "bWorldMenu": true,
+    "unlockLevel": 45
+  },
+  {
+    "id": "perk_sitrep",
+    "kills": 2,
+    "perkId": "perk_sitrep",
+    "type": "TYPE_SPECIALIST",
+    "cost": 0
+  },
+  {
+    "id": "perk_martyrdom",
+    "kills": 4,
+    "perkId": "perk_martyrdom",
+    "type": "TYPE_SPECIALIST",
+    "cost": 3
+  },
+  {
+    "id": "perk_ghost",
+    "kills": 4,
+    "perkId": "perk_ghost",
+    "type": "TYPE_SPECIALIST",
+    "cost": 3
+  },
+  {
+    "id": "perk_lightweight",
+    "kills": 3,
+    "perkId": "perk_lightweight",
+    "type": "TYPE_SPECIALIST",
+    "cost": 0
+  },
+  {
+    "id": "perk_ninja",
+    "kills": 2,
+    "perkId": "perk_ninja",
+    "type": "TYPE_SPECIALIST",
+    "cost": 3
+  },
+  {
+    "id": "perk_anti_sniper",
+    "kills": 6,
+    "perkId": "perk_anti_sniper",
+    "type": "TYPE_SPECIALIST",
+    "cost": 3
+  },
+  {
+    "id": "perk_cold_blooded",
+    "kills": 5,
+    "perkId": "perk_cold_blooded",
+    "type": "TYPE_SPECIALIST",
+    "cost": 3
+  },
+  {
+    "id": "perk_health",
+    "kills": 8,
+    "perkId": "perk_health",
+    "type": "TYPE_SPECIALIST",
+    "cost": 5
+  },
+  {
+    "id": "perk_helmet",
+    "kills": 8,
+    "perkId": "perk_helmet",
+    "type": "TYPE_SPECIALIST",
+    "cost": 5
+  },
+  {
+    "id": "perk_recovery",
+    "kills": 5,
+    "perkId": "perk_recovery",
+    "type": "TYPE_SPECIALIST",
+    "cost": 5
+  },
+  {
+    "id": "perk_accuracy",
+    "kills": 4,
+    "perkId": "perk_accuracy",
+    "type": "TYPE_SPECIALIST",
+    "cost": 0
+  },
+  {
+    "id": "perk_shrapnel",
+    "kills": 4,
+    "perkId": "perk_shrapnel",
+    "type": "TYPE_SPECIALIST",
+    "cost": 2
+  },
+  {
+    "id": "perk_vampire",
+    "kills": 5,
+    "perkId": "perk_vampire",
+    "type": "TYPE_SPECIALIST",
+    "cost": 5
+  },
+  {
+    "id": "perk_scavenger",
+    "kills": 4,
+    "perkId": "perk_scavenger",
+    "type": "TYPE_SPECIALIST",
+    "cost": 5
+  },
+  {
+    "id": "perk_aim",
+    "kills": 4,
+    "perkId": "perk_aim",
+    "type": "TYPE_SPECIALIST",
+    "cost": 2
+  },
+  {
+    "id": "perk_recon",
+    "kills": 2,
+    "perkId": "perk_recon",
+    "type": "TYPE_SPECIALIST",
+    "cost": 2
+  },
+  {
+    "id": "perk_power",
+    "kills": 3,
+    "perkId": "perk_power",
+    "type": "TYPE_SPECIALIST",
+    "cost": 2
+  },
+  {
+    "id": "perk_reload",
+    "kills": 6,
+    "perkId": "perk_reload",
+    "type": "TYPE_SPECIALIST",
+    "cost": 5
+  },
+  {
+    "id": "perk_freeze",
+    "kills": 5,
+    "perkId": "perk_freeze",
+    "type": "TYPE_SPECIALIST",
+    "cost": 5
+  },
+  {
+    "id": "perk_ammo",
+    "kills": 5,
+    "perkId": "perk_ammo",
+    "type": "TYPE_SPECIALIST",
+    "cost": 0
+  }
+]

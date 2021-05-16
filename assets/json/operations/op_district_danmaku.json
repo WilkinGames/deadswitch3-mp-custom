@@ -1,0 +1,160 @@
+{
+  "id": "op_district_danmaku",
+  "bPremium": true,
+  "packId": "premium",
+  "info": {
+    "name": "STR_OP_DANMAKU_PRACTICE",
+    "desc": "STR_OP_DANMAKU_PRACTICE_DESC"
+  },
+  "requiredLevel": 1,
+  "rewards": [
+    {
+      "type": "xp",
+      "value": 1000
+    },
+    {
+      "type": "teeth",
+      "value": 1
+    }
+  ],
+  "gameData": {
+    "gameModeId": "op_elimination",
+    "mapId": "map_district",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+      "preGameTimer": 0,
+      "timeLimit": 5,
+      "filterType": "night"
+    }
+  },
+  "data": {
+    "objects": [
+      {
+        "type": "crate_killstreak",
+        "killstreakId": "sam_turret_place",
+        "position": [ 3500, 1000 ]
+      }
+    ],
+    "player": {
+      "position": [ 800, 1000 ],
+      "inventory": [
+        {
+          "id": "sg550",
+          "mods": {
+            "barrel": "barrel_silencer"
+          }
+        },
+        {
+          "id": "pdr",
+          "ammo": 300,
+          "mods": {
+            "barrel": "barrel_laser",
+            "ammo": "ammo_fmj"
+          }
+        }
+      ],
+      "equipment": "frag",
+      "equipmentAmmo": 2
+    },
+    "enemies": [
+      {
+        "type": "character",
+        "position": [ 2000, 1820 ],
+        "heroId": "HERO_VALIANT25",
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "helicopter",
+        "helicopterType": "mh6_attack",
+        "position": [ 2000, 100 ],
+        "destination": [ 1000, 400 ]
+      },
+      {
+        "type": "character",
+        "position": [ 1170, 760 ],
+        "preset": "gsg9_generic",
+        "inventory": [ { "id": "l115a3" } ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2830, 760 ],
+        "preset": "gsg9_generic",
+        "inventory": [ { "id": "l115a3" } ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2000, 1160 ],
+        "preset": "gsg9_generic",
+        "inventory": [ { "id": "mp5" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 1230, 1266 ],
+            [ 2770, 1266 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1950, 1400 ],
+        "preset": "gsg9_heavy",
+        "inventory": [ { "id": "m1014" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 400, 1450 ],
+            [ 3600, 1450 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2050, 1400 ],
+        "preset": "gsg9_heavy",
+        "inventory": [ { "id": "m1014" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 400, 1450 ],
+            [ 3600, 1450 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 200, 1280 ],
+        "preset": "gsg9_generic",
+        "inventory": [ { "id": "mp5" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 1800, 1640 ],
+        "preset": "gsg9_generic",
+        "inventory": [ { "id": "fal" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2200, 1640 ],
+        "preset": "gsg9_generic",
+        "inventory": [ { "id": "fal" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      }
+    ]
+  }
+}

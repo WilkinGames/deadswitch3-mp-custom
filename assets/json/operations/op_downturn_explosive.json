@@ -1,0 +1,189 @@
+{
+  "id": "op_downturn_explosive",
+  "packId": "pack2",
+  "bPremium": true,
+  "info": {
+    "name": "STR_OP_EXPLOSIVE",
+    "desc": "STR_OP_EXPLOSIVE_DESC"
+  },
+  "requiredLevel": 1,
+  "rewards": [
+    {
+      "type": "xp",
+      "value": 1000
+    },
+    {
+      "type": "teeth",
+      "value": 1
+    }
+  ],
+  "gameData": {
+    "gameModeId": "op_elimination",
+    "mapId": "map_downturn",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+      "preGameTimer": 0,
+      "timeLimit": 5
+    }
+  },
+  "data": {
+    "objects": [
+      
+    ],
+    "player": {
+      "position": [ 4000, 1840 ],
+      "inventory": [
+        {
+          "id": "mgl",
+          "ammo": 60,
+          "mods": {
+            "ammo": "ammo_explosive"
+          }
+        }
+      ],
+      "equipment": "frag",
+      "equipmentAmmo": 2
+    },
+    "enemies": [
+      {
+        "type": "character",
+        "position": [ 4000, 1440 ],
+        "preset": "militia_heavy",
+        "inventory": [ { "id": "rpg" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3300, 1678 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "mgl" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 4700, 1678 ],
+            [ 3300, 1678 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4700, 1678 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "mgl" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 3300, 1678 ],
+            [ 4700, 1678 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 800, 1100 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "mgl" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 400, 1100 ],
+            [ 3000, 1646 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 700, 1100 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "mgl" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 400, 1100 ],
+            [ 3000, 1646 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 7200, 1100 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "mgl" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 7600, 1100 ],
+            [ 5000, 1646 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 7300, 1100 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "mgl" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 7600, 1100 ],
+            [ 5000, 1646 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2600, 1100 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "mgl" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 1250, 1400 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "mgl" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 1600, 1800 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "mgl" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 5300, 1100 ],
+        "preset": "militia_heavy",
+        "inventory": [ { "id": "rpg" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 2700, 1100 ],
+        "preset": "militia_heavy",
+        "inventory": [ { "id": "rpg" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 6750, 1400 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "mgl" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 6400, 1800 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "mgl" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 2600, 1271 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "mgl" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 5400, 1271 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "mgl" } ]
+      }
+    ]
+  }
+}

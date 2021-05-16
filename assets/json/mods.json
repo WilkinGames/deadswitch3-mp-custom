@@ -1,0 +1,281 @@
+[
+  {
+    "id": "base_damper",
+    "type": "base",
+    "name": "STR_MOD_DAMPER",
+    "desc": "STR_MOD_DAMPER_DESC",
+    "unlockLevel": 2,
+    "moneyCost": 500,
+    "cost": 1
+  },
+  {
+    "id": "base_single_fire",
+    "type": "base",
+    "name": "STR_MOD_SINGLE_FIRE",
+    "desc": "STR_MOD_SINGLE_FIRE_DESC",
+    "unlockLevel": 3,
+    "moneyCost": 1000,
+    "cost": 2
+  },
+  {
+    "id": "base_marksman",
+    "type": "base",
+    "name": "STR_MOD_DEADEYE",
+    "desc": "STR_MOD_DEADEYE_DESC",
+    "unlockLevel": 4,
+    "moneyCost": 1000,
+    "cost": 2
+  },
+  {
+    "id": "base_speed",
+    "type": "base",
+    "name": "STR_MOD_SPEED",
+    "desc": "STR_MOD_SPEED_DESC",
+    "unlockLevel": 5,
+    "moneyCost": 2000,
+    "cost": 2
+  },
+  {
+    "id": "base_burst_fire",
+    "type": "base",
+    "name": "STR_MOD_BURST_FIRE",
+    "desc": "STR_MOD_BURST_FIRE_DESC",
+    "unlockLevel": 6,
+    "moneyCost": 4000,
+    "cost": 3
+  },
+  {
+    "id": "base_mode_selector",
+    "type": "base",
+    "name": "STR_MOD_FIRE_SELECT",
+    "desc": "STR_MOD_FIRE_SELECT_DESC",
+    "unlockLevel": 6,
+    "moneyCost": 5000,
+    "cost": 3
+  },
+  {
+    "id": "base_full_auto",
+    "type": "base",
+    "name": "STR_MOD_FULL_AUTO",
+    "desc": "STR_MOD_FULL_AUTO_DESC",
+    "unlockLevel": 6,
+    "moneyCost": 4000,
+    "cost": 3
+  },
+  {
+    "id": "base_range",
+    "type": "base",
+    "name": "STR_MOD_RANGE",
+    "desc": "STR_MOD_RANGE_DESC",
+    "unlockLevel": 7,
+    "moneyCost": 3000,
+    "cost": 5
+  },
+  {
+    "id": "base_rapid_fire",
+    "type": "base",
+    "name": "STR_MOD_RAPID_FIRE",
+    "desc": "STR_MOD_RAPID_FIRE_DESC",
+    "unlockLevel": 8,
+    "moneyCost": 5000,
+    "cost": 5
+  },
+  {
+    "id": "base_shield_alloy",
+    "type": "base",
+    "name": "STR_MOD_RAPID_FIRE",
+    "desc": "STR_MOD_RAPID_FIRE_DESC",
+    "unlockLevel": 2,
+    "moneyCost": 3000,
+    "cost": 2
+  },
+  {
+    "id": "base_shield_damage",
+    "type": "base",
+    "name": "STR_MOD_SHIELD_DAMAGE",
+    "desc": "STR_MOD_SHIELD_DAMAGE_DESC",
+    "unlockLevel": 4,
+    "moneyCost": 5000,
+    "cost": 5
+  },
+  {
+    "id": "ammo_impact",
+    "type": "ammo",
+    "name": "STR_MOD_IMPACT",
+    "desc": "STR_MOD_IMPACT_DESC",
+    "unlockLevel": 2,
+    "moneyCost": 500,
+    "cost": 1
+  },
+  {
+    "id": "ammo_fmj",
+    "type": "ammo",
+    "name": "STR_MOD_FMJ",
+    "desc": "STR_MOD_FMJ_DESC",
+    "unlockLevel": 3,
+    "moneyCost": 1000,
+    "cost": 2
+  },
+  {
+    "id": "ammo_speed_loader",
+    "type": "ammo",
+    "name": "STR_MOD_SPEED_LOADER",
+    "desc": "STR_MOD_SPEED_LOADER_DESC",
+    "unlockLevel": 4,
+    "moneyCost": 1500,
+    "cost": 2
+  },
+  {
+    "id": "ammo_ap",
+    "type": "ammo",
+    "name": "STR_MOD_PIERCING",
+    "desc": "STR_MOD_PIERCING_DESC",
+    "unlockLevel": 5,
+    "moneyCost": 2000,
+    "cost": 2
+  },
+  {
+    "id": "ammo_extended",
+    "type": "ammo",
+    "name": "STR_MOD_EXTENDED",
+    "desc": "STR_MOD_EXTENDED_DESC",
+    "unlockLevel": 6,
+    "moneyCost": 3000,
+    "cost": 3
+  },
+  {
+    "id": "ammo_slug",
+    "type": "ammo",
+    "name": "STR_MOD_SLUG",
+    "desc": "STR_MOD_SLUG_DESC",
+    "unlockLevel": 8,
+    "moneyCost": 4000,
+    "cost": 3
+  },
+  {
+    "id": "ammo_range",
+    "type": "ammo",
+    "name": "STR_MOD_HIGH_CALIBER",
+    "desc": "STR_MOD_HIGH_CALIBER_DESC",
+    "unlockLevel": 8,
+    "moneyCost": 4000,
+    "cost": 5
+  },
+  {
+    "id": "ammo_hollow_point",
+    "type": "ammo",
+    "name": "STR_MOD_HOLLOW_POINT",
+    "desc": "STR_MOD_HOLLOW_POINT_DESC",
+    "unlockLevel": 10,
+    "moneyCost": 5000,
+    "cost": 5
+  },
+  {
+    "id": "ammo_radius",
+    "type": "ammo",
+    "name": "STR_MOD_RADIUS",
+    "desc": "STR_MOD_RADIUS_DESC",
+    "unlockLevel": 4,
+    "moneyCost": 5000,
+    "cost": 5
+  },
+  {
+    "id": "ammo_explosive",
+    "type": "ammo",
+    "name": "STR_MOD_EXPLOSIVE",
+    "desc": "STR_MOD_EXPLOSIVE_DESC",
+    "unlockLevel": 8,
+    "moneyCost": 10000,
+    "cost": 10
+  },
+  {
+    "id": "ammo_napalm",
+    "type": "ammo",
+    "name": "STR_MOD_NAPALM",
+    "desc": "STR_MOD_NAPALM_DESC",
+    "unlockLevel": 10,
+    "moneyCost": 5000,
+    "cost": 10
+  },
+  {
+    "id": "barrel_laser",
+    "type": "barrel",
+    "name": "STR_MOD_LASER",
+    "desc": "STR_MOD_LASER_DESC",
+    "unlockLevel": 3,
+    "moneyCost": 1000,
+    "cost": 2
+  },
+  {
+    "id": "barrel_booster",
+    "type": "barrel",
+    "name": "STR_MOD_BOOSTER",
+    "desc": "STR_MOD_BOOSTER_DESC",
+    "unlockLevel": 4,
+    "moneyCost": 1500,
+    "cost": 2
+  },
+  {
+    "id": "barrel_masterkey",
+    "type": "barrel",
+    "name": "STR_MOD_MASTERKEY",
+    "desc": "STR_MOD_MASTERKEY_DESC",
+    "unlockLevel": 5,
+    "moneyCost": 4000,
+    "cost": 5
+  },
+  {
+    "id": "barrel_silencer",
+    "type": "barrel",
+    "name": "STR_MOD_SILENCER",
+    "desc": "STR_MOD_SILENCER_DESC",
+    "unlockLevel": 6,
+    "moneyCost": 100,
+    "cost": 3
+  },
+  {
+    "id": "barrel_m203",
+    "type": "barrel",
+    "name": "STR_MOD_M203",
+    "desc": "STR_MOD_M203_DESC",
+    "unlockLevel": 8,
+    "moneyCost": 5000,
+    "cost": 5
+  },
+  {
+    "id": "barrel_gp25",
+    "type": "barrel",
+    "name": "STR_MOD_GP25",
+    "desc": "STR_MOD_GP25_DESC",
+    "unlockLevel": 8,
+    "moneyCost": 5000,
+    "cost": 5
+  },
+  {
+    "id": "barrel_grip",
+    "type": "barrel",
+    "name": "STR_MOD_GRIP",
+    "desc": "STR_MOD_GRIP_DESC",
+    "unlockLevel": 9,
+    "moneyCost": 2000,
+    "cost": 3
+  },
+  {
+    "id": "barrel_compensator",
+    "type": "barrel",
+    "name": "STR_MOD_COMPENSATOR",
+    "desc": "STR_MOD_COMPENSATOR_DESC",
+    "unlockLevel": 9,
+    "moneyCost": 2000,
+    "cost": 3
+  },
+  {
+    "id": "barrel_range",
+    "type": "barrel",
+    "name": "STR_MOD_ACCELERATOR",
+    "desc": "STR_MOD_ACCELERATOR_DESC",
+    "unlockLevel": 10,
+    "moneyCost": 3000,
+    "cost": 5
+  }
+]

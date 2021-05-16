@@ -1,0 +1,201 @@
+{
+  "id": "op_downturn_helis",
+  "bPremium": true,
+  "packId": "premium",
+  "info": {
+    "name": "STR_OP_MAYDAY",
+    "desc": "STR_OP_MAYDAY_DESC"
+  },
+  "requiredLevel": 1,
+  "rewards": [
+    {
+      "type": "xp",
+      "value": 1000
+    },
+    {
+      "type": "teeth",
+      "value": 1
+    }
+  ],
+  "gameData": {
+    "gameModeId": "op_elimination",
+    "mapId": "map_downturn",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+      "preGameTimer": 0,
+      "timeLimit": 5,
+      "filterType": "night"
+    }
+  },
+  "data": {
+    "objects": [
+      {
+        "type": "crate_killstreak",
+        "killstreakId": "sam_turret_place",
+        "position": [ 2600, 1110 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "l115a3",
+        "options": { "mods": { "barrel": "barrel_laser" } },
+        "position": [ 800, 1845 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "smaw",
+        "position": [ 700, 1845 ]
+      }
+    ],
+    "player": {
+      "position": [ 1125, 1800 ],
+      "inventory": [
+        {
+          "id": "mg4",
+          "ammo": 300,
+          "mods": { "ammo": "ammo_extended" }
+        },
+        {
+          "id": "mp7",
+          "ammo": 200,
+          "mods": { "ammo": "ammo_fmj" }
+        }
+      ],
+      "equipment": "flashbang",
+      "equipmentAmmo": 2
+    },
+    "enemies": [
+      {
+        "type": "helicopter",
+        "helicopterType": "cobra",
+        "position": [ 2000, 1200 ]
+      },
+      {
+        "type": "helicopter",
+        "helicopterType": "cobra",
+        "position": [ 4000, 1000 ]
+      },
+      {
+        "type": "helicopter",
+        "helicopterType": "mh6_attack",
+        "position": [ 5000, 800 ]
+      },
+      {
+        "type": "helicopter",
+        "helicopterType": "cobra",
+        "position": [ 6000, 1200 ]
+      },
+      {
+        "type": "character",
+        "position": [ 3950, 1640 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "mp5" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 3000, 1640 ],
+            [ 5000, 1640 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4050, 1640 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "mp5" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 3000, 1640 ],
+            [ 5000, 1640 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1155, 1110 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "r700" } ],
+        "ai": { "bCamp": true }
+      },
+      {
+        "type": "character",
+        "position": [ 6830, 1110 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "r700" } ],
+        "ai": { "bCamp": true }
+      },
+      {
+        "type": "character",
+        "position": [ 2500, 1430 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "m3" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 800, 1430 ],
+            [ 2500, 1430 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 7200, 1840 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "m3" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 7250, 1840 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "ak47" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 2800, 1110 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "ak47" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "turret",
+        "position": [ 6150, 1430 ],
+        "team": 1,
+        "scale": -1,
+        "turretData": {
+          "type": "sentry",
+          "bUnlimitedAmmo": true
+        }
+      },
+      {
+        "type": "turret",
+        "position": [ 1750, 1430 ],
+        "team": 1,
+        "scale": -1,
+        "turretData": {
+          "type": "sentry",
+          "bUnlimitedAmmo": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4890, 1430 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "r700" } ],
+        "ai": { "bCamp": true }
+      },
+      {
+        "type": "character",
+        "position": [ 5730, 1845 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "ak47" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      }
+    ]
+  }
+}

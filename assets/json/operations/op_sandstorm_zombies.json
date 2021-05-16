@@ -1,0 +1,144 @@
+{
+  "id": "op_sandstorm_zombies",
+  "bPremium": true,
+  "info": {
+    "name": "STR_OP_DESERT_PURIFICATION",
+    "desc": "STR_OP_DESERT_PURIFICATION_DESC"
+  },
+  "requiredLevel": 1,
+  "rewards": [
+    {
+      "type": "xp",
+      "value": 500
+    }
+  ],
+  "gameData": {
+    "gameModeId": "op_elimination",
+    "mapId": "map_sandstorm",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "filterType": "night",
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+      "preGameTimer": 0,
+      "timeLimit": 5,
+      "bNoSandbags": true
+    }
+  },
+  "data": {
+    "objects": [
+
+    ],
+    "player": {
+      "position": [ 100, 1050 ],
+      "inventory": [
+        {
+          "id": "ak47",
+          "mods": {
+            "barrel": "barrel_laser",
+            "ammo": "ammo_hollow_point"
+          }
+        },
+        {
+          "id": "m3",
+          "mods": { "ammo": "ammo_fmj" }
+        }
+      ],
+      "equipment": "c4",
+      "equipmentAmmo": 2
+    },
+    "enemies": [
+      {
+        "type": "character",
+        "position": [ 2300, 1015 ],
+        "preset": "zombie_sprinter",
+        "ai": { "bCampUntilLOS": true }
+      },
+      {
+        "type": "character",
+        "position": [ 1400, 1440 ],
+        "preset": "zombie_generic",
+        "ai": {
+          "patrolPoints": [
+            [ 1000, 1440 ],
+            [ 1500, 1440 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 500, 1770 ],
+        "preset": "zombie_spitter",
+        "ai": {
+          "patrolPoints": [
+            [ 1100, 1770 ],
+            [ 500, 1770 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2500, 1440 ],
+        "preset": "zombie_sprinter"
+      },
+      {
+        "type": "character",
+        "position": [ 2600, 1440 ],
+        "preset": "zombie_spitter"
+      },
+      {
+        "type": "character",
+        "position": [ 3600, 1220 ],
+        "preset": "zombie_spitter"
+      },
+      {
+        "type": "character",
+        "position": [ 4400, 1220 ],
+        "preset": "zombie_spitter"
+      },
+      {
+        "type": "character",
+        "position": [ 4000, 1540 ],
+        "preset": "zombie_fat"
+      },
+      {
+        "type": "character",
+        "position": [ 5100, 1440 ],
+        "preset": "zombie_exploder"
+      },
+      {
+        "type": "character",
+        "position": [ 6600, 1140 ],
+        "preset": "zombie_spitter"
+      },
+      {
+        "type": "character",
+        "position": [ 6200, 1580 ],
+        "preset": "zombie_sprinter",
+        "ai": {
+          "patrolPoints": [
+            [ 7500, 1765 ],
+            [ 6200, 1580 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 6250, 1580 ],
+        "preset": "zombie_sprinter",
+        "ai": {
+          "patrolPoints": [
+            [ 7500, 1765 ],
+            [ 6200, 1580 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 7200, 1770 ],
+        "preset": "zombie_exploder"
+      }
+    ]
+  }
+}

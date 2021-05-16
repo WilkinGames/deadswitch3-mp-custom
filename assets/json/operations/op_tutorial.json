@@ -1,0 +1,234 @@
+{
+  "id": "op_tutorial",
+  "bHidden": true,
+  "bTutorial": true,
+  "info": {
+    "name": "STR_OP_TUTORIAL",
+    "desc": "STR_OP_TUTORIAL_DESC"
+  },
+  "rewards": [
+
+  ],
+  "gameData": {
+    "gameModeId": "op_elimination",
+    "mapId": "map_overgrown",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bDroppedWeapons": false,
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+      "preGameTimer": 0,
+      "timeLimit": 0,
+      "bFriendlyFire": false
+    }
+  },
+  "data": {
+    "bTutorial": true,
+    "objects": [
+      {
+        "type": "helicopter",
+        "position": [ 850, 1000 ],
+        "team": 0,
+        "heliData": {
+          "type": "osprey",
+          "destination": [ 850, 1000 ],
+          "items": [],
+          "dropTimerMax": 1,
+          "defendTimer": 2
+        }
+      },
+      {
+        "type": "arrow_marker",
+        "rotation": 0,
+        "position": [ 1426, 1340 ]
+      },
+      {
+        "type": "arrow_marker",
+        "rotation": 0,
+        "position": [ 3220, 1400 ]
+      },
+      {
+        "type": "arrow_marker",
+        "rotation": -90,
+        "position": [ 6560, 1360 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "STR_CONTROL_CATEGORY_MOVEMENT",
+          "id": "tutorial_movement",
+          "size": 200
+        },
+        "position": [ 850, 1430 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "STR_CONTROL_INTERACT",
+          "id": "tutorial_interact",
+          "size": 100,
+          "bRemove": true
+        },
+        "position": [ 1700, 1358 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "STR_SANDBAGS",
+          "timer": 30,
+          "id": "tutorial_sandbags",
+          "size": 100
+        },
+        "position": [ 1994, 1374 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "id": "tutorial_weapon",
+          "timer": 300,
+          "size": 200,
+          "bRemove": true
+        },
+        "position": [ 2300, 1400 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "STR_CONTROL_SPRINT",
+          "id": "tutorial_sprint",
+          "size": 200,
+          "bRemove": true
+        },
+        "position": [ 3000, 1415 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "STR_CONTROL_MELEE",
+          "id": "tutorial_melee",
+          "size": 400,
+          "bRemove": true
+        },
+        "position": [ 4000, 895 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "STR_CONTROL_MELEE",
+          "id": "tutorial_melee",
+          "size": 400,
+          "bRemove": true
+        },
+        "position": [ 6265, 895 ]
+      },
+      {
+        "type": "crate_item",
+        "position": [ 1700, 1358 ],
+        "team": 0,
+        "items": [
+          {
+            "id": "m4a1",
+            "options": {
+              "ammo": 300
+            },
+            "mods": {
+              "barrel": "barrel_laser"
+            }
+          }
+        ]
+      },
+      {
+        "type": "crate_killstreak",
+        "position": [ 4000, 1220 ],
+        "killstreakId": "airstrike",
+        "team": 0
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "flashbang",
+        "position": [ 4010, 1420 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "flashbang",
+        "position": [ 3990, 1420 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "mp7",
+        "options": {
+          "mods": {
+            "barrel": "barrel_silencer"
+          }
+        },
+        "position": [ 3990, 1640 ]
+      }
+    ],
+    "player": {
+      "position": [ 850, 1050 ],
+      "inventory": [
+        {
+          "id": "none"
+        }
+      ],
+      "equipment": null,
+      "equipmentAmmo": 2
+    },
+    "enemies": [
+      {
+        "type": "character",
+        "position": [ 3280, 1036 ],
+        "style": "opfor_generic",
+        "inventory": [ { "id": "g17" } ],
+        "ai": { "bCamp": true }
+      },
+      {
+        "type": "character",
+        "position": [ 5600, 1430 ],
+        "style": "opfor_generic",
+        "inventory": [ { "id": "g17" } ],
+        "ai": {
+          "bCanInvestigate": false,
+          "patrolPoints": [
+            [ 4780, 1418 ],
+            [ 7200, 1418 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 6300, 1750 ],
+        "style": "opfor_generic",
+        "inventory": [ { "id": "g17" } ],
+        "ai": {
+          "bCanInvestigate": false,
+          "patrolPoints": [
+            [ 7500, 1655 ],
+            [ 5600, 1680 ]
+          ]
+        }
+      },
+      {
+        "type": "turret",
+        "position": [ 4000, 1030 ],
+        "team": 1,
+        "scale": 1,
+        "turretData": {
+          "type": "sam",
+          "bDisabled": true
+        }
+      },
+      {
+        "type": "turret",
+        "position": [ 6265, 1030 ],
+        "team": 1,
+        "scale": -1,
+        "turretData": {
+          "type": "sam",
+          "bDisabled": true
+        }
+      }      
+    ]
+  }
+}

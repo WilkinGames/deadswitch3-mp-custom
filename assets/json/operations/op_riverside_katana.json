@@ -1,0 +1,220 @@
+{
+  "id": "op_riverside_katana",
+  "packId": "pack2",
+  "info": {
+    "name": "STR_OP_SAMARAI",
+    "desc": "STR_OP_SAMARAI_DESC"
+  },
+  "requiredLevel": 1,
+  "rewards": [
+    {
+      "type": "xp",
+      "value": 2000
+    },
+    {
+      "type": "teeth",
+      "value": 1
+    }
+  ],
+  "gameData": {
+    "gameModeId": "op_elimination",
+    "mapId": "map_riverside",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "filterType": "night",
+      "bDroppedWeapons": false,
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+      "preGameTimer": 0,
+      "timeLimit": 5
+    }
+  },
+  "data": {
+    "objects": [
+      {
+        "type": "crate_perk",
+        "perkId": "perk_anti_sniper",
+        "position": [ 3645, 1115 ]
+      },
+      {
+        "type": "crate_perk",
+        "perkId": "perk_lightweight",
+        "position": [ 355, 1115 ]
+      },
+      {
+        "type": "equipment",
+        "weaponId": "betty",
+        "position": [ 120, 1460 ],
+        "team": 1,
+        "scale": 1
+      },
+      {
+        "type": "equipment",
+        "weaponId": "betty",
+        "position": [ 3880, 1460 ],
+        "team": 1,
+        "scale": 1
+      }
+    ],
+    "player": {
+      "position": [ 2000, 1808 ],
+      "inventory": [
+        {
+          "id": "melee_katana"
+        }
+      ],
+      "equipment": "flashbang",
+      "equipmentAmmo": 2
+    },
+    "enemies": [
+      {
+        "type": "character",
+        "position": [ 2000, 1200 ],
+        "style": "opfor_sniper",
+        "inventory": [ { "id": "m40a3" } ],
+        "ai": { "bCamp": true }
+      },
+      {
+        "type": "character",
+        "position": [ 500, 1263 ],
+        "style": "opfor_sniper",
+        "inventory": [ { "id": "m40a3" } ],
+        "ai": { "bCamp": true }
+      },
+      {
+        "type": "character",
+        "position": [ 3500, 1263 ],
+        "style": "opfor_sniper",
+        "inventory": [ { "id": "m40a3" } ],
+        "ai": { "bCamp": true }
+      },
+      {
+        "type": "character",
+        "position": [ 1600, 1263 ],
+        "style": "opfor_generic",
+        "inventory": [ { "id": "striker" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2400, 1263 ],
+        "style": "opfor_generic",
+        "inventory": [ { "id": "striker" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2000, 1550 ],
+        "style": "opfor_generic",
+        "inventory": [ { "id": "ak47" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 100, 1460 ],
+            [ 3900, 1460 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1800, 1550 ],
+        "style": "opfor_generic",
+        "inventory": [ { "id": "ak47" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 100, 1460 ],
+            [ 3900, 1460 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1800, 1550 ],
+        "style": "opfor_heavy",
+        "inventory": [ { "id": "melee_machete" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 100, 1460 ],
+            [ 3900, 1460 ]
+          ]
+        },
+        "maxSpeed": 300
+      },
+      {
+        "type": "character",
+        "position": [ 2200, 1550 ],
+        "style": "opfor_heavy",
+        "inventory": [ { "id": "melee_machete" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 100, 1460 ],
+            [ 3900, 1460 ]
+          ]
+        },
+        "maxSpeed": 300
+      },
+      {
+        "type": "character",
+        "position": [ 2200, 1550 ],
+        "style": "opfor_generic",
+        "inventory": [ { "id": "ak47" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 3900, 1460 ],
+            [ 100, 1460 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 100, 1460 ],
+        "style": "opfor_generic",
+        "inventory": [ { "id": "mp5" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 3900, 1460 ],
+            [ 100, 1460 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3900, 1460 ],
+        "style": "opfor_generic",
+        "inventory": [ { "id": "mp5" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 100, 1460 ],
+            [ 3900, 1460 ]
+          ]
+        }
+      },
+      {
+        "type": "turret",
+        "position": [ 1845, 1062 ],
+        "team": 1,
+        "scale": -1,
+        "turretData": {
+          "type": "sentry",
+          "bUnlimitedAmmo": true
+        }
+      },
+      {
+        "type": "turret",
+        "position": [ 2155, 1062 ],
+        "team": 1,
+        "scale": 1,
+        "turretData": {
+          "type": "sentry",
+          "bUnlimitedAmmo": true
+        }
+      }
+    ]
+  }
+}

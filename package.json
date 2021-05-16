@@ -1,0 +1,31 @@
+{
+  "name": "deadswitch",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "xwilkinx",
+    "wilkin games",
+    "deadswitch"
+  ],
+  "author": "Wilkin Games",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.4",
+    "ngraph.graph": "^19.1.0",
+    "ngraph.path": "^1.3.1",
+    "p2": "^0.7.1",
+    "rate-limiter-flexible": "^2.2.1",
+    "smile2emoji": "^0.2.1",
+    "socket.io": "^2.4.1"
+  },
+  "devDependencies": {
+    "@azerion/phaser-input": "^2.0.5"
+  },
+  "description": "Deadswitch 3 multiplayer server"
+}

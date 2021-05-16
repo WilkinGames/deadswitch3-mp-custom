@@ -1,0 +1,72 @@
+{
+  "id": "op_riverside_xwilkinx",
+  "bPremium": true,
+  "packId": "premium",
+  "info": {
+    "name": "STR_OP_MEET_YOUR_MAKER",
+    "desc": "STR_OP_MEET_YOUR_MAKER_DESC"
+  },
+  "requiredLevel": 1,
+  "rewards": [
+    {
+      "type": "xp",
+      "value": 2500
+    },
+    {
+      "type": "teeth",
+      "value": 1
+    }
+  ],
+  "gameData": {
+    "gameModeId": "op_elimination",
+    "mapId": "map_riverside",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+      "preGameTimer": 0,
+      "timeLimit": 5,
+      "filterType": "chaos"
+    }
+  },
+  "data": {
+    "objects": [
+      {
+        "type": "crate_killstreak",
+        "killstreakId": "chopper_gunner",
+        "position": [ 2100, 1000 ]
+      },
+      {
+        "type": "crate_ammo",
+        "position": [ 3600, 1250 ]
+      }
+    ],
+    "player": {
+      "position": [ 300, 1250 ],
+      "inventory": [
+        {
+          "id": "aug",
+          "ammo": 300,
+          "mods": {
+            "barrel": "barrel_laser",
+            "ammo": "ammo_hollow_point"
+          }
+        },
+        {
+          "id": "rpg",
+          "ammo": 5
+        }
+      ],
+      "equipment": "stun",
+      "equipmentAmmo": 2
+    },
+    "enemies": [
+      {
+        "type": "character",
+        "position": [ 3500, 1250 ],
+        "heroId": "HERO_XWILKINX"
+      }
+    ]
+  }
+}

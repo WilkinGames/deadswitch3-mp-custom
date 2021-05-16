@@ -1,0 +1,203 @@
+{
+  "id": "op_estate_juggernaut",
+  "packId": "premium",
+  "info": {
+    "name": "STR_OP_DARK_ESTATE",
+    "desc": "STR_OP_DARK_ESTATE_DESC"
+  },
+  "requiredLevel": 1,
+  "rewards": [
+    {
+      "type": "xp",
+      "value": 1000
+    },
+    {
+      "type": "teeth",
+      "value": 1
+    }
+  ],
+  "gameData": {
+    "gameModeId": "op_elimination",
+    "mapId": "map_estate",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+      "preGameTimer": 0,
+      "timeLimit": 5,
+      "filterType": "night"
+    }
+  },
+  "data": {
+    "objects": [
+      {
+        "type": "crate_killstreak",
+        "killstreakId": "advanced_turret_place",
+        "position": [ 200, 1263 ]
+      },
+      {
+        "type": "crate_killstreak",
+        "killstreakId": "airstrike",
+        "position": [ 4000, 788 ]
+      }
+    ],
+    "player": {
+      "position": [ 5300, 1810 ],
+      "inventory": [
+        {
+          "id": "m1014",
+          "ammo": 70,
+          "mods": {
+            "base": "base_range",
+            "ammo": "ammo_fmj"
+          }
+        },
+        {
+          "id": "mp7",
+          "ammo": 300,
+          "mods": {
+            "base": "base_speed",
+            "ammo": "ammo_hollow_point",
+            "barrel": "barrel_laser"
+          }
+        }
+      ],
+      "equipment": "stun",
+      "equipmentAmmo": 2
+    },
+    "enemies": [
+      {
+        "type": "character",
+        "position": [ 200, 1450 ],
+        "preset": "zombie_generic"
+      },
+      {
+        "type": "character",
+        "position": [ 250, 1450 ],
+        "preset": "zombie_generic"
+      },
+      {
+        "type": "character",
+        "position": [ 1500, 1560 ],
+        "preset": "zombie_generic"
+      },
+      {
+        "type": "character",
+        "position": [ 1550, 1560 ],
+        "preset": "zombie_generic"
+      },
+      {
+        "type": "character",
+        "position": [ 4900, 1040 ],
+        "preset": "zombie_generic",
+        "ai": {
+          "patrolPoints": [
+            [ 5500, 1265 ],
+            [ 4900, 1265 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3650, 1040 ],
+        "preset": "zombie_generic",
+        "ai": {
+          "patrolPoints": [
+            [ 5500, 1265 ],
+            [ 3650, 1265 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4300, 788 ],
+        "preset": "zombie_sprinter",
+        "ai": {
+          "patrolPoints": [
+            [ 4800, 788 ],
+            [ 4300, 788 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4100, 788 ],
+        "preset": "zombie_sprinter"
+      },
+      {
+        "type": "character",
+        "position": [ 4200, 788 ],
+        "preset": "zombie_sprinter"
+      },
+      {
+        "type": "character",
+        "position": [ 3700, 1265 ],
+        "preset": "zombie_spitter_boss",
+        "ai": {
+          "patrolPoints": [
+            [ 2200, 1365 ],
+            [ 3700, 1265 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4600, 1040 ],
+        "preset": "zombie_exploder_boss",
+        "ai": {
+          "patrolPoints": [
+            [ 5500, 1265 ],
+            [ 4600, 1265 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2000, 1560 ],
+        "preset": "zombie_exploder_boss"
+      },
+      {
+        "type": "character",
+        "position": [ 2300, 1365 ],
+        "preset": "zombie_exploder_boss"
+      },
+      {
+        "type": "character",
+        "position": [ 2250, 1365 ],
+        "preset": "zombie_spitter"
+      },
+      {
+        "type": "character",
+        "position": [ 2200, 1365 ],
+        "preset": "zombie_spitter_boss"
+      },
+      {
+        "type": "character",
+        "position": [ 4276, 1137 ],
+        "preset": "juggernaut",
+        "inventory": [ { "id": "mg4" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 3450, 1330 ],
+        "preset": "juggernaut",
+        "inventory": [ { "id": "m60e4" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 440, 1263 ],
+        "preset": "juggernaut",
+        "inventory": [ { "id": "mg4" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      }
+    ]
+  }
+}

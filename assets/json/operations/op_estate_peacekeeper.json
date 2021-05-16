@@ -1,0 +1,244 @@
+{
+  "id": "op_estate_peacekeeper",
+  "packId": "pack1",
+  "info": {
+    "name": "STR_OP_PEACEKEEPER_ATTACK",
+    "desc": "STR_OP_PEACEKEEPER_ATTACK_DESC"
+  },
+  "requiredLevel": 1,
+  "rewards": [
+    {
+      "type": "xp",
+      "value": 1000
+    },
+    {
+      "type": "teeth",
+      "value": 1
+    }
+  ],
+  "gameData": {
+    "gameModeId": "op_elimination",
+    "mapId": "map_estate",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "filterType": "night",
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+      "preGameTimer": 0,
+      "timeLimit": 5
+    }
+  },
+  "data": {
+    "objects": [
+      {
+        "type": "crate_item",
+        "itemId": "tazer",
+        "position": [ 3850, 1040 ]
+      },
+      {
+        "type": "crate_killstreak",
+        "killstreakId": "sam_turret_place",
+        "position": [ 1450, 1196 ]
+      },
+      {
+        "type": "equipment",
+        "weaponId": "claymore",
+        "position": [ 1470, 1576 ],
+        "scale": -1,
+        "team": 1
+      },
+      {
+        "type": "equipment",
+        "weaponId": "claymore",
+        "position": [ 3600, 1822 ],
+        "scale": -1,
+        "team": 1
+      },
+      {
+        "type": "equipment",
+        "weaponId": "claymore",
+        "position": [ 5591, 1278 ],
+        "scale": 1,
+        "team": 1
+      },
+      {
+        "type": "equipment",
+        "weaponId": "trophy",
+        "position": [ 4275, 788 ],
+        "scale": 1,
+        "team": 1
+      }
+    ],
+    "player": {
+      "position": [ 500, 1800 ],
+      "inventory": [
+        {
+          "id": "dragunov",
+          "ammo": 80,
+          "mods": { "base": "base_marksman", "barrel": "barrel_silencer", "ammo": "ammo_hollow_point" }
+        },
+        {
+          "id": "m1911",
+          "ammo": 80,
+          "mods": { "base": "base_marksman", "barrel": "barrel_silencer", "ammo": "ammo_hollow_point" }
+        }
+      ],
+      "equipment": "stun",
+      "equipmentAmmo": 2
+    },
+    "enemies": [
+      {
+        "type": "character",
+        "position": [ 4676, 1040 ],
+        "heroId": "HERO_OBSV32",
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "helicopter",
+        "helicopterType": "pavelow",
+        "position": [ 5000, 800 ]
+      },
+      {
+        "type": "helicopter",
+        "helicopterType": "mh6_attack",
+        "position": [ 5500, 800 ]
+      },
+      {
+        "type": "character",
+        "position": [ 3650, 1040 ],
+        "preset": "un_generic",
+        "inventory": [
+          {
+            "id": "m16a4"
+          }
+        ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 435, 1285 ],
+        "preset": "un_generic",
+        "inventory": [
+          {
+            "id": "m16a4"
+          }
+        ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1460, 1406 ],
+        "preset": "un_generic",
+        "inventory": [
+          {
+            "id": "m16a4"
+          }
+        ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3500, 1238 ],
+        "preset": "un_generic",
+        "inventory": [
+          {
+            "id": "m4a1"
+          }
+        ],
+        "ai": {
+          "patrolPoints": [
+            [ 3500, 1238 ],
+            [ 2200, 1350 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3400, 1238 ],
+        "preset": "un_generic",
+        "inventory": [
+          {
+            "id": "m4a1"
+          }
+        ],
+        "ai": {
+          "patrolPoints": [
+            [ 3500, 1238 ],
+            [ 2200, 1350 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 5500, 1238 ],
+        "preset": "un_generic",
+        "inventory": [
+          {
+            "id": "m4a1"
+          }
+        ],
+        "ai": {
+          "patrolPoints": [
+            [ 5000, 1238 ],
+            [ 5500, 1238 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 5200, 1238 ],
+        "preset": "un_generic",
+        "inventory": [
+          {
+            "id": "m4a1"
+          }
+        ],
+        "ai": {
+          "patrolPoints": [
+            [ 5000, 1238 ],
+            [ 5500, 1238 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4654, 1555 ],
+        "preset": "un_generic",
+        "inventory": [
+          {
+            "id": "m16a4"
+          }
+        ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3238, 1521 ],
+        "preset": "un_generic",
+        "inventory": [
+          {
+            "id": "m4a1"
+          }
+        ],
+        "ai": {
+          "patrolPoints": [
+            [ 4195, 1453 ],
+            [ 3238, 1521 ]
+          ]
+        }
+      }
+    ]
+  }
+}

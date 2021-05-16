@@ -1,0 +1,227 @@
+{
+  "id": "op_estate_embassy",
+  "info": {
+    "name": "STR_OP_FRENCH_SABOTEUR",
+    "desc": "STR_OP_FRENCH_SABOTEUR_DESC"
+  },
+  "requiredLevel": 1,
+  "rewards": [
+    {
+      "type": "xp",
+      "value": 500
+    },
+    {
+      "type": "teeth",
+      "value": 1
+    }
+  ],
+  "gameData": {
+    "gameModeId": "op_bomb",
+    "mapId": "map_estate",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "filterType": "night",
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+      "preGameTimer": 0,
+      "timeLimit": 5,
+      "numBombs": 1
+    }
+  },
+  "data": {
+    "objects": [
+      {
+        "type": "obstacle",
+        "obstacleId": "sandbags",
+        "position": [ 1900, 1583 ]
+      },
+      {
+        "type": "obstacle",
+        "obstacleId": "sandbags",
+        "position": [ 3710, 1283 ]
+      },
+      {
+        "type": "obstacle",
+        "obstacleId": "sandbags",
+        "position": [ 3980, 804 ]
+      },
+      {
+        "type": "obstacle",
+        "obstacleId": "sandbags",
+        "position": [ 4580, 804 ]
+      },
+      {
+        "id": "bomb_0",
+        "type": "crate_bomb",
+        "team": 1,
+        "interactTeam": 0,
+        "position": [ 4280, 808 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "scarh",
+        "options": {
+          "mods": {
+            "ammo": "ammo_hollow_point",
+            "barrel": "barrel_laser"
+          }
+        },
+        "position": [ 300, 1270 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "m249",
+        "options": { "mods": { "ammo": "ammo_fmj" } },
+        "position": [ 400, 1270 ]
+      },
+      {
+        "type": "crate_item",
+        "itemId": "rpg",
+        "position": [ 4000, 1810 ]
+      }
+    ],
+    "player": {
+      "position": [ 200, 1250 ],
+      "inventory": [
+        {
+          "id": "hk416",
+          "mods": {
+            "ammo": "ammo_fmj",
+            "barrel": "barrel_silencer"
+          }
+        },
+        {
+          "id": "magnum",
+          "mods": { "barrel": "barrel_laser" }
+        }
+      ],
+      "equipment": "flashbang",
+      "equipmentAmmo": 2
+    },
+    "enemies": [
+      {
+        "type": "helicopter",
+        "helicopterType": "cobra",
+        "position": [ 4000, 1200 ]
+      },
+      {
+        "type": "turret",
+        "position": [ 5900, 1080 ],
+        "team": 1,
+        "scale": -1,
+        "turretData": {
+          "type": "sentry",
+          "bUnlimitedAmmo": true
+        }
+      },
+      {
+        "type": "turret",
+        "position": [ 3400, 1800 ],
+        "team": 1,
+        "scale": -1,
+        "turretData": {
+          "type": "sentry",
+          "bUnlimitedAmmo": true
+        }
+      },
+      {
+        "type": "turret",
+        "position": [ 5700, 1800 ],
+        "team": 1,
+        "scale": -1,
+        "turretData": {
+          "type": "sentry",
+          "bUnlimitedAmmo": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3640, 1000 ],
+        "preset": "gign_sniper",
+        "inventory": [ { "id": "m16a4" } ],
+        "ai": { "bCamp": true }
+      },
+      {
+        "type": "character",
+        "position": [ 4580, 750 ],
+        "preset": "gign_sniper",
+        "inventory": [ { "id": "msr" } ],
+        "ai": { "bCamp": true }
+      },
+      {
+        "type": "character",
+        "position": [ 3980, 750 ],
+        "preset": "gign_sniper",
+        "inventory": [ { "id": "msr" } ],
+        "ai": { "bCamp": true }
+      },
+      {
+        "type": "character",
+        "position": [ 4800, 1000 ],
+        "preset": "gign_generic",
+        "inventory": [ { "id": "mp5" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 3900, 1250 ],
+        "preset": "gign_generic",
+        "inventory": [ { "id": "famas" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3940, 1250 ],
+        "preset": "gign_generic",
+        "inventory": [ { "id": "famas" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4100, 1250 ],
+        "preset": "gign_generic",
+        "inventory": [ { "id": "ump45" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 2300, 1350 ],
+            [ 4100, 1250 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 5000, 1250 ],
+        "preset": "gign_generic",
+        "inventory": [ { "id": "famas" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 5300, 1250 ],
+        "preset": "gign_generic",
+        "inventory": [ { "id": "mp5" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 5500, 1800 ],
+        "preset": "gign_generic",
+        "inventory": [ { "id": "mp5" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 2800, 1800 ],
+            [ 5500, 1800 ]
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,172 @@
+[
+  {
+    "id": "sandbox",
+    "name": "STR_MODE_SANDBOX",
+    "desc": "STR_MODE_SANDBOX_DESC",
+    "bAllowKillstreaks": false,
+    "bSandbox": true
+  },
+  {
+    "id": "battlezone",
+    "name": "STR_MODE_BATTLEZONE",
+    "desc": "STR_MODE_BATTLEZONE_DESC",
+    "bTeam": false,
+    "bBattlezone": true,
+    "bAllowKillstreaks": false
+  },
+  {
+    "id": "deathmatch",
+    "name": "STR_MODE_FFA",
+    "desc": "STR_MODE_FFA_DESC",
+    "bSurvival": false,
+    "bDeathmatch": true,
+    "bOnline": true,
+    "bTeam": false
+  },
+  {
+    "id": "team_deathmatch",
+    "name": "STR_MODE_TDM",
+    "desc": "STR_MODE_TDM_DESC",
+    "bSurvival": false,
+    "bDeathmatch": true,
+    "bOnline": true,
+    "bTeam": true
+  },
+  {
+    "id": "domination",
+    "name": "STR_MODE_DOMINATION",
+    "desc": "STR_MODE_DOMINATION_DESC",
+    "bSurvival": false,
+    "bOnline": true,
+    "bTeam": true
+  },
+  {
+    "id": "capture_the_flag",
+    "name": "STR_MODE_CTF",
+    "desc": "STR_MODE_CTF_DESC",
+    "bSurvival": false,
+    "bOnline": true,
+    "bTeam": true
+  },
+  {
+    "id": "defender",
+    "name": "STR_MODE_DEFENDER",
+    "desc": "STR_MODE_DEFENDER_DESC",
+    "bSurvival": false,
+    "bOnline": true,
+    "bTeam": true
+  },
+  {
+    "id": "demolition",
+    "name": "STR_MODE_DEMOLITION",
+    "desc": "STR_MODE_DEMOLITION_DESC",
+    "teamDesc": [
+      "STR_MODE_DEMOLITION_DESC_A",
+      "STR_MODE_DEMOLITION_DESC_B"
+    ],
+    "bSurvival": false,
+    "bOnline": true,
+    "bTeam": true
+  },
+  {
+    "id": "headquarters",
+    "name": "STR_MODE_HEADQUARTERS",
+    "desc": "STR_MODE_HEADQUARTERS_DESC",
+    "bSurvival": false,
+    "bOnline": true,
+    "bTeam": true
+  },
+  {
+    "id": "gun_game",
+    "name": "STR_MODE_GUN_GAME",
+    "desc": "STR_MODE_GUN_GAME_DESC",
+    "bSurvival": false,
+    "bDeathmatch": false,
+    "bOnline": true,
+    "bTeam": false,
+    "bCommunity": true,
+    "bAllowKillstreaks": false
+  },
+  {
+    "id": "infected",
+    "name": "STR_MODE_INFECTED",
+    "desc": "STR_MODE_INFECTED_DESC",
+    "bSurvival": false,
+    "bDeathmatch": false,
+    "bOnline": true,
+    "bTeam": false,
+    "bCommunity": true,
+    "bAllowKillstreaks": false
+  },
+  {
+    "id": "survival_undead",
+    "name": "STR_MODE_UNDEAD_SURVIVAL",
+    "shortName": "STR_MODE_UNDEAD",
+    "desc": "STR_MODE_UNDEAD_SURVIVAL_DESC",
+    "bSurvival": true,
+    "bOnline": true,
+    "bTeam": false,
+    "ngId": 9430
+  },
+  {
+    "id": "survival_basic",
+    "name": "STR_MODE_TERRORIST_SURVIVAL",
+    "shortName": "STR_MODE_TERRORIST",
+    "desc": "STR_MODE_TERRORIST_SURVIVAL_DESC",
+    "bSurvival": true,
+    "bOnline": true,
+    "bTeam": false,
+    "ngId": 9429
+  },
+  {
+    "id": "survival_chaos",
+    "name": "STR_MODE_CHAOS_SURVIVAL",
+    "shortName": "STR_MODE_CHAOS",
+    "desc": "STR_MODE_CHAOS_SURVIVAL_DESC",
+    "bSurvival": true,
+    "bOnline": true,
+    "bTeam": false,
+    "ngId": 9431,
+    "cost": 1
+  },
+  {
+    "id": "survival_stakeout",
+    "name": "STR_MODE_STAKEOUT_SURVIVAL",
+    "shortName": "STR_MODE_STAKEOUT",
+    "desc": "STR_MODE_STAKEOUT_SURVIVAL_DESC",
+    "bSurvival": true,
+    "bOnline": true,
+    "bTeam": false,
+    "ngId": 9510,
+    "cost": 1
+  },
+  {
+    "id": "survival_pro",
+    "name": "STR_MODE_PRO_SURVIVAL",
+    "shortName": "STR_MODE_PRO",
+    "desc": "STR_MODE_PRO_SURVIVAL_DESC",
+    "bSurvival": true,
+    "bOnline": true,
+    "bTeam": false,
+    "ngId": 9887,
+    "cost": 10
+  },
+  {
+    "id": "op_elimination",
+    "name": "STR_MODE_OPERATION",
+    "desc": "STR_MODE_ELIMINATION_DESC",
+    "bSurvival": false,
+    "bOnline": false,
+    "bTeam": false,
+    "bOperation": true
+  },
+  {
+    "id": "op_bomb",
+    "name": "STR_MODE_OPERATION",
+    "desc": "STR_MODE_BOMB_DESC",
+    "bSurvival": false,
+    "bOnline": false,
+    "bTeam": false,
+    "bOperation": true
+  }
+]

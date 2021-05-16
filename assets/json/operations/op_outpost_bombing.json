@@ -1,0 +1,188 @@
+{
+  "id": "op_outpost_bombing",
+  "packId": "premium",
+  "info": {
+    "name": "STR_OP_WINTER_WONDERLAND",
+    "desc": "STR_OP_WINTER_WONDERLAND_DESC"
+  },
+  "requiredLevel": 1,
+  "rewards": [
+    {
+      "type": "xp",
+      "value": 1000
+    },
+    {
+      "type": "teeth",
+      "value": 1
+    }
+  ],
+  "gameData": {
+    "gameModeId": "op_bomb",
+    "mapId": "map_outpost",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+      "preGameTimer": 0,
+      "timeLimit": 5,
+      "filterType": "night",
+      "numBombs": 1
+    }
+  },
+  "data": {
+    "objects": [
+      {
+        "id": "bomb_0",
+        "type": "crate_bomb",
+        "team": 1,
+        "interactTeam": 0,
+        "position": [ 4550, 1181 ]
+      },
+      {
+        "type": "crate_item",
+        "itemId": "r700",
+        "position": [ 2450, 1250 ]
+      },
+      {
+        "type": "crate_killstreak",
+        "killstreakId": "sam_turret_place",
+        "position": [ 1450, 1160 ]
+      },
+      {
+        "type": "crate_ammo",
+        "position": [ 3120, 790 ]
+      },
+      {
+        "type": "crate_ammo",
+        "position": [ 450, 1350 ]
+      }
+    ],
+    "player": {
+      "position": [ 200, 1020 ],
+      "inventory": [
+        {
+          "id": "m16a4",
+          "mods": {
+            "ammo": "ammo_fmj",
+            "barrel": "barrel_silencer"
+          }
+        },
+        {
+          "id": "g18",
+          "ammo": 120,
+          "mods": {
+            "ammo": "ammo_fmj",
+            "barrel": "barrel_silencer"
+          }
+        }
+      ],
+      "equipment": "flashbang",
+      "equipmentAmmo": 2
+    },
+    "enemies": [
+      {
+        "type": "helicopter",
+        "helicopterType": "mh6_attack",
+        "position": [ 5000, 1000 ]
+      },
+      {
+        "type": "character",
+        "position": [ 900, 1700 ],
+        "style": "rus_generic",
+        "inventory": [ { "id": "ak47" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 150, 1580 ],
+            [ 2000, 1700 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1500, 1160 ],
+        "style": "rus_generic",
+        "inventory": [ { "id": "ak47" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 100, 1350 ],
+            [ 1500, 1160 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1645, 1160 ],
+        "style": "rus_generic",
+        "inventory": [ { "id": "ak47" } ],
+        "ai": { "bCamp": true }
+      },
+      {
+        "type": "character",
+        "position": [ 2785, 720 ],
+        "style": "rus_sniper",
+        "inventory": [ { "id": "r700" } ],
+        "ai": { "bCamp": true }
+      },
+      {
+        "type": "character",
+        "position": [ 4380, 1160 ],
+        "style": "rus_sniper",
+        "inventory": [ { "id": "r700" } ],
+        "ai": { "bCamp": true }
+      },
+      {
+        "type": "character",
+        "position": [ 2950, 1250 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "pecheneg" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3050, 1250 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "pecheneg" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 5000, 1350 ],
+        "style": "rus_generic",
+        "inventory": [ { "id": "ak47" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 5050, 1350 ],
+        "style": "rus_generic",
+        "inventory": [ { "id": "ak47" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 5800, 1040 ],
+        "style": "rus_generic",
+        "inventory": [ { "id": "ak47" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 5500, 1040 ],
+        "style": "rus_generic",
+        "inventory": [ { "id": "r700" } ],
+        "ai": { "bCamp": true }
+      },
+      {
+        "type": "character",
+        "position": [ 5800, 1350 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "ak47" } ],
+        "ai": { "bCamp": true }
+      }
+    ]
+  }
+}

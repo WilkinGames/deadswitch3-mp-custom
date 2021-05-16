@@ -1,0 +1,163 @@
+{
+  "id": "op_warehouse_dragonfires",
+  "packId": "pack1",
+  "bPremium": true,
+  "info": {
+    "name": "STR_OP_MYTHICAL",
+    "desc": "STR_OP_MYTHICAL_DESC"
+  },
+  "requiredLevel": 1,
+  "rewards": [
+    {
+      "type": "xp",
+      "value": 2000
+    },
+    {
+      "type": "teeth",
+      "value": 1
+    }
+  ],
+  "gameData": {
+    "gameModeId": "op_elimination",
+    "mapId": "map_warehouse",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+      "preGameTimer": 0,
+      "timeLimit": 5
+    }
+  },
+  "data": {
+    "objects": [
+      {
+        "type": "equipment",
+        "weaponId": "trophy",
+        "team": 1,
+        "position": [ 2000, 1555 ],
+        "scale": 1
+      },
+      {
+        "type": "equipment",
+        "weaponId": "trophy",
+        "team": 1,
+        "position": [ 1100, 1360 ],
+        "scale": 1
+      },
+      {
+        "type": "equipment",
+        "weaponId": "trophy",
+        "team": 1,
+        "position": [ 2900, 1360 ],
+        "scale": 1
+      },
+      {
+        "type": "equipment",
+        "weaponId": "trophy",
+        "team": 1,
+        "position": [ 700, 980 ],
+        "scale": 1
+      },
+      {
+        "type": "equipment",
+        "weaponId": "trophy",
+        "team": 1,
+        "position": [ 3300, 980 ],
+        "scale": 1
+      },
+      {
+        "type": "equipment",
+        "weaponId": "betty",
+        "team": 1,
+        "position": [ 1040, 1868 ],
+        "scale": 1
+      },
+      {
+        "type": "equipment",
+        "weaponId": "betty",
+        "team": 1,
+        "position": [ 2960, 1868 ],
+        "scale": 1
+      },
+      {
+        "type": "equipment",
+        "weaponId": "betty",
+        "team": 1,
+        "position": [ 1356, 1008 ],
+        "scale": 1
+      },
+      {
+        "type": "equipment",
+        "weaponId": "betty",
+        "team": 1,
+        "position": [ 2644, 1008 ],
+        "scale": 1
+      },
+      {
+        "type": "equipment",
+        "weaponId": "betty",
+        "team": 1,
+        "position": [ 707, 1393 ],
+        "scale": 1
+      },
+      {
+        "type": "equipment",
+        "weaponId": "betty",
+        "team": 1,
+        "position": [ 3293, 1393 ],
+        "scale": 1
+      }
+    ],
+    "player": {
+      "position": [ 2000, 1800 ],
+      "inventory": [
+        {
+          "id": "m1014",
+          "ammo": 70,
+          "mods": {
+            "barrel": "barrel_laser",
+            "ammo": "ammo_fmj"
+          }
+        },
+        {
+          "id": "thumper"
+        }
+      ],
+      "equipment": "c4",
+      "equipmentAmmo": 2
+    },
+    "enemies": [
+      {
+        "type": "helicopter",
+        "helicopterType": "dragonfire",
+        "position": [ 2000, 1500 ]
+      },
+      {
+        "type": "helicopter",
+        "helicopterType": "dragonfire",
+        "position": [ 2000, 1000 ]
+      },
+      {
+        "type": "helicopter",
+        "helicopterType": "dragonfire",
+        "position": [ 500, 1000 ]
+      },
+      {
+        "type": "helicopter",
+        "helicopterType": "dragonfire",
+        "position": [ 3500, 1000 ]
+      },
+      {
+        "type": "helicopter",
+        "helicopterType": "dragonfire",
+        "position": [ 1800, 500 ]
+      },
+      {
+        "type": "helicopter",
+        "helicopterType": "dragonfire",
+        "position": [ 2200, 500 ]
+      }
+    ]
+  }
+}

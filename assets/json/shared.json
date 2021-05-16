@@ -1,0 +1,633 @@
+{
+  "maxSurvivalMoney": 100000,
+  "smokeSize": 220,
+  "heliMaxY": 1300,
+  "ladderWidth": 20,
+  "perks": {
+    "fastReloadMultiplier": 1.8,
+    "ninjaClimbSpeedMultiplier": 1.5,
+    "ninjaCrouchSpeedMultiplier": 1,
+    "ninjaSprintSpeedMultiplier": 2.2
+  },
+  "character": {
+    "width": 40,
+    "height": 85,
+    "crouchHeight": 68,
+    "maxSpeed": 200,
+    "jumpHeight": 300,
+    "damping": 0.2,
+    "ladderCooldown": 10,
+    "climbDamping": 0.2,
+    "climbSpeedMultiplier": 1,
+    "fixedRotation": true,
+    "angularDamping": 1
+  },
+  "infestor": {
+    "width": 50,
+    "height": 66,
+    "crouchHeight": 60,
+    "maxSpeed": 300,
+    "jumpHeight": 350,
+    "damping": 0.2,
+    "ladderCooldown": 10,
+    "climbDamping": 0.2,
+    "climbSpeedMultiplier": 1,
+    "angularDamping": 0.99,
+    "fixedRotation": false
+  },
+  "infestor_king": {
+    "width": 80,
+    "height": 80,
+    "crouchHeight": 60,
+    "maxSpeed": 300,
+    "jumpHeight": 350,
+    "damping": 0.2,
+    "ladderCooldown": 10,
+    "climbDamping": 0.2,
+    "climbSpeedMultiplier": 0.8,
+    "angularDamping": 0.99,
+    "fixedRotation": false
+  },
+  "sandbags": {
+    "width": 20,
+    "height": 34
+  },
+  "sandbags_large": {
+    "width": 15,
+    "height": 50
+  },
+  "sandbags_edge": {
+    "width": 10,
+    "height": 46
+  },
+  "sandbags_tall": {
+    "width": 10,
+    "height": 62
+  },
+  "barrel_explosive": {
+    "width": 24,
+    "height": 42
+  },
+  "scavenger_pack": {
+    "width": 30,
+    "height": 12
+  },
+  "deployable_cover": {
+    "width": 10,
+    "height": 58
+  },
+  "mh6": {
+    "width": 200,
+    "height": 100
+  },
+  "mh6_attack": {
+    "width": 200,
+    "height": 100
+  },
+  "cobra": {
+    "width": 400,
+    "height": 100
+  },
+  "scout": {
+    "width": 500,
+    "height": 100
+  },
+  "blackhawk": {
+    "width": 700,
+    "height": 200
+  },
+  "blackhawk_sniper": {
+    "width": 700,
+    "height": 200
+  },
+  "dragonfire": {
+    "width": 90,
+    "height": 60
+  },
+  "pavelow": {
+    "width": 800,
+    "height": 250
+  },
+  "osprey": {
+    "width": 800,
+    "height": 280
+  },
+  "reaper": {
+    "width": 180,
+    "height": 66
+  },
+  "sentry": {
+    "width": 60,
+    "height": 45,
+    "damping": 0.9,
+    "angularDamping": 0.999
+  },
+  "sentry_upgraded": {
+    "width": 60,
+    "height": 45,
+    "damping": 0.9,
+    "angularDamping": 0.999
+  },
+  "sam": {
+    "width": 60,
+    "height": 40,
+    "damping": 0.9,
+    "angularDamping": 0.999
+  },
+  "remote_sentry": {
+    "width": 50,
+    "height": 25,
+    "damping": 0.9,
+    "angularDamping": 0.999,
+    "playerOffset": 35
+  },
+  "advanced_sentry": {
+    "width": 50,
+    "height": 40,
+    "damping": 0.9,
+    "angularDamping": 0.999,
+    "playerOffset": 35
+  },
+  "grenade_sentry": {
+    "width": 50,
+    "height": 40,
+    "damping": 0.9,
+    "angularDamping": 0.999,
+    "playerOffset": 35
+  },
+  "claymore": {
+    "width": 20,
+    "height": 10
+  },
+  "betty": {
+    "width": 50,
+    "height": 10
+  },
+  "c4": {
+    "width": 32,
+    "height": 10
+  },
+  "sensor": {
+    "width": 32,
+    "height": 10
+  },
+  "jammer": {
+    "width": 32,
+    "height": 10
+  },
+  "tac_insert": {
+    "width": 15,
+    "height": 6
+  },
+  "trophy": {
+    "width": 40,
+    "height": 38
+  },
+  "classes": [
+    {
+      "id": "default_0",
+      "bDefault": true,
+      "name": "STR_CLASS_ASSAULT",
+      "primary": {
+        "id": "mp7",
+        "mods": {
+          "base": null,
+          "barrel": "barrel_grip",
+          "ammo": null
+        }
+      },
+      "secondary": {
+        "id": "g18",
+        "mods": {
+          "base": null,
+          "barrel": null,
+          "ammo": null
+        }
+      },
+      "equipment": "flashbang",
+      "playerPerk": "perk_recovery",
+      "weaponPerk": "perk_reload",
+      "killstreak": "TYPE_ASSAULT"
+    },
+    {
+      "id": "default_1",
+      "bDefault": true,
+      "name": "STR_CLASS_MARKSMAN",
+      "primary": {
+        "id": "acr",
+        "mods": {
+          "base": null,
+          "barrel": "barrel_laser",
+          "ammo": null
+        }
+      },
+      "secondary": {
+        "id": "fiveseven",
+        "mods": {
+          "base": null,
+          "barrel": null,
+          "ammo": null
+        }
+      },
+      "equipment": "frag",
+      "playerPerk": "perk_health",
+      "weaponPerk": "perk_ammo",
+      "killstreak": "TYPE_ASSAULT"
+    },
+    {
+      "id": "default_2",
+      "bDefault": true,
+      "name": "STR_CLASS_CLOSE_QUARTERS",
+      "primary": {
+        "id": "m1014",
+        "mods": {
+          "base": null,
+          "barrel": null,
+          "ammo": "ammo_fmj"
+        }
+      },
+      "secondary": {
+        "id": "m1911",
+        "mods": {
+          "base": null,
+          "barrel": null,
+          "ammo": null
+        }
+      },
+      "equipment": "stun",
+      "playerPerk": "perk_lightweight",
+      "weaponPerk": "perk_aim",
+      "killstreak": "TYPE_ASSAULT"
+    },
+    {
+      "id": "default_7",
+      "bDefault": true,
+      "name": "STR_CLASS_DEFENDER",
+      "primary": {
+        "id": "scarh",
+        "mods": {
+          "base": null,
+          "barrel": null,
+          "ammo": "ammo_range"
+        }
+      },
+      "secondary": {
+        "id": "sr25",
+        "mods": {
+          "base": null,
+          "barrel": null,
+          "ammo": null
+        }
+      },
+      "equipment": "trophy",
+      "playerPerk": "perk_anti_sniper",
+      "weaponPerk": "perk_overkill",
+      "killstreak": "TYPE_ASSAULT"
+    },
+    {
+      "id": "default_3",
+      "bDefault": true,
+      "name": "STR_CLASS_SNIPER",
+      "primary": {
+        "id": "r700",
+        "mods": {
+          "base": "base_range",
+          "barrel": null,
+          "ammo": null
+        }
+      },
+      "secondary": {
+        "id": "usp45",
+        "mods": {
+          "base": null,
+          "barrel": null,
+          "ammo": null
+        }
+      },
+      "equipment": "sensor",
+      "playerPerk": "perk_ghost",
+      "weaponPerk": "perk_accuracy",
+      "killstreak": "TYPE_SUPPORT"
+    },
+    {
+      "id": "default_4",
+      "bDefault": true,
+      "name": "STR_CLASS_DEMOLITIONS",
+      "primary": {
+        "id": "ump45",
+        "mods": {
+          "base": null,
+          "barrel": "barrel_silencer",
+          "ammo": null
+        }
+      },
+      "secondary": {
+        "id": "thumper",
+        "mods": {
+          "base": null,
+          "barrel": null,
+          "ammo": null
+        }
+      },
+      "equipment": "c4",
+      "playerPerk": "perk_helmet",
+      "weaponPerk": "perk_power",
+      "killstreak": "TYPE_SUPPORT"
+    },
+    {
+      "id": "default_5",
+      "bDefault": true,
+      "name": "STR_CLASS_RIOT_CONTROL",
+      "primary": {
+        "id": "m3",
+        "mods": {
+          "base": null,
+          "barrel": "barrel_laser",
+          "ammo": null
+        }
+      },
+      "secondary": {
+        "id": "riot_shield",
+        "mods": {
+          "base": null,
+          "barrel": null,
+          "ammo": null
+        }
+      },
+      "equipment": "stim",
+      "playerPerk": "perk_ninja",
+      "weaponPerk": "perk_recon",
+      "killstreak": "TYPE_SUPPORT"
+    },
+    {
+      "id": "default_6",
+      "bDefault": true,
+      "name": "STR_CLASS_ANTI_AIR",
+      "primary": {
+        "id": "m60e4",
+        "mods": {
+          "base": null,
+          "barrel": null,
+          "ammo": "ammo_ap"
+        }
+      },
+      "secondary": {
+        "id": "smaw",
+        "mods": {
+          "base": null,
+          "barrel": null,
+          "ammo": null
+        }
+      },
+      "equipment": "smoke",
+      "playerPerk": "perk_cold_blooded",
+      "weaponPerk": "perk_shrapnel",
+      "killstreak": "TYPE_SUPPORT"
+    }
+  ],
+  "maxPlayers": {
+    "battlezone": 8,
+    "sandbox": 2,
+    "deathmatch": 8,
+    "gun_game": 8,
+    "infected": 8,
+    "team_deathmatch": 8,
+    "domination": 8,
+    "capture_the_flag": 8,
+    "defender": 8,
+    "demolition": 8,
+    "headquarters": 8,
+    "survival_basic": 4,
+    "survival_undead": 4,
+    "survival_chaos": 4,
+    "survival_stakeout": 4,
+    "survival_pro": 6,
+    "mode_operation": 2,
+    "mode_random": 8,
+    "auto": 10,
+    "mode_hardcore": 6,
+    "mode_ground_war": 10,
+    "mode_rotation_team": 8,
+    "mode_rotation_community": 8,
+    "mode_rotation_survival": 4
+  },
+  "ammoCost": {
+    "flame": 10,
+    "38": 15,
+    "44": 15,
+    "57": 2,
+    "338": 25,
+    "357": 15,
+    "408": 100,
+    "tazer": 50,
+    "12g": 12,
+    "9mm": 1,
+    "4mm": 1,
+    "556mm": 2,
+    "68mm": 2,
+    "545mm_39": 3,
+    "762mm": 5,
+    "762mm_39": 4,
+    "762mm_54": 4,
+    "50bmg": 100,
+    "45acp": 2,
+    "50cal": 15,
+    "300aac": 2,
+    "rocket": 200,
+    "rocket_smaw": 300,
+    "rocket_heat": 500,
+    "grenade": 150,
+    "grenade_stun": 250,
+    "grenade_flash": 250
+  },
+  "rotations": {
+    "mode_hardcore": [ "deathmatch", "team_deathmatch", "domination", "capture_the_flag", "defender", "demolition", "headquarters" ],
+    "mode_ground_war": [ "team_deathmatch", "domination", "capture_the_flag", "defender", "demolition", "headquarters" ],
+    "mode_rotation_team": [ "team_deathmatch", "domination", "capture_the_flag", "defender", "demolition", "headquarters" ],
+    "mode_rotation_community": [ "headquarters", "demolition", "deathmatch", "gun_game", "infected" ],
+    "mode_rotation_survival": [ "survival_undead", "survival_basic", "survival_chaos", "survival_stakeout" ]
+  },
+  "defaultGameSettings": {
+    "battlezone": {
+      "bRanked": true,
+      "bNoClasses": true,
+      "bKillstreaks": false,
+      "bAllowRespawns": true,
+      "bSpawnProtection": true,
+      "timeLimit": 15,
+      "respawnTime": 10
+    },
+    "sandbox": {
+      "bNoClasses": true,
+      "bKillstreaks": false,
+      "bAllowRespawns": true,
+      "bSpawnProtection": true,
+      "timeLimit": 0,
+      "respawnTime": 5,
+      "preGameTimer": 0
+    },
+    "deathmatch": {
+      "bRanked": true,
+      "bKillstreaks": true,
+      "bAllowRespawns": true,
+      "bSpawnProtection": true,
+      "timeLimit": 10,
+      "scoreLimit": 30,
+      "respawnTime": 5
+    },
+    "gun_game": {
+      "bRanked": true,
+      "bDroppedWeapons": false,
+      "bKillstreaks": false,
+      "bAllowRespawns": true,
+      "bNoClasses": true,
+      "bSpawnProtection": true,
+      "timeLimit": 10,
+      "killsPerGun": 2,
+      "bReverse": false,
+      "respawnTime": 5
+    },
+    "infected": {
+      "bRanked": true,
+      "bDroppedWeapons": false,
+      "bKillstreaks": false,
+      "bAllowRespawns": true,
+      "bNoClasses": true,
+      "bSpawnProtection": true,
+      "timeLimit": 5,
+      "respawnTime": 5
+    },
+    "team_deathmatch": {
+      "bRanked": true,
+      "bKillstreaks": true,
+      "bAllowRespawns": true,
+      "bSpawnProtection": true,
+      "bAutoBalance": true,
+      "timeLimit": 10,
+      "scoreLimit": 60,
+      "respawnTime": 5,
+      "factions": [
+        "usmc",
+        "opfor"
+      ]
+    },
+    "domination": {
+      "bRanked": true,
+      "bKillstreaks": true,
+      "bAllowRespawns": true,
+      "bSpawnProtection": true,
+      "bAutoBalance": true,
+      "timeLimit": 10,
+      "scoreLimit": 300,
+      "respawnTime": 5,
+      "factions": [
+        "usmc",
+        "opfor"
+      ]
+    },
+    "capture_the_flag": {
+      "bRanked": true,
+      "bKillstreaks": true,
+      "bAllowRespawns": true,
+      "bSpawnProtection": true,
+      "bAutoBalance": true,
+      "timeLimit": 10,
+      "scoreLimit": 3,
+      "respawnTime": 5,
+      "factions": [
+        "usmc",
+        "opfor"
+      ]
+    },
+    "defender": {
+      "bRanked": true,
+      "bKillstreaks": true,
+      "bAllowRespawns": true,
+      "bSpawnProtection": true,
+      "bAutoBalance": true,
+      "timeLimit": 10,
+      "scoreLimit": 100,
+      "respawnTime": 5,
+      "factions": [
+        "usmc",
+        "opfor"
+      ]
+    },
+    "demolition": {
+      "bRanked": true,
+      "bKillstreaks": true,
+      "bAllowRespawns": true,
+      "bSpawnProtection": true,
+      "bAutoBalance": true,
+      "bUseRoundThreshold": true,
+      "numRounds": 5,
+      "timeLimit": 2.5,
+      "scoreLimit": 5,
+      "respawnTime": 5,
+      "bombTimerMax": 60,
+      "factions": [
+        "usmc",
+        "opfor"
+      ]
+    },
+    "headquarters": {
+      "bRanked": true,
+      "bKillstreaks": true,
+      "bAllowRespawns": true,
+      "bSpawnProtection": true,
+      "bAutoBalance": true,
+      "numRounds": 5,
+      "timeLimit": 2.5,
+      "scoreLimit": 100,
+      "respawnTime": 5,
+      "factions": [
+        "usmc",
+        "opfor"
+      ]
+    },
+    "survival_basic": {
+      "bKillstreaks": false,
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+      "preGameTimer": 0
+    },
+    "survival_undead": {
+      "bKillstreaks": false,
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+      "preGameTimer": 0
+    },
+    "survival_chaos": {
+      "bKillstreaks": false,
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+      "preGameTimer": 0
+    },
+    "survival_pro": {
+      "bKillstreaks": false,
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+      "preGameTimer": 0
+    },
+    "survival_stakeout": {
+      "bKillstreaks": false,
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+      "preGameTimer": 0
+    },
+    "mode_operation": {
+      "bKillstreaks": false,
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+      "difficulty": 1
+    },
+    "mode_random": {
+      "bKillstreaks": true,
+      "bAllowRespawns": true,
+      "bSpawnProtection": true,
+      "bAutoBalance": true,
+      "timeLimit": 10,
+      "respawnTime": 5
+    }
+  }
+}

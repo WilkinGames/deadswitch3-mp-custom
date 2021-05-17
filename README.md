@@ -28,10 +28,13 @@ Install the required dependencies:
 Start the server:
 `npm start`
 
-## Connecting to the Server
-First, enable the `Use Custom Server` in-game. 
+To update the server code to the latest:
+`git pull`
 
-Enter the custom server URL you are using (the default is `localhost:8081`). 
+## Connecting to the Server
+First, enable the `Use Custom Server` setting in-game. 
+
+Enter the `Custom Server URL` you are using (the default is `localhost:8081`). 
 
 ## Additional Details
 You can test and view the current server stats by visiting the server URL in your browser.

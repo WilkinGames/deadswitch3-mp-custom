@@ -37,3 +37,5 @@ Enter the custom server URL you are using (the default is `localhost:8081`).
 You can test and view the current server stats by visiting the server URL in your browser.
 
 `Ranked > Multiplayer` will now connect to this custom server URL. Simply disable `Use Custom Server` to revert back to the public server list.
+
+Note that access to Deadswitch 3 accounts and clans is disabled for custom servers for security reasons.

@@ -3,8 +3,16 @@
 ## Overview
 This repository allows you to host your own Deadswitch 3 multiplayer server.
 
+Hosting your own Deadswitch 3 multiplayer server is easy to do. The entire process only takes about 5 minutes.
+
+It's recommended to have a basic understanding of command line use and git.
+
+Decide on where you want to install and run the server. You can host it on your local machine for LAN play or on an external cloud service like Heroku, Google Cloud, AWS, etc. These services typically provide free tiers that don't have any costs.
+
 ## Requirements
 You will need Node.js installed on the machine you wish to host the server on. Node.js is free and easy to install.
+
+Note: It's recommended to have access to at least 1 CPU and 2GB of RAM on the machine the server is running on. These requirements scale as the number of concurrent games in progress grows.
 
 ### Node.js: Linux Installation
 
@@ -25,6 +33,8 @@ Visit the Node.js website for installation instructions: https://nodejs.org/en/d
 To verify you have Node.js v14 installed: `node -v`
 
 ## Hosting
+
+You can either host on your local PC or an external service.
 
 ### Hosting on Local PC
 If you wish to host the server on your local PC, make sure you have Node.js installed. 
@@ -48,7 +58,29 @@ Install the required dependencies:
 Start the Deadswitch 3 multiplayer server:
 `npm start`
 
-## Updates
+If the server was successfully started, you should see the following output at the end:
+
+`Listening on IPv6 :::8081`
+
+## Connecting to the Server
+
+Once the server is running, players can now connect. The server runs on port `8081` by default.
+
+First, enable the `Use Custom Server` setting in-game. 
+
+Enter the `Custom Server URL` the server is running on.
+
+**For local machines:** If you are hosting the server on your local PC, use the default (`localhost:8081`).
+
+**For external services:** Enter your external server IP address. Remember to include the port `8081` if necessary (for example `192.1.1.1:8081`).
+
+`Ranked > Multiplayer` will now connect to the custom server URL you have specified. Simply turn off the `Use Custom Server` setting to revert back to using the public server list.
+
+## Additional Details
+
+Note that access to clans and the leaderboards is not available when using a custom multiplayer server for security reasons.
+
+## Server Updates
 
 Server updates are frequently released. You'll need to stop and restart the server in order for changes to take effect.
 
@@ -57,15 +89,3 @@ To update the server code to the latest:
 
 Then start the server again:
 `npm start`
-
-## Connecting to the Server
-First, enable the `Use Custom Server` setting in-game. 
-
-Enter the `Custom Server URL` you are using (the default is `localhost:8081`). This will typically be the server IP address.
-
-## Additional Details
-You can test and view the current server stats by visiting the server URL in your browser.
-
-`Ranked > Multiplayer` will now connect to this custom server URL. Simply disable `Use Custom Server` to revert back to the public server list.
-
-Note that access to Deadswitch 3 accounts and clans is disabled for custom servers for security reasons.

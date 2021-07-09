@@ -32,7 +32,9 @@ Visit the Node.js website for installation instructions: https://nodejs.org/en/d
 
 ### Verify Node.js Version
 
-To verify you have Node.js v14 installed: `node -v`
+To verify you have Node.js v14 installed: 
+
+`node -v`
 
 ## Hosting
 
@@ -52,12 +54,15 @@ You can use a free/cheap Node.js app service to host the multiplayer server whic
 Navigate to the directory in which you wish to install the Deadswitch 3 multiplayer server.
 
 Clone this repository:
+
 `git clone https://github.com/XWILKINX/ds3mp-custom`
 
 Install the required dependencies:
+
 `npm install`
 
 Start the Deadswitch 3 multiplayer server:
+
 `npm start`
 
 If the server was successfully started, you should see the following output at the end:
@@ -89,7 +94,9 @@ Note that access to clans and the leaderboards is not available when using a cus
 Server updates are frequently released. You'll need to stop and restart the server in order for changes to take effect.
 
 To update the server code to the latest:
+
 `git pull`
 
 Then start the server again:
+
 `npm start`

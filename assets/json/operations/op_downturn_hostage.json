@@ -1,0 +1,249 @@
+{
+  "id": "op_downturn_hostage",
+  "info": {
+    "name": "STR_OP_DOWNTURN_RESCUE",
+    "desc": "STR_MODE_RESCUE_DESC_A"
+  },
+  "rewards": [
+  ],
+  "gameData": {
+    "gameModeId": "op_hostage",
+    "mapId": "map_downturn",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+      "preGameTimer": 0,
+      "timeLimit": 5,
+      "filterType": "night",
+      "numHostages": 2,
+      "rescueZone": [7080, 1100]
+    }
+  },
+  "data": {
+    "objects": [
+      {
+        "type": "hostage",
+        "position": [ 900, 1251 ],
+        "team": 1
+      },
+      {
+        "type": "hostage",
+        "position": [ 2602, 1271 ],
+        "team": 1
+      },
+      {
+        "type": "crate_killstreak",
+        "position": [ 5420, 1117 ],
+        "killstreakId": "sam_turret_place"
+      },
+      {
+        "type": "droppedWeapon",
+        "position": [ 7300, 1840 ],
+        "weaponId": "m3",
+        "options": {
+          "mods": {
+            "ammo": "ammo_fmj"
+          }
+        }
+      },
+      {
+        "type": "droppedWeapon",
+        "position": [ 7400, 1840 ],
+        "weaponId": "g36c",
+        "options": {
+          "mods": {
+            "barrel": "barrel_laser",
+            "ammo": "ammo_fmj"
+          }
+        }
+      }
+    ],
+    "player": {
+      "position": [ 7200, 1840 ],
+      "inventory": [
+        {
+          "id": "mp5",
+          "mods": {
+            "base": "base_burst_fire",
+            "barrel": "barrel_silencer",
+            "barrel2": "barrel_laser"
+          }
+        },
+        {
+          "id": "maxim9",
+          "mods": {
+            "barrel": "barrel_laser"
+          }
+        }
+      ],
+      "equipment": "flashbang",
+      "equipmentAmmo": 2
+    },
+    "enemies": [
+      {
+        "type": "helicopter",
+        "helicopterType": "mh6_attack",
+        "position": [ 4000, 800 ]
+      },
+      {
+        "type": "turret",
+        "position": [ 1200, 1800 ],
+        "team": 1,
+        "scale": 1,
+        "turretData": {
+          "type": "sentry",
+          "bUnlimitedAmmo": true
+        }
+      },
+      {
+        "type": "turret",
+        "position": [ 4000, 1840 ],
+        "team": 1,
+        "scale": 1,
+        "turretData": {
+          "type": "sentry",
+          "bUnlimitedAmmo": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2300, 1280 ],
+        "style": "rus_generic",
+        "inventory": [ { "id": "ak47" } ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2900, 1280 ],
+        "style": "rus_generic",
+        "inventory": [ { "id": "ak47" } ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1154, 1267 ],
+        "style": "rus_heavy",
+        "health": 600,
+        "inventory": [ { "id": "pecheneg" } ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2908, 1845 ],
+        "style": "rus_heavy",
+        "health": 600,
+        "inventory": [ { "id": "pecheneg" } ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1154, 1118 ],
+        "style": "rus_sniper",
+        "inventory": [
+          {
+            "id": "r700",
+            "mods": { "base": "base_range" }
+          }
+        ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 6830, 1118 ],
+        "style": "rus_sniper",
+        "inventory": [
+          {
+            "id": "r700",
+            "mods": { "base": "base_range" }
+          }
+        ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4140, 1444 ],
+        "style": "rus_sniper",
+        "inventory": [
+          {
+            "id": "dragunov",
+            "mods": { "base": "base_range" }
+          }
+        ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 5200, 1265 ],
+        "style": "rus_heavy",
+        "health": 300,
+        "inventory": [ { "id": "m1014" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 5500, 1265 ],
+        "style": "rus_heavy",
+        "health": 300,
+        "inventory": [ { "id": "m1014" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 1020, 1810 ],
+        "style": "rus_heavy",
+        "health": 300,
+        "inventory": [ { "id": "m1014" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 900, 1425 ],
+        "style": "rus_generic",
+        "inventory": [ { "id": "ak47" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 2670, 1432 ],
+            [ 650, 1432 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 7100, 1425 ],
+        "style": "rus_generic",
+        "inventory": [ { "id": "ak47" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 5330, 1432 ],
+            [ 7350, 1432 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4000, 1640 ],
+        "style": "rus_generic",
+        "inventory": [ { "id": "ak47" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 3350, 1678 ],
+            [ 4650, 1678 ]
+          ]
+        }
+      }
+    ]
+  }
+}

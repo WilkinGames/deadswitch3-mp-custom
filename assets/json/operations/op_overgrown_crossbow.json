@@ -1,0 +1,153 @@
+{
+  "id": "op_overgrown_crossbow",
+  "packId": "pack2",
+  "info": {
+    "name": "STR_OP_HUNTER",
+    "desc": "STR_OP_HUNTER_DESC"
+  },
+  "requiredLevel": 1,
+  "rewards": [],
+  "gameData": {
+    "gameModeId": "op_elimination",
+    "mapId": "map_overgrown",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+      "preGameTimer": 0,
+      "timeLimit": 5,
+      "filterType": "night"
+    }
+  },
+  "data": {
+    "objects": [
+    ],
+    "player": {
+      "position": [ 200, 1430 ],
+      "inventory": [
+        {
+          "id": "crossbow",
+          "ammo": 20,
+          "mods": {
+            "base": "base_speed"
+          }
+        }
+      ],
+      "equipment": null,
+      "equipmentAmmo": 0
+    },
+    "enemies": [
+      {
+        "type": "character",
+        "position": [ 4000, 1200 ],
+        "preset": "zombie_sprinter_boss",
+        "ai": {
+          "patrolPoints": [
+            [ 800, 1428 ],
+            [ 7200, 1428 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3800, 1200 ],
+        "preset": "zombie_sprinter",
+        "ai": {
+          "patrolPoints": [
+            [ 800, 1428 ],
+            [ 7200, 1428 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4200, 1200 ],
+        "preset": "zombie_sprinter",
+        "ai": {
+          "patrolPoints": [
+            [ 800, 1428 ],
+            [ 7200, 1428 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4000, 800 ],
+        "preset": "zombie_sprinter",
+        "ai": {
+          "patrolPoints": [
+            [ 800, 1428 ],
+            [ 7200, 1428 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 900, 1770 ],
+        "preset": "zombie_sprinter_boss",
+        "ai": {
+          "patrolPoints": [
+            [ 2880, 1770 ],
+            [ 900, 1770 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1000, 1770 ],
+        "preset": "zombie_sprinter",
+        "ai": {
+          "patrolPoints": [
+            [ 2880, 1770 ],
+            [ 900, 1770 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4000, 1036 ],
+        "preset": "zombie_sprinter",
+        "ai": {
+          "patrolPoints": [
+            [ 4700, 1036 ],
+            [ 3300, 1036 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4000, 1036 ],
+        "preset": "zombie_sprinter",
+        "ai": {
+          "patrolPoints": [
+            [ 4700, 1036 ],
+            [ 3300, 1036 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 5616, 1680 ],
+        "preset": "zombie_sprinter",
+        "ai": {
+          "patrolPoints": [
+            [ 4000, 1631 ],
+            [ 7175, 1769 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 5200, 1680 ],
+        "preset": "zombie_sprinter_boss",
+        "ai": {
+          "patrolPoints": [
+            [ 4000, 1631 ],
+            [ 7175, 1769 ]
+          ]
+        }
+      }
+    ]
+  }
+}

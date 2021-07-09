@@ -2,7 +2,7 @@
   "maxSurvivalMoney": 100000,
   "smokeSize": 220,
   "heliMaxY": 1300,
-  "ladderWidth": 20,
+  "ladderWidth": 24,
   "perks": {
     "fastReloadMultiplier": 1.8,
     "ninjaClimbSpeedMultiplier": 1.5,
@@ -16,7 +16,7 @@
     "maxSpeed": 200,
     "jumpHeight": 300,
     "damping": 0.2,
-    "ladderCooldown": 10,
+    "ladderCooldown": 30,
     "climbDamping": 0.2,
     "climbSpeedMultiplier": 1,
     "fixedRotation": true,
@@ -29,7 +29,7 @@
     "maxSpeed": 300,
     "jumpHeight": 350,
     "damping": 0.2,
-    "ladderCooldown": 10,
+    "ladderCooldown": 30,
     "climbDamping": 0.2,
     "climbSpeedMultiplier": 1,
     "angularDamping": 0.99,
@@ -42,7 +42,7 @@
     "maxSpeed": 300,
     "jumpHeight": 350,
     "damping": 0.2,
-    "ladderCooldown": 10,
+    "ladderCooldown": 30,
     "climbDamping": 0.2,
     "climbSpeedMultiplier": 0.8,
     "angularDamping": 0.99,
@@ -397,6 +397,8 @@
     "defender": 8,
     "demolition": 8,
     "headquarters": 8,
+    "escort": 8,
+    "rescue": 8,
     "survival_basic": 4,
     "survival_undead": 4,
     "survival_chaos": 4,
@@ -405,6 +407,7 @@
     "mode_operation": 2,
     "mode_random": 8,
     "auto": 10,
+    "mode_combat_training": 8,
     "mode_hardcore": 6,
     "mode_ground_war": 10,
     "mode_rotation_team": 8,
@@ -412,6 +415,7 @@
     "mode_rotation_survival": 4
   },
   "ammoCost": {
+    "arrow": 100,
     "flame": 10,
     "38": 15,
     "44": 15,
@@ -441,10 +445,11 @@
     "grenade_flash": 250
   },
   "rotations": {
-    "mode_hardcore": [ "deathmatch", "team_deathmatch", "domination", "capture_the_flag", "defender", "demolition", "headquarters" ],
-    "mode_ground_war": [ "team_deathmatch", "domination", "capture_the_flag", "defender", "demolition", "headquarters" ],
-    "mode_rotation_team": [ "team_deathmatch", "domination", "capture_the_flag", "defender", "demolition", "headquarters" ],
-    "mode_rotation_community": [ "headquarters", "demolition", "deathmatch", "gun_game", "infected" ],
+    "mode_combat_training": [ "deathmatch", "team_deathmatch", "domination", "capture_the_flag", "defender", "demolition", "headquarters", "escort", "rescue" ],
+    "mode_hardcore": [ "deathmatch", "team_deathmatch", "domination", "capture_the_flag", "defender", "demolition", "headquarters", "escort", "rescue" ],
+    "mode_ground_war": [ "team_deathmatch", "domination", "capture_the_flag", "defender", "demolition", "headquarters", "escort", "rescue" ],
+    "mode_rotation_team": [ "team_deathmatch", "domination", "capture_the_flag", "defender", "demolition", "headquarters", "escort", "rescue" ],
+    "mode_rotation_community": [ "deathmatch", "gun_game", "infected" ],
     "mode_rotation_survival": [ "survival_undead", "survival_basic", "survival_chaos", "survival_stakeout" ]
   },
   "defaultGameSettings": {
@@ -454,8 +459,8 @@
       "bKillstreaks": false,
       "bAllowRespawns": true,
       "bSpawnProtection": true,
-      "timeLimit": 15,
-      "respawnTime": 10
+      "timeLimit": 10,
+      "respawnTime": 5
     },
     "sandbox": {
       "bNoClasses": true,
@@ -585,6 +590,36 @@
         "opfor"
       ]
     },
+    "escort": {
+      "bRanked": true,
+      "bKillstreaks": false,
+      "bAllowRespawns": true,
+      "bSpawnProtection": true,
+      "bUseRoundThreshold": true,
+      "numRounds": 5,
+      "timeLimit": 2.5,
+      "scoreLimit": 5,
+      "respawnTime": 5,
+      "factions": [
+        "usmc",
+        "opfor"
+      ]
+    },
+    "rescue": {
+      "bRanked": true,
+      "bKillstreaks": false,
+      "bAllowRespawns": true,
+      "bSpawnProtection": true,
+      "bUseRoundThreshold": true,
+      "numRounds": 5,
+      "timeLimit": 5,
+      "scoreLimit": 5,
+      "respawnTime": 5,
+      "factions": [
+        "usmc",
+        "opfor"
+      ]
+    },
     "survival_basic": {
       "bKillstreaks": false,
       "bAllowRespawns": false,
@@ -620,6 +655,13 @@
       "bAllowRespawns": false,
       "bSpawnProtection": false,
       "difficulty": 1
+    },
+    "mode_hardcore": {
+      "bKillstreaks": true,
+      "bAllowRespawns": true,
+      "bSpawnProtection": true,
+      "timeLimit": 10,
+      "respawnTime": 5
     },
     "mode_random": {
       "bKillstreaks": true,

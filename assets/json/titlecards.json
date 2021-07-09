@@ -47,6 +47,11 @@
   "c4",
   "fmj",
   "hollow_point",
+  "wave10",
+  "wave20",
+  "wave30",
+  "wave40",
+  "wave50",
   "fist_1",
   "fist_2",
   "fist_3",
@@ -67,6 +72,7 @@
   "frog",
   "potato",
   "lemon",
+  "giraffe",
   "scientist",
   "shinobi_1",
   "shinobi_2",
@@ -87,5 +93,6 @@
   "dinogen_arena",
   "twp2",
   "dummy_1",
-  "dummy_2"
+  "dummy_2",
+  "ae"
 ]

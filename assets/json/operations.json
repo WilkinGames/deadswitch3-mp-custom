@@ -33,5 +33,14 @@
   "op_downturn_explosive",
   "op_riverside_katana",
   "op_warehouse_fists",
-  "op_district_fire"
+  "op_district_fire",
+  "op_warehouse_shovels",
+  "op_overgrown_infestors",
+  "op_outpost_zombies",
+  "op_district_hostage",
+  "op_estate_hostage",
+  "op_downturn_hostage",
+  "op_riverside_hostage",
+  "op_overgrown_crossbow",
+  "op_airport_hostage"
 ]

@@ -1,13 +1,13 @@
 [
   {
-    "id": "a",
-    "name": "STR_STANDARD",
+    "id": "vox_none",
+    "name": "STR_SILENT",
     "type": "voice",
     "cost": 0
   },
   {
-    "id": "vox_none",
-    "name": "STR_SILENT",
+    "id": "a",
+    "name": "STR_STANDARD",
     "type": "voice",
     "cost": 0
   },
@@ -15,7 +15,7 @@
     "id": "b",
     "name": "STR_SPEC_OPS",
     "type": "voice",
-    "cost": 5,
+    "cost": 10,
     "unlockLevel": 10,
     "bPremium": true
   },
@@ -23,7 +23,7 @@
     "id": "uk",
     "name": "STR_FACTION_MILITIA",
     "type": "voice",
-    "cost": 5,
+    "cost": 10,
     "unlockLevel": 10,
     "bPremium": true
   },
@@ -31,7 +31,7 @@
     "id": "ru",
     "name": "STR_FACTION_SPETSNAZ",
     "type": "voice",
-    "cost": 5,
+    "cost": 10,
     "unlockLevel": 10,
     "bPremium": true
   },
@@ -39,7 +39,7 @@
     "id": "r",
     "name": "STR_RADIO",
     "type": "voice",
-    "cost": 5,
+    "cost": 10,
     "unlockLevel": 5,
     "bPremium": true
   },
@@ -47,7 +47,7 @@
     "id": "vox_zombie",
     "name": "STR_ZOMBIE",
     "type": "voice",
-    "cost": 10,
+    "cost": 20,
     "bPremium": true,
     "unlockLevel": 30
   },
@@ -61,13 +61,13 @@
     "id": "eyewear0002",
     "name": "STR_EYEWEAR_GLASSES",
     "type": "eyewear",
-    "cost": 1
+    "cost": 2
   },
   {
     "id": "eyewear0001",
     "name": "STR_EYEWEAR_SHADES",
     "type": "eyewear",
-    "cost": 1
+    "cost": 2
   },
   {
     "id": "eyewear0005",
@@ -87,7 +87,7 @@
     "id": "eyewear0003",
     "name": "STR_EYEWEAR_GOGGLES_YELLOW",
     "type": "eyewear",
-    "cost": 3,
+    "cost": 5,
     "bPremium": true,
     "unlockLevel": 44
   },
@@ -95,7 +95,7 @@
     "id": "eyewear0004",
     "name": "STR_EYEWEAR_GOGGLES_ORANGE",
     "type": "eyewear",
-    "cost": 3,
+    "cost": 5,
     "bPremium": true,
     "unlockLevel": 44
   },
@@ -103,7 +103,7 @@
     "id": "eyewear0007",
     "name": "STR_EYEWEAR_GOGGLES_RED",
     "type": "eyewear",
-    "cost": 3,
+    "cost": 5,
     "bPremium": true,
     "unlockLevel": 44
   },
@@ -111,7 +111,7 @@
     "id": "eyewear0008",
     "name": "STR_EYEWEAR_GOGGLES_GREEN",
     "type": "eyewear",
-    "cost": 3,
+    "cost": 5,
     "bPremium": true,
     "unlockLevel": 44
   },
@@ -119,7 +119,7 @@
     "id": "eyewear0009",
     "name": "STR_EYEWEAR_GOGGLES_BLUE",
     "type": "eyewear",
-    "cost": 3,
+    "cost": 5,
     "bPremium": true,
     "unlockLevel": 44
   },
@@ -135,14 +135,14 @@
     "type": "facewear",
     "bHideHair": true,
     "bHideBeard": true,
-    "cost": 1
+    "cost": 2
   },
   {
     "id": "facewear0010",
     "name": "STR_FACEWEAR_GAITER",
     "type": "facewear",
     "bHideBeard": true,
-    "cost": 1
+    "cost": 2
   },
   {
     "id": "facewear0011",
@@ -150,7 +150,7 @@
     "type": "facewear",
     "bHideBeard": true,
     "factions": [ "militia" ],
-    "cost": 1
+    "cost": 2
   },
   {
     "id": "facewear0002",
@@ -168,7 +168,7 @@
     "bHideHair": true,
     "bHideBeard": true,
     "factions": [ "opfor" ],
-    "cost": 1
+    "cost": 2
   },
   {
     "id": "facewear0005",
@@ -176,7 +176,7 @@
     "type": "facewear",
     "bHideHair": true,
     "bHideBeard": true,
-    "cost": 1
+    "cost": 2
   },
   {
     "id": "facewear0006",
@@ -185,8 +185,17 @@
     "factions": [ "rus" ],
     "bHideHair": true,
     "bHideBeard": true,
-    "cost": 1,
+    "cost": 2,
     "unlockLevel": 20
+  },
+  {
+    "id": "facewear0027",
+    "name": "STR_FACEWEAR_RED_SCARF",
+    "type": "facewear",
+    "bHideHair": true,
+    "bHideBeard": true,
+    "cost": 5,
+    "unlockLevel": 30
   },
   {
     "id": "facewear0007",
@@ -194,7 +203,7 @@
     "type": "facewear",
     "bHideBeard": true,
     "factions": [ "militia" ],
-    "cost": 1
+    "cost": 2
   },
   {
     "id": "facewear0008",
@@ -202,7 +211,7 @@
     "type": "facewear",
     "bHideHair": true,
     "bHideBeard": true,
-    "cost": 3,
+    "cost": 5,
     "unlockLevel": 32
   },
   {
@@ -323,7 +332,7 @@
     "type": "facewear",
     "bHideHair": true,
     "bHideBeard": true,
-    "cost": 5,
+    "cost": 10,
     "bPremium": true,
     "unlockLevel": 46
   },
@@ -333,7 +342,17 @@
     "type": "facewear",
     "bHideHair": true,
     "bHideBeard": true,
-    "cost": 10,
+    "cost": 15,
+    "bPremium": true,
+    "unlockLevel": 50
+  },
+  {
+    "id": "facewear0028",
+    "name": "STR_FACEWEAR_TWOPLAYER_RED",
+    "type": "facewear",
+    "bHideHair": true,
+    "bHideBeard": true,
+    "cost": 15,
     "bPremium": true,
     "unlockLevel": 50
   },
@@ -355,14 +374,14 @@
     "id": "melee_knife",
     "name": "STR_WPN_COMBAT_KNIFE",
     "type": "melee",
-    "cost": 1,
+    "cost": 2,
     "unlockLevel": 2
   },
   {
     "id": "melee_bowie",
     "name": "STR_WPN_BOWIE_KNIFE",
     "type": "melee",
-    "cost": 2,
+    "cost": 3,
     "bPremium": true,
     "unlockLevel": 15
   },
@@ -370,7 +389,7 @@
     "id": "melee_hatchet",
     "name": "STR_WPN_HATCHET",
     "type": "melee",
-    "cost": 3,
+    "cost": 5,
     "bPremium": true,
     "unlockLevel": 29
   },
@@ -378,7 +397,7 @@
     "id": "melee_machete",
     "name": "STR_WPN_MACHETE",
     "type": "melee",
-    "cost": 3,
+    "cost": 5,
     "bPremium": true,
     "unlockLevel": 34
   },
@@ -386,7 +405,7 @@
     "id": "melee_katana",
     "name": "STR_WPN_KATANA",
     "type": "melee",
-    "cost": 4,
+    "cost": 10,
     "bPremium": true,
     "unlockLevel": 40
   },
@@ -394,13 +413,33 @@
     "id": "melee_crowbar",
     "name": "STR_WPN_CROWBAR",
     "type": "melee",
-    "cost": 5,
+    "cost": 10,
     "bPremium": true,
     "unlockLevel": 42
   },
   {
+    "id": "melee_shovel",
+    "name": "STR_WPN_SHOVEL",
+    "type": "melee",
+    "cost": 10,
+    "bPremium": true,
+    "unlockLevel": 50
+  },
+  {
     "id": "face0000",
     "name": "STR_MALE",
+    "type": "face",
+    "cost": 0
+  },
+  {
+    "id": "face0010",
+    "name": "STR_TONED_1",
+    "type": "face",
+    "cost": 0
+  },
+  {
+    "id": "face0011",
+    "name": "STR_TONED_2",
     "type": "face",
     "cost": 0
   },
@@ -414,7 +453,7 @@
     "id": "face0001",
     "name": "STR_ZOMBIE",
     "type": "face",
-    "cost": 5,
+    "cost": 10,
     "unlockLevel": 5,
     "bPremium": true
   },
@@ -422,7 +461,7 @@
     "id": "face0005",
     "name": "STR_FAT_ZOMBIE",
     "type": "face",
-    "cost": 5,
+    "cost": 10,
     "unlockLevel": 10,
     "bPremium": true
   },
@@ -430,7 +469,7 @@
     "id": "face0008",
     "name": "STR_SPRINTER_ZOMBIE",
     "type": "face",
-    "cost": 5,
+    "cost": 10,
     "unlockLevel": 15,
     "bPremium": true
   },
@@ -438,7 +477,7 @@
     "id": "face0006",
     "name": "STR_EXPLODER_ZOMBIE",
     "type": "face",
-    "cost": 5,
+    "cost": 10,
     "unlockLevel": 20,
     "bPremium": true
   },
@@ -446,7 +485,7 @@
     "id": "face0007",
     "name": "STR_SPITTER_ZOMBIE",
     "type": "face",
-    "cost": 5,
+    "cost": 10,
     "unlockLevel": 30,
     "bPremium": true
   },
@@ -454,7 +493,7 @@
     "id": "face0012",
     "name": "STR_INFESTOR",
     "type": "face",
-    "cost": 10,
+    "cost": 15,
     "unlockLevel": 40,
     "bPremium": true
   },
@@ -498,7 +537,7 @@
     "name": "STR_COLOUR_GREY",
     "type": "hairColour",
     "tint": 9999506,
-    "cost": 1,
+    "cost": 3,
     "unlockLevel": 25
   },
   {
@@ -506,7 +545,7 @@
     "name": "STR_COLOUR_WHITE",
     "type": "hairColour",
     "tint": 12763842,
-    "cost": 3,
+    "cost": 5,
     "unlockLevel": 50
   },
   {
@@ -514,7 +553,7 @@
     "name": "STR_COLOUR_RED",
     "type": "hairColour",
     "tint": 11218221,
-    "cost": 3,
+    "cost": 10,
     "bPremium": true,
     "unlockLevel": 30
   },
@@ -523,7 +562,7 @@
     "name": "STR_COLOUR_GREEN",
     "type": "hairColour",
     "tint": 8441203,
-    "cost": 3,
+    "cost": 10,
     "bPremium": true,
     "unlockLevel": 30
   },
@@ -532,7 +571,7 @@
     "name": "STR_COLOUR_BLUE",
     "type": "hairColour",
     "tint": 3767483,
-    "cost": 3,
+    "cost": 10,
     "bPremium": true,
     "unlockLevel": 30
   },
@@ -541,7 +580,7 @@
     "name": "STR_COLOUR_PURPLE",
     "type": "hairColour",
     "tint": 8999380,
-    "cost": 3,
+    "cost": 10,
     "bPremium": true,
     "unlockLevel": 30
   },
@@ -550,7 +589,7 @@
     "name": "STR_COLOUR_PINK",
     "type": "hairColour",
     "tint": 13914526,
-    "cost": 3,
+    "cost": 10,
     "bPremium": true,
     "unlockLevel": 30
   },
@@ -576,28 +615,28 @@
     "id": "hair0001",
     "name": "STR_HAIR_FLAT_TOP",
     "type": "hair",
-    "cost": 1,
+    "cost": 2,
     "unlockLevel": 4
   },
   {
     "id": "hair0003",
     "name": "STR_HAIR_PONYTAIL",
     "type": "hair",
-    "cost": 1,
+    "cost": 2,
     "unlockLevel": 15
   },
   {
     "id": "hair0004",
     "name": "STR_HAIR_BUZZED",
     "type": "hair",
-    "cost": 1,
+    "cost": 2,
     "unlockLevel": 20
   },
   {
     "id": "hair0010",
     "name": "STR_HAIR_HORSHOE",
     "type": "hair",
-    "cost": 1,
+    "cost": 3,
     "unlockLevel": 25,
     "bPremium": true
   },
@@ -605,7 +644,7 @@
     "id": "hair0007",
     "name": "STR_HAIR_STYLED",
     "type": "hair",
-    "cost": 2,
+    "cost": 3,
     "unlockLevel": 37,
     "bPremium": true
   },
@@ -613,7 +652,7 @@
     "id": "hair0011",
     "name": "STR_HAIR_BUN",
     "type": "hair",
-    "cost": 2,
+    "cost": 3,
     "unlockLevel": 30,
     "bPremium": true
   },
@@ -621,7 +660,7 @@
     "id": "hair0009",
     "name": "STR_HAIR_DREADS",
     "type": "hair",
-    "cost": 3,
+    "cost": 5,
     "unlockLevel": 23,
     "bPremium": true
   },
@@ -629,7 +668,7 @@
     "id": "hair0006",
     "name": "STR_HAIR_UNDERCUT",
     "type": "hair",
-    "cost": 3,
+    "cost": 5,
     "unlockLevel": 33,
     "bPremium": true
   },
@@ -637,7 +676,7 @@
     "id": "hair0005",
     "name": "STR_HAIR_SPIKES",
     "type": "hair",
-    "cost": 4,
+    "cost": 10,
     "unlockLevel": 35,
     "bPremium": true
   },
@@ -651,28 +690,28 @@
     "id": "beard0001",
     "name": "STR_BEARD_STUBBLE",
     "type": "beard",
-    "cost": 1,
+    "cost": 2,
     "unlockLevel": 3
   },
   {
     "id": "beard0002",
     "name": "STR_BEARD_FULL",
     "type": "beard",
-    "cost": 1,
+    "cost": 2,
     "unlockLevel": 10
   },
   {
     "id": "beard0003",
     "name": "STR_BEARD_CIRCLE",
     "type": "beard",
-    "cost": 1,
+    "cost": 3,
     "unlockLevel": 15
   },
   {
     "id": "beard0004",
     "name": "STR_BEARD_GOATEE",
     "type": "beard",
-    "cost": 2,
+    "cost": 3,
     "unlockLevel": 20,
     "bPremium": true
   },
@@ -680,7 +719,7 @@
     "id": "beard0005",
     "name": "STR_BEARD_MOUSTACHE",
     "type": "beard",
-    "cost": 2,
+    "cost": 3,
     "unlockLevel": 30,
     "bPremium": true
   },
@@ -688,7 +727,7 @@
     "id": "beard0006",
     "name": "STR_BEARD_SIDEBURNS",
     "type": "beard",
-    "cost": 2,
+    "cost": 3,
     "unlockLevel": 38,
     "bPremium": true
   },
@@ -702,14 +741,22 @@
     "id": "head0040",
     "name": "STR_HEAD_SANTA_HAT",
     "type": "head",
-    "cost": 10,
+    "cost": 20,
     "unlockLevel": 5
   },
   {
     "id": "head0041",
     "name": "STR_HEAD_SANTA_HAT_STRIPED",
     "type": "head",
-    "cost": 15,
+    "cost": 25,
+    "unlockLevel": 5,
+    "bPremium": true
+  },
+  {
+    "id": "head0085",
+    "name": "STR_HEAD_SANTA_HAT_GOLD",
+    "type": "head",
+    "cost": 30,
     "unlockLevel": 5,
     "bPremium": true
   },
@@ -717,27 +764,27 @@
     "id": "head0039",
     "name": "STR_RADIO",
     "type": "head",
-    "cost": 1
+    "cost": 2
   },
   {
     "id": "head0005",
     "name": "STR_HEAD_CAP",
     "type": "head",
-    "cost": 1,
+    "cost": 2,
     "unlockLevel": 14
   },
   {
     "id": "head0006",
     "name": "STR_HEAD_CAP_BACKWARDS",
     "type": "head",
-    "cost": 1,
+    "cost": 2,
     "unlockLevel": 16
   },
   {
     "id": "head0010",
     "name": "STR_HEAD_BOONIE",
     "type": "head",
-    "cost": 1,
+    "cost": 2,
     "unlockLevel": 10
   },
   {
@@ -762,7 +809,7 @@
     "name": "STR_GHILLIE",
     "type": "head",
     "factions": [ "usmc" ],
-    "cost": 2,
+    "cost": 3,
     "bPremium": true,
     "unlockLevel": 30
   },
@@ -839,7 +886,7 @@
     "type": "head",
     "bHideHair": true,
     "factions": [ "gign" ],
-    "cost": 1,
+    "cost": 2,
     "unlockLevel": 5
   },
   {
@@ -865,7 +912,7 @@
     "type": "head",
     "bHideHair": true,
     "factions": [ "gsg9" ],
-    "cost": 1,
+    "cost": 2,
     "unlockLevel": 15
   },
   {
@@ -874,7 +921,7 @@
     "type": "head",
     "bHideHair": true,
     "factions": [ "gsg9" ],
-    "cost": 1,
+    "cost": 2,
     "unlockLevel": 15
   },
   {
@@ -891,7 +938,7 @@
     "name": "STR_HEAD_BASIC_HELMET",
     "type": "head",
     "bHideHair": true,
-    "cost": 1,
+    "cost": 2,
     "unlockLevel": 5
   },
   {
@@ -936,6 +983,14 @@
     "bPremium": true
   },
   {
+    "id": "head0083",
+    "name": "STR_HEAD_RED_HELMET",
+    "type": "head",
+    "cost": 5,
+    "unlockLevel": 10,
+    "bPremium": true
+  },
+  {
     "id": "head0059",
     "name": "STR_HEAD_NIGHTVISION",
     "type": "head",
@@ -948,7 +1003,7 @@
     "name": "STR_HEAD_ALTYN_HELMET",
     "type": "head",
     "bHideHair": true,
-    "cost": 5,
+    "cost": 10,
     "unlockLevel": 40,
     "bPremium": true
   },
@@ -957,8 +1012,36 @@
     "name": "STR_HEAD_ALTYN_HELMET_VISOR_UP",
     "type": "head",
     "bHideHair": true,
-    "cost": 5,
+    "cost": 10,
     "unlockLevel": 40,
+    "bPremium": true
+  },
+  {
+    "id": "head0087",
+    "name": "STR_HEAD_ALTYN_HELMET_TAN",
+    "type": "head",
+    "bHideHair": true,
+    "cost": 10,
+    "unlockLevel": 40,
+    "bPremium": true
+  },
+  {
+    "id": "head0088",
+    "name": "STR_HEAD_ALTYN_HELMET_VISOR_UP_TAN",
+    "type": "head",
+    "bHideHair": true,
+    "cost": 10,
+    "unlockLevel": 40,
+    "bPremium": true
+  },
+  {
+    "id": "head0089",
+    "name": "STR_AETIC",
+    "type": "head",
+    "bHideHair": true,
+    "bHideBeard": true,
+    "cost": 40,
+    "unlockLevel": 25,
     "bPremium": true
   },
   {
@@ -1034,7 +1117,7 @@
     "id": "head0071",
     "name": "STR_HEAD_ALTYN_HELMET_STRIPED",
     "type": "head",
-    "cost": 8,
+    "cost": 10,
     "unlockLevel": 40,
     "bPremium": true
   },
@@ -1058,7 +1141,7 @@
     "id": "head0074",
     "name": "STR_HEAD_AIRFRAME_HELMET",
     "type": "head",
-    "cost": 5,
+    "cost": 10,
     "unlockLevel": 40,
     "bPremium": true
   },
@@ -1066,7 +1149,7 @@
     "id": "head0075",
     "name": "STR_HEAD_AIRFRAME_HELMET_RADIO",
     "type": "head",
-    "cost": 6,
+    "cost": 12,
     "unlockLevel": 40,
     "bPremium": true
   },
@@ -1074,7 +1157,7 @@
     "id": "head0073",
     "name": "STR_HEAD_AIRFRAME_HELMET_MASK",
     "type": "head",
-    "cost": 7,
+    "cost": 13,
     "unlockLevel": 40,
     "bPremium": true
   },
@@ -1098,7 +1181,7 @@
     "id": "head0080",
     "name": "STR_HEAD_AIRFRAME_HELMET_RADIO_BLACK",
     "type": "head",
-    "cost": 6,
+    "cost": 12,
     "unlockLevel": 40,
     "bPremium": true
   },
@@ -1106,7 +1189,7 @@
     "id": "head0079",
     "name": "STR_HEAD_AIRFRAME_HELMET_BLACK",
     "type": "head",
-    "cost": 5,
+    "cost": 10,
     "unlockLevel": 40,
     "bPremium": true
   },
@@ -1114,15 +1197,39 @@
     "id": "head0078",
     "name": "STR_HEAD_AIRFRAME_HELMET_MASK_BLACK",
     "type": "head",
-    "cost": 7,
+    "cost": 15,
     "unlockLevel": 40,
+    "bPremium": true
+  },
+  {
+    "id": "head0081",
+    "name": "STR_HEAD_SKY_RONIN_HELMET",
+    "type": "head",
+    "cost": 15,
+    "unlockLevel": 40,
+    "bPremium": true
+  },
+  {
+    "id": "head0082",
+    "name": "STR_HEAD_ERIC_DST",
+    "type": "head",
+    "cost": 15,
+    "unlockLevel": 10,
+    "bPremium": true
+  },
+  {
+    "id": "head0086",
+    "name": "STR_HEAD_ERIC_DST_GREEN",
+    "type": "head",
+    "cost": 15,
+    "unlockLevel": 10,
     "bPremium": true
   },
   {
     "id": "head0023",
     "name": "STR_HEAD_COMMANDER",
     "type": "head",
-    "cost": 4,
+    "cost": 5,
     "unlockLevel": 50,
     "bPremium": true
   },
@@ -1132,7 +1239,7 @@
     "type": "head",
     "bHideHair": true,
     "factions": [ "rus" ],
-    "cost": 2,
+    "cost": 5,
     "unlockLevel": 32
   },
   {
@@ -1140,7 +1247,7 @@
     "name": "STR_HEAD_TOQUE",
     "type": "head",
     "factions": [ "gsg9", "gign", "rus", "militia", "usmc", "opfor" ],
-    "cost": 1,
+    "cost": 2,
     "unlockLevel": 18
   },
   {
@@ -1156,7 +1263,7 @@
     "type": "head",
     "bHideHair": true,
     "factions": [ "rus" ],
-    "cost": 1,
+    "cost": 2,
     "unlockLevel": 8
   },
   {
@@ -1182,7 +1289,7 @@
     "type": "head",
     "bHideHair": true,
     "unlockLevel": 35,
-    "cost": 10,
+    "cost": 15,
     "bPremium": true
   },
   {
@@ -1191,7 +1298,7 @@
     "type": "head",
     "bHideHair": true,
     "unlockLevel": 35,
-    "cost": 10,
+    "cost": 15,
     "bPremium": true
   },
   {
@@ -1200,7 +1307,7 @@
     "type": "head",
     "bHideHair": true,
     "unlockLevel": 35,
-    "cost": 10,
+    "cost": 15,
     "bPremium": true
   },
   {
@@ -1208,7 +1315,7 @@
     "name": "STR_HEAD_BALLISTIC_MASK_BLACK",
     "type": "head",
     "unlockLevel": 25,
-    "cost": 2,
+    "cost": 5,
     "bPremium": true
   },
   {
@@ -1216,7 +1323,15 @@
     "name": "STR_HEAD_BALLISTIC_MASK_WHITE",
     "type": "head",
     "unlockLevel": 25,
-    "cost": 2,
+    "cost": 6,
+    "bPremium": true
+  },
+  {
+    "id": "head0084",
+    "name": "STR_HEAD_BALLISTIC_MASK_RED",
+    "type": "head",
+    "unlockLevel": 30,
+    "cost": 7,
     "bPremium": true
   },
   {
@@ -1224,7 +1339,7 @@
     "name": "STR_HEAD_HEADBAND",
     "type": "head",
     "factions": [ "militia" ],
-    "cost": 1,
+    "cost": 2,
     "unlockLevel": 5
   },
   {
@@ -1232,31 +1347,39 @@
     "name": "STR_HEAD_SNIPER",
     "type": "head",
     "bHideHair": true,
-    "cost": 4,
+    "cost": 5,
     "unlockLevel": 30
   },
   {
     "id": "zombie",
     "name": "STR_ZOMBIE",
     "type": "body",
-    "cost": 10,
-    "unlockLevel": 30,
+    "cost": 20,
+    "unlockLevel": 25,
     "bPremium": true
   },
   {
     "id": "zombie_fat",
     "name": "STR_FAT_ZOMBIE",
     "type": "body",
-    "cost": 10,
-    "unlockLevel": 40,
+    "cost": 25,
+    "unlockLevel": 25,
     "bPremium": true
   },
   {
     "id": "zombie_sprinter",
     "name": "STR_SPRINTER_ZOMBIE",
     "type": "body",
-    "cost": 10,
-    "unlockLevel": 50,
+    "cost": 30,
+    "unlockLevel": 25,
+    "bPremium": true
+  },
+  {
+    "id": "vip",
+    "name": "STR_VIP",
+    "type": "body",
+    "cost": 50,
+    "unlockLevel": 10,
     "bPremium": true
   },
   {
@@ -1271,7 +1394,7 @@
     "name": "STR_RECON",
     "type": "body",
     "factions": [ "usmc" ],
-    "cost": 1,
+    "cost": 2,
     "unlockLevel": 10
   },
   {
@@ -1295,7 +1418,7 @@
     "name": "STR_GHILLIE",
     "type": "body",
     "factions": [ "usmc" ],
-    "cost": 4,
+    "cost": 5,
     "unlockLevel": 40,
     "bPremium": true
   },
@@ -1313,7 +1436,7 @@
     "name": "STR_BARE",
     "type": "body",
     "factions": [ "usmc" ],
-    "cost": 5,
+    "cost": 10,
     "unlockLevel": 30,
     "bPremium": true
   },
@@ -1329,7 +1452,7 @@
     "name": "STR_RECON",
     "type": "body",
     "factions": [ "gign" ],
-    "cost": 1,
+    "cost": 2,
     "unlockLevel": 10
   },
   {
@@ -1370,7 +1493,7 @@
     "name": "STR_BARE",
     "type": "body",
     "factions": [ "gign" ],
-    "cost": 5,
+    "cost": 10,
     "unlockLevel": 30,
     "bPremium": true
   },
@@ -1386,7 +1509,7 @@
     "name": "STR_RECON",
     "type": "body",
     "factions": [ "gsg9" ],
-    "cost": 1,
+    "cost": 2,
     "unlockLevel": 10
   },
   {
@@ -1427,7 +1550,7 @@
     "name": "STR_BARE",
     "type": "body",
     "factions": [ "gsg9" ],
-    "cost": 5,
+    "cost": 10,
     "unlockLevel": 30,
     "bPremium": true
   },
@@ -1443,7 +1566,7 @@
     "name": "STR_RECON",
     "type": "body",
     "factions": [ "opfor" ],
-    "cost": 1,
+    "cost": 2,
     "unlockLevel": 10
   },
   {
@@ -1484,7 +1607,7 @@
     "name": "STR_BARE",
     "type": "body",
     "factions": [ "opfor" ],
-    "cost": 5,
+    "cost": 10,
     "unlockLevel": 30,
     "bPremium": true
   },
@@ -1500,7 +1623,7 @@
     "name": "STR_RECON",
     "type": "body",
     "factions": [ "rus" ],
-    "cost": 1,
+    "cost": 2,
     "unlockLevel": 10
   },
   {
@@ -1541,7 +1664,7 @@
     "name": "STR_BARE",
     "type": "body",
     "factions": [ "rus" ],
-    "cost": 5,
+    "cost": 10,
     "unlockLevel": 30,
     "bPremium": true
   },
@@ -1549,7 +1672,7 @@
     "id": "rus_juggernaut",
     "name": "STR_JUGGERNAUT",
     "type": "body",
-    "cost": 10,
+    "cost": 15,
     "unlockLevel": 35,
     "bPremium": true
   },
@@ -1565,7 +1688,7 @@
     "name": "STR_RECON",
     "type": "body",
     "factions": [ "militia" ],
-    "cost": 1
+    "cost": 2
   },
   {
     "id": "militia_para",
@@ -1603,8 +1726,62 @@
     "name": "STR_BARE",
     "type": "body",
     "factions": [ "militia" ],
-    "cost": 5,
+    "cost": 10,
     "unlockLevel": 30,
+    "bPremium": true
+  },
+  {
+    "id": "usmc_kevlar",
+    "name": "STR_KEVLAR",
+    "type": "body",
+    "factions": [ "usmc" ],
+    "cost": 5,
+    "unlockLevel": 15,
+    "bPremium": true
+  },
+  {
+    "id": "gign_kevlar",
+    "name": "STR_KEVLAR",
+    "type": "body",
+    "factions": [ "gign" ],
+    "cost": 5,
+    "unlockLevel": 15,
+    "bPremium": true
+  },
+  {
+    "id": "gsg9_kevlar",
+    "name": "STR_KEVLAR",
+    "type": "body",
+    "factions": [ "gsg9" ],
+    "cost": 5,
+    "unlockLevel": 15,
+    "bPremium": true
+  },
+  {
+    "id": "opfor_kevlar",
+    "name": "STR_KEVLAR",
+    "type": "body",
+    "factions": [ "opfor" ],
+    "cost": 5,
+    "unlockLevel": 15,
+    "bPremium": true
+  },
+  {
+    "id": "rus_kevlar",
+    "name": "STR_KEVLAR",
+    "type": "body",
+    "factions": [ "rus" ],
+    "cost": 5,
+    "unlockLevel": 15,
+    "bPremium": true
+  },
+  {
+    "id": "militia_kevlar",
+    "name": "STR_KEVLAR",
+    "type": "body",
+    "factions": [ "militia" ],
+    "cost": 5,
+    "unlockLevel": 15,
     "bPremium": true
   }
 ]

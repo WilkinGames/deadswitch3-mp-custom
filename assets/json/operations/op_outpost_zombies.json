@@ -1,0 +1,154 @@
+{
+  "id": "op_outpost_zombies",
+  "bPremium": true,
+  "packId": "pack2",
+  "info": {
+    "name": "STR_OP_FROZEN_ZOMBIES",
+    "desc": "STR_OP_DISTRICT_PURIFICATION_DESC"
+  },
+  "rewards": [
+    {
+      "type": "xp",
+      "value": 1000
+    },
+    {
+      "type": "teeth",
+      "value": 1
+    }
+  ],
+  "gameData": {
+    "gameModeId": "op_elimination",
+    "mapId": "map_outpost",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+      "preGameTimer": 0,
+      "timeLimit": 5,
+      "filterType": "night"
+    }
+  },
+  "data": {
+    "objects": [
+    ],
+    "player": {
+      "position": [ 300, 1020 ],
+      "inventory": [
+        {
+          "id": "flamethrower",
+          "ammo": 60
+        },
+        {
+          "id": "melee_knife"
+        }
+      ],
+      "equipment": "molotov",
+      "equipmentAmmo": 2
+    },
+    "enemies": [
+      {
+        "type": "character",
+        "position": [ 200, 1580 ],
+        "preset": "zombie_sprinter",
+        "inventory": [ { "id": "melee_katana" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 2200, 1700 ],
+            [ 200, 1580 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2500, 1286 ],
+        "preset": "zombie_sprinter",
+        "inventory": [ { "id": "melee_katana" } ]
+      },
+      {
+        "position": [ 2780, 720 ],
+        "type": "character",
+        "preset": "zombie_sprinter",
+        "inventory": [ { "id": "melee_katana" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "position": [ 2800, 720 ],
+        "type": "character",
+        "preset": "zombie_sprinter",
+        "inventory": [ { "id": "melee_katana" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "position": [ 3220, 720 ],
+        "type": "character",
+        "preset": "zombie_sprinter",
+        "inventory": [ { "id": "melee_katana" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "position": [ 3200, 720 ],
+        "type": "character",
+        "preset": "zombie_sprinter",
+        "inventory": [ { "id": "melee_katana" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4720, 1340 ],
+        "preset": "zombie_sprinter",
+        "inventory": [ { "id": "melee_katana" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 4800, 1340 ],
+        "preset": "zombie_sprinter",
+        "inventory": [ { "id": "melee_katana" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 5000, 1340 ],
+        "preset": "zombie_sprinter",
+        "inventory": [ { "id": "melee_katana" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 5800, 1040 ],
+        "preset": "zombie_sprinter",
+        "inventory": [ { "id": "melee_katana" } ]
+      },
+      {
+        "position": [ 5850, 1040 ],
+        "type": "character",
+        "preset": "zombie_fat",
+        "inventory": [ { "id": "melee_machete" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "position": [ 3000, 1700 ],
+        "type": "character",
+        "preset": "zombie_fat",
+        "inventory": [ { "id": "melee_machete" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      }
+    ]
+  }
+}

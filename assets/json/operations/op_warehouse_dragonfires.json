@@ -42,20 +42,6 @@
         "type": "equipment",
         "weaponId": "trophy",
         "team": 1,
-        "position": [ 1100, 1360 ],
-        "scale": 1
-      },
-      {
-        "type": "equipment",
-        "weaponId": "trophy",
-        "team": 1,
-        "position": [ 2900, 1360 ],
-        "scale": 1
-      },
-      {
-        "type": "equipment",
-        "weaponId": "trophy",
-        "team": 1,
         "position": [ 700, 980 ],
         "scale": 1
       },

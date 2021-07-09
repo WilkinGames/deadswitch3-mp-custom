@@ -4,7 +4,7 @@
 This repository allows you to host your own Deadswitch 3 multiplayer server.
 
 ## Requirements
-You will need Node.js installed on the machine you wish to host the server on. 
+You will need Node.js installed on the machine you wish to host the server on. Node.js is free and easy to install.
 
 ### Node.js: Linux Installation
 
@@ -27,7 +27,9 @@ To verify you have Node.js v14 installed: `node -v`
 ## Hosting
 
 ### Hosting on Local PC
-If you wish to host the server on your local PC, installing Node.js is free and quick to do. Note that this will only allow players on your LAN to connect, unless you have some sort of port-forwarding set up.
+If you wish to host the server on your local PC, make sure you have Node.js installed. 
+
+Note that this will only allow players on your LAN to connect, unless you have some sort of port-forwarding set up.
 
 You will need to add a local proxy for LAN players to connect, since they will not be able to connect to a `localhost` URL. You can use https://github.com/icflorescu/iisexpress-proxy for this.
 

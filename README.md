@@ -4,11 +4,25 @@
 This repository allows you to host your own Deadswitch 3 multiplayer server.
 
 ## Requirements
-You will need NPM and Node.js installed on the machine you wish to host the server on. 
+You will need Node.js installed on the machine you wish to host the server on. 
 
-Install NodeJS: https://nodejs.org/en/download/
+### Node.js: Linux Installation
 
-NPM is automatically installed with Node.js.
+`sudo apt update`
+
+`curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh`
+
+`sudo bash nodesource_setup.sh`
+
+`sudo apt install nodejs`
+
+### Node.js: Windows/Other Installation
+
+Visit the Node.js website for installation instructions: https://nodejs.org/en/download/
+
+### Verify Node.js Version
+
+To verify you have Node.js v14 installed: `node -v`
 
 ## Hosting
 

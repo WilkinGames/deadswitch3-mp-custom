@@ -62,6 +62,8 @@ If the server was successfully started, you should see the following output at t
 
 `Listening on IPv6 :::8081`
 
+Congratulations! The multiplayer server is now running and ready for players to connect.
+
 ## Connecting to the Server
 
 Once the server is running, players can now connect. The server runs on port `8081` by default.

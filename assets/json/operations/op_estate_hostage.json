@@ -1,0 +1,199 @@
+{
+  "id": "op_estate_hostage",
+  "info": {
+    "name": "STR_OP_ESTATE_RESCUE",
+    "desc": "STR_MODE_RESCUE_DESC_A"
+  },
+  "rewards": [
+  ],
+  "gameData": {
+    "gameModeId": "op_hostage",
+    "mapId": "map_estate",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+      "preGameTimer": 0,
+      "timeLimit": 5,
+      "filterType": "night",
+      "numHostages": 2,
+      "rescueZone": [ 500, 1810 ]
+    }
+  },
+  "data": {
+    "objects": [
+      {
+        "type": "hostage",
+        "position": [ 4850, 1040 ],
+        "team": 1
+      },
+      {
+        "type": "hostage",
+        "position": [ 4900, 1040 ],
+        "team": 1
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "msr",
+        "options": {
+          "mods": {
+            "base": "base_range",
+            "barrel": "barrel_laser"
+          }
+        },
+        "position": [ 200, 1270 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "ksg",
+        "options": {
+          "mods": {
+            "barrel": "barrel_laser"
+          }
+        },
+        "position": [ 350, 1270 ]
+      }
+    ],
+    "player": {
+      "position": [ 500, 1810 ],
+      "inventory": [
+        {
+          "id": "acr",
+          "ammo": 180,
+          "mods": {
+            "barrel": "barrel_laser",
+            "barrel2": "barrel_silencer",
+            "ammo": "ammo_fmj"
+          }
+        },
+        {
+          "id": "m9",
+          "mods": {
+            "barrel": "barrel_laser",
+            "barrel2": "barrel_silencer"
+          }
+        }
+      ],
+      "equipment": "flashbang",
+      "equipmentAmmo": 2
+    },
+    "enemies": [
+      {
+        "type": "helicopter",
+        "helicopterType": "cobra",
+        "position": [ 5000, 800 ]
+      },
+      {
+        "type": "character",
+        "position": [ 4000, 1820 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "micro_uzi" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 2600, 1800 ],
+            [ 4000, 1820 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4800, 1820 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "jackhammer" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 4900, 1820 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "ak47" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 2300, 1185 ],
+        "preset": "rus_rocketier",
+        "inventory": [ { "id": "rpg" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4100, 1820 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "micro_uzi" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 2600, 1800 ],
+            [ 4000, 1820 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3640, 780 ],
+        "style": "rus_sniper",
+        "inventory": [ { "id": "l115a3" } ],
+        "ai": { "bCamp": true }
+      },
+      {
+        "type": "character",
+        "position": [ 3635, 1000 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "rpk" } ],
+        "ai": { "bCamp": true }
+      },
+      {
+        "type": "character",
+        "position": [ 4000, 1000 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "ak47" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 3750, 1250 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "ak47" } ],
+        "ai": { "bCamp": true }
+      },
+      {
+        "type": "character",
+        "position": [ 4700, 1000 ],
+        "style": "rus_sniper",
+        "inventory": [ { "id": "rsass" } ],
+        "ai": { "bCamp": true }
+      },
+      {
+        "type": "character",
+        "position": [ 4300, 1000 ],
+        "style": "rus_heavy",
+        "health": 600,
+        "inventory": [ { "id": "jackhammer" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 4400, 1250 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "ak47" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 5400, 1250 ],
+            [ 4400, 1250 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 5400, 1250 ],
+        "style": "rus_heavy",
+        "health": 600,
+        "inventory": [ { "id": "jackhammer" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      }
+    ]
+  }
+}

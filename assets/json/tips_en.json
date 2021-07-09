@@ -2,7 +2,7 @@
   "generic": [
     "Visit xwilkinx.com for more games, guides, and more.",
     "Complete multiplayer challenges to earn more Shards.",
-    "You can change the controls in the settings menu.",
+    "You can change the controls in the Settings menu.",
     "Your character is vulnerable while using controllable Killstreaks.",
     "Stun Grenades are effective at incapacitating groups of enemies.",
     "Explosive weapons do increased damage to vehicles.",
@@ -38,7 +38,9 @@
     "Try Sandbox Mode to test out different weapons and equipment.",
     "You don't have to kill enemy players in Battlezone.",
     "You can loot additional Shards and XP in Battlezone.",
-    "Players drop their weapons and loot when killed in Battlezone."    
+    "Players drop their weapons and loot when killed in Battlezone.",
+    "Escort hostages to the Rescue Zone to save them.",
+    "Sentry Guns fire through sandbags."
   ],
   "ranked": [
     "Support your allies in team games to ensure victory.",
@@ -63,7 +65,8 @@
     "Helicopters only target enemy players in Ranked games.",
     "Use the Cold-Blooded perk to avoid targetting from enemy Killstreaks and Sentry Guns.",
     "Beware! Your airdrop crates can be stolen by enemy players.",
-    "Ammo crates are never decoy crates.",
+    "Ammo crates are never Explosive Decoy crates.",
+    "Use Explosive Decoy crates to trick enemy players.",
     "Enemy equipment like Jammers and Motion Sensors can be destroyed.",
     "Use Flashbangs or Stun Grenades to disable enemy turrets.",
     "Use the Anti-Sniper perk to reduce damage taken from sniper rifles.",
@@ -80,7 +83,7 @@
     "Players have reduced health and minimal HUD in Hardcore games.",
     "Use Shards to activate XP boosts.",
     "You can heal allies with the Stim equipment.",
-    "Play Hardcore game for an added challenge.",
+    "Play Hardcore games for an added challenge.",
     "Be careful! Hardcore games have fall damage."
   ],
   "operation": [

@@ -8,11 +8,23 @@
   "bgLayerType": "world_layer_trees",
   "numBgLayers": 3,
   "bgLayerOffsetY": 80,
+  "walls": [
+    {
+      "x": 538,
+      "y": 1040,
+      "w": 2925,
+      "h": 820
+    }
+  ],
   "sun": {
     "x": 1000,
     "y": 300,
     "type": "moon"
   },
+  "spawns_hostages": [
+    [ 3250, 1170 ],
+    [ 3250, 1360 ]
+  ],
   "spawn_store": [ 2000, 1536 ],
   "spawns_bomb": [
     [ 2000, 1536 ],

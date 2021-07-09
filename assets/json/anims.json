@@ -84,6 +84,22 @@
         }
       ]
     },
+    "rpk16": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 110 ],
+      "sounds": [
+        {
+          "frame": 30,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 85,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
     "ak74u": {
       "aim": 1,
       "fire": [ 2, 9 ],
@@ -158,6 +174,22 @@
       ]
     },
     "famas": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 97 ],
+      "sounds": [
+        {
+          "frame": 20,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 68,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "jackhammer": {
       "aim": 1,
       "fire": [ 2, 9 ],
       "idle": 0,
@@ -503,6 +535,35 @@
         }
       ]
     },
+    "pgm": {
+      "aim": 1,
+      "fire": [ 2, 22 ],
+      "bolt": [ 23, 74 ],
+      "idle": 0,
+      "reload": [ 74, 233 ],
+      "sounds": [
+        {
+          "frame": 40,
+          "sound": "sfx_reload_bolt"
+        },
+        {
+          "frame": 128,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 144,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 187,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 195,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
     "climb": {
       "idle": 0,
       "up": [ 0, 39 ],
@@ -701,6 +762,30 @@
         }
       ]
     },
+    "par4": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 140 ],
+      "sounds": [
+        {
+          "frame": 24,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 60,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 90,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 100,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
     "acr": {
       "aim": 1,
       "fire": [ 2, 9 ],
@@ -722,6 +807,35 @@
       ]
     },
     "m1911": {
+      "aim": 1,
+      "fire": [ 2, 11 ],
+      "idle": 0,
+      "reload": [ 12, 102 ],
+      "empty": 12,
+      "sounds": [
+        {
+          "frame": 18,
+          "sound": "sfx_spin"
+        },
+        {
+          "frame": 33,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 55,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 73,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 76,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "maxim9": {
       "aim": 1,
       "fire": [ 2, 11 ],
       "idle": 0,
@@ -1026,6 +1140,74 @@
         }
       ]
     },
+    "mg42": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 201 ],
+      "sounds": [
+        {
+          "frame": 22,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 34,
+          "sound": "sfx_reload_bolt_close"
+        },
+        {
+          "frame": 55,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 99,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 125,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 135,
+          "sound": "sfx_reload_chain"
+        },
+        {
+          "frame": 173,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "ameli": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 229 ],
+      "sounds": [
+        {
+          "frame": 32,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 54,
+          "sound": "sfx_reload_chain"
+        },
+        {
+          "frame": 92,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 135,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 156,
+          "sound": "sfx_reload_chain"
+        },
+        {
+          "frame": 176,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
     "m60e4": {
       "aim": 1,
       "fire": [ 2, 9 ],
@@ -1166,6 +1348,74 @@
         },
         {
           "frame": 80,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "uzi": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 114 ],
+      "sounds": [
+        {
+          "frame": 40,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 70,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 77,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 92,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "crossbow": {
+      "aim": 1,
+      "fire": [ 2, 23 ],
+      "idle": 0,
+      "reload": [ 24, 182 ],
+      "sounds": [
+        {
+          "frame": 45,
+          "sound": "sfx_reload_arrow"
+        },
+        {
+          "frame": 50,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 100,
+          "sound": "sfx_spin"
+        },
+        {
+          "frame": 134,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "micro_uzi": {
+      "aim": 1,
+      "fire": [ 2, 6 ],
+      "idle": 0,
+      "reload": [ 6, 82 ],
+      "sounds": [
+        {
+          "frame": 14,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 48,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 64,
           "sound": "sfx_reload_bolt_close"
         }
       ]
@@ -1358,6 +1608,12 @@
       "attack2": [ 2, 10 ],
       "idle": 0
     },
+    "melee_shovel": {
+      "aim": 1,
+      "attack": [ 2, 10 ],
+      "attack2": [ 2, 10 ],
+      "idle": 0
+    },
     "melee_hatchet": {
       "aim": 1,
       "attack": [ 2, 10 ],
@@ -1400,6 +1656,19 @@
       "sounds": [
         {
           "frame": 112,
+          "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "matador": {
+      "aim": 1,
+      "fire": [ 2, 19 ],
+      "idle": 0,
+      "reload": [ 20, 142 ],
+      "empty": 20,
+      "sounds": [
+        {
+          "frame": 86,
           "sound": "sfx_reload_end"
         }
       ]

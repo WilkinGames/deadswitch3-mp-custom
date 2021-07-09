@@ -1,38 +1,36 @@
 [
   {
-    "name": "North America",
+    "name": "us",
     "localizedName": "STR_NORTH_AMERICA",
     "url": "https://ds3mp-us.wilkingames.net/",
-    "region": "north_america",
     "location": "New York City, United States",
     "card": "usa",
     "bOfficial": true
   },
   {
-    "name": "Europe",
+    "name": "br",
+    "localizedName": "STR_SOUTH_AMERICA",
+    "url": "https://ds3mp-br.wilkingames.net/",
+    "location": "São Paulo, Brazil",
+    "card": "brazil",
+    "bOfficial": true
+  },
+  {
+    "name": "eu",
     "localizedName": "STR_EUROPE",
     "url": "https://ds3mp-eu.wilkingames.net/",
-    "region": "europe",
-    "location": "Frankfurt, Germany",
-    "card": "eu",
-    "bOfficial": true
+    "location": "London, England",
+    "card": "uk",
+    "bOfficial": true,
+    "num": 1
   },
   {
-    "name": "Asia",
-    "localizedName": "STR_ASIA",
-    "url": "https://ds3mp-asia.wilkingames.net/",
-    "region": "asia",
-    "location": "Singapore, Singapore",
-    "card": "singapore",
-    "bOfficial": true
-  },
-  {
-    "name": "India",
-    "localizedName": "STR_INDIA",
-    "url": "https://ds3mp-india.wilkingames.net/",
-    "region": "asia",
-    "location": "Bangalore, India",
-    "card": "india",
-    "bOfficial": true
+    "name": "ru",
+    "localizedName": "STR_EUROPE",
+    "url": "https://ds3mp-ru.wilkingames.net/",
+    "location": "Moscow, Russia",
+    "card": "russia",
+    "bOfficial": true,
+    "num": 2
   }
 ]

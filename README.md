@@ -14,7 +14,7 @@ You will need Node.js installed on the machine you wish to host the server on. N
 
 Note: It's recommended to have access to at least 1 CPU and 2GB of RAM on the machine the server is running on. These requirements scale as the number of concurrent games in progress grows.
 
-### Node.js: Linux Installation
+### Node.js: Ubuntu Installation
 
 `sudo apt update`
 

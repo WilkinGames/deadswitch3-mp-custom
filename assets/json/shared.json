@@ -592,7 +592,7 @@
     },
     "escort": {
       "bRanked": true,
-      "bKillstreaks": false,
+      "bKillstreaks": true,
       "bAllowRespawns": true,
       "bSpawnProtection": true,
       "bUseRoundThreshold": true,
@@ -607,7 +607,7 @@
     },
     "rescue": {
       "bRanked": true,
-      "bKillstreaks": false,
+      "bKillstreaks": true,
       "bAllowRespawns": true,
       "bSpawnProtection": true,
       "bUseRoundThreshold": true,

@@ -11,6 +11,8 @@ It's recommended to have a basic understanding of command line use and git.
 
 Decide on where you want to install and run the server. You can host it on your local machine for LAN play or on an external cloud service like Heroku, Google Cloud, AWS, etc. These services typically provide free tiers that don't have any costs.
 
+Note that access to clans and the leaderboards is not available when using a custom multiplayer server for security reasons.
+
 ## Requirements
 You will need Node.js installed on the machine you wish to host the server on. Node.js is free and easy to install.
 
@@ -85,11 +87,9 @@ Enter the `Custom Server URL` the server is running on.
 
 `Ranked > Multiplayer` will now connect to the custom server URL you have specified. Simply turn off the `Use Custom Server` setting to revert back to using the public server list.
 
-## Additional Details
+## Server Management
 
-Note that access to clans and the leaderboards is not available when using a custom multiplayer server for security reasons.
-
-## Server Updates
+### Updates
 
 Server updates are frequently released. You'll need to stop and restart the server in order for changes to take effect.
 
@@ -102,3 +102,7 @@ To update the server code to the latest:
 Then start the server again:
 
 `npm start`
+
+### Configuration
+
+You can configure server settings in the `settings.json` file.

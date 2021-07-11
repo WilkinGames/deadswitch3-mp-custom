@@ -97,6 +97,8 @@ To update the server code to the latest:
 
 `git pull`
 
+`npm install`
+
 Then start the server again:
 
 `npm start`

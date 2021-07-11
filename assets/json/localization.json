@@ -3296,12 +3296,12 @@
     "it": "Importante!"
   },
   "STR_PRELOADER_HARDWARE_INFO": {
-    "en": "Make sure hardware acceleration is enabled for your browser.\nIf not, you will experience poor performance.\nFullscreen is recommended.\nThe web version uses lower quality files to improve load time.",
-    "ru": "Убедитесь, что в вашем браузере включено аппаратное ускорение.\nВ противном случае вы будет испытывать проблемы с производительностью.\nРекомендуем играть в полноэкранном режиме.\nВ веб-версии используются файлы более низкого качества, чтобы сократить время загрузки.",
+    "en": "Make sure hardware acceleration is enabled for your browser.\nIf not, you will experience poor performance.\nFullscreen is recommended.",
+    "ru": "Убедитесь, что в вашем браузере включено аппаратное ускорение.\nВ противном случае вы будет испытывать проблемы с производительностью.",
     "zh-CN": "请确保浏览器的硬件加速功能是启用的状态。\n否则，您的游戏体验可能受到严重影响。\n推荐于全屏下进行游戏。\n网页版游戏使用略低的音频质量来改善读取速度。",
-    "tr": "Tarayıcınız için donanım hızlandırmanın etkinleştirildiğinden emin olun.\nEğer aktif değilse, düşük performansla karşılaşırsınız.\nTam ekran önerilir.\nWeb sürümü, yükleme süresini iyileştirmek için daha düşük kaliteli dosyalar kullanır.",
-    "es": "Asegúrese de que la aceleración de hardware esté habilitada para su navegador.\nDe lo contrario, experimentará un rendimiento deficiente.\nSe recomienda jugar a pantalla completa.\nLa versión web utiliza archivos de menor calidad para mejorar el tiempo de carga.",
-    "it": "Assicurati che l'accellerazione hardware è abilitata nel tuo browser.\nSe non lo è, potresti riscontrare una bassa esperienza di gioco.\nSi raccomanda di utilizzare lo schermo intero.\nLa versione web utilizza file di bassa qualità per velocizzare i tempi di caricamento."
+    "tr": "Tarayıcınız için donanım hızlandırmanın etkinleştirildiğinden emin olun.\nEğer aktif değilse, düşük performansla karşılaşırsınız.\nTam ekran önerilir.",
+    "es": "Asegúrese de que la aceleración de hardware esté habilitada para su navegador.\nDe lo contrario, experimentará un rendimiento deficiente.\nSe recomienda jugar a pantalla completa.",
+    "it": "Assicurati che l'accellerazione hardware è abilitata nel tuo browser.\nSe non lo è, potresti riscontrare una bassa esperienza di gioco.\nSi raccomanda di utilizzare lo schermo intero."
   },
   "STR_ERROR_NO_INTERNET": {
     "en": "No internet connection\nPlease make sure you are connected to the internet and restart the game",
@@ -15638,5 +15638,13 @@
     "tr": "Her %1 öldürme için 1 Shard kazan",
     "es": "Gana 1 Fragmento por cada %1 muertes",
     "it": "Guadagna 1 Frammento ogni %1 uccisioni"
+  },
+  "STR_CHANGELOG": {
+    "en": "Changelog",
+    "ru": "Журнал изменений",
+    "zh-CN": "变更日志",
+    "tr": "Değişiklik Günlüğü",
+    "es": "Registro de Cambios",
+    "it": "Registro Modifiche"
   }
 }

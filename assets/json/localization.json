@@ -1848,7 +1848,7 @@
     "it": "Personalizza aspetto personaggio."
   },
   "STR_EDIT_ICON_DESC": {
-    "en": "Select your playercard icon.",
+    "en": "Customize your playercard.",
     "ru": "Выбирайте ваш аватар.",
     "zh-CN": "自订您的名片头像。",
     "tr": "Oyuncu kartı simgeni değiştir.",
@@ -1928,7 +1928,7 @@
     "it": "Edita Personaggio"
   },
   "STR_MENU_EDIT_ICON": {
-    "en": "Edit Icon",
+    "en": "Edit Playercard",
     "ru": "Изменить аватар",
     "zh-CN": "编辑头像",
     "tr": "Simgeyi Düzenle",
@@ -15646,5 +15646,53 @@
     "tr": "Değişiklik Günlüğü",
     "es": "Registro de Cambios",
     "it": "Registro Modifiche"
+  },
+  "STR_X_/_X_ONLINE": {
+    "en": "%1/%2 Online",
+    "ru": "%1/%2 в сети",
+    "zh-CN": "在线人数 %1/%2",
+    "tr": "%1/%2 Çevrimiçi",
+    "es": "%1/%2 en línea",
+    "it": "%1/%2 Online"
+  },
+  "STR_ICON": {
+    "en": "Icon",
+    "ru": "Икона",
+    "zh-CN": "图标",
+    "tr": "Simge",
+    "es": "Icono",
+    "it": "Icona"
+  },
+  "STR_BACKGROUND": {
+    "en": "Background",
+    "ru": "Задний план",
+    "zh-CN": "背景",
+    "tr": "Arka fon",
+    "es": "Fondo",
+    "it": "Sfondo"
+  },
+  "STR_CONFIRM_BACKGROUND": {
+    "en": "Are you sure you want to unlock this background?",
+    "ru": "Вы уверены, что хотите разблокировать этот фон?",
+    "zh-CN": "您确定要解锁此背景吗？",
+    "tr": "Bu arka planın kilidini açmak istediğinizden emin misiniz?",
+    "es": "¿Estás seguro de que quieres desbloquear este fondo?",
+    "it": "Sei sicuro di voler sbloccare questo sfondo?"
+  },
+  "STR_HOST_CUSTOM_SERVER": {
+    "en": "Host Custom Server",
+    "ru": "Разместите Собственный Сервер",
+    "zh-CN": "主机自定义服务器",
+    "tr": "Özel Sunucu Barındırın",
+    "es": "Servidor Personalizado de Host",
+    "it": "Host Server Personalizzato"
+  },
+  "STR_SERVER_MESSAGE": {
+    "en": "Server Message",
+    "ru": "Сообщение Сервера",
+    "zh-CN": "服务器消息",
+    "tr": "Sunucu Mesajı",
+    "es": "Mensaje del Servidor",
+    "it": "Messaggio del Server"
   }
 }

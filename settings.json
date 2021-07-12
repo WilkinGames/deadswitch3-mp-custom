@@ -1,10 +1,13 @@
 {
+  "pingInterval": 2000,
+  "pingTimeout": 10000,
   "maxClients": 200,
   "maxPublicLobbies": 10,
   "maxCustomLobbies": 100,
-  "maxLobbyLatency": 7500,
+  "maxLobbyLatency": 5000,
   "maxLatency": 10000,
   "maxUptimeHours": 0,
   "bAllowJoinInProgress": true,
-  "bAddBots": false
+  "bAddBots": false,
+  "welcomeMessage": null
 }

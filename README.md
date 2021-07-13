@@ -106,3 +106,19 @@ Then start the server again:
 ### Configuration
 
 You can configure server settings in the `settings.json` file.
+
+## PM2
+
+It's useful to automatically restart the server in the event it stops for any reason, especially if you have `maxUptimeHours` set. Using PM2 handles this, ensuring the server remains active until manually stopped. This is particularily useful if you are hosting on an external service.
+
+Install PM2:
+
+`sudo npm install pm2 -g`
+
+Start the server with PM2:
+
+`pm2 start server.js`
+
+You can view server logs using PM2:
+
+`pm2 logs`

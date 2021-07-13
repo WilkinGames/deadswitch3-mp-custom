@@ -107,7 +107,7 @@ Then start the server again:
 
 You can configure server settings in the `settings.json` file.
 
-## PM2
+### PM2
 
 It's useful to automatically restart the server in the event it stops for any reason, especially if you have `maxUptimeHours` set. Using PM2 handles this, ensuring the server remains active until manually stopped. This is particularily useful if you are hosting on an external service.
 

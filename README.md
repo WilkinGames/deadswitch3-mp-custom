@@ -107,6 +107,18 @@ Then start the server again:
 
 You can configure server settings in the `settings.json` file.
 
+#### Port
+
+Specified the desired port by setting the `port` value. The default is `8081`.
+
+#### Ban Players
+
+Specified players to ban by either Deadswitch 3 username or Steam ID with `bannedUsernames` and `bannedSteamIds`.
+
+#### Welcome Message
+
+You can set a public server message by setting `welcomeMessage`.
+
 ### PM2
 
 It's useful to automatically restart the server in the event it stops for any reason, especially if you have `maxUptimeHours` set. Using PM2 handles this, ensuring the server remains active until manually stopped. This is particularily useful if you are hosting on an external service.

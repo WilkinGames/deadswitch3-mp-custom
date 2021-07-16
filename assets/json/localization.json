@@ -15694,5 +15694,133 @@
     "tr": "Sunucu Mesajı",
     "es": "Mensaje del Servidor",
     "it": "Messaggio del Server"
+  },
+  "STR_CH_RESCUE_X_HOSTAGES": {
+    "en": "Rescue %1 hostages",
+    "ru": "Спасите %1 заложников",
+    "zh-CN": "解救%1名人质",
+    "tr": "%1 rehineyi kurtar",
+    "es": "Rescata a %1 rehenes",
+    "it": "Salva %1 ostaggi"
+  },
+  "STR_FILE_NEW": {
+    "en": "New",
+    "ru": "Новый",
+    "zh-CN": "新的",
+    "tr": "Yeni",
+    "es": "Nuevo",
+    "it": "Nuovo"
+  },
+  "STR_FILE_LOAD": {
+    "en": "Load",
+    "ru": "Нагрузка",
+    "zh-CN": "加载",
+    "tr": "Yük",
+    "es": "Carga",
+    "it": "Caricare"
+  },
+  "STR_OP_EDITOR": {
+    "en": "Operation Editor",
+    "ru": "Операция Редактор",
+    "zh-CN": "操作编辑器",
+    "tr": "İşlem Editörü",
+    "es": "Editor de Operaciones",
+    "it": "Editor delle Operazioni"
+  },
+  "STR_ADD_OBJECT": {
+    "en": "Add Object",
+    "ru": "Добавить Объект",
+    "zh-CN": "添加对象",
+    "tr": "Nesne Ekle",
+    "es": "Agregar Objeto",
+    "it": "Aggiungi Oggetto"
+  },
+  "STR_ADD_ENEMY": {
+    "en": "Add Enemy",
+    "ru": "Добавить Врага",
+    "zh-CN": "添加敌人",
+    "tr": "Düşman Ekle",
+    "es": "Agregar Enemigo",
+    "it": "Aggiungi Nemico"
+  },
+  "STR_MODE_ELIMINATION": {
+    "en": "Elimination",
+    "ru": "Устранение",
+    "zh-CN": "消除",
+    "tr": "Eliminasyon",
+    "es": "Eliminación",
+    "it": "Eliminazione"
+  },
+  "STR_MODE_BOMB_DEFUSAL": {
+    "en": "Bomb Defusal",
+    "ru": "Обезвреживание бомбы",
+    "zh-CN": "拆弹",
+    "tr": "Bomba İmha",
+    "es": "Desactivación de Bombas",
+    "it": "Disinnescare le Bombe"
+  },
+  "STR_BUNDLE_SURVIVAL_PERKS": {
+    "en": "Survival Perk Pack",
+    "ru": "Набор Перков Выживания",
+    "zh-CN": "生存振作包",
+    "tr": "Hayatta Kalma Avantaj Paketi",
+    "es": "Paquete de Ventajas de Supervivencia",
+    "it": "Pacchetto Vantaggi Sopravvivenza"
+  },
+  "STR_EDIT": {
+    "en": "Edit",
+    "ru": "Редактировать",
+    "zh-CN": "编辑",
+    "tr": "Düzenle",
+    "es": "Editar",
+    "it": "Modificare"
+  },
+  "STR_DELETE": {
+    "en": "Delete",
+    "ru": "Удалить",
+    "zh-CN": "删除",
+    "tr": "Sil",
+    "es": "Borrar",
+    "it": "Elimina"
+  },
+  "STR_ID": {
+    "en": "ID",
+    "ru": "ID",
+    "zh-CN": "ID",
+    "tr": "ID",
+    "es": "ID",
+    "it": "ID"
+  },
+  "STR_DESCRIPTION": {
+    "en": "Description",
+    "ru": "Описание",
+    "zh-CN": "描述",
+    "tr": "Açıklama",
+    "es": "Descripción",
+    "it": "Descrizione"
+  },
+  "STR_CONFIRM_DELETE_CUSTOM_OP": {
+    "en": "Are you sure you want to delete this custom Operation?\n\nThis cannot be undone.",
+    "ru": "Вы уверены, что хотите удалить эту пользовательскую операцию? Это нельзя отменить.",
+    "zh-CN": "您确定要删除此自定义操作吗？ 这不能被撤消。",
+    "tr": "Eğer bu özel Operasyonu silmek istediğinizden emin misiniz? Bu geri alınamaz.",
+    "es": "¿Está seguro de que desea eliminar esta Operación personalizada? Esto no se puede deshacer.",
+    "it": "Sei sicuro di voler eliminare questa Operazione personalizzata? Questo non può essere annullato."
+  },
+  "STR_ERROR_BANNED": {
+    "en": "You have been banned from multiplayer due to cheating.\n\nIf you think this is in error, please contact support for assistance.",
+    "ru": "Вам запретили многопользовательскую игру из-за читерства. Если вы считаете, что это ошибка, обратитесь за помощью в службу поддержки.",
+    "zh-CN": "由于作弊，您已被禁止多人游戏。 如果您认为这是错误的，请联系支持人员寻求帮助。",
+    "tr": "Hile nedeniyle çok oyunculu oyundan yasaklandınız. Bunun bir hata olduğunu düşünüyorsanız, lütfen yardım için desteğe başvurun.",
+    "es": "Has sido expulsado del modo multijugador por hacer trampa. Si cree que se trata de un error, comuníquese con el servicio de asistencia para obtener ayuda.",
+    "it": "Sei stato bandito dal multiplayer a causa di un imbroglio. Se ritieni che questo sia un errore, contatta l'assistenza per ricevere assistenza."
+  },
+  "STR_MULTIPLAYER_LOGIN": {
+    "en": "You must be logged in to access multiplayer.",
+    "ru": "Вы должны войти в систему, чтобы мультиплеер доступа.",
+    "zh-CN": "您必须登录才能访问多人游戏。",
+    "tr": "Çok oyunculuya erişmek için oturum açmalısınız.",
+    "es": "Debes iniciar sesión para acceder al modo multijugador.",
+    "it": "Devi essere loggato per accedere al multiplayer."
   }
 }

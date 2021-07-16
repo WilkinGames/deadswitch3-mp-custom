@@ -1,4 +1,5 @@
 {
+  "port": 8081,
   "pingInterval": 2000,
   "pingTimeout": 10000,
   "maxClients": 200,
@@ -6,8 +7,10 @@
   "maxCustomLobbies": 100,
   "maxLobbyLatency": 5000,
   "maxLatency": 10000,
-  "maxUptimeHours": 0,
+  "maxUptimeHours": 12,
+  "numBots": 10,
   "bAllowJoinInProgress": true,
-  "bAddBots": false,
-  "welcomeMessage": null
+  "welcomeMessage": null,
+  "bannedUsernames": [],
+  "bannedSteamIds": []
 }

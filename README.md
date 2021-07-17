@@ -109,7 +109,7 @@ You can configure server settings in the `settings.json` file.
 
 #### Port
 
-Specified the desired port by setting the `port` value. The default is `8081`.
+Specify the desired port by setting the `port` value. The default is `8081`.
 
 #### Ban Players
 

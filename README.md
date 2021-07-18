@@ -11,7 +11,7 @@ It's recommended to have a basic understanding of command line use and git.
 
 Decide on where you want to install and run the server. You can host it on your local machine for LAN play or on an external cloud service like Heroku, Google Cloud, AWS, etc. These services typically provide free tiers that don't have any costs.
 
-Note that access to clans and the leaderboards is not available when using a custom multiplayer server for security reasons.
+Note that access to clans is not available when using a custom multiplayer server for security reasons.
 
 ## Requirements
 You will need Node.js installed on the machine you wish to host the server on. Node.js is free and easy to install.

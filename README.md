@@ -1,6 +1,6 @@
 # Deadswitch 3 Multiplayer Server
 
-![Deadswitch 3](https://xwilkinx.com/play/ds3/latest/assets/images/ui/logo_deadswitch3.png)
+© 2021 Wilkin Games
 
 ## Overview
 This repository allows you to host your own Deadswitch 3 multiplayer server.

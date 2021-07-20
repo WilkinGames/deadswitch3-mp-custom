@@ -121,7 +121,7 @@ You can set a public server message by setting `welcomeMessage`.
 
 ### PM2
 
-It's useful to automatically restart the server in the event it stops for any reason, especially if you have `maxUptimeHours` set. Using PM2 handles this, ensuring the server remains active until manually stopped. This is particularily useful if you are hosting on an external service.
+It's useful to automatically restart the server in the event it stops for any reason, especially if you have `maxUptimeHours` set. Using PM2 handles this, ensuring the server remains active until manually stopped. This is particularly useful if you are hosting on an external service.
 
 Install PM2:
 

@@ -320,12 +320,12 @@
     "it": "+ %1 Classi extra personalizzate"
   },
   "STR_ACCESS_TO_PRESTIGE_ICONS": {
-    "en": "+ Access to Prestige Icons",
-    "ru": "+ Доступ к аватарам престижа",
-    "zh-CN": "+ 声望头像使用权",
-    "tr": "+ Prestij Simgelerine Erişim",
-    "es": "+ Acceso a Iconos de Prestigio",
-    "it": "+ Accesso alle icone del Prestigio"
+    "en": "+ Access to Prestige Icons and Backgrounds",
+    "ru": "+ Доступ к престижным иконкам и фонам",
+    "zh-CN": "+ 访问威望图标和背景",
+    "tr": "+ Prestij Simgelerine ve Arka Planlara Erişim",
+    "es": "+ Acceso a Iconos y Fondos de Prestigio",
+    "it": "+ Accesso alle Icone e Sfondi del Prestigio"
   },
   "STR_UNLOCKED_AT_LEVEL": {
     "en": "Unlocked at Level %1",
@@ -15822,5 +15822,77 @@
     "tr": "Çok oyunculuya erişmek için oturum açmalısınız.",
     "es": "Debes iniciar sesión para acceder al modo multijugador.",
     "it": "Devi essere loggato per accedere al multiplayer."
+  },
+  "STR_WEAPON": {
+    "en": "Weapon",
+    "ru": "Оружие",
+    "zh-CN": "武器",
+    "tr": "Silah",
+    "es": "Arma",
+    "it": "Arma"
+  },
+  "STR_EQUIPMENT": {
+    "en": "Equipment",
+    "ru": "Оборудование",
+    "zh-CN": "设备",
+    "tr": "Ekipman",
+    "es": "Equipo",
+    "it": "Attrezzatura"
+  },
+  "STR_DROPPED_WEAPONS": {
+    "en": "Dropped Weapons",
+    "ru": "Выпало Оружие",
+    "zh-CN": "掉落武器",
+    "tr": "Bırakılan Silahlar",
+    "es": "Armas Sueltas",
+    "it": "Armi Abbandonate"
+  },
+  "STR_PROPERTIES": {
+    "en": "Properties",
+    "ru": "Свойства",
+    "zh-CN": "属性",
+    "tr": "Özellikleri",
+    "es": "Propiedades",
+    "it": "Proprietà"
+  },
+  "STR_WPN_KEVLAR": {
+    "en": "Kevlar",
+    "ru": "Кевлар",
+    "zh-CN": "凯夫拉",
+    "tr": "Çelik Yelek",
+    "es": "Kevlar",
+    "it": "Kevlar"
+  },
+  "STR_WPN_DESC_KEVLAR": {
+    "en": "Reduces close range damage to the body.",
+    "ru": "Уменьшает урон тела с близкого расстояния.",
+    "zh-CN": "减少近距离对身体的伤害。",
+    "tr": "Vücuda yakın mesafe hasarını azaltır.",
+    "es": "Reduce el daño al cuerpo a corta distancia.",
+    "it": "Riduce i danni al corpo a distanza ravvicinata."
+  },
+  "STR_SERVER": {
+    "en": "Server",
+    "ru": "Сервер",
+    "zh-CN": "服务器",
+    "tr": "Sunucu",
+    "es": "Servidor",
+    "it": "Server"
+  },
+  "STR_SWITCH_TEAMS": {
+    "en": "Switch Teams",
+    "ru": "",
+    "zh-CN": "",
+    "tr": "",
+    "es": "",
+    "it": ""
+  },
+  "STR_CONFIRM_SWITCH_TEAMS": {
+    "en": "Are you sure you want to switch teams?",
+    "ru": "",
+    "zh-CN": "",
+    "tr": "",
+    "es": "",
+    "it": ""
   }
 }

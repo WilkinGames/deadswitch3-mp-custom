@@ -220,7 +220,7 @@
     "desc": "STR_STREAK_AMMO_DESC",
     "sound": "ui_killstreak_carepackage",
     "type": "TYPE_SUPPORT",
-    "kills": 4,
+    "kills": 3,
     "cost": 1,
     "moneyCost": 500,
     "xpReward": 100,
@@ -232,7 +232,7 @@
     "desc": "STR_STREAK_COUNTER_UAV_DESC",
     "sound": "ui_killstreak_counteruav",
     "type": "TYPE_SUPPORT",
-    "kills": 6,
+    "kills": 5,
     "cost": 1,
     "unlockLevel": 8,
     "moneyCost": 0,
@@ -245,7 +245,7 @@
     "sound": "ui_killstreak_uav",
     "hqId": "uav",
     "type": "TYPE_SUPPORT",
-    "kills": 6,
+    "kills": 5,
     "cost": 1,
     "moneyCost": 0,
     "xpReward": 100
@@ -256,7 +256,7 @@
     "desc": "STR_STREAK_DECOY_DESC",
     "sound": "ui_killstreak_carepackage",
     "type": "TYPE_SUPPORT",
-    "kills": 5,
+    "kills": 6,
     "cost": 2,
     "unlockLevel": 10,
     "moneyCost": 0,
@@ -269,7 +269,7 @@
     "desc": "STR_STREAK_SAM_TURRET_DESC",
     "sound": "ui_killstreak_samturret",
     "type": "TYPE_SUPPORT",
-    "kills": 8,
+    "kills": 6,
     "cost": 1,
     "xpReward": 150,
     "bWorldMenu": true
@@ -280,7 +280,7 @@
     "desc": "STR_STREAK_REMOTE_SENTRY_DESC",
     "sound": "ui_killstreak_remoteturret",
     "type": "TYPE_SUPPORT",
-    "kills": 10,
+    "kills": 8,
     "cost": 3,
     "unlockLevel": 30,
     "moneyCost": 3000,
@@ -357,7 +357,7 @@
     "moneyCost": 3000,
     "bWorldMenu": true,
     "bSurvival": true,
-    "kills": 6,
+    "kills": 5,
     "cost": 2,
     "unlockLevel": 12
   },
@@ -500,7 +500,7 @@
   },
   {
     "id": "perk_ninja",
-    "kills": 2,
+    "kills": 3,
     "perkId": "perk_ninja",
     "type": "TYPE_SPECIALIST",
     "cost": 3
@@ -535,7 +535,7 @@
   },
   {
     "id": "perk_recovery",
-    "kills": 5,
+    "kills": 6,
     "perkId": "perk_recovery",
     "type": "TYPE_SPECIALIST",
     "cost": 5
@@ -563,7 +563,7 @@
   },
   {
     "id": "perk_scavenger",
-    "kills": 4,
+    "kills": 5,
     "perkId": "perk_scavenger",
     "type": "TYPE_SPECIALIST",
     "cost": 5

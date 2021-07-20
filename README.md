@@ -1,6 +1,6 @@
 # Deadswitch 3 Multiplayer Server
 
-![Deadswitch 3](https://xwilkinx.com/play/ds3/latest/assets/images/ui/logo_deadswitch3.png)
+© 2021 Wilkin Games
 
 ## Overview
 This repository allows you to host your own Deadswitch 3 multiplayer server.
@@ -11,7 +11,7 @@ It's recommended to have a basic understanding of command line use and git.
 
 Decide on where you want to install and run the server. You can host it on your local machine for LAN play or on an external cloud service like Heroku, Google Cloud, AWS, etc. These services typically provide free tiers that don't have any costs.
 
-Note that access to clans and the leaderboards is not available when using a custom multiplayer server for security reasons.
+Note that access to clans is not available when using a custom multiplayer server for security reasons.
 
 ## Requirements
 You will need Node.js installed on the machine you wish to host the server on. Node.js is free and easy to install.
@@ -107,9 +107,21 @@ Then start the server again:
 
 You can configure server settings in the `settings.json` file.
 
+#### Port
+
+Specify the desired port by setting the `port` value. The default is `8081`.
+
+#### Ban Players
+
+Specified players to ban by either Deadswitch 3 username or Steam ID with `bannedUsernames` and `bannedSteamIds`.
+
+#### Welcome Message
+
+You can set a public server message by setting `welcomeMessage`.
+
 ### PM2
 
-It's useful to automatically restart the server in the event it stops for any reason, especially if you have `maxUptimeHours` set. Using PM2 handles this, ensuring the server remains active until manually stopped. This is particularily useful if you are hosting on an external service.
+It's useful to automatically restart the server in the event it stops for any reason, especially if you have `maxUptimeHours` set. Using PM2 handles this, ensuring the server remains active until manually stopped. This is particularly useful if you are hosting on an external service.
 
 Install PM2:
 

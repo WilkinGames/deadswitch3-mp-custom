@@ -7,9 +7,10 @@
   "maxCustomLobbies": 100,
   "maxLobbyLatency": 5000,
   "maxLatency": 10000,
-  "maxUptimeHours": 12,
-  "numBots": 10,
+  "maxUptimeHours": 0,
+  "numBots": 0,
   "bAllowJoinInProgress": true,
+  "bAllowVotekick": true,
   "welcomeMessage": null,
   "bannedUsernames": [],
   "bannedSteamIds": []

@@ -9024,7 +9024,7 @@
     "it": "Lascia cadere una granata a frammentazione quando viene ucciso"
   },
   "STR_PERK_ANTI_SNIPER_DESC": {
-    "en": "Reduced damage from Sniper Rifles and High Caliber rounds",
+    "en": "Reduced damage from Sniper Rifles and High Caliber rounds at range",
     "ru": "Уменьшает входящий урон от снайперских винтовок и оружия с модификацией «большой калибр»",
     "zh-CN": "降低被狙击枪和大口径弹药击中的伤害",
     "tr": "Keskin Nişancı Tüfeği ve Yüksek Kalibre mermilerden alınan hasar azaltıldı",
@@ -15889,6 +15889,14 @@
   },
   "STR_CONFIRM_SWITCH_TEAMS": {
     "en": "Are you sure you want to switch teams?",
+    "ru": "",
+    "zh-CN": "",
+    "tr": "",
+    "es": "",
+    "it": ""
+  },
+  "STR_TIEBREAKER": {
+    "en": "Tiebreaker",
     "ru": "",
     "zh-CN": "",
     "tr": "",

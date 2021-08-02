@@ -429,7 +429,22 @@
     "hqId": "ammo",
     "kills": 8,
     "cost": 3,
+    "moneyCost": 40000,
     "unlockLevel": 15,
+    "xpReward": 200,
+    "bWorldMenu": true
+  },
+  {
+    "id": "weapon_minigun",
+    "name": "STR_STREAK_MINIGUN_AIRDROP",
+    "desc": "STR_STREAK_MINIGUN_AIRDROP_DESC",
+    "sound": "ui_killstreak_carepackage",
+    "type": "TYPE_SUPPORT",
+    "hqId": "ammo",
+    "kills": 15,
+    "cost": 10,
+    "moneyCost": 100000,
+    "unlockLevel": 24,
     "xpReward": 200,
     "bWorldMenu": true
   },

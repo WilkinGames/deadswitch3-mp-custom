@@ -88,15 +88,51 @@
       "aim": 1,
       "fire": [ 2, 9 ],
       "idle": 0,
-      "reload": [ 9, 110 ],
+      "reload": [ 9, 180 ],
       "sounds": [
         {
           "frame": 30,
           "sound": "sfx_reload_start"
         },
         {
-          "frame": 85,
+          "frame": 82,
           "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 116,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 132,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "minigun": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 309 ],
+      "sounds": [
+        {
+          "frame": 45,
+          "sound": "sfx_reload_chain"
+        },
+        {
+          "frame": 88,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 124,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 202,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 222,
+          "sound": "sfx_reload_chain"
         }
       ]
     },
@@ -202,6 +238,30 @@
         {
           "frame": 68,
           "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "origin12": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 110 ],
+      "sounds": [
+        {
+          "frame": 26,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 44,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 65,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 92,
+          "sound": "sfx_reload_bolt_close"
         }
       ]
     },
@@ -722,6 +782,26 @@
         }
       ]
     },
+    "sks": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 144 ],
+      "sounds": [
+        {
+          "frame": 42,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 85,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 117,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
     "g36c": {
       "aim": 1,
       "fire": [ 2, 9 ],
@@ -739,6 +819,30 @@
         {
           "frame": 95,
           "sound": "sfx_reload_bolt_open"
+        }
+      ]
+    },
+    "l85a3": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 136 ],
+      "sounds": [
+        {
+          "frame": 28,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 60,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 100,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 110,
+          "sound": "sfx_reload_bolt_close"
         }
       ]
     },
@@ -919,6 +1023,34 @@
         {
           "frame": 80,
           "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "k1a": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 121 ],
+      "sounds": [
+        {
+          "frame": 25,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 58,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 78,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 72,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 87,
+          "sound": "sfx_reload_bolt_close"
         }
       ]
     },
@@ -1614,6 +1746,12 @@
       "attack2": [ 2, 10 ],
       "idle": 0
     },
+    "melee_breacher": {
+      "aim": 1,
+      "attack": [ 2, 12 ],
+      "attack2": [ 13, 23 ],
+      "idle": 0
+    },
     "melee_hatchet": {
       "aim": 1,
       "attack": [ 2, 10 ],
@@ -1956,12 +2094,20 @@
       "reload": [ 9, 105 ],
       "sounds": [
         {
-          "frame": 29,
+          "frame": 15,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 27,
           "sound": "sfx_reload_start"
         },
         {
-          "frame": 82,
+          "frame": 74,
           "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 90,
+          "sound": "sfx_reload_bolt_close"
         }
       ]
     },

@@ -426,6 +426,14 @@
     "unlockLevel": 50
   },
   {
+    "id": "melee_breacher",
+    "name": "STR_WPN_BREACHER",
+    "type": "melee",
+    "cost": 10,
+    "bPremium": true,
+    "unlockLevel": 50
+  },
+  {
     "id": "face0000",
     "name": "STR_MALE",
     "type": "face",
@@ -756,7 +764,7 @@
     "id": "head0085",
     "name": "STR_HEAD_SANTA_HAT_GOLD",
     "type": "head",
-    "cost": 30,
+    "cost": 50,
     "unlockLevel": 5,
     "bPremium": true
   },
@@ -1042,6 +1050,53 @@
     "bHideBeard": true,
     "cost": 40,
     "unlockLevel": 25,
+    "bPremium": true
+  },
+  {
+    "id": "head0090",
+    "name": "STR_HEAD_RANGER_NIGHTVISION_1",
+    "type": "head",
+    "bHideHair": true,
+    "cost": 12,
+    "unlockLevel": 10,
+    "bPremium": true
+  },
+  {
+    "id": "head0091",
+    "name": "STR_HEAD_RANGER",
+    "type": "head",
+    "bHideHair": true,
+    "cost": 10,
+    "unlockLevel": 10,
+    "bPremium": true
+  },
+  {
+    "id": "head0092",
+    "name": "STR_HEAD_RANGER_NIGHTVISION_2",
+    "type": "head",
+    "bHideHair": true,
+    "cost": 12,
+    "unlockLevel": 10,
+    "bPremium": true
+  },
+  {
+    "id": "head0093",
+    "name": "STR_HEAD_RANGER_MASK",
+    "type": "head",
+    "bHideHair": true,
+    "bHideBeard": true,
+    "cost": 12,
+    "unlockLevel": 10,
+    "bPremium": true
+  },
+  {
+    "id": "head0094",
+    "name": "STR_HEAD_BRUISER",
+    "type": "head",
+    "bHideHair": true,
+    "bHideBeard": true,
+    "cost": 25,
+    "unlockLevel": 30,
     "bPremium": true
   },
   {

@@ -13424,12 +13424,12 @@
     "it": "Elimina Touhou Hijack e le sue forze."
   },
   "STR_OP_MEET_YOUR_MAKER_DESC": {
-    "en": "Eliminate XWILKINX.",
-    "ru": "Убейте XWILKINX.",
-    "zh-CN": "击败艾克斯威尔金克斯(XWILKINX)。",
-    "tr": "XWILKINX'i ortadan kaldırın.",
-    "es": "Elimina a XWILKINX.",
-    "it": "Elimina XWILKINX."
+    "en": "Eliminate Wilkin.",
+    "ru": "Убейте Wilkin.",
+    "zh-CN": "击败艾克斯威尔金克斯(Wilkin)。",
+    "tr": "Wilkin'i ortadan kaldırın.",
+    "es": "Elimina a Wilkin.",
+    "it": "Elimina Wilkin."
   },
   "STR_OP_RURAL_ASSAULT_DESC": {
     "en": "Breach the Soviet headquarters and eliminate all enemies.",
@@ -15881,26 +15881,170 @@
   },
   "STR_SWITCH_TEAMS": {
     "en": "Switch Teams",
-    "ru": "",
-    "zh-CN": "",
-    "tr": "",
-    "es": "",
-    "it": ""
+    "ru": "Сменить команды",
+    "zh-CN": "更换团队",
+    "tr": "Takım Değiştir",
+    "es": "Cambiar de Equipo",
+    "it": "Cambia Squadra"
   },
   "STR_CONFIRM_SWITCH_TEAMS": {
     "en": "Are you sure you want to switch teams?",
-    "ru": "",
-    "zh-CN": "",
-    "tr": "",
-    "es": "",
-    "it": ""
+    "ru": "Вы уверены, что хотите сменить команду?",
+    "zh-CN": "您确定要更改您的团队吗？",
+    "tr": "Takım değiştirmek istediğinizden emin misiniz?",
+    "es": "¿Estás seguro de que quieres cambiar de equipo?",
+    "it": "Sei sicuro di voler cambiare squadra?"
   },
   "STR_TIEBREAKER": {
     "en": "Tiebreaker",
-    "ru": "",
-    "zh-CN": "",
-    "tr": "",
-    "es": "",
-    "it": ""
+    "ru": "Тайбрейкер",
+    "zh-CN": "决胜局",
+    "tr": "Bağ Bozan",
+    "es": "Desempate",
+    "it": "Tie-breaker"
+  },
+  "STR_REMOVE_ALL": {
+    "en": "Remove All",
+    "ru": "Убрать Все",
+    "zh-CN": "移除所有",
+    "tr": "Hepsini Kaldır",
+    "es": "Eliminar Todo",
+    "it": "Rimuovi Tutto"
+  },
+  "STR_CONFIRM_REMOVE_ALL": {
+    "en": "Are you sure you want to remove all objects and enemies?\n\nThis cannot be undone.",
+    "ru": "Вы уверены, что хотите удалить все объекты и врагов? Это не может быть отменено.",
+    "zh-CN": "您确定要移除所有物体和敌人吗？ 这不能被撤消。",
+    "tr": "Tüm nesneleri ve düşmanları kaldırmak istediğinizden emin misiniz? Bu geri alınamaz.",
+    "es": "¿Estás seguro de que quieres eliminar todos los objetos y enemigos? Esto no se puede deshacer.",
+    "it": "Sei sicuro di voler rimuovere tutti gli oggetti e i nemici? Questo non può essere annullato."
+  },
+  "STR_WPN_MINIGUN": {
+    "en": "Minigun",
+    "ru": "Миниган",
+    "zh-CN": "机枪",
+    "tr": "Minigun",
+    "es": "Minigun",
+    "it": "Mitragliatore"
+  },
+  "STR_WPN_DESC_MINIGUN": {
+    "en": "Extremely high rate of fire and large capacity with severely limited mobility.",
+    "ru": "Чрезвычайно высокая скорострельность и большая вместимость при сильно ограниченной подвижности.",
+    "zh-CN": "极高的射速和大容量，但机动性受到严重限制。",
+    "tr": "Son derece sınırlı hareket kabiliyeti ile son derece yüksek ateş hızı ve büyük kapasite.",
+    "es": "Minigun",
+    "it": "Velocità di fuoco estremamente elevata e grande capacità con mobilità gravemente limitata."
+  },
+  "STR_WPN_L85A3": {
+    "en": "L85A3",
+    "ru": "L85A3",
+    "zh-CN": "L85A3",
+    "tr": "L85A3",
+    "es": "L85A3",
+    "it": "L85A3"
+  },
+  "STR_WPN_ORIGIN12": {
+    "en": "Origin-12",
+    "ru": "Происхождение-12",
+    "zh-CN": "起源-12",
+    "tr": "Menşei-12",
+    "es": "Origen-12",
+    "it": "Origine-12"
+  },
+  "STR_WPN_K1A": {
+    "en": "K1A",
+    "ru": "K1A",
+    "zh-CN": "K1A",
+    "tr": "K1A",
+    "es": "K1A",
+    "it": "K1A"
+  },
+  "STR_WPN_SKS": {
+    "en": "SKS",
+    "ru": "SKS",
+    "zh-CN": "SKS",
+    "tr": "SKS",
+    "es": "SKS",
+    "it": "SKS"
+  },
+  "STR_WPN_RPK16": {
+    "en": "RPK-16",
+    "ru": "RPK-16",
+    "zh-CN": "RPK-16",
+    "tr": "RPK-16",
+    "es": "RPK-16",
+    "it": "RPK-16"
+  },
+  "STR_WPN_BREACHER": {
+    "en": "Sledgehammer",
+    "ru": "Кувалда",
+    "zh-CN": "大锤",
+    "tr": "Balyoz",
+    "es": "Mazza",
+    "it": "Mazza"
+  },
+  "STR_WPN_DESC_BREACHER": {
+    "en": "Heavy and lethal sledgehammer.",
+    "ru": "Тяжелая и смертоносная кувалда.",
+    "zh-CN": "沉重而致命的大锤。",
+    "tr": "Ağır ve ölümcül balyoz.",
+    "es": "Martillo pesado y letal.",
+    "it": "Mazza pesante e letale."
+  },
+  "STR_HEAD_RANGER": {
+    "en": "Ranger Helmet",
+    "ru": "Шлем следопыта",
+    "zh-CN": "游侠头盔",
+    "tr": "Korucu Kaskı",
+    "es": "Casco de Guardabosques",
+    "it": "Casco da Ranger"
+  },
+  "STR_HEAD_RANGER_MASK": {
+    "en": "Ranger Helmet – Mask",
+    "ru": "Шлем следопыта – Маска",
+    "zh-CN": "游侠头盔–面具",
+    "tr": "Korucu Kaskı – Maske",
+    "es": "Casco de Guardabosques – Máscara",
+    "it": "Casco da Ranger – Maschera"
+  },
+  "STR_HEAD_RANGER_NIGHTVISION_1": {
+    "en": "Ranger Helmet – Nightvision 1",
+    "ru": "Шлем следопыта – Ночное видение 1",
+    "zh-CN": "游侠头盔–夜间视力1",
+    "tr": "Korucu Kaskı – Gece Görüşü 1",
+    "es": "Casco de Guardabosques – Vision Nocturna 1",
+    "it": "Casco da Ranger – Visione Notturna 1"
+  },
+  "STR_HEAD_RANGER_NIGHTVISION_2": {
+    "en": "Ranger Helmet – Nightvision 2",
+    "ru": "Шлем следопыта – Ночное видение 2",
+    "zh-CN": "游侠头盔–夜间视力2",
+    "tr": "Korucu Kaskı – Gece Görüşü 2",
+    "es": "Casco de Guardabosques – Vision Nocturna 2",
+    "it": "Casco da Ranger – Visione Notturna 2"
+  },
+  "STR_HEAD_BRUISER": {
+    "en": "Bruiser Helmet",
+    "ru": "Шлем Синяк",
+    "zh-CN": "Bruiser 头盔",
+    "tr": "Bruiser Kask",
+    "es": "Casco de Magullador",
+    "it": "Elmo del Bruser"
+  },
+  "STR_STREAK_MINIGUN_AIRDROP": {
+    "en": "Minigun Airdrop",
+    "ru": "Бесплатная раздача минигана",
+    "zh-CN": "机枪空投",
+    "tr": "Minigun Airdrop",
+    "es": "Minigun Airdrop",
+    "it": "Minigun Airdrop"
+  },
+  "STR_STREAK_MINIGUN_AIRDROP_DESC": {
+    "en": "Airdrop a powerful minigun.",
+    "ru": "Бросьте мощный миниган.",
+    "zh-CN": "空投强大的机枪。",
+    "tr": "Güçlü bir minigun havaya uçurun.",
+    "es": "Lanza desde el aire una potente minigun.",
+    "it": "Airdrop una potente minigun."
   }
 }

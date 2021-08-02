@@ -16046,5 +16046,13 @@
     "tr": "Güçlü bir minigun havaya uçurun.",
     "es": "Lanza desde el aire una potente minigun.",
     "it": "Airdrop una potente minigun."
+  },
+  "STR_OP_MINIGUN": {
+    "en": "Minigun Fun",
+    "ru": "Развлечение с Миниганами",
+    "zh-CN": "玩转机枪的乐趣",
+    "tr": "Minigunlarla Eğlence",
+    "es": "Diversión con Miniguns",
+    "it": "Divertimento con Mitragliatrici"
   }
 }

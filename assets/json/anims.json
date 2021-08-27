@@ -1464,7 +1464,7 @@
       "aim": 1,
       "fire": [ 2, 9 ],
       "idle": 0,
-      "reload": [ 9, 100 ],
+      "reload": [ 9, 106 ],
       "sounds": [
         {
           "frame": 25,

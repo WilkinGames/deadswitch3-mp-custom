@@ -355,6 +355,7 @@
     "hqId": "ammo",
     "type": "TYPE_SUPPORT",
     "moneyCost": 3000,
+    "xpReward": 150,
     "bWorldMenu": true,
     "bSurvival": true,
     "kills": 5,
@@ -369,6 +370,7 @@
     "hqId": "ammo",
     "type": "TYPE_SUPPORT",
     "moneyCost": 3000,
+    "xpReward": 150,
     "bWorldMenu": true,
     "kills": 6,
     "cost": 2,
@@ -381,6 +383,7 @@
     "sound": "ui_killstreak_carepackage",
     "hqId": "ammo",
     "moneyCost": 5000,
+    "xpReward": 150,
     "bSurvival": true,
     "bWorldMenu": true
   },

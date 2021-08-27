@@ -2068,7 +2068,7 @@
     "ru": "Операции",
     "zh-CN": "特别行动",
     "tr": "Operasyonlar",
-    "es": "Spanish here",
+    "es": "Operaciones",
     "it": "Operazioni"
   },
   "STR_MENU_SURVIVAL": {
@@ -2076,7 +2076,7 @@
     "ru": "Выживание",
     "zh-CN": "生存模式",
     "tr": "Hayatta Kalma",
-    "es": "Spanish here",
+    "es": "Supervivencia",
     "it": "Sopravvivenza"
   },
   "STR_MENU_NEWS": {
@@ -2084,7 +2084,7 @@
     "ru": "Новости",
     "zh-CN": "最新动态",
     "tr": "Haberler",
-    "es": "Spanish here",
+    "es": "Noticias",
     "it": "Novità"
   },
   "STR_MENU_ACHIEVEMENTS": {
@@ -2092,7 +2092,7 @@
     "ru": "Достижения",
     "zh-CN": "成就",
     "tr": "Başarımlar",
-    "es": "Spanish here",
+    "es": "Logros",
     "it": "Traguardi"
   },
   "STR_GET_SHARDS": {
@@ -2100,7 +2100,7 @@
     "ru": "Получить осколки",
     "zh-CN": "获取碎片",
     "tr": "Shard'lardan Al",
-    "es": "Spanish here",
+    "es": "Obtener Fragmentos",
     "it": "Ottieni Frammenti"
   },
   "STR_PLAYERS": {
@@ -2204,7 +2204,7 @@
     "ru": ".50 BMG",
     "zh-CN": ".50 勃朗宁机枪弹",
     "tr": ".50 BMG",
-    "es": "Spanish here",
+    "es": ".50 BMG",
     "it": ".50 BMG"
   },
   "STR_ROUND_45ACP": {
@@ -11084,7 +11084,7 @@
     "ru": "Автоматический дробовик с высоким уроном.",
     "zh-CN": "高威力全自动霰弹枪。",
     "tr": "İyi güce sahip tam otomatik av tüfeği.",
-    "es": "Spanish here",
+    "es": "Escopeta totalmente automática con buena potencia.",
     "it": "Fucile completamente automatico con una buona potenza."
   },
   "STR_WPN_DESC_SHOTGUN_AUTO_HIGH_CAPACITY": {

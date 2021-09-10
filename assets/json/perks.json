@@ -149,6 +149,15 @@
     "shardCost": 3
   },
   {
+    "id": "perk_bling",
+    "type": "PERK_TYPE_WEAPON",
+    "name": "STR_PERK_BLING",
+    "desc": "STR_PERK_BLING_DESC",
+    "unlockLevel": 22,
+    "shardCost": 3,
+    "cost": 10000
+  },
+  {
     "id": "perk_underkill",
     "type": "PERK_TYPE_WEAPON",
     "name": "STR_PERK_UNDERKILL",

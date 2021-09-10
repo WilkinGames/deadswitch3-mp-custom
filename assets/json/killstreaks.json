@@ -52,6 +52,18 @@
     "bWorldMenu": true
   },
   {
+    "id": "rcxd",
+    "name": "STR_STREAK_RCXD",
+    "desc": "STR_STREAK_RCXD_DESC",
+    "sound": "ui_killstreak_decoy",
+    "type": "TYPE_ASSAULT",
+    "kills": 5,
+    "cost": 5,
+    "moneyCost": 2000,
+    "xpReward": 150,
+    "bHidden": true
+  },
+  {
     "id": "airstrike",
     "name": "STR_STREAK_AIRSTRIKE",
     "desc": "STR_STREAK_AIRSTRIKE_DESC",
@@ -446,7 +458,7 @@
     "hqId": "ammo",
     "kills": 15,
     "cost": 10,
-    "moneyCost": 100000,
+    "moneyCost": 75000,
     "unlockLevel": 24,
     "xpReward": 200,
     "bWorldMenu": true

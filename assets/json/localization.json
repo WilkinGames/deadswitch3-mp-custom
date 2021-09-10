@@ -11296,7 +11296,7 @@
     "it": "Fucile semiautomatico con raffica a 4 colpi."
   },
   "STR_WPN_DESC_STOEGER": {
-    "en": "Double-barrelled shotgun wth very high power but limited range.",
+    "en": "Double-barrelled shotgun with very high power but limited range.",
     "ru": "Двухствольный дробовик с очень высоким уроном, но маленькой дальностью.",
     "zh-CN": "超强力有限射程双管霰弹枪。",
     "tr": "Çok yüksek güce ancak sınırlı menzile sahip çift namlulu av tüfeği.",
@@ -14812,7 +14812,7 @@
     "ru": "Тайник снабжения Delta Force",
     "zh-CN": "三角洲部队补给缓存",
     "tr": "Delta Force Tedarik Önbelleği",
-    "es": "Caché de suministro de Delta Force",
+    "es": "Caché de Suministro de Delta Force",
     "it": "Cassa Rifornimenti Delta Force"
   },
   "STR_BUNDLE_GIGN": {
@@ -14820,7 +14820,7 @@
     "ru": "Тайник снабжения GIGN",
     "zh-CN": "GIGN供应缓存",
     "tr": "GIGN Tedarik Önbelleği",
-    "es": "Caché de suministros de GIGN",
+    "es": "Caché de Suministros de GIGN",
     "it": "Cassa Rifornimenti GIGN"
   },
   "STR_BUNDLE_GSG9": {
@@ -14828,7 +14828,7 @@
     "ru": "Тайник снабжения GSG 9",
     "zh-CN": "GSG 9供应缓存",
     "tr": "GSG 9 Tedarik Önbelleği",
-    "es": "Caché de suministros de GSG 9",
+    "es": "Caché de Suministros de GSG 9",
     "it": "Cassa Rifornimenti GSG 9"
   },
   "STR_BUNDLE_OPFOR": {
@@ -16054,5 +16054,125 @@
     "tr": "Minigunlarla Eğlence",
     "es": "Diversión con Miniguns",
     "it": "Divertimento con Mitragliatrici"
+  },
+  "STR_PAYPAL": {
+    "en": "PayPal Sale",
+    "ru": "PayPal продажа",
+    "zh-CN": "贝宝销售(PayPal)",
+    "tr": "PayPal Satışı",
+    "es": "Venta de PayPal",
+    "it": "Vendita PayPal"
+  },
+  "STR_STREAK_RCXD": {
+    "en": "RC-XD",
+    "ru": "RC-XD",
+    "zh-CN": "RC-XD",
+    "tr": "RC-XD",
+    "es": "RC-XD",
+    "it": "RC-XD"
+  },
+  "STR_STREAK_RCXD_DESC": {
+    "en": "Remote-controlled explosive device.",
+    "ru": "Дистанционно управляемое взрывное устройство.",
+    "zh-CN": "遥控爆炸装置。",
+    "tr": "Uzaktan kumandalı patlayıcı cihaz.",
+    "es": "Dispositivo explosivo por control remoto.",
+    "it": "Ordigno esplosivo telecomandato."
+  },
+  "STR_PERK_BLING": {
+    "en": "Bling",
+    "ru": "Побрякушки",
+    "zh-CN": "金光闪闪",
+    "tr": "Bling",
+    "es": "Bling",
+    "it": "Bling"
+  },
+  "STR_PERK_BLING_DESC": {
+    "en": "Equip 3 barrel attachments",
+    "ru": "Установить 3 ствола",
+    "zh-CN": "装备3个枪管附件",
+    "tr": "3 varil ataşmanı donatın",
+    "es": "Equipar 3 accesorios de barril",
+    "it": "Equipaggia 3 accessori per canne"
+  },
+  "STR_WPN_SCOUT": {
+    "en": "Scout",
+    "ru": "Scout",
+    "zh-CN": "Scout",
+    "tr": "Scout",
+    "es": "Scout",
+    "it": "Scout"
+  },
+  "STR_WPN_G3": {
+    "en": "G3A3",
+    "ru": "G3A3",
+    "zh-CN": "G3A3",
+    "tr": "G3A3",
+    "es": "G3A3",
+    "it": "G3A3"
+  },
+  "STR_WPN_MP1911": {
+    "en": "MP1911",
+    "ru": "MP1911",
+    "zh-CN": "MP1911",
+    "tr": "MP1911",
+    "es": "MP1911",
+    "it": "MP1911"
+  },
+  "STR_WPN_TEC9": {
+    "en": "TEC-9",
+    "ru": "TEC-9",
+    "zh-CN": "TEC-9",
+    "tr": "TEC-9",
+    "es": "TEC-9",
+    "it": "TEC-9"
+  },
+  "STR_WPN_SAWED_OFF": {
+    "en": "Sawed Off",
+    "ru": "Отпилен",
+    "zh-CN": "锯掉",
+    "tr": "Biçilmiş",
+    "es": "Aserrado",
+    "it": "Segato"
+  },
+  "STR_WPN_RAILGUN": {
+    "en": "Railgun",
+    "ru": "Рейлган",
+    "zh-CN": "轨道炮",
+    "tr": "Raylı Tüfek",
+    "es": "Railgun",
+    "it": "Railgun"
+  },
+  "STR_WPN_DESC_RAILGUN": {
+    "en": "High damage electromagnetic launcher.",
+    "ru": "Электромагнитная пусковая установка с высоким уровнем повреждений.",
+    "zh-CN": "高伤害电磁发射器。",
+    "tr": "Yüksek hasarlı elektromanyetik fırlatıcı.",
+    "es": "Lanzador electromagnético de alto daño.",
+    "it": "Lanciatore elettromagnetico ad alto danno."
+  },
+  "STR_BUNDLE_OPERATOR": {
+    "en": "Operator Supply Cache",
+    "ru": "Тайник снабжения Oператора",
+    "zh-CN": "操作员供应缓存",
+    "tr": "Operatör Tedarik Önbelleği",
+    "es": "Caché de Suministros del operador",
+    "it": "Operatör Tedarik Önbelleği"
+  },
+  "STR_OP_AETIC": {
+    "en": "Arms Dealer",
+    "ru": "Торговец Oружием",
+    "zh-CN": "军火商",
+    "tr": "Silah Satıcısı",
+    "es": "Vendedor de Armas",
+    "it": "Venditore di Armi"
+  },
+  "STR_OP_AETIC_DESC": {
+    "en": "Eliminate AETIC and his forces.",
+    "ru": "Устраните AETIC и его силы.",
+    "zh-CN": "消灭 AETIC 和他的部队。",
+    "tr": "AETIC ve güçlerini ortadan kaldırın.",
+    "es": "Elimina AETIC y sus fuerzas.",
+    "it": "Elimina AETIC e le sue forze."
   }
 }

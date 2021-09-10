@@ -1,6 +1,6 @@
 {
   "maxSurvivalMoney": 100000,
-  "smokeSize": 220,
+  "smokeSize": 300,
   "heliMaxY": 1300,
   "ladderWidth": 24,
   "perks": {
@@ -83,6 +83,10 @@
   "mh6_attack": {
     "width": 200,
     "height": 100
+  },
+  "rcxd": {
+    "width": 45,
+    "height": 40
   },
   "cobra": {
     "width": 400,
@@ -415,6 +419,7 @@
     "mode_rotation_survival": 4
   },
   "ammoCost": {
+    "railgun": 250,
     "arrow": 100,
     "flame": 10,
     "38": 15,

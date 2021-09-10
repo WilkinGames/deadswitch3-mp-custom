@@ -8,29 +8,19 @@
     "bOfficial": true
   },
   {
-    "name": "br",
-    "localizedName": "STR_SOUTH_AMERICA",
-    "url": "https://ds3mp-br.wilkingames.net/",
-    "location": "São Paulo, Brazil",
-    "card": "brazil",
+    "name": "eu",
+    "localizedName": "STR_EUROPE",
+    "url": "https://ds3mp-eu2.wilkingames.net/",
+    "location": "Moscow, Russia",
+    "card": "russia",
     "bOfficial": true
   },
   {
-    "name": "eu",
-    "localizedName": "STR_EUROPE",
-    "url": "https://ds3mp-eu.wilkingames.net/",
-    "location": "London, England",
-    "card": "uk",
-    "bOfficial": true,
-    "num": 1
-  },
-  {
-    "name": "ru",
-    "localizedName": "STR_EUROPE",
-    "url": "https://ds3mp-ru.wilkingames.net/",
-    "location": "Moscow, Russia",
-    "card": "russia",
-    "bOfficial": true,
-    "num": 2
+    "name": "sg",
+    "localizedName": "STR_ASIA",
+    "url": "https://ds3mp-sg.wilkingames.net/",
+    "location": "Singapore, Singapore",
+    "card": "singapore",
+    "bOfficial": true
   }
 ]

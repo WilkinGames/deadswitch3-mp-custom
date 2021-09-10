@@ -939,6 +939,35 @@
         }
       ]
     },
+    "mp1911": {
+      "aim": 1,
+      "fire": [ 2, 11 ],
+      "idle": 0,
+      "reload": [ 12, 107 ],
+      "empty": 12,
+      "sounds": [
+        {
+          "frame": 18,
+          "sound": "sfx_spin"
+        },
+        {
+          "frame": 33,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 55,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 73,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 76,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
     "maxim9": {
       "aim": 1,
       "fire": [ 2, 11 ],
@@ -1007,6 +1036,35 @@
         {
           "frame": 38,
           "sound": "sfx_reload_bolt"
+        }
+      ]
+    },
+    "steyr": {
+      "aim": 1,
+      "bolt": [ 23, 73 ],
+      "fire": [ 2, 23 ],
+      "idle": 0,
+      "reload": [ 74, 198 ],
+      "sounds": [
+        {
+          "frame": 30,
+          "sound": "sfx_reload_bolt"
+        },
+        {
+          "frame": 90,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 102,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 128,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 158,
+          "sound": "sfx_reload_bolt_close"
         }
       ]
     },
@@ -1484,6 +1542,30 @@
         }
       ]
     },
+    "g3": {
+      "aim": 1,
+      "fire": [ 2, 9 ],
+      "idle": 0,
+      "reload": [ 9, 113 ],
+      "sounds": [
+        {
+          "frame": 22,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 35,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 72,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 95,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
     "uzi": {
       "aim": 1,
       "fire": [ 2, 9 ],
@@ -1529,6 +1611,34 @@
         {
           "frame": 134,
           "sound": "sfx_reload_end"
+        }
+      ]
+    },
+    "railgun": {
+      "aim": 1,
+      "fire": [ 2, 23 ],
+      "idle": 0,
+      "reload": [ 85, 245 ],
+      "sounds": [
+        {
+          "frame": 90,
+          "sound": "sfx_reload_railgun_1"
+        },
+        {
+          "frame": 118,
+          "sound": "sfx_reload_bolt_open"
+        },
+        {
+          "frame": 136,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 160,
+          "sound": "sfx_reload_bolt_close"
+        },
+        {
+          "frame": 172,
+          "sound": "sfx_reload_railgun_2"
         }
       ]
     },
@@ -2040,6 +2150,19 @@
         }
       ]
     },
+    "sawed_off": {
+      "aim": 1,
+      "fire": [ 2, 18 ],
+      "idle": 0,
+      "reload_end": [ 81, 93 ],
+      "reload_shell": [ 54, 81 ],
+      "sounds": [
+        {
+          "frame": 88,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
     "m203": {
       "aim": 1,
       "fire": [ 2, 18 ],
@@ -2107,6 +2230,26 @@
         },
         {
           "frame": 90,
+          "sound": "sfx_reload_bolt_close"
+        }
+      ]
+    },
+    "tec9": {
+      "aim": 1,
+      "fire": [ 2, 6 ],
+      "idle": 0,
+      "reload": [ 7, 82 ],
+      "sounds": [
+        {
+          "frame": 20,
+          "sound": "sfx_reload_start"
+        },
+        {
+          "frame": 50,
+          "sound": "sfx_reload_end"
+        },
+        {
+          "frame": 65,
           "sound": "sfx_reload_bolt_close"
         }
       ]

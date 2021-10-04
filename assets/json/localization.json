@@ -16174,5 +16174,13 @@
     "tr": "AETIC ve güçlerini ortadan kaldırın.",
     "es": "Elimina AETIC y sus fuerzas.",
     "it": "Elimina AETIC e le sue forze."
+  },
+  "STR_SHOP_UNAVAILABLE": {
+    "en": "Currently unavailable",
+    "ru": "В настоящее время недоступен",
+    "zh-CN": "当前不可用",
+    "tr": "Şu anda kullanılamıyor",
+    "es": "Actualmente no disponible",
+    "it": "Attualmente non disponibile"
   }
 }

@@ -1,0 +1,146 @@
+{
+  "id": "op_custom_example",
+  "bCustom": true,
+  "info": {
+    "name": "Example Op",
+    "desc": "Template for a custom Operation."
+  },
+  "requiredLevel": 1,
+  "rewards": [],
+  "gameData": {
+    "gameModeId": "op_elimination",
+    "mapId": "map_outpost",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+	  "bDroppedWeapons": true,
+      "preGameTimer": 0,
+      "timeLimit": 5
+    }
+  },
+  "data": {
+    "player": {
+      "position": [ 65, 1178 ],
+      "inventory": [
+        {
+          "id": "aug",
+          "ammo": 300,
+          "mods": {
+            "barrel": "barrel_laser",
+            "ammo": "ammo_hollow_point"
+          }
+        },
+        {
+          "id": "rpg",
+          "ammo": 5
+        }
+      ],
+      "equipment": "stun",
+      "equipmentAmmo": 2
+    },
+    "objects": [
+      {
+        "type": "info",
+        "messageData": {
+          "message": "You take the underground, I'll deal with enemies up top.",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper"
+        },
+        "position": [ 65, 1178 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Shit, that's Wilkin! I'll distract, you flank behind him.",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper"
+        },
+        "position": [ 3880, 1685 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "YOU'LL NEVER TAKE ME ALIVVVEEEEE!!!11!1one!!1!1!",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_wilkin"
+        },
+        "position": [ 5255, 1690 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "He's right. Grab that taser, we'll take him hostage!",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper"
+        },
+        "position": [ 5865, 1570 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "tazer",
+        "options": { "mods": { "barrel": "barrel_laser" } },
+        "position": [ 5865, 1570 ]
+      }
+    ],
+    "enemies": [
+      {
+        "type": "character",
+        "position": [ 195, 1003 ],
+        "heroId": "HERO_OBSV32",
+        "team": 0,
+        "ai": {
+          "patrolPoints": [
+            [ 5295, 1320 ],
+            [ 2990, 1685 ]
+          ],
+          "bCanInvestigate": false
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4010, 1240 ],
+        "preset": "usmc_generic",
+        "inventory": [ { "id": "m16a4" } ],
+        "ai": {
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2990, 1685 ],
+        "preset": "usmc_generic",
+        "inventory": [ { "id": "m16a4" } ],
+        "ai": {
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3100, 1685 ],
+        "preset": "usmc_generic",
+        "inventory": [ { "id": "m60e4" } ],
+        "ai": {
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 5300, 1330 ],
+        "heroId": "HERO_XWILKINX",
+        "ai": {
+          "bCampUntilLOS": true
+        }
+      }
+    ]
+  }
+}

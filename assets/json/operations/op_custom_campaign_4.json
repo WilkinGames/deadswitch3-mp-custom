@@ -1,0 +1,410 @@
+{
+  "id": "op_custom_campaign_4",
+  "bCustom": true,
+  "info": {
+    "name": "Under Seige",
+    "desc": "The infestors have broken out from the facility into the nearby city. Help our troops hold back the outbreak."
+  },
+  "requiredLevel": 1,
+  "rewards": [],
+  "gameData": {
+    "gameModeId": "op_elimination",
+    "mapId": "map_downturn",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+	  "bDroppedWeapons": true,
+      "preGameTimer": 0,
+      "timeLimit": 5
+    }
+  },
+  "data": {
+    "player": {
+      "position": [ 6555, 1425 ],
+      "inventory": [
+        {
+          "id": "m249",
+          "mods": {
+            "barrel": "barrel_grip"
+          }
+        },
+        {
+          "id": "m1911",
+          "mods": {
+            "ammo": "ammo_extended"
+          }
+        }
+      ],
+      "equipment": "frag",
+      "equipmentAmmo": 2
+    },
+    "objects": [
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Quick! There's a wave of those creatures approaching! Everyone find a sandbag and get ready!",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_moussa"
+        },
+        "position": [ 6555, 1425 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "OPEN FIRE!!!",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_moussa"
+        },
+        "position": [ 5240, 1245 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "I see them! Let 'em have it!",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_moussa"
+        },
+        "position": [ 5305, 1425 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Here they come! Start shooting!",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_twoplayer"
+        },
+        "position": [ 5590, 1835 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Yes! Bring the turret back here! We've got a fighting chance!",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_moussa"
+        },
+        "position": [ 4000, 1435 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Man that turret! It's our last resort!",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_moussa"
+        },
+        "position": [ 6855, 1110 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "??? Why the hell are you over there? Get back here!",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_moussa"
+        },
+        "position": [ 645, 1425 ]
+      },
+      {
+        "type": "obstacle",
+        "obstacleId": "sandbags",
+        "position": [ 5110, 1140 ]
+      },
+      {
+        "type": "obstacle",
+        "obstacleId": "sandbags",
+        "position": [ 4870, 1455 ]
+      },
+      {
+        "type": "obstacle",
+        "obstacleId": "sandbags",
+        "position": [ 5140, 1670 ]
+      },
+      {
+        "type": "obstacle",
+        "obstacleId": "sandbags",
+        "position": [ 6850, 1455 ]
+      },
+      {
+        "type": "crate_ammo",
+        "position": [ 5410, 1250 ]
+      },
+      {
+        "type": "crate_item",
+        "itemId": "thumper",
+        "position": [ 7100, 1240 ]
+      },
+      {
+        "type": "crate_killstreak",
+        "killstreakId": "grenade_turret_place",
+        "position": [ 4000, 1440 ]
+      }
+    ],
+    "enemies": [
+      {
+        "type": "character",
+        "position": [ 6445, 1425 ],
+		"team": 0,
+        "heroId": "HERO_MOUSSA",
+        "ai": {
+          "patrolPoints": [
+            [ 5265, 1635 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 6665, 1425 ],
+		"team": 0,
+        "heroId": "HERO_TWOPLAYER",
+        "ai": {
+          "patrolPoints": [
+            [ 5965, 1840 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 6770, 1795 ],
+        "preset": "rus_heavy",
+		"team": 0,
+        "inventory": [ { "id": "rpk" } ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 6080, 1425 ],
+        "preset": "rus_generic",
+		"team": 0,
+        "inventory": [ { "id": "ak74u" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 4900, 1425 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 7300, 1425 ],
+        "preset": "rus_generic",
+		"team": 0,
+        "inventory": [ { "id": "ak47" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 6350, 1425 ]
+          ]
+        }
+      },
+      {
+        "type": "turret",
+        "position": [ 6855, 1110 ],
+        "team": 0,
+        "scale": -1,
+        "turretData": {
+          "type": "advanced_sentry",
+          "bUnlimitedAmmo": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 960, 1245 ],
+        "preset": "zombie_sprinter",
+        "ai": {
+          "patrolPoints": [
+            [ 5500, 1835 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 765, 1835 ],
+        "preset": "zombie_generic",
+        "ai": {
+          "patrolPoints": [
+            [ 5500, 1835 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 765, 1425 ],
+        "preset": "zombie_spitter",
+        "ai": {
+          "patrolPoints": [
+            [ 5500, 1835 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 700, 1245 ],
+        "preset": "zombie_exploder",
+        "ai": {
+          "patrolPoints": [
+            [ 5500, 1835 ]
+          ]
+        }
+      },
+      {
+        "type": "infestor",
+        "position": [ 700, 1110 ],
+        "preset": "infestor",
+        "ai": {
+          "patrolPoints": [
+            [ 5500, 1835 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1120, 1110 ],
+        "preset": "zombie_sprinter",
+        "ai": {
+          "patrolPoints": [
+            [ 2670, 1425 ],
+            [ 4325, 1640 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 765, 1835 ],
+        "preset": "zombie_generic",
+        "ai": {
+          "patrolPoints": [
+            [ 2670, 1425 ],
+            [ 4325, 1640 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 765, 1425 ],
+        "preset": "zombie_spitter",
+        "ai": {
+          "patrolPoints": [
+            [ 2670, 1425 ],
+            [ 4325, 1640 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 700, 1245 ],
+        "preset": "zombie_exploder",
+        "ai": {
+          "patrolPoints": [
+            [ 2670, 1425 ],
+            [ 4325, 1640 ]
+          ]
+        }
+      },
+      {
+        "type": "infestor",
+        "position": [ 700, 1110 ],
+        "preset": "infestor",
+        "ai": {
+          "patrolPoints": [
+            [ 2670, 1425 ],
+            [ 4325, 1640 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1145, 1425 ],
+        "preset": "zombie_fat",
+        "ai": {
+          "patrolPoints": [
+            [ 2670, 1425 ],
+            [ 4325, 1640 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2100, 1425 ],
+        "preset": "zombie_generic",
+        "ai": {
+          "patrolPoints": [
+            [ 900, 1425 ],
+            [ 5500, 1835 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2100, 1425 ],
+        "preset": "zombie_spitter",
+        "ai": {
+          "patrolPoints": [
+            [ 1500, 1425 ],
+            [ 2655, 1425 ],
+            [ 4325, 1640 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 435, 1835 ],
+        "preset": "zombie_exploder",
+        "ai": {
+          "patrolPoints": [
+            [ 1500, 1425 ],
+            [ 2655, 1425 ],
+            [ 4325, 1640 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2100, 1425 ],
+        "preset": "zombie_fat",
+        "ai": {
+          "patrolPoints": [
+            [ 900, 1425 ],
+            [ 5500, 1835 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2100, 1425 ],
+        "preset": "zombie_spitter_boss",
+        "ai": {
+          "patrolPoints": [
+            [ 1500, 1425 ],
+            [ 2655, 1425 ],
+            [ 5500, 1835 ]
+          ]
+        }
+      },
+      {
+        "type": "infestor",
+        "position": [ 1145, 1425 ],
+        "preset": "infestor_king",
+        "ai": {
+          "patrolPoints": [
+            [ 2670, 1425 ],
+            [ 4325, 1640 ]
+          ]
+        }
+      }
+    ]
+  }
+}

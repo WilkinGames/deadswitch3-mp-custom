@@ -1,0 +1,279 @@
+{
+  "id": "op_custom_campaign_2",
+  "bCustom": true,
+  "info": {
+    "name": "Rescue Assignment",
+    "desc": "Well done. Moussa tells us you have potential. One of our top snipers, Arachnid, has been taken prisoner by UN forces. Rescue him."
+  },
+  "requiredLevel": 1,
+  "rewards": [],
+  "gameData": {
+    "gameModeId": "op_hostage",
+    "mapId": "map_sandstorm",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+	  "bDroppedWeapons": true,
+      "preGameTimer": 0,
+      "timeLimit": 5,
+      "numHostages": 1,
+      "rescueZone": [ 250, 1040 ],
+      "bSpawnHostageHeli": false
+    }
+  },
+  "data": {
+    "player": {
+      "position": [ 250, 1040 ],
+      "inventory": [
+        {
+          "id": "honeybadger",
+          "ammo": 180,
+          "mods": {
+            "barrel": "barrel_laser",
+            "ammo": "ammo_extended"
+          }
+        },
+        {
+          "id": "maxim9",
+          "ammo": 48,
+          "mods": {
+            "ammo": "ammo_hollow_point"
+          }
+        }
+      ],
+      "equipment": "flashbang",
+      "equipmentAmmo": 2
+    },
+    "objects": [
+      {
+        "type": "hostage",
+        "position": [ 7275, 1770 ],
+        "team": 0
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "You're on your own now. Get in and out quickly, try not to cause a ruckus.",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "wilkin"
+        },
+        "position": [ 250, 1040 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "...? Is someone there?",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_twoplayer"
+        },
+        "position": [ 4000, 1800 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Quick, get me out before backup UN forces arrive.",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_twoplayer"
+        },
+        "position": [ 6245, 1595 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "I'm surprised you made it. All the other attempted rescuers died. They didn't tell you that, did they?",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_twoplayer"
+        },
+        "position": [ 7200, 1770 ]
+      }
+    ],
+    "enemies": [
+      {
+        "type": "helicopter",
+        "helicopterType": "mh6_attack",
+        "position": [ 3000, 500 ]
+      },
+      {
+        "type": "helicopter",
+        "helicopterType": "pavelow",
+        "position": [ 5000, 500 ]
+      },
+      {
+        "type": "turret",
+        "position": [ 6445, 1435 ],
+        "team": 1,
+        "scale": -1,
+        "turretData": {
+          "type": "sentry",
+          "bUnlimitedAmmo": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1950, 1435 ],
+        "preset": "un_generic",
+        "inventory": [ { "id": "m4a1" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 3170, 1435 ],
+            [ 1950, 1435 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 6050, 1435 ],
+        "preset": "un_generic",
+        "inventory": [ { "id": "m4a1" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 4830, 1435 ],
+            [ 6050, 1435 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 580, 1435 ],
+        "preset": "un_generic",
+        "inventory": [ { "id": "m4a1" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 1540, 1435 ],
+            [ 580, 1435 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 7420, 1435 ],
+        "preset": "un_generic",
+        "inventory": [ { "id": "m4a1" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 6460, 1435 ],
+            [ 7420, 1435 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 620, 1760 ],
+        "preset": "un_generic",
+        "inventory": [ { "id": "m16a4" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 6235, 1595 ],
+            [ 620, 1760 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 6235, 1595 ],
+        "preset": "un_generic",
+        "inventory": [ { "id": "m16a4" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 620, 1760 ],
+            [ 6235, 1595 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3180, 1700 ],
+        "preset": "un_generic",
+        "inventory": [ { "id": "p90" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 620, 1760 ],
+            [ 6235, 1595 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4820, 1700 ],
+        "preset": "un_generic",
+        "inventory": [ { "id": "p90" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 6235, 1595 ],
+            [ 620, 1760 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 7590, 1040 ],
+        "preset": "un_generic",
+        "inventory": [ { "id": "msr" } ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 5215, 1670 ],
+        "style": "un_generic",
+        "health": 500,
+        "inventory": [ { "id": "m60e4" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4000, 1535 ],
+        "style": "un_generic",
+        "health": 500,
+        "inventory": [ { "id": "m60e4" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 4485, 1065 ],
+        "style": "un_generic",
+        "health": 500,
+        "inventory": [ { "id": "m60e4" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 5625, 850 ],
+        "style": "un_generic",
+        "health": 500,
+        "inventory": [ { "id": "m60e4" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 6775, 1435 ],
+        "style": "un_generic",
+        "health": 500,
+        "inventory": [ { "id": "m60e4" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      }
+    ]
+  }
+}

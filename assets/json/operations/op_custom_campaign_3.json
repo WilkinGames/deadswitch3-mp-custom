@@ -1,0 +1,371 @@
+{
+  "id": "op_custom_campaign_3",
+  "bCustom": true,
+  "info": {
+    "name": "Investigation",
+    "desc": "For your next mission, you are to check out a client's research station that they've recently lost contact with. Find an explanation."
+  },
+  "requiredLevel": 1,
+  "rewards": [],
+  "gameData": {
+    "gameModeId": "op_hostage",
+    "mapId": "map_overgrown",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+	  "bDroppedWeapons": true,
+      "preGameTimer": 0,
+      "timeLimit": 5,
+      "filterType": "night",
+      "numHostages": 1,
+      "rescueZone": [ 7785, 1425 ],
+      "bSpawnHostageHeli": false
+    }
+  },
+  "data": {
+    "player": {
+      "position": [ 7785, 1425 ],
+      "inventory": [
+        {
+          "id": "hk416",
+          "ammo": 180,
+          "mods": {
+            "base": "base_range",
+            "barrel": "barrel_silencer",
+            "ammo": "ammo_fmj"
+          }
+        },
+        {
+          "id": "mp9",
+          "ammo": 150,
+          "mods": {
+            "barrel": "barrel_silencer"
+          }
+        }
+      ],
+      "equipment": "flashbang",
+      "equipmentAmmo": 2
+    },
+    "objects": [
+      {
+        "type": "hostage",
+        "position": [ 4000, 1215 ],
+        "team": 0
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "If anything looks suspicious, call for backup. Do not enter the facility.",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "wilkin"
+        },
+        "position": [ 7785, 1425 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "What is that thing?!",
+          "id": "op_plain_text",
+          "size": 200
+        },
+        "position": [ 6560, 1355 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Oh, thank God! Someone's here! Please help me!",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "scientist"
+        },
+        "position": [ 4300, 1220 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "We didn't mean to release the infestors! They just broke out, and now they're spreading the disease!",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "scientist"
+        },
+        "position": [ 4000, 1215 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Holyyy, that's a lot of... creatures. Zombies, I guess. Just lead me out the way you came.",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "scientist"
+        },
+        "position": [ 3700, 1215 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "WHAT ARE YOU DOING?!?!?!?",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "scientist"
+        },
+        "position": [ 3610, 1215 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "What's this? A gun? What is it doing here?",
+          "id": "op_plain_text",
+          "size": 200
+        },
+        "position": [ 55, 1420 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "saiga12",
+        "options": {
+          "ammo": 60,
+          "mods": {
+            "base": "base_rapid_fire",
+            "barrel": "barrel_grip",
+            "ammo": "ammo_napalm"
+          }
+        },
+        "position": [ 55, 1420 ]
+      }
+    ],
+    "enemies": [
+	  {
+        "type": "character",
+        "position": [ 4900, 1420 ],
+        "preset": "zombie_generic",
+        "ai": {
+          "patrolPoints": [
+            [ 5300, 1420 ],
+            [ 4900, 1420 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4680, 1210 ],
+        "preset": "zombie_generic",
+        "ai": {
+          "patrolPoints": [
+            [ 4440, 1210 ],
+            [ 4680, 1210 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3315, 1025 ],
+        "preset": "zombie_spitter",
+        "ai": {
+          "patrolPoints": [
+            [ 4685, 1025 ],
+            [ 3315, 1025 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 460, 1650 ],
+        "preset": "zombie_sprinter",
+        "ai": {
+          "patrolPoints": [
+            [ 5200, 1760 ],
+            [ 460, 1650 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3215, 1650 ],
+        "preset": "zombie_sprinter",
+        "ai": {
+          "patrolPoints": [
+            [ 5200, 1760 ],
+            [ 460, 1650 ]
+          ]
+        }
+      },
+      {
+        "type": "infestor",
+        "position": [ 3350, 1410 ],
+        "preset": "infestor",
+        "ai": {
+		  "bLOS": true,
+          "patrolPoints": [
+            [ 4650, 1410 ],
+            [ 3350, 1410 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 575, 1420 ],
+        "preset": "zombie_generic",
+        "ai": {
+          "patrolPoints": [
+            [ 3080, 1760 ],
+            [ 575, 1420 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 870, 1420 ],
+        "preset": "zombie_generic",
+        "ai": {
+          "patrolPoints": [
+            [ 1945, 1170 ],
+            [ 870, 1420 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2255, 1660 ],
+        "preset": "zombie_generic",
+        "ai": {
+          "patrolPoints": [
+            [ 4100, 1630 ],
+            [ 3295, 1660 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2255, 1660 ],
+        "preset": "zombie_generic",
+        "ai": {
+          "patrolPoints": [
+            [ 4100, 1630 ],
+            [ 2255, 1660 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 325, 1420 ],
+        "preset": "zombie_generic",
+        "ai": {
+          "patrolPoints": [
+            [ 3300, 1025 ],
+            [ 325, 1420 ]
+          ]
+        }
+      },
+      {
+        "type": "infestor",
+        "position": [ 4545, 1660 ],
+        "preset": "infestor",
+        "ai": {
+          "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "infestor",
+        "position": [ 3345, 1215 ],
+        "preset": "infestor",
+        "ai": {
+          "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3500, 1215 ],
+        "preset": "zombie_exploder",
+        "ai": {
+          "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3795, 1660 ],
+        "preset": "zombie_generic",
+        "ai": {
+          "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2780, 1765 ],
+        "preset": "zombie_exploder",
+        "ai": {
+          "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2100, 1710 ],
+        "preset": "zombie_spitter",
+        "ai": {
+          "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1735, 1170 ],
+        "preset": "zombie_generic",
+        "ai": {
+          "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 750, 1420 ],
+        "preset": "zombie_exploder",
+        "ai": {
+          "patrolPoints": [
+            [ 1490, 1355 ],
+            [ 450, 1420 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 575, 1660 ],
+        "preset": "zombie_spitter",
+        "ai": {
+          "patrolPoints": [
+            [ 1500, 1765 ],
+            [ 575, 1660 ]
+          ]
+        }
+      },
+      {
+        "type": "infestor",
+        "position": [ 900, 1765 ],
+        "preset": "infestor",
+        "ai": {
+		  "bLOS": true,
+          "patrolPoints": [
+            [ 1800, 1765 ],
+            [ 900, 1765 ]
+          ]
+        }
+      },
+      {
+        "type": "infestor",
+        "position": [ 300, 1420 ],
+        "preset": "infestor_king"
+      }
+    ]
+  }
+}

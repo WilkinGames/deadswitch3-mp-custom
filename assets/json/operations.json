@@ -44,5 +44,11 @@
   "op_overgrown_crossbow",
   "op_airport_hostage",
   "op_downturn_minigun",
-  "op_warehouse_aetic"
+  "op_warehouse_aetic",
+  "op_custom_example",
+  "op_custom_campaign_0",
+  "op_custom_campaign_1",
+  "op_custom_campaign_2",
+  "op_custom_campaign_3",
+  "op_custom_campaign_4"
 ]

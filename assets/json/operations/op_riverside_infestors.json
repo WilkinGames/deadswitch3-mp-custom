@@ -55,6 +55,7 @@
         "position": [ 1800, 1550 ],
         "preset": "infestor",
         "ai": {
+          "bLOS": true,
           "patrolPoints": [
             [ 2300, 1550 ],
             [ 1700, 1550 ]
@@ -66,6 +67,7 @@
         "position": [ 2200, 1550 ],
         "preset": "infestor",
         "ai": {
+          "bLOS": true,
           "patrolPoints": [
             [ 1700, 1550 ],
             [ 2300, 1550 ]
@@ -77,6 +79,7 @@
         "position": [ 2500, 1250 ],
         "preset": "infestor",
         "ai": {
+          "bLOS": true,
           "patrolPoints": [
             [ 1500, 1250 ],
             [ 2500, 1250 ]
@@ -88,6 +91,7 @@
         "position": [ 2700, 1460 ],
         "preset": "infestor",
         "ai": {
+          "bLOS": true,
           "patrolPoints": [
             [ 3800, 1460 ],
             [ 2700, 1460 ]
@@ -99,6 +103,7 @@
         "position": [ 3800, 1460 ],
         "preset": "infestor",
         "ai": {
+          "bLOS": true,
           "patrolPoints": [
             [ 2700, 1460 ],
             [ 3800, 1460 ]
@@ -110,6 +115,7 @@
         "position": [ 3600, 1460 ],
         "preset": "infestor",
         "ai": {
+          "bLOS": true,
           "patrolPoints": [
             [ 2700, 1460 ],
             [ 3800, 1460 ]
@@ -121,6 +127,7 @@
         "position": [ 3500, 1460 ],
         "preset": "infestor",
         "ai": {
+          "bLOS": true,
           "patrolPoints": [
             [ 2700, 1460 ],
             [ 3800, 1460 ]

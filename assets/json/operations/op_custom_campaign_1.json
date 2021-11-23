@@ -1,0 +1,216 @@
+{
+  "id": "op_custom_campaign_1",
+  "bCustom": true,
+  "info": {
+    "name": "Your First Mission",
+    "desc": "You took out all ten? Impressive... One of our client's factories has been attacked by Militia forces. Recapture it."
+  },
+  "requiredLevel": 1,
+  "rewards": [],
+  "gameData": {
+    "gameModeId": "op_elimination",
+    "mapId": "map_factory",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+	  "bDroppedWeapons": true,
+      "preGameTimer": 0,
+      "timeLimit": 5
+    }
+  },
+  "data": {
+    "player": {
+      "position": [ 5920, 1350 ],
+      "inventory": [
+        {
+          "id": "m4a1",
+          "ammo": 120,
+          "mods": {
+            "barrel": "barrel_laser",
+            "ammo": "ammo_hollow_point"
+          }
+        },
+        {
+          "id": "msr",
+          "ammo": 32,
+          "mods": {
+            "base": "base_range",
+            "barrel": "barrel_laser"
+          }
+        }
+      ],
+      "equipment": "stim",
+      "equipmentAmmo": 2
+    },
+    "objects": [
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Hey, rookie. I'm Moussa, I've been working for UMS for a while now.",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_moussa"
+        },
+        "position": [ 5920, 1350 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Just follow me around; you're basically just here to shadow me.",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_moussa"
+        },
+        "position": [ 4800, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Just follow me around; you're basically just here to shadow me.",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_moussa"
+        },
+        "position": [ 4800, 1175 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Just follow me around; you're basically just here to shadow me.",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_moussa"
+        },
+        "position": [ 4800, 1350 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Oh, that's a Juggernaut to your left. Bait him to me, I'll soften him up.",
+          "id": "op_plain_text",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_moussa"
+        },
+        "position": [ 2500, 1350 ]
+      },
+      {
+        "type": "crate_ammo",
+        "position": [ 1100, 1180 ]
+      }
+    ],
+    "enemies": [
+      {
+        "type": "character",
+        "position": [ 5805, 1350 ],
+		"team": 0,
+        "heroId": "HERO_MOUSSA",
+        "ai": {
+          "patrolPoints": [
+            [ 3000, 1350 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3610, 1350 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "ak74u" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 2390, 1350 ],
+			[ 3610, 1350 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2390, 1350 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "p90" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 3610, 1350 ],
+			[ 2390, 1350 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3145, 1350 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "m4a1" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 2855, 1350 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "ak47" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 3345, 1180 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "m40a3" } ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2655, 1180 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "r700" } ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1300, 640 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "steyr" } ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1435, 1180 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "aughbar" } ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 820, 1180 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "ak47" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 1310, 1350 ],
+        "preset": "militia_heavy",
+        "inventory": [ { "id": "saiga12" } ],
+        "ai": {
+          "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 335, 1350 ],
+        "preset": "juggernaut",
+        "inventory": [ { "id": "m60e4" } ]
+      }
+    ]
+  }
+}

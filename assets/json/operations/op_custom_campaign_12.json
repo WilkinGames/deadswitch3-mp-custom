@@ -1,0 +1,395 @@
+{
+  "id": "op_custom_campaign_12",
+  "bCustom": true,
+  "info": {
+    "name": "Emergency",
+    "desc": "\"Trouble at the warehouse, AETIC's been taken hostage by UMS. I need you to rescue him; I'm needed at UN Headquarters.\" - Peacekeeper."
+  },
+  "requiredLevel": 1,
+  "rewards": [],
+  "gameData": {
+    "gameModeId": "op_hostage",
+    "mapId": "map_warehouse",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+	  "bDroppedWeapons": true,
+      "preGameTimer": 0,
+      "timeLimit": 5,
+      "numHostages": 1,
+      "rescueZone": [ 270, 1555 ],
+      "bSpawnHostageHeli": false
+    }
+  },
+  "data": {
+    "player": {
+      "position": [ 285, 1555 ],
+      "inventory": [
+        {
+          "id": "uzi",
+          "mods": {
+		    "base": "base_marksman",
+            "barrel": "barrel_silencer",
+            "ammo": "ammo_range"
+          }
+        },
+        {
+          "id": "micro_uzi",
+          "mods": {
+            "barrel": "barrel_silencer",
+			"ammo": "ammo_impact"
+          }
+        }
+      ],
+      "equipment": "flashbang",
+      "equipmentAmmo": 2
+    },
+    "objects": [
+      {
+        "type": "info",
+        "messageData": {
+          "message": "You've broken the arms contract with us AETIC, and you're helping destroy Eric's Juggernaut labs, why?",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_wulf",
+		  "bRemove": true
+        },
+        "position": [ 285, 1555 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "...",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_aetic",
+		  "bRemove": true
+        },
+        "position": [ 780, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "?... A note left behind by AETIC: \"I left my railgun underground. Use it to take out Yung Wulf and his Juggernauts.\"",
+          "width": 200,
+		  "height": 2000,
+		  "bRemove": true
+        },
+        "position": [ 1100, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "The Railgun. I've only got a few shots, I'll have to use them well.",
+          "width": 200,
+		  "height": 2000,
+		  "bRemove": true
+        },
+        "position": [ 2000, 1810 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "AETIC, UMS depends on those Juggernaut suits! So what if the infestors are dangerous? They're necessary!",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_wulf",
+		  "bRemove": true
+        },
+        "position": [ 2410, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Have you anything to say for yourself, AETIC?",
+          "size": 100,
+          "atlas": "atlas_cards",
+          "icon": "hero_wulf",
+		  "bRemove": true
+        },
+        "position": [ 3120, 985 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "................................... Look behind you.",
+          "size": 100,
+          "atlas": "atlas_cards",
+          "icon": "hero_aetic",
+		  "bRemove": true
+        },
+        "position": [ 3410, 985 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Thanks for the help. Glad you didn't accidentally hit me with that gun.",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_aetic",
+		  "bRemove": true
+        },
+        "position": [ 3815, 1555 ]
+      },
+      {
+        "type": "hostage",
+        "position": [ 3815, 1555 ],
+        "team": 1,
+        "health": 400,
+        "pawnName": "AETIC",
+        "heroId": "HERO_AETIC"
+      },
+      {
+        "type": "obstacle",
+        "obstacleId": "sandbags",
+        "position": [ 3680, 1585 ]
+      },
+      {
+        "type": "crate_item",
+        "itemId": "railgun",
+        "position": [ 2000, 1810 ]
+      },
+      {
+        "type": "crate_killstreak",
+        "killstreakId": "dragonfire",
+        "position": [ 1150, 1170 ]
+      }
+    ],
+    "enemies": [
+      {
+        "type": "character",
+        "position": [ 1870, 1810 ],
+        "style": "rus_heavy",
+		"health": 400,
+        "inventory": [ { "id": "ameli" } ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2130, 1810 ],
+        "style": "rus_heavy",
+		"health": 400,
+        "inventory": [ { "id": "rpk16" } ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1620, 1850 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "lvoa" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 2130, 1810 ],
+			[ 915, 1850 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2380, 1850 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "lvoa" } ],
+        "ai": {
+          "patrolPoints": [
+			[ 1870, 1810 ],
+            [ 3085, 1850 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1315, 1845 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "par4" } ],
+        "ai": {
+          "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2685, 1845 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "par4" } ],
+        "ai": {
+          "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2515, 1365 ],
+        "style": "rus_sniper",
+		"health": 200,
+        "inventory": [ { "id": "steyr" } ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2515, 1170 ],
+        "style": "rus_sniper",
+		"health": 200,
+        "inventory": [ { "id": "steyr" } ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2585, 1555 ],
+        "style": "rus_heavy",
+		"health": 400,
+        "inventory": [ { "id": "mg42" } ],
+        "ai": {
+          "patrolPoints": [
+			[ 3335, 1555 ],
+            [ 2585, 1555 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 660, 1555 ],
+        "style": "rus_heavy",
+		"health": 400,
+        "inventory": [ { "id": "mg42" } ],
+        "ai": {
+          "patrolPoints": [
+			[ 1440, 1555 ],
+            [ 660, 1555 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1485, 985 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "k1a" } ],
+        "ai": {
+          "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1345, 1170 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "k1a" } ],
+        "ai": {
+          "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3165, 985 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "sr25" } ],
+        "ai": {
+          "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3040, 985 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "ak47" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 740, 1365 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "jackhammer" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 1455, 1170 ],
+            [ 740, 1365 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3260, 1365 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "jackhammer" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 2545, 1170 ],
+            [ 3260, 1365 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1900, 1500 ],
+        "preset": "juggernaut",
+        "inventory": [
+          {
+            "id": "m249"
+          },
+          {
+            "id": "smaw"
+          }
+        ],
+        "ai": {
+          "patrolPoints": [
+            [ 1600, 1550 ],
+            [ 2400, 1550 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3925, 1555 ],
+        "preset": "juggernaut",
+        "inventory": [
+          {
+            "id": "qbb95"
+          },
+          {
+            "id": "smaw"
+          }
+        ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3575, 1555 ],
+        "preset": "juggernaut",
+        "inventory": [
+          {
+            "id": "mg42"
+          },
+          {
+            "id": "smaw"
+          }
+        ],
+        "ai": {
+          "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3715, 1555 ],
+        "heroId": "HERO_KARAMBITGUY",
+        "ai": {
+		  "bCamp": true
+        }
+      }
+    ]
+  }
+}

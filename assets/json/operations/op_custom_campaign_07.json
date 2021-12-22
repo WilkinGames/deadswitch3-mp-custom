@@ -1,0 +1,331 @@
+{
+  "id": "op_custom_campaign_07",
+  "bCustom": true,
+  "info": {
+    "name": "Explanations",
+    "desc": "\"Wait! Wait! I didn't cause the outbreak! I'm not with the zombies. There's a reason for all this; let me show you.\" - Eric."
+  },
+  "requiredLevel": 1,
+  "rewards": [],
+  "gameData": {
+    "gameModeId": "op_elimination",
+    "mapId": "map_outpost",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+	  "bDroppedWeapons": true,
+      "preGameTimer": 0,
+      "timeLimit": 5
+    }
+  },
+  "data": {
+    "player": {
+      "position": [ 255, 1340 ],
+      "inventory": [
+        {
+          "id": "ump45",
+          "mods": {
+            "barrel": "barrel_laser"
+          }
+        },
+        {
+          "id": "g17"
+        }
+      ],
+      "equipment": "kevlar"
+    },
+    "objects": [
+      {
+        "type": "info",
+        "messageData": {
+          "message": "DST Labs established these facilities to study the Infestors. We were hoping to keep them a secret.",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_eric",
+		  "bRemove": true
+        },
+        "position": [ 255, 1340 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "That Juggernaut suit is the product of our research. Feel free to open it and try it out.",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_eric",
+		  "bRemove": true
+        },
+        "position": [ 790, 1340 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "That suit is made from special pieces of Infestor carapace that we call Shards. They're extremely valuable.",
+          "width": 200,
+		  "height": 1000,
+          "atlas": "atlas_cards",
+          "icon": "hero_eric",
+		  "bRemove": true
+        },
+        "position": [ 1220, 1340 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Some of our own employees have been using them to trade without a currency. It's so they don't pay taxes.",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_eric",
+		  "bRemove": true
+        },
+        "position": [ 1500, 1145 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Who?... Terrorists? OpFor's ambushing the base again!",
+          "width": 200,
+		  "height": 1000,
+          "atlas": "atlas_cards",
+          "icon": "hero_eric",
+		  "bRemove": true
+        },
+        "position": [ 1830, 1490 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "They're going to try to free this facility's infestors! We have to stop them!",
+          "width": 200,
+		  "height": 1000,
+          "atlas": "atlas_cards",
+          "icon": "hero_eric",
+		  "bRemove": true
+        },
+        "position": [ 3000, 1465 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Do not harm the infestors! They're too valuable!",
+          "width": 200,
+		  "height": 1000,
+          "atlas": "atlas_cards",
+          "icon": "hero_eric",
+		  "bRemove": true
+        },
+        "position": [ 3620, 1490 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "They've already escaped! You can't contain them again! There's too much chance of another outbreak!",
+          "width": 200,
+		  "height": 1000,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+		  "bRemove": true
+        },
+        "position": [ 3970, 1490 ]
+      },
+      {
+        "type": "crate_killstreak",
+        "killstreakId": "juggernaut_use",
+        "position": [ 790, 1340 ]
+      }
+    ],
+    "enemies": [
+      {
+        "type": "character",
+        "position": [ 3100, 790 ],
+        "style": "opfor_sniper",
+        "inventory": [ { "id": "m40a3" } ],
+        "ai": {
+		  "bCamp": true
+		}
+      },
+      {
+        "type": "character",
+        "position": [ 5500, 1030 ],
+        "style": "opfor_heavy",
+        "inventory": [ { "id": "ak47" } ],
+        "ai": {
+		  "bCamp": true
+		}
+      },
+      {
+        "type": "character",
+        "position": [ 5730, 830 ],
+        "style": "opfor_sniper",
+        "inventory": [ { "id": "m40a3" } ],
+        "ai": {
+		  "bCamp": true
+		}
+      },
+      {
+        "type": "character",
+        "position": [ 3500, 1055 ],
+        "style": "opfor_sniper",
+        "inventory": [ { "id": "sks" } ],
+        "ai": {
+		  "bCamp": true
+		}
+      },
+      {
+        "type": "character",
+        "position": [ 3000, 1235 ],
+        "style": "opfor_heavy",
+        "inventory": [ { "id": "ak47" } ],
+        "ai": {
+		  "bCamp": true,
+		  "bCampUntilLOS": true
+		}
+      },
+      {
+        "type": "character",
+        "position": [ 4385, 1150 ],
+        "style": "opfor_sniper",
+        "inventory": [ { "id": "sks" } ],
+        "ai": {
+		  "bCamp": true,
+		  "bCampUntilLOS": true
+		}
+      },
+      {
+        "type": "character",
+        "position": [ 3000, 1235 ],
+        "style": "opfor_generic",
+        "inventory": [ { "id": "mp5" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 4750, 1340 ],
+            [ 3000, 1235 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 5510, 1180 ],
+        "style": "opfor_heavy",
+        "inventory": [ { "id": "rpk" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 5930, 1175 ],
+            [ 5510, 1180 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 5865, 1030 ],
+        "style": "opfor_heavy",
+        "inventory": [ { "id": "pecheneg" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 5755, 1180 ],
+        "style": "opfor_generic",
+        "inventory": [ { "id": "ak47" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 3500, 1235 ],
+        "style": "opfor_heavy",
+        "inventory": [ { "id": "rpk" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 5630, 1345 ],
+            [ 3500, 1235 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4100, 1260 ],
+        "style": "opfor_heavy",
+        "inventory": [ { "id": "pecheneg" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 5630, 1345 ],
+            [ 3500, 1235 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3500, 1490 ],
+        "style": "opfor_generic",
+        "inventory": [ { "id": "saiga12" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 4300, 1490 ],
+            [ 3500, 1490 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3880, 1490 ],
+        "style": "opfor_generic",
+        "inventory": [ { "id": "striker" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 4300, 1490 ],
+            [ 3500, 1490 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4530, 1320 ],
+        "style": "opfor_generic",
+        "inventory": [ { "id": "ak74u" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 5800, 1575 ],
+            [ 4530, 1320 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 5730, 1575 ],
+        "style": "opfor_heavy",
+        "inventory": [ { "id": "pecheneg" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 5630, 1575 ],
+            [ 5830, 1575 ]
+          ]
+        }
+      },
+	  {
+        "type": "infestor",
+        "position": [ 5630, 1575 ],
+        "preset": "infestor"
+      },
+	  {
+        "type": "infestor",
+        "position": [ 5680, 1575 ],
+        "preset": "infestor"
+      },
+	  {
+        "type": "infestor",
+        "position": [ 5730, 1575 ],
+        "preset": "infestor"
+      },
+	  {
+        "type": "infestor",
+        "position": [ 5780, 1575 ],
+        "preset": "infestor"
+      },
+	  {
+        "type": "infestor",
+        "position": [ 5830, 1575 ],
+        "preset": "infestor"
+      }
+    ]
+  }
+}

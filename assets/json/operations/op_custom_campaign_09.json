@@ -1,0 +1,134 @@
+{
+  "id": "op_custom_campaign_09",
+  "bCustom": true,
+  "info": {
+    "name": "On the Way Back",
+    "desc": "\"I'm taking Eric to UN Headquarters. This is a big mess we're in, and I'm going to need sanctioned government support.\" - Peacekeeper."
+  },
+  "requiredLevel": 1,
+  "rewards": [],
+  "gameData": {
+    "gameModeId": "op_elimination",
+    "mapId": "map_riverside",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+	  "bDroppedWeapons": true,
+      "preGameTimer": 0,
+      "timeLimit": 5
+    }
+  },
+  "data": {
+    "player": {
+      "position": [ 100, 1455 ],
+      "inventory": [
+        {
+          "id": "an94",
+          "mods": {
+		    "base": "base_range",
+            "barrel": "barrel_laser"
+          }
+        },
+        {
+          "id": "usp45",
+          "mods": {
+            "barrel": "barrel_laser"
+          }
+        }
+      ]
+    },
+    "objects": [
+      {
+        "type": "info",
+        "messageData": {
+          "message": "You make your way to the PMC Corp you worked with. We might need some help, and they'll be willing to listen to you.",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+          "bRemove": true
+        },
+        "position": [ 1845, 1805 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Woah, Arachnid! Don't point that gun at me!",
+          "width": 200,
+		  "height": 1000,
+          "bRemove": true
+        },
+        "position": [ 1800, 1550 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "I'm assassinating you. Don't fight back.",
+          "width": 200,
+		  "height": 1000,
+          "atlas": "atlas_cards",
+          "icon": "hero_twoplayer",
+          "bRemove": true
+        },
+        "position": [ 2300, 1550 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "What? Why?",
+          "width": 200,
+		  "height": 1000,
+          "bRemove": true
+        },
+        "position": [ 2770, 1550 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Orders from above. UMS doesn't like you meddling around with Eric's infestors.",
+          "width": 200,
+		  "height": 1000,
+          "atlas": "atlas_cards",
+          "icon": "hero_twoplayer",
+          "bRemove": true
+        },
+        "position": [ 3000, 1550 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "They're in league with each other? Arachnid, don't shoot, there's something much bigger going on here.",
+          "width": 200,
+		  "height": 1000,
+          "bRemove": true
+        },
+        "position": [ 3500, 1550 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Don't make this hard for me.",
+          "width": 200,
+		  "height": 1000,
+          "atlas": "atlas_cards",
+          "icon": "hero_twoplayer",
+          "bRemove": true
+        },
+        "position": [ 3860, 1155 ]
+      }
+    ],
+    "enemies": [
+      {
+        "type": "character",
+        "position": [ 3500, 1115 ],
+        "heroId": "HERO_TWOPLAYER",
+        "ai": {
+          "bCamp": true,
+		  "bCampUntilLOS": true,
+		  "bLOS": false
+        }
+      }
+    ]
+  }
+}

@@ -2,142 +2,138 @@
   "id": "op_custom_example",
   "bCustom": true,
   "info": {
-    "name": "Example Op",
-    "desc": "Template for a custom Operation."
+    "name": "Info Objects Test",
+    "desc": "Testing info objects that are spawned in by a time trigger."
   },
   "requiredLevel": 1,
   "rewards": [],
   "gameData": {
-    "gameModeId": "op_elimination",
-    "mapId": "map_outpost",
+    "gameModeId": "op_bomb",
+    "mapId": "map_riverside",
     "bRanked": true,
     "bOperation": true,
     "settings": {
       "bAllowRespawns": false,
       "bSpawnProtection": false,
-	  "bDroppedWeapons": true,
+      "bDroppedWeapons": true,
       "preGameTimer": 0,
-      "timeLimit": 5
+      "timeLimit": 5,
+      "filterType": "night"
     }
   },
   "data": {
     "player": {
-      "position": [ 65, 1178 ],
+      "position": [ 1000, 1500 ],
       "inventory": [
         {
-          "id": "aug",
-          "ammo": 300,
+          "id": "hk416",
+          "ammo": 180,
           "mods": {
-            "barrel": "barrel_laser",
-            "ammo": "ammo_hollow_point"
+            "base": "base_range",
+            "barrel": "barrel_silencer",
+            "ammo": "ammo_fmj"
           }
         },
         {
-          "id": "rpg",
-          "ammo": 5
+          "id": "none",
+          "mods": {
+            "base": "base_speed"
+          }
         }
       ],
-      "equipment": "stun",
+      "equipment": "flashbang",
       "equipmentAmmo": 2
     },
     "objects": [
       {
         "type": "info",
         "messageData": {
-          "message": "You take the underground, I'll deal with enemies up top.",
-          "id": "op_plain_text",
-          "size": 200,
-          "atlas": "atlas_cards",
-          "icon": "hero_peacekeeper"
+          "message": "This message was triggerd by spawning. Next time-triggered message should appear in 10 seconds.",
+          "size": 8000,
+          "bRemove": true
         },
-        "position": [ 65, 1178 ]
+        "position": [ 1000, 1500 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "Shit, that's Wilkin! I'll distract, you flank behind him.",
-          "id": "op_plain_text",
-          "size": 200,
-          "atlas": "atlas_cards",
-          "icon": "hero_peacekeeper"
+          "message": "Next three messages should trigger in 5 seconds, each spaced 5 seconds apart from each other.",
+          "width": 4000,
+          "height": 2000,
+          "timeTrigger": 4.83,
+          "bRemove": true
         },
-        "position": [ 3880, 1685 ]
+        "position": [ 2000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "YOU'LL NEVER TAKE ME ALIVVVEEEEE!!!11!1one!!1!1!",
-          "id": "op_plain_text",
-          "size": 200,
-          "atlas": "atlas_cards",
-          "icon": "hero_wilkin"
+          "message": "1. There's another info object at the bomb's location that isn't triggered by time.",
+          "width": 4000,
+          "height": 2000,
+          "timeTrigger": 4.75,
+          "bRemove": true
         },
-        "position": [ 5255, 1690 ]
+        "position": [ 2000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "He's right. Grab that taser, we'll take him hostage!",
-          "id": "op_plain_text",
-          "size": 200,
-          "atlas": "atlas_cards",
-          "icon": "hero_peacekeeper"
+          "message": "2. You can use it to see how it overlaps with time-triggered info objects.",
+          "width": 4000,
+          "height": 2000,
+          "timeTrigger": 4.67,
+          "bRemove": true
         },
-        "position": [ 5865, 1570 ]
+        "position": [ 2000, 1000 ]
       },
       {
-        "type": "droppedWeapon",
-        "weaponId": "tazer",
-        "options": { "mods": { "barrel": "barrel_laser" } },
-        "position": [ 5865, 1570 ]
+        "type": "info",
+        "messageData": {
+          "message": "3. Next message should trigger when timer reaches 4:00, or in 35 seconds. Go goof around or something.",
+          "width": 4000,
+          "height": 2000,
+          "timeTrigger": 4,
+          "bRemove": true
+        },
+        "position": [ 2000, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "This message should have gone off 1 minute into the match, or at 4:00. This is the last time-triggered message.",
+          "width": 4000,
+          "height": 2000,
+          "timeTrigger": 4,
+          "bRemove": true
+        },
+        "position": [ 2000, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "This is a static message positioned on the bomb. It is not triggered by any time.",
+          "size": 200,
+          "bRemove": true
+        },
+        "position": [ 2115, 1550 ]
+      },
+      {
+        "id": "bomb_0",
+        "type": "crate_bomb",
+        "team": 1,
+        "interactTeam": 0,
+        "position": [ 2115, 1550 ]
       }
     ],
     "enemies": [
       {
         "type": "character",
-        "position": [ 195, 1003 ],
-        "heroId": "HERO_OBSV32",
-        "team": 0,
+        "position": [ 1935, 1550 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "rpk" } ],
         "ai": {
-          "patrolPoints": [
-            [ 5295, 1320 ],
-            [ 2990, 1685 ]
-          ],
-          "bCanInvestigate": false
-        }
-      },
-      {
-        "type": "character",
-        "position": [ 4010, 1240 ],
-        "preset": "usmc_generic",
-        "inventory": [ { "id": "m16a4" } ],
-        "ai": {
-          "bCampUntilLOS": true
-        }
-      },
-      {
-        "type": "character",
-        "position": [ 2990, 1685 ],
-        "preset": "usmc_generic",
-        "inventory": [ { "id": "m16a4" } ],
-        "ai": {
-          "bCampUntilLOS": true
-        }
-      },
-      {
-        "type": "character",
-        "position": [ 3100, 1685 ],
-        "preset": "usmc_generic",
-        "inventory": [ { "id": "m60e4" } ],
-        "ai": {
-          "bCampUntilLOS": true
-        }
-      },
-      {
-        "type": "character",
-        "position": [ 5300, 1330 ],
-        "heroId": "HERO_XWILKINX",
-        "ai": {
+          "bCamp": true,
           "bCampUntilLOS": true
         }
       }

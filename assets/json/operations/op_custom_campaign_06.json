@@ -1,0 +1,361 @@
+{
+  "id": "op_custom_campaign_06",
+  "bCustom": true,
+  "info": {
+    "name": "The Return",
+    "desc": "\"Fine, you win. But I want proof about about what you've told me. Take me to where you say the outbreak started.\" - Peacekeeper."
+  },
+  "requiredLevel": 1,
+  "rewards": [],
+  "gameData": {
+    "gameModeId": "op_elimination",
+    "mapId": "map_overgrown",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+	  "bDroppedWeapons": true,
+      "preGameTimer": 0,
+      "timeLimit": 5
+    }
+  },
+  "data": {
+    "player": {
+      "position": [ 7500, 1425 ],
+      "inventory": [
+        {
+          "id": "aughbar",
+          "mods": {
+            "barrel": "barrel_laser",
+            "ammo": "ammo_fmj"
+          }
+        },
+        {
+          "id": "spas12",
+          "mods": {
+            "ammo": "ammo_speed_loader"
+          }
+        }
+      ],
+      "equipment": "flashbang",
+      "equipmentAmmo": 1
+    },
+    "objects": [
+      {
+        "type": "info",
+        "messageData": {
+          "message": "You say you met a scientist here? Who did he work for? What were they doing with the infestors?",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+		  "bRemove": true
+        },
+        "position": [ 7500, 1425 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Zombies incoming. Get ready.",
+          "width": 200,
+		  "height": 1000,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+		  "bRemove": true
+        },
+        "position": [ 6575, 1355 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "This is bad, the zombies have started to mutated. They're becoming stronger.",
+          "width": 200,
+		  "height": 1000,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+		  "bRemove": true
+        },
+        "position": [ 5300, 1425 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Get off my property!",
+          "width": 200,
+		  "height": 1000,
+          "atlas": "atlas_cards",
+          "icon": "hero_eric",
+		  "bRemove": true
+        },
+        "position": [ 4000, 1410 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Who?...",
+          "width": 200,
+		  "height": 1000,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+		  "bRemove": true
+        },
+        "position": [ 3675, 1410 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "I'm Eric! I own this lab! Now what are you doing here?",
+          "width": 200,
+		  "height": 1000,
+          "atlas": "atlas_cards",
+          "icon": "hero_eric",
+		  "bRemove": true
+        },
+        "position": [ 3570, 1410 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "We're investigating the source of the zombie disease! You're under arrest for suspicion of involvement!",
+          "width": 200,
+		  "height": 1000,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+		  "bRemove": true
+        },
+        "position": [ 3185, 1425 ]
+      }
+    ],
+    "enemies": [
+      {
+        "type": "character",
+        "position": [ 7750, 1425 ],
+		"team": 0,
+        "heroId": "HERO_OBSV32",
+        "ai": {
+          "patrolPoints": [
+            [ 1890, 1355 ]
+          ]
+        }
+      },
+	  {
+        "type": "infestor",
+        "position": [ 4005, 1410 ],
+        "preset": "infestor",
+        "ai": {
+		  "bLOS": true,
+          "patrolPoints": [
+            [ 5085, 1765 ],
+            [ 3645, 1410 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 3040, 1765 ],
+        "preset": "zombie_exploder_boss",
+        "ai": {
+          "patrolPoints": [
+            [ 4690, 1025 ],
+            [ 2700, 1425 ],
+            [ 4980, 1765 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 3570, 1410 ],
+        "preset": "zombie_fat",
+        "ai": {
+          "patrolPoints": [
+            [ 5465, 1665 ],
+            [ 3205, 1665 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 3750, 1220 ],
+        "preset": "zombie_generic",
+        "ai": {
+          "patrolPoints": [
+            [ 4595, 1665 ],
+            [ 3060, 1425 ],
+            [ 4690, 1210 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 4020, 1410 ],
+        "preset": "zombie_sprinter_boss",
+        "ai": {
+		  "bCanInvestigate": false,
+          "patrolPoints": [
+            [ 2475, 1665 ],
+            [ 4020, 1410 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 4090, 1620 ],
+        "preset": "zombie_exploder",
+        "ai": {
+          "patrolPoints": [
+            [ 5515, 1665 ],
+            [ 4090, 1620 ],
+            [ 3370, 1025 ]
+          ]
+        }
+      },
+	  {
+        "type": "infestor",
+        "position": [ 2375, 1665 ],
+        "preset": "infestor",
+        "ai": {
+		  "bLOS": true,
+		  "bCanInvestigate": false,
+          "patrolPoints": [
+            [ 4115, 1025 ],
+            [ 5770, 1665 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 5285, 1425 ],
+        "preset": "zombie_spitter",
+        "ai": {
+          "patrolPoints": [
+            [ 3310, 1215 ],
+            [ 4550, 1665 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 3460, 1215 ],
+        "preset": "zombie_spitter_boss",
+        "ai": {
+		  "bCannInvestigate": false,
+          "patrolPoints": [
+            [ 5550, 1665 ],
+            [ 4095, 1625 ],
+            [ 3460, 1215 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 4390, 1210 ],
+        "preset": "zombie_fat",
+        "ai": {
+          "patrolPoints": [
+            [ 3075, 1765 ],
+            [ 4925, 1765 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 2685, 1725 ],
+        "preset": "zombie_sprinter",
+        "ai": {
+		  "bCanInvestigate": false,
+          "patrolPoints": [
+            [ 4630, 1025 ],
+            [ 5055, 1765 ],
+            [ 3370, 1410 ]
+          ]
+        }
+      },
+	  {
+        "type": "infestor",
+        "position": [ 4055, 1410 ],
+        "preset": "infestor",
+        "ai": {
+		  "bLOS": true,
+          "patrolPoints": [
+            [ 5340, 1705 ],
+            [ 3310, 1210 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 3315, 1665 ],
+        "preset": "zombie_generic",
+        "ai": {
+          "patrolPoints": [
+            [ 4395, 1215 ],
+            [ 5525, 1665 ],
+            [ 3205, 1665 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 3925, 1025 ],
+        "preset": "zombie_exploder_boss",
+        "ai": {
+		  "bCanInvestigate": false,
+          "patrolPoints": [
+            [ 5770, 1665 ],
+            [ 3925, 1025 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 50, 1425 ],
+		"team": 2,
+        "preset": "juggernaut",
+        "inventory": [ 
+          {
+            "id": "m240",
+            "mods": {
+              "barrel": "base_speed"
+            }
+          }
+		],
+        "ai": {
+          "patrolPoints": [
+            [ 6065, 1355 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 150, 1425 ],
+		"team": 2,
+        "preset": "juggernaut",
+        "inventory": [ 
+          {
+            "id": "m60e4",
+            "mods": {
+              "barrel": "base_speed"
+            }
+          }
+		],
+        "ai": {
+          "patrolPoints": [
+            [ 6065, 1355 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1125, 1425 ],
+		"team": 2,
+        "heroId": "HERO_ERIC",
+        "ai": {
+          "patrolPoints": [
+		    [ 100, 1425 ],
+            [ 6065, 1355 ]
+          ]
+        }
+      }
+    ]
+  }
+}

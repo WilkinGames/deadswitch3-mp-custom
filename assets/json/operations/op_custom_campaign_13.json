@@ -1,0 +1,244 @@
+{
+  "id": "op_custom_campaign_13",
+  "bCustom": true,
+  "info": {
+    "name": "Next Destination",
+    "desc": "\"Thanks for the help back there. I need you to fly to the source of the Outpost outbreak; I'll tell you what to do then.\" - AETIC."
+  },
+  "requiredLevel": 1,
+  "rewards": [],
+  "gameData": {
+    "gameModeId": "op_elimination",
+    "mapId": "map_airport",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+	  "bDroppedWeapons": true,
+      "preGameTimer": 0,
+      "timeLimit": 5
+    }
+  },
+  "data": {
+    "player": {
+      "position": [ 3455, 1205 ],
+      "inventory": [
+        {
+          "id": "acr",
+          "mods": {
+            "barrel": "barrel_laser",
+            "ammo": "ammo_fmj"
+          }
+        },
+        {
+          "id": "mp1911"
+        }
+      ],
+      "equipment": "stun",
+      "equipmentAmmo": 2
+    },
+    "objects": [
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Hijack! Come out with your hands up!",
+          "size": 200,
+		  "bRemove": true,
+          "atlas": "atlas_cards",
+          "icon": "char_militia_2"
+        },
+        "position": [ 3455, 1205 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Where did he go? Find him, or the boss will skin us alive!",
+          "width": 200,
+		  "height": 1000,
+		  "bRemove": true,
+          "atlas": "atlas_cards",
+          "icon": "char_militia_2"
+        },
+        "position": [ 2510, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "He's escaping! Keep him pinned on the airplace; we're calling for backup!",
+          "width": 200,
+		  "height": 1000,
+		  "bRemove": true,
+          "atlas": "atlas_cards",
+          "icon": "char_militia_2"
+        },
+        "position": [ 5440, 1000 ]
+      }
+    ],
+    "enemies": [
+      {
+        "type": "character",
+        "position": [ 5810, 1395 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "ak47" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 4110, 1260 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 5910, 1395 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "evo3" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 3760, 1205 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 5310, 1080 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "m4a1" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 3345, 1205 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 5185, 1065 ],
+        "preset": "militia_heavy",
+        "inventory": [ { "id": "pecheneg" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 3345, 1205 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2180, 1395 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "db" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 3290, 1245 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2080, 1395 ],
+        "preset": "militia_heavy",
+        "inventory": [ { "id": "rpk" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 2750, 1205 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1450, 1205 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "r700" } ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 6560, 1205 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "r700" } ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3500, 1400 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "deagle" } ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2935, 1400 ],
+        "preset": "militia_heavy",
+        "inventory": [ { "id": "rpk" } ],
+        "ai": {
+          "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4595, 1400 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "ak47" } ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 5010, 1400 ],
+        "preset": "militia_heavy",
+        "inventory": [ { "id": "pecheneg" } ],
+        "ai": {
+          "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3380, 1815 ],
+        "preset": "militia_heavy",
+        "inventory": [ { "id": "rpk16" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 3135, 1205 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4725, 1815 ],
+        "preset": "militia_heavy",
+        "inventory": [ { "id": "bren" } ],
+        "ai": {
+		  "bCanInvestigate": false,
+          "patrolPoints": [
+            [ 4775, 1205 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 5815, 1255 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "rsass" } ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2185, 1255 ],
+        "preset": "militia_generic",
+        "inventory": [ { "id": "rsass" } ],
+        "ai": {
+          "bCamp": true
+        }
+      }
+    ]
+  }
+}

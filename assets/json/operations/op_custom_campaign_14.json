@@ -35,9 +35,9 @@
         "messageData": {
           "message": ":O",
           "size": 200,
-		  "bRemove": true,
           "atlas": "atlas_cards",
-          "icon": "hero_wrangler"
+          "icon": "hero_wrangler",
+		  "bRemove": true
         },
         "position": [ 90, 1270 ]
       },
@@ -45,59 +45,64 @@
         "type": "info",
         "messageData": {
           "message": "xddddddddddddddddddddddddddddddddddd",
-          "width": 200,
-          "height": 2000,
-		  "bRemove": true,
+          "width": 4000,
+		  "height": 2000,
           "atlas": "atlas_cards",
-          "icon": "hero_wrangler"
+          "icon": "hero_wrangler",
+		  "timeTrigger": 4.92,
+		  "bRemove": true
         },
-        "position": [ 350, 1000 ]
+        "position": [ 2000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "where you at? you cant run forever, sooner or later youll have to face me ;)",
-          "width": 200,
-          "height": 2000,
-		  "bRemove": true,
+          "width": 4000,
+		  "height": 2000,
           "atlas": "atlas_cards",
-          "icon": "hero_wrangler"
+          "icon": "hero_wrangler",
+		  "timeTrigger": 4.83,
+		  "bRemove": true
         },
-        "position": [ 600, 1000 ]
+        "position": [ 2000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "awwwwwwww did you drop your gun? xd i may have left something around here, but i forgot where ;)",
-          "width": 200,
-          "height": 2000,
-		  "bRemove": true,
+          "width": 4000,
+		  "height": 2000,
           "atlas": "atlas_cards",
-          "icon": "hero_wrangler"
+          "icon": "hero_wrangler",
+		  "timeTrigger": 4.75,
+		  "bRemove": true
         },
-        "position": [ 1000, 1000 ]
+        "position": [ 2000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "so lets talk. i want you to quit messing around with eric's stuff",
-          "width": 200,
-          "height": 2000,
-		  "bRemove": true,
+          "width": 4000,
+		  "height": 2000,
           "atlas": "atlas_cards",
-          "icon": "hero_wrangler"
+          "icon": "hero_wrangler",
+		  "timeTrigger": 4.67,
+		  "bRemove": true
         },
-        "position": [ 1500, 1000 ]
+        "position": [ 2000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "no, im not working for eric. i used to, but not anymore. i run the militia now :P",
-          "width": 200,
-          "height": 2000,
-		  "bRemove": true,
+          "width": 4000,
+		  "height": 2000,
           "atlas": "atlas_cards",
-          "icon": "hero_wrangler"
+          "icon": "hero_wrangler",
+		  "timeTrigger": 4.58,
+		  "bRemove": true
         },
         "position": [ 2000, 1000 ]
       },
@@ -105,49 +110,66 @@
         "type": "info",
         "messageData": {
           "message": "i don't like eric. hes got a monopoly on those jugg suits. im tryna stop that.",
-          "width": 200,
-          "height": 2000,
-		  "bRemove": true,
+          "width": 4000,
+		  "height": 2000,
           "atlas": "atlas_cards",
-          "icon": "hero_wrangler"
+          "icon": "hero_wrangler",
+		  "timeTrigger": 4.50,
+		  "bRemove": true
         },
-        "position": [ 2500, 1000 ]
+        "position": [ 2000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "but those suits are valuable. so i want you to either stop tryna mess with eric's infestors...",
-          "width": 200,
-          "height": 2000,
-		  "bRemove": true,
+          "width": 4000,
+		  "height": 2000,
           "atlas": "atlas_cards",
-          "icon": "hero_wrangler"
+          "icon": "hero_wrangler",
+		  "timeTrigger": 4.42,
+		  "bRemove": true
         },
-        "position": [ 3000, 1000 ]
+        "position": [ 2000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "...or help me take them for the militia. deal?",
-          "width": 200,
-          "height": 2000,
-		  "bRemove": true,
+          "width": 4000,
+		  "height": 2000,
           "atlas": "atlas_cards",
-          "icon": "hero_wrangler"
+          "icon": "hero_wrangler",
+		  "timeTrigger": 4.33,
+		  "bRemove": true
         },
-        "position": [ 3400, 1000 ]
+        "position": [ 2000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "terrorists? xdddddddddddddd we're not opfor, they're just noobs tryna cause chaos so they can take over.",
-          "width": 200,
-          "height": 2000,
-		  "bRemove": true,
+          "message": "no? aight. guess i'll have to use other methods to \"convince\" you  >:)",
+          "width": 4000,
+		  "height": 2000,
           "atlas": "atlas_cards",
-          "icon": "hero_wrangler"
+          "icon": "hero_wrangler",
+		  "timeTrigger": 4.25,
+		  "bRemove": true
         },
-        "position": [ 3850, 1000 ]
+        "position": [ 2000, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "terrorists? opfor? xdddddddddddddd we're not opfor, they're just noobs tryna cause chaos so they can take over.",
+          "width": 4000,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_wrangler",
+		  "timeTrigger": 4.00,
+		  "bRemove": true
+        },
+        "position": [ 2000, 1000 ]
       },
       {
         "type": "droppedWeapon",

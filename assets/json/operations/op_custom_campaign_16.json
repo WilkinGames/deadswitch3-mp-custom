@@ -2,7 +2,7 @@
   "id": "op_custom_campaign_16",
   "bCustom": true,
   "info": {
-    "name": "Outbreak #2",
+    "name": "Outpost Outbreak",
     "desc": "\"I've decided you're right. I'm joining you. AETIC wants us to plant another bomb at the site of the Outpost Outbreak.\" - Arachnid."
   },
   "requiredLevel": 1,
@@ -26,6 +26,7 @@
       "inventory": [
         {
           "id": "mg42",
+		  "ammo": 200,
           "mods": {
             "base": "base_damper",
 			"barrel": "barrel_laser",
@@ -34,6 +35,7 @@
         },
         {
           "id": "evo3",
+		  "ammo": 120,
           "mods": {
             "base": "base_speed",
             "barrel": "barrel_laser",
@@ -60,61 +62,64 @@
         "type": "info",
         "messageData": {
           "message": "AETIC says if we plant the bomb here, it might be enough to curb the outbreak's spread. But we need to be fast.",
-          "width": 200,
+          "width": 6000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_twoplayer",
-          "bRemove": true
+		  "timeTrigger": 4.92,
+		  "bRemove": true
         },
-        "position": [ 1000, 1000 ]
+        "position": [ 3000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "I don't trust you, Arachnid. You can help out here, but I'm keeping an eye on you.",
-          "width": 200,
+          "width": 6000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
-          "bRemove": true
+		  "timeTrigger": 4.83,
+		  "bRemove": true
         },
-        "position": [ 1700, 1000 ]
+        "position": [ 3000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "Zombies incoming! Plant the bomb quick before we attract the horde!",
-          "width": 200,
+          "width": 6000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
-          "bRemove": true
+		  "timeTrigger": 4.75,
+		  "bRemove": true
         },
-        "position": [ 2400, 1000 ]
+        "position": [ 3000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "Some of the zombies are carrying guns! And some have hijacked leftover Juggernaut suits!",
-          "width": 200,
+          "width": 6000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
-          "bRemove": true
+		  "timeTrigger": 4.67,
+		  "bRemove": true
         },
-        "position": [ 3100, 1000 ]
+        "position": [ 3000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "Hurry up with the bomb! We have to get out before we're overrun!",
-          "width": 200,
-		  "height": 2000,
+          "message": "Get the bomb planted quick! We have to get out before we're overrun!",
+          "size": 200,
           "atlas": "atlas_cards",
           "icon": "hero_twoplayer",
           "bRemove": true
         },
-        "position": [ 3890, 1000 ]
+        "position": [ 3890, 1490 ]
       },
       {
         "id": "bomb_0",
@@ -128,6 +133,32 @@
         "position": [ 5865, 1180 ],
         "spawnerId": "SPAWNER_ZOMBIE",
         "team": 1
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "dp12",
+        "options": {
+          "ammo": 60,
+          "mods": {
+            "base": "base_rapid_fire",
+            "barrel": "barrel_laser",
+			"ammo": "ammo_hollow_point"
+          }
+        },
+        "position": [ 500, 1340 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "sks",
+        "options": {
+          "ammo": 100,
+          "mods": {
+            "base": "base_range",
+            "barrel": "barrel_laser",
+			"ammo": "ammo_extended"
+          }
+        },
+        "position": [ 600, 1340 ]
       },
       {
         "type": "info",
@@ -147,7 +178,8 @@
 			"ammo": "ammo_impact"
           }
         },
-        "position": [ 5900, 830 ]
+        "position": [ 5900, 830 ],
+		"bPersistant": true
       }
     ],
     "enemies": [

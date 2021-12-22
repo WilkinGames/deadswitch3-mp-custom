@@ -3,7 +3,7 @@
   "bCustom": true,
   "info": {
     "name": "First Stop",
-    "desc": "\"Here's the explosives and the location of one of Eric's bases. Good luck. I won't be joining you; I have a business to run.\" - AETIC."
+    "desc": "\"Here's some high explosives and the location of one of Eric's bases. Good luck; I won't be joining you. I have a business to run.\" - AETIC."
   },
   "requiredLevel": 1,
   "rewards": [],
@@ -26,6 +26,7 @@
       "inventory": [
         {
           "id": "bren",
+          "ammo": 120,
           "mods": {
             "barrel": "barrel_grip"
           }
@@ -33,7 +34,8 @@
         {
           "id": "cz75",
           "mods": {
-            "barrel": "barrel_laser"
+            "barrel": "barrel_laser",
+            "ammo": "ammo_fmj"
           }
         }
       ],
@@ -44,7 +46,7 @@
       {
         "type": "info",
         "messageData": {
-          "message": "Sorry, but I messed up. Eric's escaped. And international politics takes so long, nothing's been done yet.",
+          "message": "Bad news. Eric's escaped. And I haven't gotten anyone to decide on anything at UN Headquarters. Stupid politics.",
           "size": 200,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
@@ -55,72 +57,113 @@
       {
         "type": "info",
         "messageData": {
-          "message": "Things are getting worse. Remember Eric's Outpost? Yeah, the infestors escaped. It's another outbreak.",
-          "width": 200,
+          "message": "Things are getting worse. Remember Eric's Outpost lab? Yeah, the infestors escaped. It's another outbreak.",
+          "width": 6000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
+		  "timeTrigger": 4.92,
 		  "bRemove": true
         },
-        "position": [ 1000, 1000 ]
+        "position": [ 3000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "They don't know if the infestors escaped or were freed by those terrorists. And Eric's still refusing to halt research.",
-          "width": 200,
+          "width": 6000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
+		  "timeTrigger": 4.83,
 		  "bRemove": true
         },
-        "position": [ 1800, 1000 ]
+        "position": [ 3000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "Infestors incoming! Shoot them! Shoot them!",
-          "width": 200,
+          "message": "I'm not technically sanctioned to be helping you, but we've got to do something, even if they won't.",
+          "width": 6000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
+		  "timeTrigger": 4.75,
 		  "bRemove": true
         },
-        "position": [ 2700, 1000 ]
+        "position": [ 3000, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Infestors incoming! Take them out!",
+          "width": 6000,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+		  "timeTrigger": 4.42,
+		  "bRemove": true
+        },
+        "position": [ 3000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "Eric must be releasing his infestors to try to stop us. He's risking another outbreak.",
-          "width": 200,
+          "width": 6000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
+		  "timeTrigger": 4.33,
 		  "bRemove": true
         },
-        "position": [ 3200, 1000 ]
+        "position": [ 3000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "Moussa, is that you? Listen, we can't control the infestors, Eric's just putting us all in danger.",
-          "width": 200,
+          "message": "Moussa, is that you? Listen, Eric can't control the infestors; he's just putting us all in danger.",
+          "width": 6000,
 		  "height": 2000,
+		  "timeTrigger": 4.00,
 		  "bRemove": true
         },
-        "position": [ 4000, 1000 ]
+        "position": [ 3000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "Orders are orders. This is Eric's base, and you're trespassing. Get out before I force you out.",
-          "width": 200,
+          "message": "I have my orders. This is Eric's base, and you're trespassing. Get out before I force you out.",
+          "width": 6000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_moussa",
+		  "timeTrigger": 3.92,
 		  "bRemove": true
         },
-        "position": [ 4585, 1000 ]
+        "position": [ 3000, 1000 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "sg550",
+        "options": {
+          "ammo": 60,
+          "mods": {
+            "barrel": "barrel_laser"
+          }
+        },
+        "position": [ 315, 1350 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "arp",
+        "options": {
+          "ammo": 120,
+          "mods": {
+			"barrel": "barrel_silencer"
+          }
+        },
+        "position": [ 515, 1350 ]
       },
       {
         "id": "bomb_0",

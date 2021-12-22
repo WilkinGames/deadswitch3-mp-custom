@@ -43,79 +43,85 @@
       {
         "type": "info",
         "messageData": {
-          "message": "You make your way to the PMC Corp you worked with. We might need some help, and they'll be willing to listen to you.",
+          "message": "You make your way to the PMC Corp you worked with. We need some help, and they'll be willing to listen to you.",
           "size": 200,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
           "bRemove": true
         },
-        "position": [ 1845, 1805 ]
+        "position": [ 100, 1455 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "Woah, Arachnid! Don't point that gun at me!",
-          "width": 200,
-		  "height": 1000,
-          "bRemove": true
+          "width": 4000,
+		  "height": 2000,
+		  "timeTrigger": 4.88,
+		  "bRemove": true
         },
-        "position": [ 1800, 1550 ]
+        "position": [ 2000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "I'm assassinating you. Don't fight back.",
-          "width": 200,
-		  "height": 1000,
+          "width": 4000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_twoplayer",
-          "bRemove": true
+		  "timeTrigger": 4.80,
+		  "bRemove": true
         },
-        "position": [ 2300, 1550 ]
+        "position": [ 2000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "What? Why?",
-          "width": 200,
-		  "height": 1000,
-          "bRemove": true
+          "width": 4000,
+		  "height": 2000,
+		  "timeTrigger": 4.72,
+		  "bRemove": true
         },
-        "position": [ 2770, 1550 ]
+        "position": [ 2000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "Orders from above. UMS doesn't like you meddling around with Eric's infestors.",
-          "width": 200,
-		  "height": 1000,
+          "width": 4000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_twoplayer",
-          "bRemove": true
+		  "timeTrigger": 4.67,
+		  "bRemove": true
         },
-        "position": [ 3000, 1550 ]
+        "position": [ 2000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "They're in league with each other? Arachnid, don't shoot, there's something much bigger going on here.",
-          "width": 200,
-		  "height": 1000,
-          "bRemove": true
+          "message": "UMS and DST Labs are in league with each other? Arachnid, don't shoot, there's something much bigger going on here.",
+          "width": 4000,
+		  "height": 2000,
+		  "timeTrigger": 4.58,
+		  "bRemove": true
         },
-        "position": [ 3500, 1550 ]
+        "position": [ 2000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "Don't make this hard for me.",
-          "width": 200,
-		  "height": 1000,
+          "width": 4000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_twoplayer",
-          "bRemove": true
+		  "timeTrigger": 4.5,
+		  "bRemove": true
         },
-        "position": [ 3860, 1155 ]
+        "position": [ 2000, 1000 ]
       }
     ],
     "enemies": [

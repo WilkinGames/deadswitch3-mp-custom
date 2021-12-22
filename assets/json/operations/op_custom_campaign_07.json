@@ -63,72 +63,105 @@
         "type": "info",
         "messageData": {
           "message": "That suit is made from special pieces of Infestor carapace that we call Shards. They're extremely valuable.",
-          "width": 200,
-		  "height": 1000,
+          "width": 6000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_eric",
+		  "timeTrigger": 4.75,
 		  "bRemove": true
         },
-        "position": [ 1220, 1340 ]
+        "position": [ 3000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "Some of our own employees have been using them to trade without a currency. It's so they don't pay taxes.",
-          "size": 200,
+          "message": "I've seen some people using Shards to trade without a currency. It's so they don't pay taxes.",
+          "width": 6000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_eric",
+		  "timeTrigger": 4.67,
 		  "bRemove": true
         },
-        "position": [ 1500, 1145 ]
+        "position": [ 3000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "Who?... Terrorists? OpFor's ambushing the base again!",
-          "width": 200,
-		  "height": 1000,
+          "width": 6000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_eric",
+		  "timeTrigger": 4.50,
 		  "bRemove": true
         },
-        "position": [ 1830, 1490 ]
+        "position": [ 3000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "They're going to try to free this facility's infestors! We have to stop them!",
-          "width": 200,
-		  "height": 1000,
+          "message": "They're trying to free this facility's infestors! We have to stop them!",
+          "width": 6000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_eric",
+		  "timeTrigger": 4.42,
 		  "bRemove": true
         },
-        "position": [ 3000, 1465 ]
+        "position": [ 3000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "Do not harm the infestors! They're too valuable!",
-          "width": 200,
-		  "height": 1000,
+          "width": 6000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_eric",
+		  "timeTrigger": 4.33,
 		  "bRemove": true
         },
-        "position": [ 3620, 1490 ]
+        "position": [ 3000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "They've already escaped! You can't contain them again! There's too much chance of another outbreak!",
-          "width": 200,
-		  "height": 1000,
+          "message": "Don't listen to him! Kill all the infestors; we can't contain them again!",
+          "width": 6000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
+		  "timeTrigger": 4.25,
 		  "bRemove": true
         },
-        "position": [ 3970, 1490 ]
+        "position": [ 3000, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Why are the Terrorists attacking this base, Eric? Why are they trying to free the infestors?",
+          "width": 6000,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+		  "timeTrigger": 4.00,
+		  "bRemove": true
+        },
+        "position": [ 3000, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Nobody really knows, but I think they're just trying to cause global chaos so they can try to take over.",
+          "width": 6000,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_eric",
+		  "timeTrigger": 3.92,
+		  "bRemove": true
+        },
+        "position": [ 3000, 1000 ]
       },
       {
         "type": "crate_killstreak",

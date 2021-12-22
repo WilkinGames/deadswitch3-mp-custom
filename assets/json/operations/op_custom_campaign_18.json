@@ -26,7 +26,7 @@
       "inventory": [
         {
           "id": "ameli",
-          "ammo": 500,
+          "ammo": 300,
           "mods": {
             "base": "base_marksman",
 			"barrel": "barrel_grip",
@@ -34,12 +34,12 @@
           }
         },
         {
-          "id": "matador",
-          "ammo": 10,
+          "id": "tec9",
+          "ammo": 96,
           "mods": {
-		    "base": "base_speed",
+		    "base": "base_damper",
 		    "barrel": "barrel_laser",
-			"ammo": "ammo_explosive"
+			"ammo": "ammo_impact"
           }
         }
       ],
@@ -62,96 +62,117 @@
         "type": "info",
         "messageData": {
           "message": "We can't hold off them and the zombies!",
-          "width": 200,
+          "width": 8000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_moussa",
-          "bRemove": true
+		  "timeTrigger": 4.92,
+		  "bRemove": true
         },
-        "position": [ 1815, 1000 ]
+        "position": [ 4000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "Oh, this is TouhouHijack we're working with. I finally got one government to give us some help.",
-          "width": 200,
+          "message": "Oh, this is Touhou Hijack we're working with. I finally got one government to give us some help.",
+          "width": 8000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
-          "bRemove": true
+		  "timeTrigger": 4.50,
+		  "bRemove": true
         },
-        "position": [ 2980, 1000 ]
+        "position": [ 4000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "I'm just here to scout things out. If we think it's worth it, we'll give you more support.",
-          "width": 200,
+          "width": 8000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_touhou",
-          "bRemove": true
+		  "timeTrigger": 4.42,
+		  "bRemove": true
         },
-        "position": [ 3660, 1000 ]
+        "position": [ 4000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "Who is that?",
-          "width": 200,
+          "width": 8000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_touhou",
-          "bRemove": true
+		  "timeTrigger": 3.75,
+		  "bRemove": true
         },
-        "position": [ 4990, 1000 ]
+        "position": [ 4000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "Leave my infestors alone.",
-          "width": 200,
+          "width": 8000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_wilkin",
-          "bRemove": true
+		  "timeTrigger": 3.67,
+		  "bRemove": true
         },
-        "position": [ 5350, 1000 ]
+        "position": [ 4000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "What do you mean \"your\" infestors?... Wait...",
-          "width": 200,
+          "width": 8000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
-          "bRemove": true
+		  "timeTrigger": 3.58,
+		  "bRemove": true
         },
-        "position": [ 5850, 1000 ]
+        "position": [ 4000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "You're planning to detonate a Deadswitch on their nest, aren't you? We'll be there to stop you.",
-          "size": 200,
+          "message": "You'll never be able to stop the infestation. Not even your Deadswitch can kill them all.",
+          "width": 8000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_wilkin",
-          "bRemove": true
+		  "timeTrigger": 3.50,
+		  "bRemove": true
         },
-        "position": [ 7100, 1100 ]
+        "position": [ 4000, 1000 ]
       },
       {
-        "type": "info",
-        "messageData": {
-          "message": "",
-          "width": 200,
-		  "height": 2000,
-          "atlas": "atlas_cards",
-          "icon": "hero_peacekeeper",
-          "bRemove": true
+        "type": "droppedWeapon",
+        "weaponId": "matador",
+        "options": {
+		  "ammo": 5,
+          "mods": {
+		    "barrel": "barrel_laser",
+			"ammo": "ammo_explosive"
+          }
         },
-        "position": [ 4990, 1000 ]
+        "position": [ 850, 1420 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "g3",
+        "options": {
+		  "ammo": 150,
+          "mods": {
+            "base": "base_speed",
+		    "barrel": "barrel_laser",
+			"ammo": "ammo_hollow_point"
+          }
+        },
+        "position": [ 950, 1420 ]
       },
       {
         "id": "bomb_0",

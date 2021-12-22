@@ -29,6 +29,7 @@
       "inventory": [
         {
           "id": "uzi",
+		  "ammo": 128,
           "mods": {
 		    "base": "base_marksman",
             "barrel": "barrel_silencer",
@@ -37,6 +38,7 @@
         },
         {
           "id": "micro_uzi",
+		  "ammo": 100,
           "mods": {
             "barrel": "barrel_silencer",
 			"ammo": "ammo_impact"
@@ -62,23 +64,25 @@
         "type": "info",
         "messageData": {
           "message": "...",
-          "width": 200,
+          "width": 4000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_aetic",
+		  "timeTrigger": 4.92,
 		  "bRemove": true
         },
-        "position": [ 780, 1000 ]
+        "position": [ 2000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "?... A note left behind by AETIC: \"I left my railgun underground. Use it to take out Yung Wulf and his Juggernauts.\"",
-          "width": 200,
+          "width": 4000,
 		  "height": 2000,
+		  "timeTrigger": 4.58,
 		  "bRemove": true
         },
-        "position": [ 1100, 1000 ]
+        "position": [ 2000, 1000 ]
       },
       {
         "type": "info",
@@ -93,14 +97,14 @@
       {
         "type": "info",
         "messageData": {
-          "message": "AETIC, UMS depends on those Juggernaut suits! So what if the infestors are dangerous? They're necessary!",
+          "message": "AETIC, UMS depends on those Juggernaut suits! The infestors may be dangerous, but they're also necessary!",
           "width": 200,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_wulf",
 		  "bRemove": true
         },
-        "position": [ 2410, 1000 ]
+        "position": [ 2540, 1000 ]
       },
       {
         "type": "info",
@@ -142,6 +146,30 @@
         "health": 400,
         "pawnName": "AETIC",
         "heroId": "HERO_AETIC"
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "l85a3",
+        "options": {
+          "mods": {
+            "base": "base_damper",
+		    "barrel": "barrel_silencer",
+		    "barrel2": "barrel_laser"
+          }
+        },
+        "position": [ 385, 1555 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "steyr",
+        "options": {
+          "mods": {
+            "base": "base_marksman",
+		    "barrel": "barrel_silencer",
+			"ammo": "ammo_range"
+          }
+        },
+        "position": [ 485, 1555 ]
       },
       {
         "type": "obstacle",

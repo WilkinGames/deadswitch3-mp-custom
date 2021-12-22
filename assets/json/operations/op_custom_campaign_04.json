@@ -56,19 +56,19 @@
         "type": "info",
         "messageData": {
           "message": "OPEN FIRE!!!",
-          "id": "op_plain_text",
-          "width": 200,
-		  "height": 1500,
+          "width": 8000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_moussa",
+		  "timeTrigger": 4.83,
 		  "bRemove": true
         },
-        "position": [ 5240, 1245 ]
+        "position": [ 4000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "Yes! Bring the turret back here! We've got a fighting chance!",
+          "message": "Quick, bring that turret back to us! We've got a fighting chance!",
           "size": 200,
           "atlas": "atlas_cards",
           "icon": "hero_moussa",
@@ -79,7 +79,7 @@
       {
         "type": "info",
         "messageData": {
-          "message": "Man that turret! It's our last resort!",
+          "message": "If the infestors overrun us, I need you to man that turret. It's our last line of defense.",
           "size": 200,
           "atlas": "atlas_cards",
           "icon": "hero_moussa",
@@ -105,7 +105,8 @@
             "ammo": "ammo_explosive"
           }
         },
-        "position": [ 935, 1110 ]
+        "position": [ 935, 1110 ],
+		"bPersistant": true
       },
 	  {
         "type": "spawner",
@@ -174,7 +175,7 @@
       {
         "type": "character",
         "position": [ 6770, 1795 ],
-        "style": "rus_heavy",
+        "style": "rus_elite",
 		"health": 400,
 		"team": 0,
         "inventory": [ { "id": "rpk" } ],

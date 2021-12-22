@@ -65,7 +65,7 @@
       {
         "type": "info",
         "messageData": {
-          "message": "He's escaping! Keep him pinned on the airplace; we're calling for backup!",
+          "message": "He's escaping! Keep him pinned on the airplane; we're calling for backup!",
           "width": 200,
 		  "height": 1000,
 		  "bRemove": true,

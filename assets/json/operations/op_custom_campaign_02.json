@@ -30,7 +30,7 @@
       "inventory": [
         {
           "id": "honeybadger",
-          "ammo": 180,
+          "ammo": 150,
           "mods": {
             "barrel": "barrel_laser",
             "ammo": "ammo_extended"
@@ -38,7 +38,7 @@
         },
         {
           "id": "maxim9",
-          "ammo": 48,
+          "ammo": 36,
           "mods": {
             "ammo": "ammo_hollow_point"
           }
@@ -100,6 +100,29 @@
 		  "bRemove": true
         },
         "position": [ 7200, 1770 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "famas",
+        "options": {
+          "ammo": 120,
+          "mods": {
+            "barrel": "barrel_laser",
+			"barrel2": "barrel_silencer"
+          }
+        },
+        "position": [ 350, 1040 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "m40a3",
+        "options": {
+          "mods": {
+		    "base": "base_range",
+			"barrel": "barrel_silencer"
+          }
+        },
+        "position": [ 250, 1040 ]
       }
     ],
     "enemies": [

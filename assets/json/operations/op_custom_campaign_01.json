@@ -33,11 +33,10 @@
           }
         },
         {
-          "id": "msr",
+          "id": "g18",
           "ammo": 32,
           "mods": {
-            "base": "base_range",
-            "barrel": "barrel_laser"
+            "barrel": "barrel_grip"
           }
         }
       ],
@@ -71,7 +70,7 @@
       {
         "type": "info",
         "messageData": {
-          "message": "Oh, that's a Juggernaut to your left. Bait him to me, I'll soften him up.",
+          "message": "Oh, they've got a Juggernaut to your left. Bait him to me, I'll soften him up.",
           "width": 200,
 		  "height": 1000,
           "atlas": "atlas_cards",
@@ -79,6 +78,28 @@
 		  "bRemove": true
         },
         "position": [ 2500, 1350 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "msr",
+        "options": {
+          "mods": {
+            "base": "base_range",
+            "barrel": "barrel_laser"
+          }
+        },
+        "position": [ 5820, 1350 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "mp7",
+        "options": {
+          "mods": {
+            "base": "base_damper",
+            "barrel": "barrel_laser"
+          }
+        },
+        "position": [ 5720, 1350 ]
       },
       {
         "type": "crate_ammo",

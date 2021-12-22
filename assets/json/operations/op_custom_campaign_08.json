@@ -60,61 +60,92 @@
         "type": "info",
         "messageData": {
           "message": "You have to stop this research, Eric! There's too much chance of the infestors breaking out again! Or the terrorists freeing them!",
-          "width": 200,
-		  "height": 1500,
+          "width": 6000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
+		  "timeTrigger": 4.83,
 		  "bRemove": true
         },
-        "position": [ 4520, 1445 ]
+        "position": [ 3000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "I can't! The Juggernaut research is too valuable! I can prevent any more escapes! I can keep the terrorists from interfering!",
-          "width": 200,
-		  "height": 1500,
+          "message": "I can't! The Juggernaut research is too valuable! Countries and companies all over the world depend on my Juggernaut suits!",
+          "width": 6000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_eric",
+		  "timeTrigger": 4.75,
 		  "bRemove": true
         },
-        "position": [ 3880, 1380 ]
+        "position": [ 3000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "There's too much risk! The infestors turn humans into zombies! Look at the site of the first outbreak, tt's out of control!",
-          "width": 200,
-		  "height": 1500,
+          "message": "You want to prevent escapes? Or stop the terrorists? Give me an international grant to buy all the security I need!",
+          "width": 6000,
+		  "height": 2000,
           "atlas": "atlas_cards",
-          "icon": "hero_peacekeeper",
+          "icon": "hero_eric",
+		  "timeTrigger": 4.67,
 		  "bRemove": true
         },
-        "position": [ 3000, 1345 ]
+        "position": [ 3000, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "There's too much risk! The infestors spread the zombie disease! Look at the site of the first outbreak, it's out of control!",
+          "width": 6000,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+		  "timeTrigger": 4.58,
+		  "bRemove": true
+        },
+        "position": [ 3000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "Where did the infestors come from, Eric? How did you get them?",
-          "width": 200,
-		  "height": 1500,
+          "width": 6000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
+		  "timeTrigger": 4.25,
 		  "bRemove": true
         },
-        "position": [ 2120, 1425 ]
+        "position": [ 3000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "I don't know! It's my boss, Wilkin; he's in charge of this. He gets them to me, and I don't know where they come from.",
-          "width": 200,
-		  "height": 1500,
+          "message": "I don't know. It's my boss, Wilkin; he started this whole operation and supplies me with the infestors.",
+          "width": 6000,
+		  "height": 2000,
           "atlas": "atlas_cards",
-          "icon": "hero_peacekeeper",
+          "icon": "hero_eric",
+		  "timeTrigger": 4.17,
 		  "bRemove": true
         },
-        "position": [ 1570, 1380 ]
+        "position": [ 3000, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "I don't know how or where Wilkin gets his infestors. I don't even know who he is or his background. The man's a shadow.",
+          "width": 6000,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_eric",
+		  "timeTrigger": 4.08,
+		  "bRemove": true
+        },
+        "position": [ 3000, 1000 ]
       }
     ],
     "enemies": [

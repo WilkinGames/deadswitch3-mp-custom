@@ -26,6 +26,7 @@
       "inventory": [
         {
           "id": "lvoa",
+		  "ammo": 120,
           "mods": {
             "base": "base_range",
 			"barrel": "barrel_laser",
@@ -34,6 +35,7 @@
         },
         {
           "id": "vp70",
+		  "ammo": 90,
           "mods": {
             "base": "base_damper",
             "barrel": "barrel_laser",
@@ -60,97 +62,130 @@
         "type": "info",
         "messageData": {
           "message": "The original outbreak site has become completely uncontrollable. It's spreading like wildfire.",
-          "width": 200,
+          "width": 8000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_ari",
-          "bRemove": true
+		  "timeTrigger": 4.92,
+		  "bRemove": true
         },
-        "position": [ 1400, 1000 ]
+        "position": [ 4000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "There's no way any army's going to be able to contain it, and our bombs are too weak to make a dent.",
-          "width": 200,
+          "width": 8000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_ari",
-          "bRemove": true
+		  "timeTrigger": 4.83,
+		  "bRemove": true
         },
-        "position": [ 2200, 1000 ]
+        "position": [ 4000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "Have you ever heard of the Deadswitch Program?",
-          "width": 200,
+          "width": 8000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_ari",
-          "bRemove": true
+		  "timeTrigger": 4.75,
+		  "bRemove": true
         },
-        "position": [ 3000, 1000 ]
+        "position": [ 4000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "AETIC's been working on it in secret for years. An extremely compact, high yield nuclear warhead.",
-          "width": 200,
+          "width": 8000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_ari",
-          "bRemove": true
+		  "timeTrigger": 4.67,
+		  "bRemove": true
         },
-        "position": [ 3800, 1000 ]
+        "position": [ 4000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "It's the only way to stop the outbreak: Nuking it. Wiping out as many infestors as we can in one go.",
-          "width": 200,
+          "width": 8000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_ari",
-          "bRemove": true
+		  "timeTrigger": 4.58,
+		  "bRemove": true
         },
-        "position": [ 4600, 1000 ]
+        "position": [ 4000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "That's why he sent us here: to steal the uranium he needs to build a bomb this big.",
-          "width": 200,
+          "width": 8000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_ari",
-          "bRemove": true
+		  "timeTrigger": 4.50,
+		  "bRemove": true
         },
-        "position": [ 5400, 1000 ]
+        "position": [ 4000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "And that's also why we're keeping this assignment undercover. We don't think Peacekeeper would approve of stealing it.",
-          "width": 200,
+          "width": 8000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_ari",
-          "bRemove": true
+		  "timeTrigger": 4.42,
+		  "bRemove": true
         },
-        "position": [ 6200, 1000 ]
+        "position": [ 4000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "We just don't have any political support. No uranium for the bomb, no aircraft to drop the bomb. There just isn't time.",
-          "width": 200,
+          "width": 8000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_ari",
-          "bRemove": true
+		  "timeTrigger": 4.33,
+		  "bRemove": true
         },
-        "position": [ 7000, 1000 ]
+        "position": [ 4000, 1000 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "bizon",
+        "options": {
+          "mods": {
+            "base": "base_damper",
+		    "barrel": "barrel_laser",
+			"ammo": "ammo_fmj"
+          }
+        },
+        "position": [ 760, 1770 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "origin12",
+        "options": {
+		  "ammo": 50,
+          "mods": {
+            "base": "base_speed",
+		    "barrel": "barrel_laser",
+			"ammo": "ammo_fmj"
+          }
+        },
+        "position": [ 860, 1770 ]
       },
       {
         "type": "crate_killstreak",
@@ -382,7 +417,7 @@
         "type": "character",
         "position": [ 3180, 1700 ],
         "preset": "usmc_heavy",
-        "inventory": [ { "id": "qbb95" } ],
+        "inventory": [ { "id": "hamr" } ],
         "ai": {
           "patrolPoints": [
             [ 5600, 1700 ],
@@ -394,7 +429,7 @@
         "type": "character",
         "position": [ 4820, 1700 ],
         "preset": "usmc_heavy",
-        "inventory": [ { "id": "qbb95" } ],
+        "inventory": [ { "id": "hamr" } ],
         "ai": {
           "patrolPoints": [
             [ 2400, 1700 ],

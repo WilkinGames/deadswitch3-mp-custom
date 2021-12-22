@@ -54,45 +54,99 @@
         "type": "info",
         "messageData": {
           "message": "A visitor. Show me what you can do.",
-          "width": 200,
-		  "height": 1000,
+          "width": 4000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_aetic",
+		  "timeTrigger": 4.83,
 		  "bRemove": true
         },
-        "position": [ 625, 1345 ]
+        "position": [ 2000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "AETIC! I'm here to get your weapons to help push back the zombie outbreak.",
-          "width": 200,
-		  "height": 1000,
+          "message": "AETIC! Peacekeeper and I need your weapons and support to push back the zombie outbreak.",
+          "width": 4000,
+		  "height": 2000,
+		  "timeTrigger": 4.67,
 		  "bRemove": true
         },
-        "position": [ 1270, 1345 ]
+        "position": [ 2000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "My weapons are already being used, and they can barely hold back the outbreak as it stands.",
-          "width": 200,
-		  "height": 1000,
+          "message": "My weapons are already being used by UMS, and they can barely hold back the outbreak as it stands.",
+          "width": 4000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_aetic",
+		  "timeTrigger": 4.58,
 		  "bRemove": true
         },
-        "position": [ 2000, 1345 ]
+        "position": [ 2000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "We have to put a stop to Eric's infestor research or there may be another outbreak.",
-          "width": 200,
-		  "height": 1000,
+          "width": 4000,
+		  "height": 2000,
+		  "timeTrigger": 4.50,
 		  "bRemove": true
         },
-        "position": [ 3385, 1345 ]
+        "position": [ 2000, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "So not even UMS can push back the infestors? But they also want me to kill the person trying to stop it?",
+          "width": 4000,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_twoplayer",
+		  "timeTrigger": 4.25,
+		  "bRemove": true
+        },
+        "position": [ 2000, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Company politics is a messed up business, Arachnid. You're a pawn.",
+          "width": 4000,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_ari",
+		  "timeTrigger": 4.17,
+		  "bRemove": true
+        },
+        "position": [ 2000, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "I think the best way we can stop any more outbreaks is to destroy Eric's research labs and the infestors there.",
+          "width": 4000,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_aetic",
+		  "timeTrigger": 4.05,
+		  "bRemove": true
+        },
+        "position": [ 2000, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "UMS won't like that.",
+          "width": 4000,
+		  "height": 2000,
+		  "timeTrigger": 4.00,
+		  "bRemove": true
+        },
+        "position": [ 2000, 1000 ]
       },
       {
         "type": "info",
@@ -104,15 +158,6 @@
         "position": [ 2800, 1845 ]
       },
       {
-        "type": "info",
-        "messageData": {
-          "message": "Yes. The fabled Fucking Useless. Forged from the tears of a crying Peacekeeper.",
-          "size": 200,
-		  "bRemove": true
-        },
-        "position": [ 3940, 1555 ]
-      },
-      {
         "type": "crate_perk",
         "perkId": "perk_recovery",
         "position": [ 2800, 1845 ]
@@ -122,9 +167,19 @@
         "position": [ 2880, 1170 ]
       },
       {
+        "type": "info",
+        "messageData": {
+          "message": "Yes. The fabled Fucking Useless. Forged from the tears of a crying Peacekeeper.",
+          "size": 200,
+		  "bRemove": true
+        },
+        "position": [ 3940, 1555 ]
+      },
+      {
         "type": "droppedWeapon",
         "weaponId": "fiveseven",
-        "position": [ 3940, 1555 ]
+        "position": [ 3940, 1555 ],
+		"bPersistant": true
       }
     ],
     "enemies": [

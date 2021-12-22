@@ -26,6 +26,7 @@
       "inventory": [
         {
           "id": "aughbar",
+          "ammo": 120,
           "mods": {
             "barrel": "barrel_laser",
             "ammo": "ammo_fmj"
@@ -58,72 +59,77 @@
         "messageData": {
           "message": "Zombies incoming. Get ready.",
           "width": 200,
-		  "height": 1000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
 		  "bRemove": true
         },
-        "position": [ 6575, 1355 ]
+        "position": [ 6575, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "This is bad, the zombies have started to mutated. They're becoming stronger.",
-          "width": 200,
-		  "height": 1000,
+          "message": "This is bad, the zombies have started to mutate. They're becoming stronger.",
+          "width": 8000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
+		  "timeTrigger": 4.75,
 		  "bRemove": true
         },
-        "position": [ 5300, 1425 ]
+        "position": [ 4000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "Get off my property!",
-          "width": 200,
-		  "height": 1000,
+          "width": 8000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_eric",
+		  "timeTrigger": 4.50,
 		  "bRemove": true
         },
-        "position": [ 4000, 1410 ]
+        "position": [ 4000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "Who?...",
-          "width": 200,
-		  "height": 1000,
+          "width": 8000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
+		  "timeTrigger": 4.45,
 		  "bRemove": true
         },
-        "position": [ 3675, 1410 ]
+        "position": [ 4000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "I'm Eric! I own this lab! Now what are you doing here?",
-          "width": 200,
-		  "height": 1000,
+          "width": 8000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_eric",
+		  "timeTrigger": 4.42,
 		  "bRemove": true
         },
-        "position": [ 3570, 1410 ]
+        "position": [ 4000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "We're investigating the source of the zombie disease! You're under arrest for suspicion of involvement!",
-          "width": 200,
-		  "height": 1000,
+          "width": 8000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
+		  "timeTrigger": 4.33,
 		  "bRemove": true
         },
-        "position": [ 3185, 1425 ]
+        "position": [ 4000, 1000 ]
       }
     ],
     "enemies": [
@@ -133,6 +139,7 @@
 		"team": 0,
         "heroId": "HERO_OBSV32",
         "ai": {
+		  "bStayPatrol": true,
           "patrolPoints": [
             [ 1890, 1355 ]
           ]
@@ -320,6 +327,7 @@
           }
 		],
         "ai": {
+		  "bStayPatrol": true,
           "patrolPoints": [
             [ 6065, 1355 ]
           ]
@@ -339,6 +347,7 @@
           }
 		],
         "ai": {
+		  "bStayPatrol": true,
           "patrolPoints": [
             [ 6065, 1355 ]
           ]
@@ -350,6 +359,7 @@
 		"team": 2,
         "heroId": "HERO_ERIC",
         "ai": {
+		  "bStayPatrol": true,
           "patrolPoints": [
 		    [ 100, 1425 ],
             [ 6065, 1355 ]

@@ -64,35 +64,38 @@
         "type": "info",
         "messageData": {
           "message": "Juggernauts, get in position! We can't let them activate the Deadswitch!",
-          "width": 200,
+          "width": 8000,
 		  "height": 2000,
           "atlas": "atlas_cards",
-          "icon": "hero_eric",
-          "bRemove": true
+          "icon": "hero_wulf",
+		  "timeTrigger": 4.90,
+		  "bRemove": true
         },
-        "position": [ 7000, 1000 ]
+        "position": [ 4000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "We're getting overrun! There's a horde on our left flank!",
-          "width": 200,
+          "width": 8000,
 		  "height": 2000,
           "atlas": "atlas_cards",
-          "icon": "hero_wulf",
-          "bRemove": true
+          "icon": "hero_moussa",
+		  "timeTrigger": 4.50,
+		  "bRemove": true
         },
-        "position": [ 5000, 1000 ]
+        "position": [ 4000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "Rush the center and detonate the Deadswitch! We'll hold them off back here!",
-          "width": 200,
+          "message": "Rush to the center and detonate the Deadswitch! We'll hold them off back here!",
+          "width": 8000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_touhou",
-          "bRemove": true
+		  "timeTrigger": 4.25,
+		  "bRemove": true
         },
         "position": [ 4000, 1000 ]
       },
@@ -100,25 +103,40 @@
         "type": "info",
         "messageData": {
           "message": "xddddddddddddddddddddddddddddddddddddddd",
-          "width": 200,
+          "width": 8000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_wrangler",
-          "bRemove": true
+		  "timeTrigger": 4.08,
+		  "bRemove": true
         },
-        "position": [ 3000, 1000 ]
+        "position": [ 4000, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Go go go! You're almost there!",
+          "width": 8000,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+		  "timeTrigger": 3.92,
+		  "bRemove": true
+        },
+        "position": [ 4000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "...",
-          "width": 200,
+          "width": 8000,
 		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_wilkin",
-          "bRemove": true
+		  "timeTrigger": 3.75,
+		  "bRemove": true
         },
-        "position": [ 2000, 1000 ]
+        "position": [ 4000, 1000 ]
       },
       {
         "type": "info",
@@ -283,7 +301,6 @@
       {
         "type": "droppedWeapon",
         "weaponId": "railgun",
-        "bPersistant": true,
         "options": {
 		  "ammo": 80,
           "mods": {
@@ -294,7 +311,8 @@
 			"ammo": "ammo_radius"
           }
         },
-        "position": [ 170, 1415 ]
+        "position": [ 170, 1415 ],
+		"bPersistant": true
       },
       {
         "type": "info",

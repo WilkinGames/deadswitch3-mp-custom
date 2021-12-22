@@ -65,13 +65,26 @@
       {
         "type": "info",
         "messageData": {
-          "message": "Get back in that cell, you!",
-          "size": 50,
+          "message": "He's getting away! Shoot him! Call in the Juggernaut!",
+          "width": 4000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "char_militia_2",
-          "bRemove": true
+		  "timeTrigger": 4.50,
+		  "bRemove": true
         },
-        "position": [ 1650, 1815 ]
+        "position": [ 2000, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "I need a gun. Hopefully one of those guards dropped something.",
+          "width": 4000,
+		  "height": 2000,
+		  "timeTrigger": 4.25,
+		  "bRemove": true
+        },
+        "position": [ 2000, 1000 ]
       },
       {
         "type": "crate_ammo",

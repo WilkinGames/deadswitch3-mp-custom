@@ -46,22 +46,26 @@
       {
         "type": "info",
         "messageData": {
-          "message": "If you resist, we may be required to use lethal force.",
-          "size": 200,
-          "atlas": "atlas_cards",
-          "icon": "hero_peacekeeper",
+          "message": "I have to get to my weapons cache underground.",
+          "width": 5000,
+		  "height": 2000,
+		  "timeTrigger": 4.90,
 		  "bRemove": true
         },
-        "position": [ 4305, 1140 ]
+        "position": [ 2500, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "I have to get to my weapons cache underground.",
-          "size": 200,
+          "message": "If you resist, we may be required to use lethal force.",
+          "width": 5000,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+		  "timeTrigger": 4.80,
 		  "bRemove": true
         },
-        "position": [ 4300, 770 ]
+        "position": [ 2500, 1000 ]
       },
       {
         "type": "info",
@@ -76,54 +80,51 @@
         "type": "info",
         "messageData": {
           "message": "You are charged with aiding and abetting Arachnid, a known fugitive from international law.",
-          "size": 200,
+          "width": 5000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
+		  "timeTrigger": 4.00,
 		  "bRemove": true
         },
-        "position": [ 3300, 1805 ]
+        "position": [ 2500, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "And for instigating the infestor outbreak and zombie disease.",
-          "size": 200,
+          "width": 5000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
+		  "timeTrigger": 3.92,
 		  "bRemove": true
         },
-        "position": [ 2675, 1805 ]
+        "position": [ 2500, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "Peacekeeper, Arachnid and I have been working to stop the outbreak! We're not the cause!",
-          "width": 200,
-		  "height": 1000,
+          "width": 5000,
+		  "height": 2000,
+		  "timeTrigger": 3.83,
 		  "bRemove": true
         },
-        "position": [ 1985, 1775 ]
+        "position": [ 2500, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
           "message": "Lies! You're trying to gain your freedom! This is your last change to surrender peacefully!",
-          "width": 200,
-		  "height": 1000,
+          "width": 5000,
+		  "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
+		  "timeTrigger": 3.75,
 		  "bRemove": true
         },
-        "position": [ 1330, 1805 ]
-      },
-      {
-        "type": "info",
-        "messageData": {
-          "message": "   my lantana     :fexaiayes:   ",
-          "size": 50,
-		  "bRemove": true
-        },
-        "position": [ 4870, 1030 ]
+        "position": [ 2500, 1000 ]
       },
       {
         "type": "droppedWeapon",
@@ -135,6 +136,15 @@
           }
         },
         "position": [ 3770, 1030 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "   my lantana     :fexaiayes:   ",
+          "size": 50,
+		  "bRemove": true
+        },
+        "position": [ 4870, 1030 ]
       },
       {
         "type": "droppedWeapon",

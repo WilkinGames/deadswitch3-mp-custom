@@ -1,0 +1,228 @@
+{
+  "id": "op_custom_campaign_10",
+  "bCustom": true,
+  "info": {
+    "name": "New Information",
+    "desc": "\"I'm not yet convinced. But I suggest contacting AE Arms; they're UMS's weapons supplier. They might have info.\" - Arachnid."
+  },
+  "requiredLevel": 1,
+  "rewards": [],
+  "gameData": {
+    "gameModeId": "op_elimination",
+    "mapId": "map_warehouse",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+	  "bDroppedWeapons": true,
+      "preGameTimer": 0,
+      "timeLimit": 5
+    }
+  },
+  "data": {
+    "player": {
+      "position": [ 125, 1555 ],
+      "inventory": [
+        {
+          "id": "fal",
+          "mods": {
+            "barrel": "barrel_m203",
+			"ammo": "ammo_hollow_point"
+          }
+        },
+        {
+          "id": "xm25"
+        }
+      ],
+      "equipment": "c4",
+      "equipmentAmmo": 2
+    },
+    "objects": [
+      {
+        "type": "info",
+        "messageData": {
+          "message": "AETIC's a bit of an eccentric. He won't fully trust you unless you've shown you can beat him in combat.",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_twoplayer",
+		  "bRemove": true
+        },
+        "position": [ 125, 1555 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "A visitor. Show me what you can do.",
+          "width": 200,
+		  "height": 1000,
+          "atlas": "atlas_cards",
+          "icon": "hero_aetic",
+		  "bRemove": true
+        },
+        "position": [ 625, 1345 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "AETIC! I'm here to get your weapons to help push back the zombie outbreak.",
+          "width": 200,
+		  "height": 1000,
+		  "bRemove": true
+        },
+        "position": [ 1270, 1345 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "My weapons are already being used, and they can barely hold back the outbreak as it stands.",
+          "width": 200,
+		  "height": 1000,
+          "atlas": "atlas_cards",
+          "icon": "hero_aetic",
+		  "bRemove": true
+        },
+        "position": [ 2000, 1345 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "We have to put a stop to Eric's infestor research or there may be another outbreak.",
+          "width": 200,
+		  "height": 1000,
+		  "bRemove": true
+        },
+        "position": [ 3385, 1345 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "AETIC's railgun is an explosive weapon. This should protect me.",
+          "size": 200,
+		  "bRemove": true
+        },
+        "position": [ 2800, 1845 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Yes. The fabled Fucking Useless. Forged from the tears of a crying Peacekeeper.",
+          "size": 200,
+		  "bRemove": true
+        },
+        "position": [ 3940, 1555 ]
+      },
+      {
+        "type": "crate_perk",
+        "perkId": "perk_recovery",
+        "position": [ 2800, 1845 ]
+      },
+      {
+        "type": "crate_ammo",
+        "position": [ 2880, 1170 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "fiveseven",
+        "position": [ 3940, 1555 ]
+      }
+    ],
+    "enemies": [
+      {
+        "type": "turret",
+        "position": [ 2750, 1845 ],
+        "team": 1,
+        "scale": -1,
+        "turretData": {
+          "type": "sentry",
+		  "bUnlimitedAmmo": true
+        }
+      },
+      {
+        "type": "turret",
+        "position": [ 2500, 1170 ],
+        "team": 1,
+        "scale": -1,
+        "turretData": {
+          "type": "sentry",
+		  "bUnlimitedAmmo": true
+        }
+      },
+      {
+        "type": "turret",
+        "position": [ 2500, 1365 ],
+        "team": 1,
+        "scale": -1,
+        "turretData": {
+          "type": "sentry",
+		  "bUnlimitedAmmo": true
+        }
+      },
+      {
+        "type": "turret",
+        "position": [ 3375, 1555 ],
+        "team": 1,
+        "scale": -1,
+        "turretData": {
+          "type": "sentry",
+		  "bUnlimitedAmmo": true
+        }
+      },
+      {
+        "type": "car",
+        "position": [ 1150, 1175 ],
+        "carType": "rcxd"
+      },
+      {
+        "type": "car",
+        "position": [ 1150, 1365 ],
+        "carType": "rcxd"
+      },
+      {
+        "type": "car",
+        "position": [ 2850, 1175 ],
+        "carType": "rcxd"
+      },
+      {
+        "type": "car",
+        "position": [ 2850, 1365 ],
+        "carType": "rcxd"
+      },
+      {
+        "type": "car",
+        "position": [ 2000, 1530 ],
+        "carType": "rcxd"
+      },
+      {
+        "type": "car",
+        "position": [ 2000, 1810 ],
+        "carType": "rcxd"
+      },
+      {
+        "type": "character",
+        "position": [ 2650, 1845 ],
+        "heroId": "HERO_ARI"
+      },
+      {
+        "type": "helicopter",
+        "helicopterType": "dragonfire",
+        "position": [ 2000, 1420 ]
+      },
+      {
+        "type": "helicopter",
+        "helicopterType": "dragonfire",
+        "position": [ 1050, 800 ]
+      },
+      {
+        "type": "helicopter",
+        "helicopterType": "dragonfire",
+        "position": [ 2950, 800 ]
+      },
+      {
+        "type": "character",
+        "position": [ 3750, 1555 ],
+        "heroId": "HERO_AETIC"
+      }
+    ]
+  }
+}

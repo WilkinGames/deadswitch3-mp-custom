@@ -1,0 +1,450 @@
+{
+  "id": "op_custom_campaign_18",
+  "bCustom": true,
+  "info": {
+    "name": "Into the Breach",
+    "desc": "\"We need to get to the center of the outbreak. Here's some more high-yield explosives, see if you can blast a path through.\" - AETIC."
+  },
+  "requiredLevel": 1,
+  "rewards": [],
+  "gameData": {
+    "gameModeId": "op_bomb",
+    "mapId": "map_downturn",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+	  "bDroppedWeapons": true,
+      "preGameTimer": 0,
+      "timeLimit": 5
+    }
+  },
+  "data": {
+    "player": {
+      "position": [ 750, 1420 ],
+      "inventory": [
+        {
+          "id": "ameli",
+          "ammo": 500,
+          "mods": {
+            "base": "base_marksman",
+			"barrel": "barrel_grip",
+			"ammo": "ammo_ap"
+          }
+        },
+        {
+          "id": "matador",
+          "ammo": 10,
+          "mods": {
+		    "base": "base_speed",
+		    "barrel": "barrel_laser",
+			"ammo": "ammo_explosive"
+          }
+        }
+      ],
+      "equipment": "stim",
+      "equipmentAmmo": 2
+    },
+    "objects": [
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Hold them back! We can't let them get to the center of the outbreak!",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_wulf",
+          "bRemove": true
+        },
+        "position": [ 750, 1420 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "We can't hold off them and the zombies!",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_moussa",
+          "bRemove": true
+        },
+        "position": [ 1815, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Oh, this is TouhouHijack we're working with. I finally got one government to give us some help.",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+          "bRemove": true
+        },
+        "position": [ 2980, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "I'm just here to scout things out. If we think it's worth it, we'll give you more support.",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_touhou",
+          "bRemove": true
+        },
+        "position": [ 3660, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Who is that?",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_touhou",
+          "bRemove": true
+        },
+        "position": [ 4990, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Leave my infestors alone.",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_wilkin",
+          "bRemove": true
+        },
+        "position": [ 5350, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "What do you mean \"your\" infestors?... Wait...",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+          "bRemove": true
+        },
+        "position": [ 5850, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "You're planning to detonate a Deadswitch on their nest, aren't you? We'll be there to stop you.",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_wilkin",
+          "bRemove": true
+        },
+        "position": [ 7100, 1100 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+          "bRemove": true
+        },
+        "position": [ 4990, 1000 ]
+      },
+      {
+        "id": "bomb_0",
+        "type": "crate_bomb",
+        "team": 1,
+        "interactTeam": 0,
+        "position": [ 4000, 1440 ]
+      },
+      {
+        "id": "bomb_1",
+        "type": "crate_bomb",
+        "team": 1,
+        "interactTeam": 0,
+        "position": [ 5690, 1835 ]
+      },
+      {
+        "id": "bomb_2",
+        "type": "crate_bomb",
+        "team": 1,
+        "interactTeam": 0,
+        "position": [ 7100, 1100 ]
+      }
+    ],
+    "enemies": [
+      {
+        "type": "character",
+        "position": [ 575, 1835 ],
+		"team": 0,
+        "heroId": "HERO_OBSV32",
+        "ai": {
+		  "bStayPatrol": true,
+          "patrolPoints": [
+            [ 7100, 1100 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 600, 1420 ],
+		"team": 0,
+        "heroId": "HERO_VALIANT25",
+        "ai": {
+		  "bStayPatrol": true,
+          "patrolPoints": [
+            [ 7100, 1100 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2475, 1100 ],
+		"team": 2,
+        "heroId": "HERO_KARAMBITGUY"
+      },
+      {
+        "type": "character",
+        "position": [ 2540, 1700 ],
+		"team": 2,
+        "heroId": "HERO_MOUSSA"
+      },
+      {
+        "type": "character",
+        "position": [ 2665, 1425 ],
+		"team": 2,
+        "heroId": "HERO_CHRIST"
+      },
+      {
+        "type": "character",
+        "position": [ 2695, 1635 ],
+		"team": 2,
+        "preset": "juggernaut",
+        "inventory": [ { "id": "m240" } ]
+      },
+	  {
+        "type": "character",
+        "position": [ 4000, 1440 ],
+        "style": "zombie_generic",
+        "inventory": [ { "id": "pecheneg" } ],
+        "ai": {
+		  "bCanInvestigate": false,
+          "patrolPoints": [
+            [ 5685, 1835 ],
+            [ 6530, 1425 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 7550, 1835 ],
+        "preset": "zombie_exploder_boss",
+        "ai": {
+          "patrolPoints": [
+            [ 5015, 1425 ],
+            [ 3400, 1670 ],
+            [ 5350, 1430 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 6840, 1790 ],
+        "preset": "zombie_fat",
+        "inventory": [ { "id": "thumper" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 5100, 1835 ],
+            [ 6840, 1790 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 5350, 1430 ],
+        "preset": "zombie_sprinter_boss",
+        "ai": {
+          "patrolPoints": [
+            [ 7550, 1835 ],
+            [ 4000, 1845 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 5115, 1640 ],
+        "preset": "zombie_spitter_boss",
+        "ai": {
+          "patrolPoints": [
+            [ 5115, 1640 ],
+            [ 6840, 1790 ],
+            [ 5015, 1425 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 4615, 1670 ],
+        "preset": "zombie_fat",
+        "inventory": [ { "id": "flamethrower" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 5420, 1425 ],
+            [ 4615, 1670 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 5115, 1640 ],
+        "preset": "zombie_spitter",
+        "ai": {
+		  "bCanInvestigate": false,
+          "patrolPoints": [
+            [ 6530, 1425 ],
+            [ 4000, 1440 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 5460, 1695 ],
+        "preset": "zombie_spitter_boss",
+        "ai": {
+		  "bCannInvestigate": false,
+          "patrolPoints": [
+            [ 7550, 1835 ],
+            [ 4300, 1635 ],
+            [ 5460, 1695 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 6300, 1425 ],
+        "preset": "zombie_fat",
+        "ai": {
+		  "bCanInvestigate": false,
+          "patrolPoints": [
+            [ 3645, 1635 ],
+            [ 6300, 1425 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 6840, 1790 ],
+        "preset": "zombie_sprinter",
+        "ai": {
+		  "bCanInvestigate": false,
+          "patrolPoints": [
+            [ 5685, 1835 ],
+            [ 3400, 1670 ],
+            [ 6840, 1790 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 4990, 1425 ],
+        "style": "zombie_generic",
+        "inventory": [ { "id": "ak47" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 5115, 1640 ],
+            [ 3400, 1670 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 4590, 1890 ],
+        "preset": "zombie_sprinter",
+        "ai": {
+		  "bCanInvestigate": false,
+          "patrolPoints": [
+            [ 4000, 1635 ],
+            [ 4590, 1890 ],
+            [ 5015, 1425 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 5100, 1835 ],
+        "preset": "zombie_exploder_boss",
+        "ai": {
+		  "bCanInvestigate": false,
+          "patrolPoints": [
+            [ 5350, 1430 ],
+            [ 4000, 1440 ]
+          ]
+        }
+      },
+	  {
+        "type": "infestor",
+        "position": [ 7000, 1100 ],
+		"team": 2,
+        "preset": "infestor",
+        "ai": {
+		  "bCanInvestigate": false,
+          "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+	  {
+        "type": "infestor",
+        "position": [ 7050, 1100 ],
+        "preset": "infestor",
+        "ai": {
+		  "bLOS": true,
+          "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+	  {
+        "type": "infestor",
+        "position": [ 7100, 1100 ],
+        "preset": "infestor",
+        "ai": {
+		  "bLOS": true,
+          "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+	  {
+        "type": "infestor",
+        "position": [ 7150, 1100 ],
+        "preset": "infestor",
+        "ai": {
+		  "bLOS": true,
+          "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+	  {
+        "type": "infestor",
+        "position": [ 7200, 1100 ],
+        "preset": "infestor",
+        "ai": {
+		  "bLOS": true,
+          "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 7100, 1100 ],
+        "heroId": "HERO_XWILKINX",
+        "ai": {
+		  "bLOS": true,
+		  "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,348 @@
+{
+  "id": "op_custom_campaign_16",
+  "bCustom": true,
+  "info": {
+    "name": "Outbreak #2",
+    "desc": "\"I've decided you're right. I'm joining you. AETIC wants us to plant another bomb at the site of the Outpost Outbreak.\" - Arachnid."
+  },
+  "requiredLevel": 1,
+  "rewards": [],
+  "gameData": {
+    "gameModeId": "op_bomb",
+    "mapId": "map_outpost",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+	  "bDroppedWeapons": true,
+      "preGameTimer": 0,
+      "timeLimit": 5
+    }
+  },
+  "data": {
+    "player": {
+      "position": [ 400, 1340 ],
+      "inventory": [
+        {
+          "id": "mg42",
+          "mods": {
+            "base": "base_damper",
+			"barrel": "barrel_laser",
+			"ammo": "ammo_hollow_point"
+          }
+        },
+        {
+          "id": "evo3",
+          "mods": {
+            "base": "base_speed",
+            "barrel": "barrel_laser",
+			"ammo": "ammo_impact"
+          }
+        }
+      ],
+      "equipment": "stun",
+      "equipmentAmmo": 2
+    },
+    "objects": [
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Arachnid is helping you? He's an international outlaw! We don't want him with us!",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+          "bRemove": true
+        },
+        "position": [ 400, 1340 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "AETIC says if we plant the bomb here, it might be enough to curb the outbreak's spread. But we need to be fast.",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_twoplayer",
+          "bRemove": true
+        },
+        "position": [ 1000, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "I don't trust you, Arachnid. You can help out here, but I'm keeping an eye on you.",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+          "bRemove": true
+        },
+        "position": [ 1700, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Zombies incoming! Plant the bomb quick before we attract the horde!",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+          "bRemove": true
+        },
+        "position": [ 2400, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Some of the zombies are carrying guns! And some have hijacked leftover Juggernaut suits!",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+          "bRemove": true
+        },
+        "position": [ 3100, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Hurry up with the bomb! We have to get out before we're overrun!",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_twoplayer",
+          "bRemove": true
+        },
+        "position": [ 3890, 1000 ]
+      },
+      {
+        "id": "bomb_0",
+        "type": "crate_bomb",
+        "team": 1,
+        "interactTeam": 0,
+        "position": [ 3890, 1490 ]
+      },
+	  {
+        "type": "spawner",
+        "position": [ 5865, 1180 ],
+        "spawnerId": "SPAWNER_ZOMBIE",
+        "team": 1
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Yes. The fabled M134 Minigun. Only a man as buff as Justin has the might to wield this gun.",
+          "size": 200,
+		  "bRemove": true
+        },
+        "position": [ 5900, 830 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "minigun",
+        "options": {
+          "mods": {
+            "base": "base_damper",
+			"ammo": "ammo_impact"
+          }
+        },
+        "position": [ 5900, 830 ]
+      }
+    ],
+    "enemies": [
+      {
+        "type": "character",
+        "position": [ 285, 1025 ],
+		"team": 0,
+        "heroId": "HERO_OBSV32",
+        "ai": {
+		  "bStayPatrol": true,
+          "patrolPoints": [
+            [ 3400, 1235 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 145, 1575 ],
+		"team": 0,
+        "heroId": "HERO_TWOPLAYER",
+        "ai": {
+		  "bStayPatrol": true,
+          "patrolPoints": [
+            [ 3000, 1700 ]
+          ]
+        }
+      },
+	  {
+        "type": "infestor",
+        "position": [ 3200, 800 ],
+        "preset": "infestor",
+        "ai": {
+		  "bLOS": true,
+          "patrolPoints": [
+            [ 4380, 1145 ],
+            [ 4720, 1700 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 3500, 1490 ],
+        "preset": "zombie_exploder_boss",
+        "ai": {
+          "patrolPoints": [
+            [ 5865, 1180 ],
+            [ 3000, 1235 ],
+            [ 5150, 1340 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 5860, 1580 ],
+        "preset": "zombie_fat",
+        "ai": {
+          "patrolPoints": [
+            [ 5645, 1340 ],
+            [ 3200, 800 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 5445, 1630 ],
+        "preset": "zombie_generic",
+        "ai": {
+          "patrolPoints": [
+            [ 3500, 1055 ],
+            [ 4000, 1490 ],
+            [ 5860, 1580 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 4380, 1145 ],
+        "preset": "zombie_sprinter_boss",
+        "ai": {
+		  "bCanInvestigate": false,
+          "patrolPoints": [
+            [ 3000, 1700 ],
+            [ 4010, 1255 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 3500, 1055 ],
+        "preset": "zombie_exploder",
+        "ai": {
+          "patrolPoints": [
+            [ 5445, 1630 ],
+            [ 3500, 1490 ],
+            [ 3770, 1490 ]
+          ]
+        }
+      },
+	  {
+        "type": "infestor",
+        "position": [ 5860, 1580 ],
+        "preset": "infestor",
+        "ai": {
+		  "bLOS": true,
+		  "bCanInvestigate": false,
+          "patrolPoints": [
+            [ 3000, 1700 ],
+            [ 5860, 1580 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 3500, 1490 ],
+        "preset": "zombie_spitter",
+        "ai": {
+          "patrolPoints": [
+            [ 3200, 800 ],
+            [ 5150, 1340 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 4720, 1700 ],
+        "preset": "zombie_spitter_boss",
+        "ai": {
+		  "bCannInvestigate": false,
+          "patrolPoints": [
+            [ 3000, 1235 ],
+            [ 5865, 1180 ],
+            [ 4380, 1145 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 5645, 1340 ],
+        "preset": "zombie_fat",
+        "ai": {
+          "patrolPoints": [
+            [ 3770, 1490 ],
+            [ 5645, 1340 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 3200, 800 ],
+        "preset": "zombie_sprinter",
+        "ai": {
+		  "bCanInvestigate": false,
+          "patrolPoints": [
+            [ 4000, 1490 ],
+            [ 5445, 1630 ],
+            [ 3500, 1055 ]
+          ]
+        }
+      },
+	  {
+        "type": "infestor",
+        "position": [ 5645, 1340 ],
+        "preset": "infestor",
+        "ai": {
+		  "bLOS": true,
+          "patrolPoints": [
+            [ 4010, 1255 ],
+            [ 3500, 1490 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 5150, 1340 ],
+        "preset": "zombie_generic",
+        "ai": {
+          "patrolPoints": [
+            [ 4720, 1700 ],
+            [ 3500, 1055 ],
+            [ 5865, 1180 ]
+          ]
+        }
+      },
+	  {
+        "type": "character",
+        "position": [ 5645, 1340 ],
+        "preset": "zombie_exploder_boss",
+        "ai": {
+		  "bCanInvestigate": false,
+          "patrolPoints": [
+            [ 4000, 1490 ],
+            [ 3500, 1490 ]
+          ]
+        }
+      }
+    ]
+  }
+}

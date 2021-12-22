@@ -1,0 +1,349 @@
+{
+  "id": "op_custom_campaign_05",
+  "bCustom": true,
+  "info": {
+    "name": "Packing Up",
+    "desc": "We're stationing you permanently on the defenses around the outbreak. Take some time at home to pack up for the trip."
+  },
+  "requiredLevel": 1,
+  "rewards": [],
+  "gameData": {
+    "gameModeId": "op_elimination",
+    "mapId": "map_estate",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+	  "bDroppedWeapons": true,
+      "preGameTimer": 0,
+      "timeLimit": 5
+    }
+  },
+  "data": {
+    "player": {
+      "position": [ 3770, 1030 ],
+      "inventory": [
+        {
+          "id": "none"
+        }
+      ],
+      "equipment": "stim",
+      "equipmentAmmo": 1
+    },
+    "objects": [
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Come out with your hands up! You're under arrest!",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+		  "bRemove": true
+        },
+        "position": [ 3770, 1030 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "If you resist, we may be required to use lethal force.",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+		  "bRemove": true
+        },
+        "position": [ 4305, 1140 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "I have to get to my weapons cache underground.",
+          "size": 200,
+		  "bRemove": true
+        },
+        "position": [ 4300, 770 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "The weapons cache. I need to grab something quick.",
+          "size": 200,
+		  "bRemove": true
+        },
+        "position": [ 3475, 1510 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "You are charged with aiding and abetting Arachnid, a known fugitive from international law.",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+		  "bRemove": true
+        },
+        "position": [ 3300, 1805 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "And for instigating the infestor outbreak and zombie disease.",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+		  "bRemove": true
+        },
+        "position": [ 2675, 1805 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Peacekeeper, Arachnid and I have been working to stop the outbreak! We're not the cause!",
+          "width": 200,
+		  "height": 1000,
+		  "bRemove": true
+        },
+        "position": [ 1985, 1775 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Lies! You're trying to gain your freedom! This is your last change to surrender peacefully!",
+          "width": 200,
+		  "height": 1000,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+		  "bRemove": true
+        },
+        "position": [ 1330, 1805 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "   my lantana     :fexaiayes:   ",
+          "size": 50,
+		  "bRemove": true
+        },
+        "position": [ 4870, 1030 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "p320",
+        "options": {
+          "mods": {
+            "barrel": "barrel_laser",
+            "ammo": "ammo_hollow_point"
+          }
+        },
+        "position": [ 3770, 1030 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "melee_katana",
+        "position": [ 4870, 1030 ]
+      },
+      {
+        "type": "crate_ammo",
+        "position": [ 3210, 1525 ]
+      },
+      {
+        "type": "crate_item",
+        "items": [
+          {
+            "id": "pdr",
+            "mods": {
+              "barrel": "barrel_silencer",
+              "ammo": "ammo_hollow_point"
+            }
+          },
+          {
+            "id": "striker",
+            "mods": {
+              "base": "base_speed",
+			  "barrel": "barrel_laser"
+            }
+          },
+          {
+            "id": "frag"
+          }
+		],
+        "position": [ 3325, 1525 ]
+      },
+      {
+        "type": "crate_item",
+        "items": [
+          {
+            "id": "g36c",
+            "mods": {
+              "base": "base_damper",
+			  "ammo": "ammo_fmj"
+            }
+          },
+          {
+            "id": "sr25",
+            "mods": {
+              "base": "base_range",
+			  "ammo": "barrel_laser"
+            }
+          },
+          {
+            "id": "flashbang"
+          }
+		],
+        "position": [ 3585, 1485 ]
+      }
+    ],
+    "enemies": [
+      {
+        "type": "character",
+        "position": [ 420, 1455 ],
+        "heroId": "HERO_OBSV32"
+      },
+      {
+        "type": "character",
+        "position": [ 5550, 1250 ],
+        "preset": "un_generic",
+        "inventory": [ { "id": "m16a4" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 4715, 1030 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 5360, 1250 ],
+        "preset": "un_generic",
+        "inventory": [ { "id": "ksg" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 3840, 1030 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3020, 1295 ],
+        "preset": "un_generic",
+        "inventory": [ { "id": "p90" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 3610, 1030 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2705, 1325 ],
+        "preset": "un_generic",
+        "inventory": [ { "id": "m4a1" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 4325, 1140 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1640, 1555 ],
+        "preset": "un_generic",
+        "inventory": [ { "id": "msr" } ],
+        "ai": {
+          "bCanInvestigate": false,
+          "patrolPoints": [
+            [ 2600, 1160 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3700, 1835 ],
+        "preset": "un_generic",
+        "inventory": [ { "id": "ksg" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 4180, 1140 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3545, 1805 ],
+        "preset": "un_generic",
+        "inventory": [ { "id": "p90" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 3865, 1250 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 330, 1805 ],
+        "preset": "un_generic",
+        "inventory": [ { "id": "m16a4" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 4430, 1520 ],
+            [ 5540, 1520 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 90, 1455 ],
+        "preset": "un_generic",
+        "inventory": [ { "id": "m4a1" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 5215, 1250 ],
+            [ 3305, 1265 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 400, 1805 ],
+        "preset": "un_generic",
+        "inventory": [ { "id": "m4a1" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 4280, 775 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 1445, 1180 ],
+        "preset": "un_generic",
+        "inventory": [ { "id": "msr" } ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 650, 1470 ],
+        "style": "un_generic",
+        "health": 500,
+        "inventory": [ { "id": "m60e4" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 1310, 1395 ],
+        "style": "un_generic",
+        "health": 500,
+        "inventory": [ { "id": "m60e4" } ],
+        "ai": {
+          "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 265, 1255 ],
+        "preset": "un_generic",
+        "inventory": [ { "id": "m16a4" } ]
+      }
+    ]
+  }
+}

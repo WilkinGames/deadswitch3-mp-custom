@@ -1,0 +1,348 @@
+{
+  "id": "op_custom_campaign_11",
+  "bCustom": true,
+  "info": {
+    "name": "First Stop",
+    "desc": "\"Here's the explosives and the location of one of Eric's bases. Good luck. I won't be joining you; I have a business to run.\" - AETIC."
+  },
+  "requiredLevel": 1,
+  "rewards": [],
+  "gameData": {
+    "gameModeId": "op_bomb",
+    "mapId": "map_factory",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+	  "bDroppedWeapons": true,
+      "preGameTimer": 0,
+      "timeLimit": 5
+    }
+  },
+  "data": {
+    "player": {
+      "position": [ 215, 1350 ],
+      "inventory": [
+        {
+          "id": "bren",
+          "mods": {
+            "barrel": "barrel_grip"
+          }
+        },
+        {
+          "id": "cz75",
+          "mods": {
+            "barrel": "barrel_laser"
+          }
+        }
+      ],
+      "equipment": "etmp",
+      "equipmentAmmo": 2
+    },
+    "objects": [
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Sorry, but I messed up. Eric's escaped. And international politics takes so long, nothing's been done yet.",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+		  "bRemove": true
+        },
+        "position": [ 215, 1350 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Things are getting worse. Remember Eric's Outpost? Yeah, the infestors escaped. It's another outbreak.",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+		  "bRemove": true
+        },
+        "position": [ 1000, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "They don't know if the infestors escaped or were freed by those terrorists. And Eric's still refusing to halt research.",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+		  "bRemove": true
+        },
+        "position": [ 1800, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Infestors incoming! Shoot them! Shoot them!",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+		  "bRemove": true
+        },
+        "position": [ 2700, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Eric must be releasing his infestors to try to stop us. He's risking another outbreak.",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+		  "bRemove": true
+        },
+        "position": [ 3200, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Moussa, is that you? Listen, we can't control the infestors, Eric's just putting us all in danger.",
+          "width": 200,
+		  "height": 2000,
+		  "bRemove": true
+        },
+        "position": [ 4000, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Orders are orders. This is Eric's base, and you're trespassing. Get out before I force you out.",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_moussa",
+		  "bRemove": true
+        },
+        "position": [ 4585, 1000 ]
+      },
+      {
+        "id": "bomb_0",
+        "type": "crate_bomb",
+        "team": 1,
+        "interactTeam": 0,
+        "position": [ 5115, 1180 ]
+      }
+    ],
+    "enemies": [
+      {
+        "type": "character",
+        "position": [ 125, 1350 ],
+		"team": 0,
+        "heroId": "HERO_OBSV32",
+        "ai": {
+		  "bStayPatrol": true,
+          "patrolPoints": [
+            [ 5115, 1175 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4980, 1175 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "g3" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 5245, 1175 ],
+        "style": "rus_heavy",
+		"health": 400,
+        "inventory": [ { "id": "ameli" } ],
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4650, 650 ],
+        "style": "rus_sniper",
+		"health": 200,
+        "inventory": [
+          {
+            "id": "intervention",
+            "mods": { "base": "base_range" }
+          }
+        ],
+        "ai": {
+          "bCamp": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 5100, 1610 ],
+        "style": "rus_heavy",
+		"health": 400,
+        "inventory": [ { "id": "rpk16" } ],
+        "ai": {
+          "patrolPoints": [
+            [ 5100, 1610 ],
+			[ 5500, 1610 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2855, 1355 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "aughbar" } ],
+        "ai": {
+          "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4755, 1350 ],
+        "style": "rus_commander",
+		"health": 400,
+        "inventory": [ { "id": "magnum" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 4275, 1790 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "bizon" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 3000, 1180 ],
+        "style": "rus_rocketier",
+		"health": 300,
+        "inventory": [ { "id": "matador" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 3000, 1620 ],
+        "style": "rus_rocketier",
+		"health": 300,
+        "inventory": [ { "id": "matador" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 4395, 1350 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "l85a3" } ],
+        "ai": {
+          "patrolPoints": [
+			[ 2500, 1350 ],
+		    [ 3500, 1350 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4520, 1695 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "ak47" } ],
+        "ai": {
+          "patrolPoints": [
+			[ 2500, 1790 ],
+		    [ 3500, 1790 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 2700, 1625 ],
+        "preset": "rus_elite",
+        "inventory": [ { "id": "evo3" } ],
+        "ai": {
+          "patrolPoints": [
+			[ 3300, 1625 ],
+		    [ 2700, 1625 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3000, 1790 ],
+        "style": "rus_heavy",
+		"health": 400,
+        "inventory": [ { "id": "ameli" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 3975, 1780 ],
+        "style": "rus_sniper",
+		"health": 300,
+        "inventory": [ { "id": "msg90" } ],
+        "ai": {
+		  "bCamp": true
+        }
+      },
+      {
+        "type": "turret",
+        "position": [ 3975, 1780 ],
+        "team": 1,
+        "scale": -1,
+        "turretData": {
+          "type": "sentry",
+		  "bUnlimitedAmmo": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 3165, 1350 ],
+        "style": "rus_heavy",
+		"health": 400,
+        "inventory": [ { "id": "rpk" } ]
+      },
+      {
+        "type": "character",
+        "position": [ 3785, 1275 ],
+        "style": "rus_generic",
+		"health": 300,
+        "inventory": [ { "id": "sr25" } ],
+        "ai": {
+		  "bCamp": true,
+		  "bCampUntilLOS": true
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 4585, 1180 ],
+        "heroId": "HERO_MOUSSA",
+        "ai": {
+		  "bCamp": true
+        }
+      },
+	  {
+        "type": "infestor",
+        "position": [ 5100, 1610 ],
+        "preset": "infestor"
+      },
+	  {
+        "type": "infestor",
+        "position": [ 5200, 1610 ],
+        "preset": "infestor"
+      },
+	  {
+        "type": "infestor",
+        "position": [ 5300, 1610 ],
+        "preset": "infestor"
+      },
+	  {
+        "type": "infestor",
+        "position": [ 5400, 1610 ],
+        "preset": "infestor"
+      },
+	  {
+        "type": "infestor",
+        "position": [ 5500, 1610 ],
+        "preset": "infestor"
+      }
+    ]
+  }
+}

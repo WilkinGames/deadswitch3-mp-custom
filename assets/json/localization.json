@@ -7,6 +7,14 @@
     "es": "Deadswitch 3",
     "it": "Deadswitch 3"
   },
+  "STR_DSC": {
+    "en": "Deadswitch: Combat",
+    "ru": "Deadswitch: Combat",
+    "zh-CN": "死亡开关",
+    "tr": "Deadswitch: Combat",
+    "es": "Deadswitch: Combat",
+    "it": "Deadswitch: Combat"
+  },
   "STR_DEADSWITCH_3_ACCOUNT": {
     "en": "Deadswitch 3 Account",
     "ru": "Аккаунт Deadswitch 3",
@@ -16182,5 +16190,21 @@
     "tr": "Şu anda kullanılamıyor",
     "es": "Actualmente no disponible",
     "it": "Attualmente non disponibile"
+  },
+  "STR_CAMPAIGN": {
+    "en": "Campaign",
+    "ru": "Кампания",
+    "zh-CN": "活动",
+    "tr": "Kampanya",
+    "es": "Campaña",
+    "it": "Campagna"
+  },
+  "STR_SETTING_CLIENT_PREDICTION": {
+    "en": "Client Side Prediction",
+    "ru": "Предсказание на стороне клиента",
+    "zh-CN": "客户端预测",
+    "tr": "İstemci Tarafı Tahmini",
+    "es": "Predicción del lado del cliente",
+    "it": "Previsione del Cliente"
   }
 }

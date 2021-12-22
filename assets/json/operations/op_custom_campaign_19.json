@@ -1,0 +1,422 @@
+{
+  "id": "op_custom_campaign_19",
+  "bCustom": true,
+  "info": {
+    "name": "Final Countdown",
+    "desc": "\"This is it, the core of the outbreak. Get as far as you can into the facility, then prime the bomb for detonation.\" - Peacekeeper."
+  },
+  "requiredLevel": 1,
+  "rewards": [],
+  "gameData": {
+    "gameModeId": "op_bomb",
+    "mapId": "map_overgrown",
+    "bRanked": true,
+    "bOperation": true,
+    "settings": {
+      "bAllowRespawns": false,
+      "bSpawnProtection": false,
+	  "bDroppedWeapons": true,
+      "preGameTimer": 0,
+      "timeLimit": 5
+    }
+  },
+  "data": {
+    "player": {
+      "position": [ 7750, 1420 ],
+      "inventory": [
+        {
+          "id": "par4",
+          "ammo": 240,
+          "mods": {
+            "base": "base_damper",
+			"barrel": "barrel_laser",
+			"barrel2": "barrel_booster",
+			"ammo": "ammo_fmj"
+          }
+        },
+        {
+          "id": "mp1911",
+          "ammo": 120,
+          "mods": {
+		    "base": "base_damper",
+		    "barrel": "barrel_laser",
+		    "barrel2": "barrel_grip",
+			"ammo": "ammo_impact"
+          }
+        }
+      ],
+      "equipment": "stun",
+      "equipmentAmmo": 2
+    },
+    "objects": [
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Go go go! AETIC, Ari, with me! Touhou, Arachnid, take the underground! Move out!",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_peacekeeper",
+          "bRemove": true
+        },
+        "position": [ 7750, 1420 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Juggernauts, get in position! We can't let them activate the Deadswitch!",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_eric",
+          "bRemove": true
+        },
+        "position": [ 7000, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "We're getting overrun! There's a horde on our left flank!",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_wulf",
+          "bRemove": true
+        },
+        "position": [ 5000, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Rush the center and detonate the Deadswitch! We'll hold them off back here!",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_touhou",
+          "bRemove": true
+        },
+        "position": [ 4000, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "xddddddddddddddddddddddddddddddddddddddd",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_wrangler",
+          "bRemove": true
+        },
+        "position": [ 3000, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "...",
+          "width": 200,
+		  "height": 2000,
+          "atlas": "atlas_cards",
+          "icon": "hero_wilkin",
+          "bRemove": true
+        },
+        "position": [ 2000, 1000 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Hit the Deadswitch! NOW!",
+          "size": 200,
+          "atlas": "atlas_cards",
+          "icon": "hero_aetic",
+          "bRemove": true
+        },
+        "position": [ 1740, 1025 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "rpk16",
+        "options": {
+		  "ammo": 475,
+          "mods": {
+            "base": "base_damper",
+		    "barrel": "barrel_laser",
+		    "barrel2": "barrel_grip",
+			"ammo": "ammo_fmj"
+          }
+        },
+        "position": [ 7580, 1420 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "k1a",
+        "options": {
+		  "ammo": 240,
+          "mods": {
+            "base": "base_speed",
+		    "barrel": "barrel_laser",
+		    "barrel2": "barrel_booster",
+			"ammo": "ammo_hollow_point"
+          }
+        },
+        "position": [ 7380, 1420 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "jackhammer",
+        "options": {
+		  "ammo": 50,
+          "mods": {
+            "base": "base_speed",
+		    "barrel": "barrel_grip",
+		    "barrel2": "barrel_booster",
+			"ammo": "ammo_extended"
+          }
+        },
+        "position": [ 7280, 1420 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "m82",
+        "options": {
+		  "ammo": 15,
+          "mods": {
+            "base": "base_range",
+		    "barrel": "barrel_laser",
+		    "barrel2": "barrel_booster",
+			"ammo": "ammo_fmj"
+          }
+        },
+        "position": [ 7180, 1420 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "xm25",
+        "options": {
+		  "ammo": 20,
+          "mods": {
+            "base": "base_speed",
+		    "barrel": "barrel_laser",
+			"ammo": "ammo_explosive"
+          }
+        },
+        "position": [ 7080, 1420 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "m320",
+        "options": {
+		  "ammo": 10,
+          "mods": {
+            "base": "base_speed",
+		    "barrel": "barrel_laser",
+			"ammo": "ammo_radius"
+          }
+        },
+        "position": [ 6980, 1420 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "flamethrower",
+        "options": {
+		  "ammo": 80,
+          "mods": {
+            "base": "base_speed",
+			"ammo": "ammo_extended"
+          }
+        },
+        "position": [ 6880, 1420 ]
+      },
+	  {
+        "type": "spawner",
+        "position": [ 170, 1415 ],
+        "spawnerId": "SPAWNER_ZOMBIE",
+        "team": 1
+      },
+	  {
+        "type": "spawner",
+        "position": [ 435, 1655 ],
+        "spawnerId": "SPAWNER_INFESTOR",
+        "team": 1
+      },
+	  {
+        "type": "spawner",
+        "position": [ 4000, 1210 ],
+        "spawnerId": "SPAWNER_JUGGERNAUT",
+        "team": 2
+      },
+	  {
+        "type": "spawner",
+        "position": [ 4000, 1625 ],
+        "spawnerId": "SPAWNER_RUS",
+        "team": 2
+      },
+	  {
+        "type": "spawner",
+        "position": [ 7845, 1420 ],
+        "spawnerId": "SPAWNER_GIGN",
+        "team": 0
+      },
+      {
+        "type": "crate_perk",
+        "perkId": "perk_health",
+        "position": [ 5400, 1420 ]
+      },
+      {
+        "type": "crate_perk",
+        "perkId": "perk_recovery",
+        "position": [ 4000, 1210 ]
+      },
+      {
+        "type": "crate_perk",
+        "perkId": "perk_vampire",
+        "position": [ 4000, 1625 ]
+      },
+      {
+        "type": "crate_perk",
+        "perkId": "perk_freeze",
+        "position": [ 2600, 1420 ]
+      },
+      {
+        "type": "crate_killstreak",
+        "killstreakId": "deadswitch",
+        "position": [ 1740, 1025 ]
+      },
+      {
+        "type": "droppedWeapon",
+        "weaponId": "railgun",
+        "bPersistant": true,
+        "options": {
+		  "ammo": 80,
+          "mods": {
+            "base": "base_damper",
+            "barrel": "barrel_laser",
+            "barrel2": "barrel_grip",
+            "barrel3": "barrel_range",
+			"ammo": "ammo_radius"
+          }
+        },
+        "position": [ 170, 1415 ]
+      },
+      {
+        "type": "info",
+        "messageData": {
+          "message": "Yes. The fabled God Gun. Wield this weapon, and you will be unstoppable.",
+          "size": 200,
+          "bRemove": true
+        },
+        "position": [ 170, 1415 ]
+      }
+    ],
+    "enemies": [
+      {
+        "type": "character",
+        "position": [ 7055, 1420 ],
+		"team": 0,
+        "heroId": "HERO_OBSV32",
+        "ai": {
+		  "bCanInvestigate": false,
+		  "bStayPatrol": true,
+          "patrolPoints": [
+            [ 1740, 1025 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 7095, 1760 ],
+		"team": 0,
+        "heroId": "HERO_VALIANT25",
+        "ai": {
+		  "bCanInvestigate": false,
+		  "bStayPatrol": true,
+          "patrolPoints": [
+            [ 5465, 1655 ],
+            [ 4465, 1655 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 7475, 1650 ],
+		"team": 0,
+        "heroId": "HERO_TWOPLAYER",
+        "ai": {
+		  "bCanInvestigate": false,
+		  "bStayPatrol": true,
+          "patrolPoints": [
+            [ 5465, 1655 ],
+            [ 4465, 1655 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 7290, 1420 ],
+		"team": 0,
+        "heroId": "HERO_ARI",
+        "ai": {
+		  "bCanInvestigate": false,
+		  "bStayPatrol": true,
+          "patrolPoints": [
+            [ 1740, 1025 ]
+          ]
+        }
+      },
+      {
+        "type": "character",
+        "position": [ 7515, 1420 ],
+		"team": 0,
+        "heroId": "HERO_AETIC",
+        "ai": {
+		  "bCanInvestigate": false,
+		  "bStayPatrol": true,
+          "patrolPoints": [
+            [ 1740, 1025 ]
+          ]
+        }
+      },
+      {
+        "type": "infestor",
+        "position": [ 170, 1415 ],
+        "preset": "infestor_king"
+      },
+      {
+        "type": "infestor",
+        "position": [ 445, 1665 ],
+        "preset": "infestor_king"
+      },
+      {
+        "type": "character",
+        "position": [ 4200, 1210 ],
+		"team": 2,
+        "heroId": "HERO_KARAMBITGUY"
+      },
+      {
+        "type": "character",
+        "position": [ 4000, 1020 ],
+		"team": 2,
+        "heroId": "HERO_MOUSSA"
+      },
+      {
+        "type": "character",
+        "position": [ 4000, 1405 ],
+		"team": 2,
+        "heroId": "HERO_ERIC"
+      },
+      {
+        "type": "character",
+        "position": [ 3800, 1210 ],
+		"team": 2,
+        "heroId": "HERO_CHRIST"
+      },
+      {
+        "type": "character",
+        "position": [ 4000, 1625 ],
+		"team": 2,
+        "heroId": "HERO_XWILKINX",
+        "ai": {
+		  "bCanInvestigate": false
+        }
+      }
+    ]
+  }
+}

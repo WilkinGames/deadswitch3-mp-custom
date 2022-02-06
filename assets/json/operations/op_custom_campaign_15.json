@@ -1,9 +1,11 @@
 {
   "id": "op_custom_campaign_15",
-  "bCustom": true,
+  "packId": "campaign",
+  "requiredId": "op_custom_campaign_14",
+  "nextId": "op_custom_campaign_16",
   "info": {
-    "name": "Jailbreak",
-    "desc": "\" lock him up, boys! he'll see things our way eventually >:) \" - Wild West Wrangler."
+    "name": "STR_OP_CAMPAIGN_15",
+    "desc": "STR_OP_CAMPAIGN_15_DESC"
   },
   "requiredLevel": 1,
   "rewards": [],
@@ -15,7 +17,7 @@
     "settings": {
       "bAllowRespawns": false,
       "bSpawnProtection": false,
-	  "bDroppedWeapons": true,
+      "bDroppedWeapons": true,
       "preGameTimer": 0,
       "timeLimit": 5,
       "filterType": "night"
@@ -67,11 +69,11 @@
         "messageData": {
           "message": "He's getting away! Shoot him! Call in the Juggernaut!",
           "width": 4000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "char_militia_2",
-		  "timeTrigger": 4.50,
-		  "bRemove": true
+          "timeTrigger": 4.50,
+          "bRemove": true
         },
         "position": [ 2000, 1000 ]
       },
@@ -80,9 +82,9 @@
         "messageData": {
           "message": "I need a gun. Hopefully one of those guards dropped something.",
           "width": 4000,
-		  "height": 2000,
-		  "timeTrigger": 4.25,
-		  "bRemove": true
+          "height": 2000,
+          "timeTrigger": 4.25,
+          "bRemove": true
         },
         "position": [ 2000, 1000 ]
       },
@@ -163,7 +165,7 @@
         "scale": 1,
         "turretData": {
           "type": "sentry",
-		  "bUnlimitedAmmo": true
+          "bUnlimitedAmmo": true
         }
       },
       {
@@ -173,7 +175,7 @@
         "scale": -1,
         "turretData": {
           "type": "sentry",
-		  "bUnlimitedAmmo": true
+          "bUnlimitedAmmo": true
         }
       },
       {
@@ -183,7 +185,7 @@
         "inventory": [ { "id": "bren" } ],
         "ai": {
           "bCamp": true,
-		  "bCampUntilLOS": true
+          "bCampUntilLOS": true
         }
       }
     ]

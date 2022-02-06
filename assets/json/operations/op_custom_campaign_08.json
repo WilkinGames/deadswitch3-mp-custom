@@ -1,9 +1,11 @@
 {
   "id": "op_custom_campaign_08",
-  "bCustom": true,
+  "packId": "campaign",
+  "requiredId": "op_custom_campaign_07",
+  "nextId": "op_custom_campaign_09",
   "info": {
-    "name": "Showdown",
-    "desc": "\"The infestors are too dangerous to keep alive! Surrender this facility to us, Eric!\" - Peacekeeper."
+    "name": "STR_OP_CAMPAIGN_8",
+    "desc": "STR_OP_CAMPAIGN_8_DESC"
   },
   "requiredLevel": 1,
   "rewards": [],
@@ -15,7 +17,7 @@
     "settings": {
       "bAllowRespawns": false,
       "bSpawnProtection": false,
-	  "bDroppedWeapons": true,
+      "bDroppedWeapons": true,
       "preGameTimer": 0,
       "timeLimit": 5
     }
@@ -26,7 +28,7 @@
       "inventory": [
         {
           "id": "aug",
-		  "ammo": 180,
+          "ammo": 180,
           "mods": {
             "barrel": "barrel_laser",
             "ammo": "ammo_ap"
@@ -34,7 +36,7 @@
         },
         {
           "id": "m1216",
-		  "ammo": 32,
+          "ammo": 32,
           "mods": {
             "barrel": "barrel_laser",
             "ammo": "ammo_hollow_point"
@@ -52,59 +54,59 @@
           "size": 200,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 5370, 1340 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "You have to stop this research, Eric! There's too much chance of the infestors breaking out again! Or the terrorists freeing them!",
+          "message": "You have to stop this research, Eric!\nThere's too much chance of the infestors breaking out again! Or the terrorists freeing them!",
           "width": 6000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
-		  "timeTrigger": 4.83,
-		  "bRemove": true
+          "timeTrigger": 4.83,
+          "bRemove": true
         },
         "position": [ 3000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "I can't! The Juggernaut research is too valuable! Countries and companies all over the world depend on my Juggernaut suits!",
+          "message": "I can't! The Juggernaut research is too valuable!\nCountries and companies all over the world depend on my Juggernaut suits!",
           "width": 6000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_eric",
-		  "timeTrigger": 4.75,
-		  "bRemove": true
+          "timeTrigger": 4.75,
+          "bRemove": true
         },
         "position": [ 3000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "You want to prevent escapes? Or stop the terrorists? Give me an international grant to buy all the security I need!",
+          "message": "You want to prevent escapes? Or stop the terrorists?\nGive me an international grant to buy all the security I need!",
           "width": 6000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_eric",
-		  "timeTrigger": 4.67,
-		  "bRemove": true
+          "timeTrigger": 4.67,
+          "bRemove": true
         },
         "position": [ 3000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "There's too much risk! The infestors spread the zombie disease! Look at the site of the first outbreak, it's out of control!",
+          "message": "There's too much risk! The infestors spread the zombie disease!\nLook at the site of the first outbreak, it's out of control!",
           "width": 6000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
-		  "timeTrigger": 4.58,
-		  "bRemove": true
+          "timeTrigger": 4.58,
+          "bRemove": true
         },
         "position": [ 3000, 1000 ]
       },
@@ -113,11 +115,11 @@
         "messageData": {
           "message": "Where did the infestors come from, Eric? How did you get them?",
           "width": 6000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
-		  "timeTrigger": 4.25,
-		  "bRemove": true
+          "timeTrigger": 4.25,
+          "bRemove": true
         },
         "position": [ 3000, 1000 ]
       },
@@ -126,24 +128,24 @@
         "messageData": {
           "message": "I don't know. It's my boss, Wilkin; he started this whole operation and supplies me with the infestors.",
           "width": 6000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_eric",
-		  "timeTrigger": 4.17,
-		  "bRemove": true
+          "timeTrigger": 4.17,
+          "bRemove": true
         },
         "position": [ 3000, 1000 ]
       },
       {
         "type": "info",
         "messageData": {
-          "message": "I don't know how or where Wilkin gets his infestors. I don't even know who he is or his background. The man's a shadow.",
+          "message": "I don't know how or where Wilkin gets his infestors.\nI don't even know who he is or his background. The man's a shadow.",
           "width": 6000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_eric",
-		  "timeTrigger": 4.08,
-		  "bRemove": true
+          "timeTrigger": 4.08,
+          "bRemove": true
         },
         "position": [ 3000, 1000 ]
       }
@@ -152,10 +154,11 @@
       {
         "type": "character",
         "position": [ 5570, 1340 ],
-		"team": 0,
+        "team": 0,
         "heroId": "HERO_OBSV32",
+        "bFailIfKilled": true,
         "ai": {
-		  "bStayPatrol": true,
+          "bStayPatrol": true,
           "patrolPoints": [
             [ 1400, 1145 ]
           ]
@@ -168,7 +171,7 @@
         "inventory": [ { "id": "m60e4" } ],
         "ai": {
           "patrolPoints": [
-		    [ 3000, 1700 ]
+            [ 3000, 1700 ]
           ]
         }
       },
@@ -190,7 +193,7 @@
         "inventory": [ { "id": "qbb95" } ],
         "ai": {
           "patrolPoints": [
-		    [ 3000, 1700 ]
+            [ 3000, 1700 ]
           ]
         }
       },
@@ -200,7 +203,7 @@
         "heroId": "HERO_ERIC",
         "ai": {
           "patrolPoints": [
-		    [ 4600, 1145 ]
+            [ 4600, 1145 ]
           ]
         }
       }

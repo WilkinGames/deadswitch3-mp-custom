@@ -1,9 +1,11 @@
 {
   "id": "op_custom_campaign_00",
-  "bCustom": true,
+  "packId": "campaign",
+  "musicId": "music_game_ranked",
+  "nextId": "op_custom_campaign_01",
   "info": {
-    "name": "Initiation",
-    "desc": "So you want to work for United Military Services? We welcome any applicants. Take our assessment to see where you stand."
+    "name": "STR_OP_CAMPAIGN_0",
+    "desc": "STR_OP_CAMPAIGN_0_DESC"
   },
   "requiredLevel": 1,
   "rewards": [],
@@ -59,7 +61,7 @@
         "messageData": {
           "message": "Taking out all ten? Impressive.",
           "width": 200,
-		  "height": 1000,
+          "height": 1000,
           "atlas": "atlas_cards",
           "icon": "wilkin",
           "bRemove": true
@@ -207,7 +209,7 @@
       {
         "type": "character",
         "position": [ 325, 1650 ],
-        "preset": "spetsnaz_generic",
+        "preset": "rus_generic",
         "inventory": [ { "id": "aughbar" } ],
         "ai": {
           "bCamp": true

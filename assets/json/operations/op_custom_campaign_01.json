@@ -1,9 +1,11 @@
 {
   "id": "op_custom_campaign_01",
-  "bCustom": true,
+  "packId": "campaign",
+  "requiredId": "op_custom_campaign_00",
+  "nextId": "op_custom_campaign_02",
   "info": {
-    "name": "Your First Mission",
-    "desc": "You took out all ten? Impressive... One of our client's factories has been attacked by Militia forces. Recapture it."
+    "name": "STR_OP_CAMPAIGN_1",
+    "desc": "STR_OP_CAMPAIGN_1_DESC"
   },
   "requiredLevel": 1,
   "rewards": [],
@@ -15,7 +17,7 @@
     "settings": {
       "bAllowRespawns": false,
       "bSpawnProtection": false,
-	  "bDroppedWeapons": true,
+      "bDroppedWeapons": true,
       "preGameTimer": 0,
       "timeLimit": 5
     }
@@ -51,7 +53,7 @@
           "size": 200,
           "atlas": "atlas_cards",
           "icon": "hero_moussa",
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 5920, 1350 ]
       },
@@ -60,10 +62,10 @@
         "messageData": {
           "message": "Just follow me around; you're basically just here to shadow me.",
           "width": 200,
-		  "height": 1000,
+          "height": 1000,
           "atlas": "atlas_cards",
           "icon": "hero_moussa",
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 4800, 1175 ]
       },
@@ -72,10 +74,10 @@
         "messageData": {
           "message": "Oh, they've got a Juggernaut to your left. Bait him to me, I'll soften him up.",
           "width": 200,
-		  "height": 1000,
+          "height": 1000,
           "atlas": "atlas_cards",
           "icon": "hero_moussa",
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 2500, 1350 ]
       },
@@ -110,10 +112,10 @@
       {
         "type": "character",
         "position": [ 5805, 1350 ],
-		"team": 0,
+        "team": 0,
         "heroId": "HERO_MOUSSA",
         "ai": {
-		  "bStayPatrol": true,
+          "bStayPatrol": true,
           "patrolPoints": [
             [ 3000, 1350 ]
           ]
@@ -127,7 +129,7 @@
         "ai": {
           "patrolPoints": [
             [ 2390, 1350 ],
-			[ 3610, 1350 ]
+            [ 3610, 1350 ]
           ]
         }
       },
@@ -139,7 +141,7 @@
         "ai": {
           "patrolPoints": [
             [ 3610, 1350 ],
-			[ 2390, 1350 ]
+            [ 2390, 1350 ]
           ]
         }
       },
@@ -204,7 +206,7 @@
         "inventory": [ { "id": "saiga12" } ],
         "ai": {
           "bCamp": true,
-		  "bCampUntilLOS": true
+          "bCampUntilLOS": true
         }
       },
       {

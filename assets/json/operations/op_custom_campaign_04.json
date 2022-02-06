@@ -1,9 +1,11 @@
 {
   "id": "op_custom_campaign_04",
-  "bCustom": true,
+  "packId": "campaign",
+  "requiredId": "op_custom_campaign_03",
+  "nextId": "op_custom_campaign_05",
   "info": {
-    "name": "Under Seige",
-    "desc": "The infestors have broken out from the facility into the nearby city. Help our troops hold back the outbreak."
+    "name": "STR_OP_CAMPAIGN_4",
+    "desc": "STR_OP_CAMPAIGN_4_DESC"
   },
   "requiredLevel": 1,
   "rewards": [],
@@ -15,7 +17,7 @@
     "settings": {
       "bAllowRespawns": false,
       "bSpawnProtection": false,
-	  "bDroppedWeapons": true,
+      "bDroppedWeapons": true,
       "preGameTimer": 0,
       "timeLimit": 5
     }
@@ -31,7 +33,7 @@
           }
         },
         {
-          "id": "m1911",
+          "id": "m1014",
           "mods": {
             "ammo": "ammo_extended"
           }
@@ -48,7 +50,7 @@
           "size": 200,
           "atlas": "atlas_cards",
           "icon": "hero_moussa",
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 6555, 1425 ]
       },
@@ -57,11 +59,11 @@
         "messageData": {
           "message": "OPEN FIRE!!!",
           "width": 8000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_moussa",
-		  "timeTrigger": 4.83,
-		  "bRemove": true
+          "timeTrigger": 4.83,
+          "bRemove": true
         },
         "position": [ 4000, 1000 ]
       },
@@ -72,7 +74,7 @@
           "size": 200,
           "atlas": "atlas_cards",
           "icon": "hero_moussa",
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 4000, 1435 ]
       },
@@ -83,7 +85,7 @@
           "size": 200,
           "atlas": "atlas_cards",
           "icon": "hero_moussa",
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 6855, 1110 ]
       },
@@ -92,7 +94,7 @@
         "messageData": {
           "message": "Yes. The fabled Magic Wand. Infused in alchemy with the fury of a hurricane.",
           "size": 200,
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 935, 1110 ]
       },
@@ -106,9 +108,9 @@
           }
         },
         "position": [ 935, 1110 ],
-		"bPersistant": true
+        "bPersistant": true
       },
-	  {
+      {
         "type": "spawner",
         "position": [ 960, 1245 ],
         "spawnerId": "SPAWNER_ZOMBIE",
@@ -153,8 +155,9 @@
       {
         "type": "character",
         "position": [ 6445, 1425 ],
-		"team": 0,
+        "team": 0,
         "heroId": "HERO_MOUSSA",
+        "bFailIfKilled": true,
         "ai": {
           "patrolPoints": [
             [ 5265, 1635 ]
@@ -164,8 +167,9 @@
       {
         "type": "character",
         "position": [ 6665, 1425 ],
-		"team": 0,
+        "team": 0,
         "heroId": "HERO_TWOPLAYER",
+        "bFailIfKilled": true,
         "ai": {
           "patrolPoints": [
             [ 5965, 1840 ]
@@ -176,8 +180,8 @@
         "type": "character",
         "position": [ 6770, 1795 ],
         "style": "rus_elite",
-		"health": 400,
-		"team": 0,
+        "health": 400,
+        "team": 0,
         "inventory": [ { "id": "rpk" } ],
         "ai": {
           "bCamp": true
@@ -187,7 +191,7 @@
         "type": "character",
         "position": [ 6080, 1425 ],
         "preset": "rus_elite",
-		"team": 0,
+        "team": 0,
         "inventory": [ { "id": "ak74u" } ],
         "ai": {
           "patrolPoints": [
@@ -199,7 +203,7 @@
         "type": "character",
         "position": [ 7300, 1425 ],
         "preset": "rus_elite",
-		"team": 0,
+        "team": 0,
         "inventory": [ { "id": "ak47" } ],
         "ai": {
           "patrolPoints": [

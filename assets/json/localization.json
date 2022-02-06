@@ -1272,20 +1272,20 @@
     "it": "Crediti"
   },
   "STR_COPYRIGHT_WILKIN_GAMES": {
-    "en": "©2021 Wilkin Games",
-    "ru": "©2021 Wilkin Games",
-    "zh-CN": "©2021 Wilkin Games",
-    "tr": "©2021 Wilkin Games",
-    "es": "©2021 Wilkin Games",
-    "it": "©2021 Wilkin Games"
+    "en": "©2022 Wilkin Games",
+    "ru": "©2022 Wilkin Games",
+    "zh-CN": "©2022 Wilkin Games",
+    "tr": "©2022 Wilkin Games",
+    "es": "©2022 Wilkin Games",
+    "it": "©2022 Wilkin Games"
   },
   "STR_COPYRIGHT_WILKIN_GAMES_LONG": {
-    "en": "©2021 Wilkin Games\nDeadswitch 3 is developed by Wilkin Games.\nAll rights reserved.",
-    "ru": "©2021 Wilkin Games\nDeadswitch 3 разработана Wilkin Games.\nВсе права защищены.",
-    "zh-CN": "©2021 Wilkin Games\n死亡开关3(Deadswitch 3) 由 Wilkin Games 所开发。保留所有权利。",
-    "tr": "©2021 Wilkin Games\nDeadswitch 3 Wilkin Games tarafından geliştirilmiştir. Tüm hakları saklıdır.",
-    "es": "©2021 Wilkin Games\nDeadswitch 3 es desarrollado por Wilkin Games.\nTodos los derechos reservados.",
-    "it": "©2021 Wilkin Games\nDeadswitch 3 è stato sviluppato da Wilkin Games.\nTutti i diritti riservati."
+    "en": "©2022 Wilkin Games\nDeadswitch 3 is developed by Wilkin Games.\nAll rights reserved.",
+    "ru": "©2022 Wilkin Games\nDeadswitch 3 разработана Wilkin Games.\nВсе права защищены.",
+    "zh-CN": "©2022 Wilkin Games\n死亡开关3(Deadswitch 3) 由 Wilkin Games 所开发。保留所有权利。",
+    "tr": "©2022 Wilkin Games\nDeadswitch 3 Wilkin Games tarafından geliştirilmiştir. Tüm hakları saklıdır.",
+    "es": "©2022 Wilkin Games\nDeadswitch 3 es desarrollado por Wilkin Games.\nTodos los derechos reservados.",
+    "it": "©2022 Wilkin Games\nDeadswitch 3 è stato sviluppato da Wilkin Games.\nTutti i diritti riservati."
   },
   "STR_FULL_VERSION": {
     "en": "Full Version",
@@ -16206,5 +16206,365 @@
     "tr": "İstemci Tarafı Tahmini",
     "es": "Predicción del lado del cliente",
     "it": "Previsione del Cliente"
+  },
+  "STR_COMPLETE_X_OP": {
+    "en": "Complete: %1",
+    "ru": "Необходимо выполнить: %1",
+    "zh-CN": "必须完成：%1",
+    "tr": "Tamamlanmalıdır: %1",
+    "es": "Debe completar: %1",
+    "it": "Deve completare: %1"
+  },
+  "STR_LOCKED": {
+    "en": "Locked",
+    "ru": "Недоступно",
+    "zh-CN": "无法使用",
+    "tr": "Kullanım dışı",
+    "es": "Indisponible",
+    "it": "Non disponibile"
+  },
+  "STR_CAMPAIGN_ADDED": {
+    "en": "New Campaign Operations are now available!",
+    "ru": "Доступны новые операции кампании!",
+    "zh-CN": "新的战役任务现已推出！",
+    "tr": "Yeni Kampanya Operasyonları artık mevcut!",
+    "es": "¡Ya están disponibles las nuevas operaciones de campaña!",
+    "it": "Sono ora disponibili le nuove operazioni della campagna!"
+  },
+  "STR_OP_CAMPAIGN_0": {
+    "en": "Initiation",
+    "ru": "Посвящение",
+    "zh-CN": "引发",
+    "tr": "Başlatma",
+    "es": "Iniciación",
+    "it": "Iniziazione"
+  },
+  "STR_OP_CAMPAIGN_1": {
+    "en": "Your First Mission",
+    "ru": "Ваша первая миссия",
+    "zh-CN": "你的第一个任务",
+    "tr": "İlk Göreviniz",
+    "es": "Tu Primera Misión",
+    "it": "La Tua Prima Missione"
+  },
+  "STR_OP_CAMPAIGN_2": {
+    "en": "Rescue Assignment",
+    "ru": "Спасательное задание",
+    "zh-CN": "救援任务",
+    "tr": "Kurtarma Görevi",
+    "es": "Tarea de Rescate",
+    "it": "Incarico di Salvataggio"
+  },
+  "STR_OP_CAMPAIGN_3": {
+    "en": "Investigation",
+    "ru": "Расследование",
+    "zh-CN": "调查",
+    "tr": "Soruşturma",
+    "es": "Investigación",
+    "it": "Indagine"
+  },
+  "STR_OP_CAMPAIGN_4": {
+    "en": "Under Siege",
+    "ru": "В осаде",
+    "zh-CN": "围攻下",
+    "tr": "Zaferler Altında",
+    "es": "Bajo Victorias",
+    "it": "Sotto le Vittorie"
+  },
+  "STR_OP_CAMPAIGN_5": {
+    "en": "Packing Up",
+    "ru": "Собираемся, чтобы уйти",
+    "zh-CN": "收拾行李离开",
+    "tr": "Paketleme",
+    "es": "Empacando",
+    "it": "Fare le Valigie"
+  },
+  "STR_OP_CAMPAIGN_6": {
+    "en": "The Return",
+    "ru": "Возврат",
+    "zh-CN": "回报",
+    "tr": "Geri Dönüş",
+    "es": "El Regreso",
+    "it": "Il Ritorno"
+  },
+  "STR_OP_CAMPAIGN_7": {
+    "en": "Explanations",
+    "ru": "Пояснения",
+    "zh-CN": "解释",
+    "tr": "Açıklama",
+    "es": "Explicaciones",
+    "it": "Spiegazioni"
+  },
+  "STR_OP_CAMPAIGN_8": {
+    "en": "Showdown",
+    "ru": "Вскрытие",
+    "zh-CN": "摊牌",
+    "tr": "Aşağı Göster",
+    "es": "Resa dei Conti",
+    "it": "Resa dei Conti"
+  },
+  "STR_OP_CAMPAIGN_9": {
+    "en": "On the Way Back",
+    "ru": "На обратном пути",
+    "zh-CN": "回去的路上",
+    "tr": "Dönüş Yolunda",
+    "es": "En el Camino de Regreso",
+    "it": "Sulla Via del Ritorno"
+  },
+  "STR_OP_CAMPAIGN_10": {
+    "en": "New Information",
+    "ru": "Новая информация",
+    "zh-CN": "新的信息",
+    "tr": "Yeni bilgi",
+    "es": "Nueva Información",
+    "it": "Nuova Informazione"
+  },
+  "STR_OP_CAMPAIGN_11": {
+    "en": "First Stop",
+    "ru": "Первая остановка",
+    "zh-CN": "第一站",
+    "tr": "İlk Durak",
+    "es": "Primera Parada",
+    "it": "Primo Stop"
+  },
+  "STR_OP_CAMPAIGN_12": {
+    "en": "Emergency",
+    "ru": "Чрезвычайное происшествие",
+    "zh-CN": "紧急情况",
+    "tr": "Acil Durum",
+    "es": "Emergencia",
+    "it": "Emergenza"
+  },
+  "STR_OP_CAMPAIGN_13": {
+    "en": "Next Destination",
+    "ru": "Следующая цель",
+    "zh-CN": "下一个目的地",
+    "tr": "Bir Sonraki Hedef",
+    "es": "Próximo Destino",
+    "it": "Prossima Destinazione"
+  },
+  "STR_OP_CAMPAIGN_14": {
+    "en": "Talk with the Boss",
+    "ru": "Поговорите с Боссом",
+    "zh-CN": "与老板交谈",
+    "tr": "Patronla Konuş",
+    "es": "Hablar Con el Jefe",
+    "it": "Parla Con il Capo"
+  },
+  "STR_OP_CAMPAIGN_15": {
+    "en": "Jailbreak",
+    "ru": "Побег из тюрьмы",
+    "zh-CN": "越狱",
+    "tr": "Jailbreak",
+    "es": "Fuga",
+    "it": "Jailbreak"
+  },
+  "STR_OP_CAMPAIGN_16": {
+    "en": "Outpost Outbreak",
+    "ru": "Вспышка аванпоста",
+    "zh-CN": "哨站爆发",
+    "tr": "Karakol Salgını",
+    "es": "Brote de Puesto Avanzado",
+    "it": "Scoppio Dell'Avamposto"
+  },
+  "STR_OP_CAMPAIGN_17": {
+    "en": "The Bomb",
+    "ru": "Бомба",
+    "zh-CN": "炸弹",
+    "tr": "Bomba",
+    "es": "La Bomba",
+    "it": "La Bomba"
+  },
+  "STR_OP_CAMPAIGN_18": {
+    "en": "Into the Breach",
+    "ru": "В пролом",
+    "zh-CN": "进入突破口",
+    "tr": "İhlalin Içine",
+    "es": "En la Brecha",
+    "it": "Nella breccia"
+  },
+  "STR_OP_CAMPAIGN_19": {
+    "en": "Final Countdown",
+    "ru": "Финальный отсчет",
+    "zh-CN": "最后倒数，倒计时",
+    "tr": "Son Gerisayım",
+    "es": "Cuenta Regresiva Final",
+    "it": "Conto Alla Rovescia Finale"
+  },
+  "STR_OP_CAMPAIGN_0_DESC": {
+    "en": "So you want to work for United Military Services? We welcome any applicants. Take our assessment to see where you stand.",
+    "ru": "Итак, вы хотите работать в United Military Services? Мы приветствуем любых соискателей. Возьмите нашу оценку, чтобы увидеть, где вы находитесь.",
+    "zh-CN": "所以你想为联合军事服务工作？ 我们欢迎任何申请人。 接受我们的评估，看看你的立场。",
+    "tr": "Yani Birleşik Askeri Hizmetler için mi çalışmak istiyorsun? Herhangi bir başvuranı memnuniyetle karşılıyoruz. Nerede durduğunuzu görmek için değerlendirmemize katılın.",
+    "es": "Entonces, ¿quieres trabajar para United Military Services? Damos la bienvenida a cualquier solicitante. Tome nuestra evaluación para ver dónde se encuentra.",
+    "it": "Quindi vuoi lavorare per United Military Services? Diamo il benvenuto a tutti i candidati. Fai la nostra valutazione per vedere a che punto sei."
+  },
+  "STR_OP_CAMPAIGN_1_DESC": {
+    "en": "You took out all ten? Impressive... One of our client's factories has been attacked by Militia forces. Recapture it.",
+    "ru": "Ты убил всех десятерых? Впечатляет... Одна из фабрик нашего клиента подверглась нападению сил ополчения. Захватить его.",
+    "zh-CN": "你杀了十个人？ 令人印象深刻...我们客户的一家工厂遭到民兵部队的袭击。 夺回它。",
+    "tr": "On kişiyi de mi öldürdün? Etkileyici... Müşterimizin fabrikalarından biri Milis kuvvetleri tarafından saldırıya uğradı. Onu yeniden yakala.",
+    "es": "¿Sacaste los diez? Impresionante... Una de las fábricas de nuestro cliente ha sido atacada por las fuerzas de la milicia. Recuperarlo.",
+    "it": "Hai eliminato tutti e dieci? Impressionante... Una delle fabbriche del nostro cliente è stata attaccata dalle forze della milizia. Riprendilo."
+  },
+  "STR_OP_CAMPAIGN_2_DESC": {
+    "en": "Well done. Moussa tells us you have potential. One of our top snipers, Arachnid, has been taken prisoner by UN forces. Rescue him.",
+    "ru": "Отличная работа. Мусса говорит нам, что у тебя есть потенциал. Один из наших лучших снайперов, Арахнид, взят в плен силами ООН. Спасите его.",
+    "zh-CN": "做得好。 穆萨告诉我们你有潜力。 我们的一名顶级狙击手 Arachnid 已被联合国部队俘虏。 救他。",
+    "tr": "Aferin. Moussa bize potansiyeliniz olduğunu söylüyor. En iyi keskin nişancılarımızdan biri olan Arachnid, BM güçleri tarafından esir alındı. Onu kurtar.",
+    "es": "Bien hecho. Moussa nos dice que tienes potencial. Uno de nuestros mejores francotiradores, Arachnid, ha sido hecho prisionero por las fuerzas de la ONU. Rescátalo.",
+    "it": "Molto bene. Moussa ci dice che hai del potenziale. Uno dei nostri migliori cecchini, Arachnid, è stato fatto prigioniero dalle forze dell'ONU. Salvalo."
+  },
+  "STR_OP_CAMPAIGN_3_DESC": {
+    "en": "For your next mission, you are to check out a client's research station that they've recently lost contact with. Find an explanation.",
+    "ru": "Для вашей следующей миссии вы должны проверить исследовательскую станцию ​​клиента, с которой они недавно потеряли связь. Найдите объяснение.",
+    "zh-CN": "对于您的下一个任务，您将检查他们最近失去联系的客户研究站。 找个解释。",
+    "tr": "Bir sonraki göreviniz için, bir müşterinin yakın zamanda iletişimini kaybettiği araştırma istasyonunu kontrol edeceksiniz. Bir açıklama bulun.",
+    "es": "Para su próxima misión, debe verificar la estación de investigación de un cliente con la que perdió contacto recientemente. Encuentra una explicación.",
+    "it": "Per la tua prossima missione, devi controllare la stazione di ricerca di un cliente con cui hanno recentemente perso i contatti. Trova una spiegazione."
+  },
+  "STR_OP_CAMPAIGN_4_DESC": {
+    "en": "The infestors have broken out from the facility into the nearby city. Help our troops hold back the outbreak.",
+    "ru": "Инфесторы вырвались из учреждения в ближайший город. Помогите нашим войскам сдержать вспышку.",
+    "zh-CN": "感染者已经从设施中爆发到附近的城市。 帮助我们的部队遏制疫情。",
+    "tr": "İstilacılar tesisten yakındaki şehre kaçtı. Birliklerimizin salgını durdurmasına yardım edin.",
+    "es": "Los infestadores han escapado de la instalación a la ciudad cercana. Ayuda a nuestras tropas a contener el brote.",
+    "it": "Gli infestatori sono evasi dalla struttura nella vicina città. Aiuta le nostre truppe a trattenere l'epidemia."
+  },
+  "STR_OP_CAMPAIGN_5_DESC": {
+    "en": "We're stationing you permanently on the defenses around the outbreak. Take some time at home to pack up for the trip.",
+    "ru": "Мы постоянно размещаем вас на обороне вокруг очага. Уделите немного времени дома, чтобы собраться в поездку.",
+    "zh-CN": "我们将你永久驻扎在疫情爆发周围的防御工事上。 花点时间在家里收拾行李准备旅行。",
+    "tr": "Sizi kalıcı olarak salgının etrafındaki savunmalara yerleştiriyoruz. Yolculuk için hazırlanmak için evde biraz zaman ayırın.",
+    "es": "Los estaremos estacionando permanentemente en las defensas alrededor del brote. Tómese un tiempo en casa para empacar para el viaje.",
+    "it": "Ti stiamo posizionando permanentemente sulle difese attorno all'epidemia. Prenditi del tempo a casa per fare le valigie per il viaggio."
+  },
+  "STR_OP_CAMPAIGN_6_DESC": {
+    "en": "\"Fine, you win. But I want proof about about what you've told me. Take me to where you say the outbreak started.\" - Peacekeeper.",
+    "ru": "«Хорошо, ты победил. Но мне нужны доказательства того, что ты мне рассказал. Отведи меня туда, где, по твоим словам, началась вспышка». - Peacekeeper.",
+    "zh-CN": "“好吧，你赢了。但我想要证明你告诉我的事情。带我去你说爆发开始的地方。” - Peacekeeper。",
+    "tr": "\"Tamam, sen kazandın. Ama bana anlattıklarınla ilgili kanıt istiyorum. Beni salgının başladığını söylediğin yere götür.\" - Peacekeeper.",
+    "es": "\"Bien, tú ganas. Pero quiero pruebas de lo que me dijiste. Llévame a donde dices que comenzó el brote.\" - Peacekeeper.",
+    "it": "\"Bene, hai vinto. Ma voglio una prova di quello che mi hai detto. Portami dove dici che è iniziata l'epidemia.\" - Peacekeeper."
+  },
+  "STR_OP_CAMPAIGN_7_DESC": {
+    "en": "\"Wait! Wait! I didn't cause the outbreak! I'm not with the zombies. There's a reason for all this; let me show you...\" - Eric.",
+    "ru": "\"Подождите! Подождите! Не я вызвал вспышку! Я не с зомби. У всего этого есть причина, позвольте мне показать вам...\" - Eric.",
+    "zh-CN": "“等等！等等！我没有导致爆发！我不和僵尸在一起。这一切都是有原因的；让我告诉你......” - Eric。",
+    "tr": "\"Bekle! Bekle! Salgına ben neden olmadım! Zombilerden yana değilim. Bütün bunların bir nedeni var; sana göstereyim...\" - Eric.",
+    "es": "\"¡Espera! ¡Espera! ¡Yo no causé el brote! No estoy con los zombis. Hay una razón para todo esto; déjame mostrarte...\" - Eric.",
+    "it": "\"Aspetta! Aspetta! Non sono stato io a causare l'epidemia! Non sono con gli zombi. C'è una ragione per tutto questo; lascia che te lo mostri...\" - Eric."
+  },
+  "STR_OP_CAMPAIGN_8_DESC": {
+    "en": "\"The infestors are too dangerous to keep alive! Surrender this facility to us, Eric!\" - Peacekeeper.",
+    "ru": "\"Инфесторы слишком опасны, чтобы оставлять их в живых! Отдай это сооружение нам, Эрик!\" - Peacekeeper.",
+    "zh-CN": "“感染者太危险了，无法存活！把这个设施交给我们，埃里克！” - Peacekeeper。",
+    "tr": "\"İstilacılar hayatta kalmak için çok tehlikeli! Bu tesisi bize teslim et Eric!\" - Peacekeeper.",
+    "es": "\"¡Los Infestors son demasiado peligrosos para mantenerlos con vida! ¡Ríndenos esta instalación, Eric!\" - Peacekeeper.",
+    "it": "\"Gli Infestatori sono troppo pericolosi per essere mantenuti in vita! Consegnaci questa struttura, Eric!\" - Peacekeeper."
+  },
+  "STR_OP_CAMPAIGN_9_DESC": {
+    "en": "\"I'm taking Eric to UN Headquarters. This is a big mess we're in, and I'm going to need sanctioned government support.\" - Peacekeeper.",
+    "ru": "\"Я везу Эрика в штаб-квартиру ООН. У нас большой беспорядок, и мне понадобится санкционированная поддержка правительства\", - Peacekeeper.",
+    "zh-CN": "“我要带埃里克去联合国总部。我们现在陷入了一片混乱，我需要得到政府认可的支持。” - Peacekeeper。",
+    "tr": "\"Eric'i BM Genel Merkezine götürüyorum. İçinde bulunduğumuz büyük bir karışıklık ve tasdikli hükümet desteğine ihtiyacım olacak.\" - Peacekeeper.",
+    "es": "\"Voy a llevar a Eric a la sede de la ONU. Estamos en un gran lío, y voy a necesitar el apoyo del gobierno sancionado.\" - Peacekeeper.",
+    "it": "\"Sto portando Eric al quartier generale delle Nazioni Unite. Ci troviamo in un grosso pasticcio e avrò bisogno del sostegno del governo sanzionato.\" - Peacekeeper."
+  },
+  "STR_OP_CAMPAIGN_10_DESC": {
+    "en": "\"I'm not yet convinced. But I suggest contacting AE Arms; they're UMS's weapons supplier. They might have info.\" - Arachnid.",
+    "ru": "\"Я еще не уверен. Но я предлагаю связаться с AE Arms, они поставщики оружия для UMS. У них может быть информация\", - Arachnid.",
+    "zh-CN": "“我还不相信。但我建议联系 AE Arms；他们是 UMS 的武器供应商。他们可能有信息。” - Arachnid。",
+    "tr": "\"Henüz ikna olmadım. Ama AE Arms ile iletişime geçmenizi öneririm; onlar UMS'nin silah tedarikçisi. Bilgileri olabilir.\" - Arachnid.",
+    "es": "\"Todavía no estoy convencido. Pero sugiero contactar a AE Arms; ellos son los proveedores de armas de UMS. Es posible que tengan información.\" - Arachnid.",
+    "it": "\"Non sono ancora convinto. Ma suggerisco di contattare AE Arms; sono i fornitori di armi di UMS. Potrebbero avere informazioni.\" - Arachnid."
+  },
+  "STR_OP_CAMPAIGN_11_DESC": {
+    "en": "\"Here's some high explosives and the location of one of Eric's bases. Good luck; I won't be joining you. I have a business to run.\" - AETIC.",
+    "ru": "\"Вот взрывчатка и местонахождение одной из баз Эрика. Удачи, я к вам не присоединюсь. У меня есть дело\", - AETIC.",
+    "zh-CN": "“这里有一些烈性炸药和埃里克基地之一的位置。祝你好运；我不会加入你的行列。我有生意要经营。” - AETIC。",
+    "tr": "\"İşte bazı yüksek patlayıcılar ve Eric'in üslerinden birinin yeri. İyi şanslar; size katılmayacağım. Yürütecek bir işim var.\" - AETIC.",
+    "es": "\"Aquí hay algunos explosivos de alta potencia y la ubicación de una de las bases de Eric. Buena suerte, no me uniré a ustedes. Tengo un negocio que atender.\" - AETIC.",
+    "it": "\"Ecco alcuni esplosivi ad alto potenziale e la posizione di una delle basi di Eric. Buona fortuna; non mi unirò a te. Ho un'attività da gestire.\" - AETIC."
+  },
+  "STR_OP_CAMPAIGN_12_DESC": {
+    "en": "\"Trouble at the warehouse, AETIC's been taken hostage by UMS. I need you to rescue him; I'm needed at UN Headquarters.\" - Peacekeeper.",
+    "ru": "\"Проблема на складе, AETIC взят в заложники UMS. Мне нужно, чтобы вы его спасли; я нужен в штаб-квартире ООН\", - Peacekeeper.",
+    "zh-CN": "“仓库出事了，AETIC 被 UMS 劫持为人质。我需要你救他；联合国总部需要我。” - Peacekeeper。",
+    "tr": "\"Depoda sorun var, AETIC UMS tarafından rehin alındı. Onu kurtarmana ihtiyacım var; BM Genel Merkezinde bana ihtiyacım var.\" - Peacekeeper.",
+    "es": "\"Problemas en el almacén, AETIC ha sido tomado como rehén por UMS. Necesito que lo rescates; me necesitan en la sede de la ONU.\" - Peacekeeper.",
+    "it": "\"Problemi al magazzino, AETIC è stato preso in ostaggio dall'UMS. Ho bisogno che tu lo salvi; sono necessario al quartier generale delle Nazioni Unite.\" - Peacekeeper."
+  },
+  "STR_OP_CAMPAIGN_13_DESC": {
+    "en": "\"Thanks for the help back there. I need you to fly to the source of the Outpost outbreak; I'll tell you what to do then.\" - AETIC.",
+    "ru": "\"Спасибо за помощь там. Мне нужно, чтобы вы летели к источнику вспышки Аванпоста; тогда я скажу вам, что делать\" - AETIC.",
+    "zh-CN": "\"谢谢你在那边的帮助。我需要你飞到 Outpost 爆发的源头；然后我会告诉你该怎么做。\" - AETIC。",
+    "tr": "\"Yardımınız için teşekkürler. Karakol salgınının kaynağına uçmanız gerekiyor; o zaman size ne yapacağınızı söyleyeceğim.\" - AETIC.",
+    "es": "\"Gracias por la ayuda allí. Necesito que vueles a la fuente del brote de Outpost; te diré qué hacer entonces.\" - AETIC.",
+    "it": "\"Grazie per l'aiuto. Ho bisogno che tu voli alla fonte dell'epidemia di Outpost; ti dirò cosa fare allora.\" - AETIC."
+  },
+  "STR_OP_CAMPAIGN_14_DESC": {
+    "en": "\"He's gotten away! Don't worry, the boss'll take care of him.\" - Militia Soldier.",
+    "ru": "\"Он сбежал! Не волнуйся, босс о нем позаботится\", - Солдат милиции.",
+    "zh-CN": "“他逃走了！别担心，老大会照顾他的。” - 民兵士兵。",
+    "tr": "\"Kaçtı! Merak etme, patron onunla ilgilenecek.\" - Militia Soldier.",
+    "es": "\"¡Se ha escapado! No te preocupes, el jefe se encargará de él.\" - Soldado de la Milicia.",
+    "it": "\"Se n'è andato! Non preoccuparti, il capo si prenderà cura di lui.\" - Soldato della milizia."
+  },
+  "STR_OP_CAMPAIGN_15_DESC": {
+    "en": "\" lock him up, boys! he'll see things our way eventually >:) \" - Wild West Wrangler.",
+    "ru": "\"Заприте его, мальчики! Рано или поздно он увидит все по-нашему!\" - Спорщик Дикого Запада.",
+    "zh-CN": "“把他关起来，孩子们！他迟早会看到我们的方式！” - 狂野西部牧马人。",
+    "tr": "\"Onu kilitleyin çocuklar! Er ya da geç her şeyi bizim açımızdan görecek!\" - Wild West Wrangler.",
+    "es": "\"¡Enciérrenlo, muchachos! ¡Eventualmente verá las cosas a nuestra manera!\" - Wild West Wrangler.",
+    "it": "\"Rinchiudilo, ragazzi! Alla fine vedrà le cose a modo nostro!\" - Wild West Wrangler."
+  },
+  "STR_OP_CAMPAIGN_16_DESC": {
+    "en": "\"I've decided you're right. I'm joining you. AETIC wants us to plant another bomb at the site of the Outpost Outbreak.\" - Arachnid.",
+    "ru": "«Я решил, что вы правы. Я присоединюсь к вам. AETIC хочет, чтобы мы заложили еще одну бомбу на месте вспышки аванпоста». - Arachnid.",
+    "zh-CN": "“我认为你是对的。我会加入你的行列。AETIC 希望我们在 Outpost 爆发地点放置另一枚炸弹。” - Arachnid。",
+    "tr": "\"Haklı olduğuna karar verdim. Sana katılıyorum. AETIC, Karakol Salgını bölgesine bir bomba daha yerleştirmemizi istiyor.\" - Arachnid.",
+    "es": "\"He decidido que tienes razón. Me uno a ti. AETIC quiere que coloquemos otra bomba en el lugar del Outpost Outbreak.\" - Arachnid.",
+    "it": "\"Ho deciso che hai ragione. Mi unisco a te. AETIC vuole che piazziamo un'altra bomba nel luogo dell'epidemia di Outpost.\" - Arachnid."
+  },
+  "STR_OP_CAMPAIGN_17_DESC": {
+    "en": "\"I'm flying you out with Ari to grab something for me. This assignment is a little shady; you won't get any more details until you're there.\" - AETIC.",
+    "ru": "«Я лечу вас с Ари, чтобы вы кое-что прихватили для меня. Это задание немного сомнительное; вы не получите никаких подробностей, пока не приедете туда». - AETIC.",
+    "zh-CN": "“我要带你和 Ari 一起出去帮我拿点东西。这个任务有点阴暗；在你到那里之前你不会得到更多细节。” - AETIC。",
+    "tr": "\"Benim için bir şeyler almanız için sizi Ari ile birlikte dışarı çıkarıyorum. Bu görev biraz karanlık; oraya gelene kadar daha fazla ayrıntı alamayacaksınız.\" - AETIC.",
+    "es": "\"Voy a llevarte con Ari para conseguir algo para mí. Esta tarea es un poco turbia; no obtendrás más detalles hasta que estés allí.\" - AETIC.",
+    "it": "\"Ti porto fuori con Ari per prendere qualcosa per me. Questo incarico è un po' losco; non avrai più dettagli finché non sarai lì.\" - AETIC."
+  },
+  "STR_OP_CAMPAIGN_18_DESC": {
+    "en": "\"We need to get to the center of the outbreak. Here's some more high-yield explosives, see if you can blast a path through.\" - AETIC.",
+    "ru": "\"Нам нужно добраться до центра очага. Вот еще несколько взрывчатых веществ большой мощности, посмотрим, сможете ли вы проложить путь через них\", - AETIC.",
+    "zh-CN": "“我们需要到达爆发的中心。这里还有一些高产炸药，看看你能不能炸开一条路。” - AETIC。",
+    "tr": "\"Salgının merkezine gitmemiz gerekiyor. İşte biraz daha yüksek verimli patlayıcılar, bir yolu patlatıp geçemeyeceğinize bakın.\" - AETIC.",
+    "es": "\"Necesitamos llegar al centro del brote. Aquí hay más explosivos de alto rendimiento, a ver si puedes abrir un camino\". - AETIC.",
+    "it": "\"Dobbiamo arrivare al centro dell'epidemia. Ecco altri esplosivi ad alto rendimento, vedi se riesci a farcela.\" - AETIC."
+  },
+  "STR_OP_CAMPAIGN_19_DESC": {
+    "en": "\"This is it, the core of the outbreak. Get as far as you can into the facility, then prime the bomb for detonation.\" - Peacekeeper.",
+    "ru": "\"Вот оно, ядро очага. Проберитесь как можно дальше в объект, затем подготовьте бомбу к детонации\", - Peacekeeper.",
+    "zh-CN": "“就是这样；爆发的核心。尽可能进入设施，然后准备引爆炸弹。” - Peacekeeper。",
+    "tr": "\"İşte bu; salgının özü. Tesise mümkün olduğunca yaklaşın, ardından bombayı patlamaya hazırlayın.\" - Peacekeeper.",
+    "es": "\"Esto es todo, el núcleo del brote. Llega lo más lejos que puedas en las instalaciones, luego prepara la bomba para la detonación.\" - Peacekeeper.",
+    "it": "\"Questo è tutto, il cuore dell'epidemia. Avvicinati il più possibile all'interno della struttura, quindi innesca la bomba per la detonazione.\" - Peacekeeper."
+  },
+  "STR_ALLY_KILLED": {
+    "en": "Vital Ally Was Killed",
+    "ru": "Важный союзник был убит",
+    "zh-CN": "重要盟友被杀",
+    "tr": "Hayati Müttefik Öldürüldü",
+    "es": "Aliado vital fue asesinado",
+    "it": "Vital alleato è stato ucciso"
+  },
+  "STR_PRELOADING_TEXTURES": {
+    "en": "Preloading Textures",
+    "ru": "Загрузка текстур",
+    "zh-CN": "加载纹理",
+    "tr": "Dokuları Önyükleme",
+    "es": "Cargando Texturas",
+    "it": "Precaricamento delle Trame"
   }
 }

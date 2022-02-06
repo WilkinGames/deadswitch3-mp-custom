@@ -1,9 +1,11 @@
 {
   "id": "op_custom_campaign_13",
-  "bCustom": true,
+  "packId": "campaign",
+  "requiredId": "op_custom_campaign_12",
+  "nextId": "op_custom_campaign_14",
   "info": {
-    "name": "Next Destination",
-    "desc": "\"Thanks for the help back there. I need you to fly to the source of the Outpost outbreak; I'll tell you what to do then.\" - AETIC."
+    "name": "STR_OP_CAMPAIGN_13",
+    "desc": "STR_OP_CAMPAIGN_13_DESC"
   },
   "requiredLevel": 1,
   "rewards": [],
@@ -15,7 +17,7 @@
     "settings": {
       "bAllowRespawns": false,
       "bSpawnProtection": false,
-	  "bDroppedWeapons": true,
+      "bDroppedWeapons": true,
       "preGameTimer": 0,
       "timeLimit": 5
     }
@@ -44,7 +46,7 @@
         "messageData": {
           "message": "Hijack! Come out with your hands up!",
           "size": 200,
-		  "bRemove": true,
+          "bRemove": true,
           "atlas": "atlas_cards",
           "icon": "char_militia_2"
         },
@@ -55,8 +57,8 @@
         "messageData": {
           "message": "Where did he go? Find him, or the boss will skin us alive!",
           "width": 200,
-		  "height": 1000,
-		  "bRemove": true,
+          "height": 1000,
+          "bRemove": true,
           "atlas": "atlas_cards",
           "icon": "char_militia_2"
         },
@@ -67,8 +69,8 @@
         "messageData": {
           "message": "He's escaping! Keep him pinned on the airplane; we're calling for backup!",
           "width": 200,
-		  "height": 1000,
-		  "bRemove": true,
+          "height": 1000,
+          "bRemove": true,
           "atlas": "atlas_cards",
           "icon": "char_militia_2"
         },
@@ -176,7 +178,7 @@
         "inventory": [ { "id": "rpk" } ],
         "ai": {
           "bCamp": true,
-		  "bCampUntilLOS": true
+          "bCampUntilLOS": true
         }
       },
       {
@@ -195,7 +197,7 @@
         "inventory": [ { "id": "pecheneg" } ],
         "ai": {
           "bCamp": true,
-		  "bCampUntilLOS": true
+          "bCampUntilLOS": true
         }
       },
       {
@@ -215,7 +217,7 @@
         "preset": "militia_heavy",
         "inventory": [ { "id": "bren" } ],
         "ai": {
-		  "bCanInvestigate": false,
+          "bCanInvestigate": false,
           "patrolPoints": [
             [ 4775, 1205 ]
           ]

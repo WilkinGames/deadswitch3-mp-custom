@@ -1,9 +1,11 @@
 {
   "id": "op_custom_campaign_06",
-  "bCustom": true,
+  "packId": "campaign",
+  "requiredId": "op_custom_campaign_05",
+  "nextId": "op_custom_campaign_07",
   "info": {
-    "name": "The Return",
-    "desc": "\"Fine, you win. But I want proof about about what you've told me. Take me to where you say the outbreak started.\" - Peacekeeper."
+    "name": "STR_OP_CAMPAIGN_6",
+    "desc": "STR_OP_CAMPAIGN_6_DESC"
   },
   "requiredLevel": 1,
   "rewards": [],
@@ -15,7 +17,7 @@
     "settings": {
       "bAllowRespawns": false,
       "bSpawnProtection": false,
-	  "bDroppedWeapons": true,
+      "bDroppedWeapons": true,
       "preGameTimer": 0,
       "timeLimit": 5
     }
@@ -50,7 +52,7 @@
           "size": 200,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 7500, 1425 ]
       },
@@ -59,10 +61,10 @@
         "messageData": {
           "message": "Zombies incoming. Get ready.",
           "width": 200,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 6575, 1000 ]
       },
@@ -71,11 +73,11 @@
         "messageData": {
           "message": "This is bad, the zombies have started to mutate. They're becoming stronger.",
           "width": 8000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
-		  "timeTrigger": 4.75,
-		  "bRemove": true
+          "timeTrigger": 4.75,
+          "bRemove": true
         },
         "position": [ 4000, 1000 ]
       },
@@ -84,11 +86,11 @@
         "messageData": {
           "message": "Get off my property!",
           "width": 8000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_eric",
-		  "timeTrigger": 4.50,
-		  "bRemove": true
+          "timeTrigger": 4.50,
+          "bRemove": true
         },
         "position": [ 4000, 1000 ]
       },
@@ -97,11 +99,11 @@
         "messageData": {
           "message": "Who?...",
           "width": 8000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
-		  "timeTrigger": 4.45,
-		  "bRemove": true
+          "timeTrigger": 4.45,
+          "bRemove": true
         },
         "position": [ 4000, 1000 ]
       },
@@ -110,11 +112,11 @@
         "messageData": {
           "message": "I'm Eric! I own this lab! Now what are you doing here?",
           "width": 8000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_eric",
-		  "timeTrigger": 4.42,
-		  "bRemove": true
+          "timeTrigger": 4.42,
+          "bRemove": true
         },
         "position": [ 4000, 1000 ]
       },
@@ -123,11 +125,11 @@
         "messageData": {
           "message": "We're investigating the source of the zombie disease! You're under arrest for suspicion of involvement!",
           "width": 8000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
-		  "timeTrigger": 4.33,
-		  "bRemove": true
+          "timeTrigger": 4.33,
+          "bRemove": true
         },
         "position": [ 4000, 1000 ]
       }
@@ -136,28 +138,29 @@
       {
         "type": "character",
         "position": [ 7750, 1425 ],
-		"team": 0,
+        "team": 0,
         "heroId": "HERO_OBSV32",
+        "bFailIfKilled": true,
         "ai": {
-		  "bStayPatrol": true,
+          "bStayPatrol": true,
           "patrolPoints": [
             [ 1890, 1355 ]
           ]
         }
       },
-	  {
+      {
         "type": "infestor",
         "position": [ 4005, 1410 ],
         "preset": "infestor",
         "ai": {
-		  "bLOS": true,
+          "bLOS": true,
           "patrolPoints": [
             [ 5085, 1765 ],
             [ 3645, 1410 ]
           ]
         }
       },
-	  {
+      {
         "type": "character",
         "position": [ 3040, 1765 ],
         "preset": "zombie_exploder_boss",
@@ -169,7 +172,7 @@
           ]
         }
       },
-	  {
+      {
         "type": "character",
         "position": [ 3570, 1410 ],
         "preset": "zombie_fat",
@@ -180,7 +183,7 @@
           ]
         }
       },
-	  {
+      {
         "type": "character",
         "position": [ 3750, 1220 ],
         "preset": "zombie_generic",
@@ -192,19 +195,19 @@
           ]
         }
       },
-	  {
+      {
         "type": "character",
         "position": [ 4020, 1410 ],
         "preset": "zombie_sprinter_boss",
         "ai": {
-		  "bCanInvestigate": false,
+          "bCanInvestigate": false,
           "patrolPoints": [
             [ 2475, 1665 ],
             [ 4020, 1410 ]
           ]
         }
       },
-	  {
+      {
         "type": "character",
         "position": [ 4090, 1620 ],
         "preset": "zombie_exploder",
@@ -216,20 +219,20 @@
           ]
         }
       },
-	  {
+      {
         "type": "infestor",
         "position": [ 2375, 1665 ],
         "preset": "infestor",
         "ai": {
-		  "bLOS": true,
-		  "bCanInvestigate": false,
+          "bLOS": true,
+          "bCanInvestigate": false,
           "patrolPoints": [
             [ 4115, 1025 ],
             [ 5770, 1665 ]
           ]
         }
       },
-	  {
+      {
         "type": "character",
         "position": [ 5285, 1425 ],
         "preset": "zombie_spitter",
@@ -240,12 +243,12 @@
           ]
         }
       },
-	  {
+      {
         "type": "character",
         "position": [ 3460, 1215 ],
         "preset": "zombie_spitter_boss",
         "ai": {
-		  "bCannInvestigate": false,
+          "bCannInvestigate": false,
           "patrolPoints": [
             [ 5550, 1665 ],
             [ 4095, 1625 ],
@@ -253,7 +256,7 @@
           ]
         }
       },
-	  {
+      {
         "type": "character",
         "position": [ 4390, 1210 ],
         "preset": "zombie_fat",
@@ -264,12 +267,12 @@
           ]
         }
       },
-	  {
+      {
         "type": "character",
         "position": [ 2685, 1725 ],
         "preset": "zombie_sprinter",
         "ai": {
-		  "bCanInvestigate": false,
+          "bCanInvestigate": false,
           "patrolPoints": [
             [ 4630, 1025 ],
             [ 5055, 1765 ],
@@ -277,19 +280,19 @@
           ]
         }
       },
-	  {
+      {
         "type": "infestor",
         "position": [ 4055, 1410 ],
         "preset": "infestor",
         "ai": {
-		  "bLOS": true,
+          "bLOS": true,
           "patrolPoints": [
             [ 5340, 1705 ],
             [ 3310, 1210 ]
           ]
         }
       },
-	  {
+      {
         "type": "character",
         "position": [ 3315, 1665 ],
         "preset": "zombie_generic",
@@ -301,12 +304,12 @@
           ]
         }
       },
-	  {
+      {
         "type": "character",
         "position": [ 3925, 1025 ],
         "preset": "zombie_exploder_boss",
         "ai": {
-		  "bCanInvestigate": false,
+          "bCanInvestigate": false,
           "patrolPoints": [
             [ 5770, 1665 ],
             [ 3925, 1025 ]
@@ -316,18 +319,18 @@
       {
         "type": "character",
         "position": [ 50, 1425 ],
-		"team": 2,
+        "team": 2,
         "preset": "juggernaut",
-        "inventory": [ 
+        "inventory": [
           {
             "id": "m240",
             "mods": {
               "barrel": "base_speed"
             }
           }
-		],
+        ],
         "ai": {
-		  "bStayPatrol": true,
+          "bStayPatrol": true,
           "patrolPoints": [
             [ 6065, 1355 ]
           ]
@@ -336,18 +339,18 @@
       {
         "type": "character",
         "position": [ 150, 1425 ],
-		"team": 2,
+        "team": 2,
         "preset": "juggernaut",
-        "inventory": [ 
+        "inventory": [
           {
             "id": "m60e4",
             "mods": {
               "barrel": "base_speed"
             }
           }
-		],
+        ],
         "ai": {
-		  "bStayPatrol": true,
+          "bStayPatrol": true,
           "patrolPoints": [
             [ 6065, 1355 ]
           ]
@@ -356,12 +359,12 @@
       {
         "type": "character",
         "position": [ 1125, 1425 ],
-		"team": 2,
+        "team": 2,
         "heroId": "HERO_ERIC",
         "ai": {
-		  "bStayPatrol": true,
+          "bStayPatrol": true,
           "patrolPoints": [
-		    [ 100, 1425 ],
+            [ 100, 1425 ],
             [ 6065, 1355 ]
           ]
         }

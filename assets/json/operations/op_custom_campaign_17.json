@@ -1,9 +1,11 @@
 {
   "id": "op_custom_campaign_17",
-  "bCustom": true,
+  "packId": "campaign",
+  "requiredId": "op_custom_campaign_16",
+  "nextId": "op_custom_campaign_18",
   "info": {
-    "name": "The Bomb",
-    "desc": "\"I'm flying you out with Ari to grab something for me. This assignment is a little shady; you won't get any more details until you're there.\" - AETIC."
+    "name": "STR_OP_CAMPAIGN_17",
+    "desc": "STR_OP_CAMPAIGN_17_DESC"
   },
   "requiredLevel": 1,
   "rewards": [],
@@ -15,7 +17,7 @@
     "settings": {
       "bAllowRespawns": false,
       "bSpawnProtection": false,
-	  "bDroppedWeapons": true,
+      "bDroppedWeapons": true,
       "preGameTimer": 0,
       "timeLimit": 5
     }
@@ -26,20 +28,20 @@
       "inventory": [
         {
           "id": "lvoa",
-		  "ammo": 120,
+          "ammo": 120,
           "mods": {
             "base": "base_range",
-			"barrel": "barrel_laser",
-			"ammo": "ammo_range"
+            "barrel": "barrel_laser",
+            "ammo": "ammo_range"
           }
         },
         {
           "id": "vp70",
-		  "ammo": 90,
+          "ammo": 90,
           "mods": {
             "base": "base_damper",
             "barrel": "barrel_laser",
-			"ammo": "ammo_hollow_point"
+            "ammo": "ammo_hollow_point"
           }
         }
       ],
@@ -63,11 +65,11 @@
         "messageData": {
           "message": "The original outbreak site has become completely uncontrollable. It's spreading like wildfire.",
           "width": 8000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_ari",
-		  "timeTrigger": 4.92,
-		  "bRemove": true
+          "timeTrigger": 4.92,
+          "bRemove": true
         },
         "position": [ 4000, 1000 ]
       },
@@ -76,11 +78,11 @@
         "messageData": {
           "message": "There's no way any army's going to be able to contain it, and our bombs are too weak to make a dent.",
           "width": 8000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_ari",
-		  "timeTrigger": 4.83,
-		  "bRemove": true
+          "timeTrigger": 4.83,
+          "bRemove": true
         },
         "position": [ 4000, 1000 ]
       },
@@ -89,11 +91,11 @@
         "messageData": {
           "message": "Have you ever heard of the Deadswitch Program?",
           "width": 8000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_ari",
-		  "timeTrigger": 4.75,
-		  "bRemove": true
+          "timeTrigger": 4.75,
+          "bRemove": true
         },
         "position": [ 4000, 1000 ]
       },
@@ -102,11 +104,11 @@
         "messageData": {
           "message": "AETIC's been working on it in secret for years. An extremely compact, high yield nuclear warhead.",
           "width": 8000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_ari",
-		  "timeTrigger": 4.67,
-		  "bRemove": true
+          "timeTrigger": 4.67,
+          "bRemove": true
         },
         "position": [ 4000, 1000 ]
       },
@@ -115,11 +117,11 @@
         "messageData": {
           "message": "It's the only way to stop the outbreak: Nuking it. Wiping out as many infestors as we can in one go.",
           "width": 8000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_ari",
-		  "timeTrigger": 4.58,
-		  "bRemove": true
+          "timeTrigger": 4.58,
+          "bRemove": true
         },
         "position": [ 4000, 1000 ]
       },
@@ -128,11 +130,11 @@
         "messageData": {
           "message": "That's why he sent us here: to steal the uranium he needs to build a bomb this big.",
           "width": 8000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_ari",
-		  "timeTrigger": 4.50,
-		  "bRemove": true
+          "timeTrigger": 4.50,
+          "bRemove": true
         },
         "position": [ 4000, 1000 ]
       },
@@ -141,11 +143,11 @@
         "messageData": {
           "message": "And that's also why we're keeping this assignment undercover. We don't think Peacekeeper would approve of stealing it.",
           "width": 8000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_ari",
-		  "timeTrigger": 4.42,
-		  "bRemove": true
+          "timeTrigger": 4.42,
+          "bRemove": true
         },
         "position": [ 4000, 1000 ]
       },
@@ -154,11 +156,11 @@
         "messageData": {
           "message": "We just don't have any political support. No uranium for the bomb, no aircraft to drop the bomb. There just isn't time.",
           "width": 8000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_ari",
-		  "timeTrigger": 4.33,
-		  "bRemove": true
+          "timeTrigger": 4.33,
+          "bRemove": true
         },
         "position": [ 4000, 1000 ]
       },
@@ -168,8 +170,8 @@
         "options": {
           "mods": {
             "base": "base_damper",
-		    "barrel": "barrel_laser",
-			"ammo": "ammo_fmj"
+            "barrel": "barrel_laser",
+            "ammo": "ammo_fmj"
           }
         },
         "position": [ 760, 1770 ]
@@ -178,11 +180,11 @@
         "type": "droppedWeapon",
         "weaponId": "origin12",
         "options": {
-		  "ammo": 50,
+          "ammo": 50,
           "mods": {
             "base": "base_speed",
-		    "barrel": "barrel_laser",
-			"ammo": "ammo_fmj"
+            "barrel": "barrel_laser",
+            "ammo": "ammo_fmj"
           }
         },
         "position": [ 860, 1770 ]
@@ -202,12 +204,13 @@
       {
         "type": "character",
         "position": [ 525, 1770 ],
-		"team": 0,
+        "team": 0,
         "heroId": "HERO_ARI",
+        "bFailIfKilled": true,
         "ai": {
-		  "bStayPatrol": true,
+          "bStayPatrol": true,
           "patrolPoints": [
-		    [ 525, 1770 ],
+            [ 525, 1770 ],
             [ 7310, 1770 ]
           ]
         }
@@ -228,17 +231,17 @@
         "preset": "usmc_sniper",
         "inventory": [ { "id": "r700" } ],
         "ai": {
-		  "bCamp": true
-		}
+          "bCamp": true
+        }
       },
       {
         "type": "character",
         "position": [ 7065, 1140 ],
         "preset": "usmc_sniper",
         "inventory": [ { "id": "r700" } ],
-        "ai": { 
-	      "bCamp": true
-		}
+        "ai": {
+          "bCamp": true
+        }
       },
       {
         "type": "character",
@@ -246,46 +249,46 @@
         "preset": "usmc_sniper",
         "inventory": [ { "id": "rsass" } ],
         "ai": {
-		  "bCamp": true
-		}
+          "bCamp": true
+        }
       },
       {
         "type": "character",
         "position": [ 4400, 1065 ],
         "preset": "usmc_sniper",
         "inventory": [ { "id": "rsass" } ],
-        "ai": { 
-	      "bCamp": true
-		}
+        "ai": {
+          "bCamp": true
+        }
       },
       {
         "type": "character",
         "position": [ 5500, 850 ],
         "preset": "usmc_generic",
         "inventory": [ { "id": "rsass" } ],
-        "ai": { 
-	      "bCamp": true
-		}
+        "ai": {
+          "bCamp": true
+        }
       },
       {
         "type": "character",
         "position": [ 3925, 1540 ],
         "preset": "usmc_heavy",
         "inventory": [ { "id": "m60e4" } ],
-        "ai": { 
-	      "bCamp": true,
-	      "bCampUntilLOS": true
-		}
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
       },
       {
         "type": "character",
         "position": [ 4075, 1540 ],
         "preset": "usmc_heavy",
         "inventory": [ { "id": "m60e4" } ],
-        "ai": { 
-	      "bCamp": true,
-	      "bCampUntilLOS": true
-		}
+        "ai": {
+          "bCamp": true,
+          "bCampUntilLOS": true
+        }
       },
       {
         "type": "character",

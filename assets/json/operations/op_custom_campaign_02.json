@@ -1,9 +1,11 @@
 {
   "id": "op_custom_campaign_02",
-  "bCustom": true,
+  "packId": "campaign",
+  "requiredId": "op_custom_campaign_01",
+  "nextId": "op_custom_campaign_03",
   "info": {
-    "name": "Rescue Assignment",
-    "desc": "Well done. Moussa tells us you have potential. One of our top snipers, Arachnid, has been taken prisoner by UN forces. Rescue him."
+    "name": "STR_OP_CAMPAIGN_2",
+    "desc": "STR_OP_CAMPAIGN_2_DESC"
   },
   "requiredLevel": 1,
   "rewards": [],
@@ -15,7 +17,7 @@
     "settings": {
       "bAllowRespawns": false,
       "bSpawnProtection": false,
-	  "bDroppedWeapons": true,
+      "bDroppedWeapons": true,
       "preGameTimer": 0,
       "timeLimit": 5,
       "filterType": "night",
@@ -63,7 +65,7 @@
           "size": 200,
           "atlas": "atlas_cards",
           "icon": "wilkin",
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 250, 1040 ]
       },
@@ -72,10 +74,10 @@
         "messageData": {
           "message": "...? Is someone there?",
           "width": 200,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_twoplayer",
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 4000, 1000 ]
       },
@@ -86,7 +88,7 @@
           "size": 200,
           "atlas": "atlas_cards",
           "icon": "hero_twoplayer",
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 6245, 1595 ]
       },
@@ -97,7 +99,7 @@
           "size": 200,
           "atlas": "atlas_cards",
           "icon": "hero_twoplayer",
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 7200, 1770 ]
       },
@@ -108,7 +110,7 @@
           "ammo": 120,
           "mods": {
             "barrel": "barrel_laser",
-			"barrel2": "barrel_silencer"
+            "barrel2": "barrel_silencer"
           }
         },
         "position": [ 350, 1040 ]
@@ -118,8 +120,8 @@
         "weaponId": "m40a3",
         "options": {
           "mods": {
-		    "base": "base_range",
-			"barrel": "barrel_silencer"
+            "base": "base_range",
+            "barrel": "barrel_silencer"
           }
         },
         "position": [ 250, 1040 ]

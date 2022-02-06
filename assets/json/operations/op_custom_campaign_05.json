@@ -1,9 +1,11 @@
 {
   "id": "op_custom_campaign_05",
-  "bCustom": true,
+  "packId": "campaign",
+  "requiredId": "op_custom_campaign_04",
+  "nextId": "op_custom_campaign_06",
   "info": {
-    "name": "Packing Up",
-    "desc": "We're stationing you permanently on the defenses around the outbreak. Take some time at home to pack up for the trip."
+    "name": "STR_OP_CAMPAIGN_5",
+    "desc": "STR_OP_CAMPAIGN_5_DESC"
   },
   "requiredLevel": 1,
   "rewards": [],
@@ -15,7 +17,7 @@
     "settings": {
       "bAllowRespawns": false,
       "bSpawnProtection": false,
-	  "bDroppedWeapons": true,
+      "bDroppedWeapons": true,
       "preGameTimer": 0,
       "timeLimit": 5
     }
@@ -39,7 +41,7 @@
           "size": 200,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 3770, 1030 ]
       },
@@ -48,9 +50,9 @@
         "messageData": {
           "message": "I have to get to my weapons cache underground.",
           "width": 5000,
-		  "height": 2000,
-		  "timeTrigger": 4.90,
-		  "bRemove": true
+          "height": 2000,
+          "timeTrigger": 4.90,
+          "bRemove": true
         },
         "position": [ 2500, 1000 ]
       },
@@ -59,11 +61,11 @@
         "messageData": {
           "message": "If you resist, we may be required to use lethal force.",
           "width": 5000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
-		  "timeTrigger": 4.80,
-		  "bRemove": true
+          "timeTrigger": 4.80,
+          "bRemove": true
         },
         "position": [ 2500, 1000 ]
       },
@@ -72,7 +74,7 @@
         "messageData": {
           "message": "The weapons cache. I need to grab something quick.",
           "size": 200,
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 3475, 1510 ]
       },
@@ -81,11 +83,11 @@
         "messageData": {
           "message": "You are charged with aiding and abetting Arachnid, a known fugitive from international law.",
           "width": 5000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
-		  "timeTrigger": 4.00,
-		  "bRemove": true
+          "timeTrigger": 4.00,
+          "bRemove": true
         },
         "position": [ 2500, 1000 ]
       },
@@ -94,11 +96,11 @@
         "messageData": {
           "message": "And for instigating the infestor outbreak and zombie disease.",
           "width": 5000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
-		  "timeTrigger": 3.92,
-		  "bRemove": true
+          "timeTrigger": 3.92,
+          "bRemove": true
         },
         "position": [ 2500, 1000 ]
       },
@@ -107,9 +109,9 @@
         "messageData": {
           "message": "Peacekeeper, Arachnid and I have been working to stop the outbreak! We're not the cause!",
           "width": 5000,
-		  "height": 2000,
-		  "timeTrigger": 3.83,
-		  "bRemove": true
+          "height": 2000,
+          "timeTrigger": 3.83,
+          "bRemove": true
         },
         "position": [ 2500, 1000 ]
       },
@@ -118,11 +120,11 @@
         "messageData": {
           "message": "Lies! You're trying to gain your freedom! This is your last change to surrender peacefully!",
           "width": 5000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
-		  "timeTrigger": 3.75,
-		  "bRemove": true
+          "timeTrigger": 3.75,
+          "bRemove": true
         },
         "position": [ 2500, 1000 ]
       },
@@ -142,7 +144,7 @@
         "messageData": {
           "message": "   my lantana     :fexaiayes:   ",
           "size": 50,
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 4870, 1030 ]
       },
@@ -169,13 +171,13 @@
             "id": "striker",
             "mods": {
               "base": "base_speed",
-			  "barrel": "barrel_laser"
+              "barrel": "barrel_laser"
             }
           },
           {
             "id": "frag"
           }
-		],
+        ],
         "position": [ 3325, 1525 ]
       },
       {
@@ -185,20 +187,20 @@
             "id": "g36c",
             "mods": {
               "base": "base_damper",
-			  "ammo": "ammo_fmj"
+              "ammo": "ammo_fmj"
             }
           },
           {
             "id": "sr25",
             "mods": {
               "base": "base_range",
-			  "ammo": "barrel_laser"
+              "ammo": "barrel_laser"
             }
           },
           {
             "id": "flashbang"
           }
-		],
+        ],
         "position": [ 3585, 1485 ]
       }
     ],
@@ -345,7 +347,7 @@
         "inventory": [ { "id": "m60e4" } ],
         "ai": {
           "bCamp": true,
-		  "bCampUntilLOS": true
+          "bCampUntilLOS": true
         }
       },
       {

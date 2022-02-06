@@ -1,9 +1,11 @@
 {
   "id": "op_custom_campaign_14",
-  "bCustom": true,
+  "packId": "campaign",
+  "requiredId": "op_custom_campaign_13",
+  "nextId": "op_custom_campaign_15",
   "info": {
-    "name": "Talk with the Boss",
-    "desc": "\"He's gotten away! Don't worry, the boss'll take care of him.\" - Militia Soldier."
+    "name": "STR_OP_CAMPAIGN_14",
+    "desc": "STR_OP_CAMPAIGN_14_DESC"
   },
   "requiredLevel": 1,
   "rewards": [],
@@ -15,7 +17,7 @@
     "settings": {
       "bAllowRespawns": false,
       "bSpawnProtection": false,
-	  "bDroppedWeapons": true,
+      "bDroppedWeapons": true,
       "preGameTimer": 0,
       "timeLimit": 5
     }
@@ -37,7 +39,7 @@
           "size": 200,
           "atlas": "atlas_cards",
           "icon": "hero_wrangler",
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 90, 1270 ]
       },
@@ -46,11 +48,11 @@
         "messageData": {
           "message": "xddddddddddddddddddddddddddddddddddd",
           "width": 4000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_wrangler",
-		  "timeTrigger": 4.92,
-		  "bRemove": true
+          "timeTrigger": 4.92,
+          "bRemove": true
         },
         "position": [ 2000, 1000 ]
       },
@@ -59,11 +61,11 @@
         "messageData": {
           "message": "where you at? you cant run forever, sooner or later youll have to face me ;)",
           "width": 4000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_wrangler",
-		  "timeTrigger": 4.83,
-		  "bRemove": true
+          "timeTrigger": 4.83,
+          "bRemove": true
         },
         "position": [ 2000, 1000 ]
       },
@@ -72,11 +74,11 @@
         "messageData": {
           "message": "awwwwwwww did you drop your gun? xd i may have left something around here, but i forgot where ;)",
           "width": 4000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_wrangler",
-		  "timeTrigger": 4.75,
-		  "bRemove": true
+          "timeTrigger": 4.75,
+          "bRemove": true
         },
         "position": [ 2000, 1000 ]
       },
@@ -85,11 +87,11 @@
         "messageData": {
           "message": "so lets talk. i want you to quit messing around with eric's stuff",
           "width": 4000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_wrangler",
-		  "timeTrigger": 4.67,
-		  "bRemove": true
+          "timeTrigger": 4.67,
+          "bRemove": true
         },
         "position": [ 2000, 1000 ]
       },
@@ -98,11 +100,11 @@
         "messageData": {
           "message": "no, im not working for eric. i used to, but not anymore. i run the militia now :P",
           "width": 4000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_wrangler",
-		  "timeTrigger": 4.58,
-		  "bRemove": true
+          "timeTrigger": 4.58,
+          "bRemove": true
         },
         "position": [ 2000, 1000 ]
       },
@@ -111,11 +113,11 @@
         "messageData": {
           "message": "i don't like eric. hes got a monopoly on those jugg suits. im tryna stop that.",
           "width": 4000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_wrangler",
-		  "timeTrigger": 4.50,
-		  "bRemove": true
+          "timeTrigger": 4.50,
+          "bRemove": true
         },
         "position": [ 2000, 1000 ]
       },
@@ -124,11 +126,11 @@
         "messageData": {
           "message": "but those suits are valuable. so i want you to either stop tryna mess with eric's infestors...",
           "width": 4000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_wrangler",
-		  "timeTrigger": 4.42,
-		  "bRemove": true
+          "timeTrigger": 4.42,
+          "bRemove": true
         },
         "position": [ 2000, 1000 ]
       },
@@ -137,11 +139,11 @@
         "messageData": {
           "message": "...or help me take them for the militia. deal?",
           "width": 4000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_wrangler",
-		  "timeTrigger": 4.33,
-		  "bRemove": true
+          "timeTrigger": 4.33,
+          "bRemove": true
         },
         "position": [ 2000, 1000 ]
       },
@@ -150,11 +152,11 @@
         "messageData": {
           "message": "no? aight. guess i'll have to use other methods to \"convince\" you  >:)",
           "width": 4000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_wrangler",
-		  "timeTrigger": 4.25,
-		  "bRemove": true
+          "timeTrigger": 4.25,
+          "bRemove": true
         },
         "position": [ 2000, 1000 ]
       },
@@ -163,11 +165,11 @@
         "messageData": {
           "message": "terrorists? opfor? xdddddddddddddd we're not opfor, they're just noobs tryna cause chaos so they can take over.",
           "width": 4000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_wrangler",
-		  "timeTrigger": 4.00,
-		  "bRemove": true
+          "timeTrigger": 4.00,
+          "bRemove": true
         },
         "position": [ 2000, 1000 ]
       },
@@ -183,11 +185,11 @@
         "position": [ 3910, 1270 ],
         "heroId": "HERO_CHRIST",
         "ai": {
-		  "bLOS": false,
+          "bLOS": false,
           "patrolPoints": [
             [ 2000, 1160 ],
-			[ 2000, 1815 ],
-			[ 90, 1270 ],
+            [ 2000, 1815 ],
+            [ 90, 1270 ],
             [ 3910, 1270 ]
           ]
         }

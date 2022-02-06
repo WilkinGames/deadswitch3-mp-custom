@@ -1,9 +1,11 @@
 {
   "id": "op_custom_campaign_12",
-  "bCustom": true,
+  "packId": "campaign",
+  "requiredId": "op_custom_campaign_11",
+  "nextId": "op_custom_campaign_13",
   "info": {
-    "name": "Emergency",
-    "desc": "\"Trouble at the warehouse, AETIC's been taken hostage by UMS. I need you to rescue him; I'm needed at UN Headquarters.\" - Peacekeeper."
+    "name": "STR_OP_CAMPAIGN_12",
+    "desc": "STR_OP_CAMPAIGN_12_DESC"
   },
   "requiredLevel": 1,
   "rewards": [],
@@ -15,7 +17,7 @@
     "settings": {
       "bAllowRespawns": false,
       "bSpawnProtection": false,
-	  "bDroppedWeapons": true,
+      "bDroppedWeapons": true,
       "preGameTimer": 0,
       "timeLimit": 5,
       "numHostages": 1,
@@ -29,19 +31,19 @@
       "inventory": [
         {
           "id": "uzi",
-		  "ammo": 128,
+          "ammo": 128,
           "mods": {
-		    "base": "base_marksman",
+            "base": "base_marksman",
             "barrel": "barrel_silencer",
             "ammo": "ammo_range"
           }
         },
         {
           "id": "micro_uzi",
-		  "ammo": 100,
+          "ammo": 100,
           "mods": {
             "barrel": "barrel_silencer",
-			"ammo": "ammo_impact"
+            "ammo": "ammo_impact"
           }
         }
       ],
@@ -56,7 +58,7 @@
           "size": 200,
           "atlas": "atlas_cards",
           "icon": "hero_wulf",
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 285, 1555 ]
       },
@@ -65,11 +67,11 @@
         "messageData": {
           "message": "...",
           "width": 4000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_aetic",
-		  "timeTrigger": 4.92,
-		  "bRemove": true
+          "timeTrigger": 4.92,
+          "bRemove": true
         },
         "position": [ 2000, 1000 ]
       },
@@ -78,9 +80,9 @@
         "messageData": {
           "message": "?... A note left behind by AETIC: \"I left my railgun underground. Use it to take out Yung Wulf and his Juggernauts.\"",
           "width": 4000,
-		  "height": 2000,
-		  "timeTrigger": 4.58,
-		  "bRemove": true
+          "height": 2000,
+          "timeTrigger": 4.58,
+          "bRemove": true
         },
         "position": [ 2000, 1000 ]
       },
@@ -89,8 +91,8 @@
         "messageData": {
           "message": "The Railgun. I've only got a few shots, I'll have to use them well.",
           "width": 200,
-		  "height": 2000,
-		  "bRemove": true
+          "height": 2000,
+          "bRemove": true
         },
         "position": [ 2000, 1810 ]
       },
@@ -99,10 +101,10 @@
         "messageData": {
           "message": "AETIC, UMS depends on those Juggernaut suits! The infestors may be dangerous, but they're also necessary!",
           "width": 200,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_wulf",
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 2540, 1000 ]
       },
@@ -113,7 +115,7 @@
           "size": 100,
           "atlas": "atlas_cards",
           "icon": "hero_wulf",
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 3120, 985 ]
       },
@@ -124,7 +126,7 @@
           "size": 100,
           "atlas": "atlas_cards",
           "icon": "hero_aetic",
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 3410, 985 ]
       },
@@ -135,7 +137,7 @@
           "size": 200,
           "atlas": "atlas_cards",
           "icon": "hero_aetic",
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 3815, 1555 ]
       },
@@ -153,8 +155,8 @@
         "options": {
           "mods": {
             "base": "base_damper",
-		    "barrel": "barrel_silencer",
-		    "barrel2": "barrel_laser"
+            "barrel": "barrel_silencer",
+            "barrel2": "barrel_laser"
           }
         },
         "position": [ 385, 1555 ]
@@ -165,8 +167,8 @@
         "options": {
           "mods": {
             "base": "base_marksman",
-		    "barrel": "barrel_silencer",
-			"ammo": "ammo_range"
+            "barrel": "barrel_silencer",
+            "ammo": "ammo_range"
           }
         },
         "position": [ 485, 1555 ]
@@ -192,7 +194,7 @@
         "type": "character",
         "position": [ 1870, 1810 ],
         "style": "rus_heavy",
-		"health": 400,
+        "health": 400,
         "inventory": [ { "id": "ameli" } ],
         "ai": {
           "bCamp": true
@@ -202,7 +204,7 @@
         "type": "character",
         "position": [ 2130, 1810 ],
         "style": "rus_heavy",
-		"health": 400,
+        "health": 400,
         "inventory": [ { "id": "rpk16" } ],
         "ai": {
           "bCamp": true
@@ -216,7 +218,7 @@
         "ai": {
           "patrolPoints": [
             [ 2130, 1810 ],
-			[ 915, 1850 ]
+            [ 915, 1850 ]
           ]
         }
       },
@@ -227,7 +229,7 @@
         "inventory": [ { "id": "lvoa" } ],
         "ai": {
           "patrolPoints": [
-			[ 1870, 1810 ],
+            [ 1870, 1810 ],
             [ 3085, 1850 ]
           ]
         }
@@ -239,7 +241,7 @@
         "inventory": [ { "id": "par4" } ],
         "ai": {
           "bCamp": true,
-		  "bCampUntilLOS": true
+          "bCampUntilLOS": true
         }
       },
       {
@@ -249,14 +251,14 @@
         "inventory": [ { "id": "par4" } ],
         "ai": {
           "bCamp": true,
-		  "bCampUntilLOS": true
+          "bCampUntilLOS": true
         }
       },
       {
         "type": "character",
         "position": [ 2515, 1365 ],
         "style": "rus_sniper",
-		"health": 200,
+        "health": 200,
         "inventory": [ { "id": "steyr" } ],
         "ai": {
           "bCamp": true
@@ -266,7 +268,7 @@
         "type": "character",
         "position": [ 2515, 1170 ],
         "style": "rus_sniper",
-		"health": 200,
+        "health": 200,
         "inventory": [ { "id": "steyr" } ],
         "ai": {
           "bCamp": true
@@ -276,11 +278,11 @@
         "type": "character",
         "position": [ 2585, 1555 ],
         "style": "rus_heavy",
-		"health": 400,
+        "health": 400,
         "inventory": [ { "id": "mg42" } ],
         "ai": {
           "patrolPoints": [
-			[ 3335, 1555 ],
+            [ 3335, 1555 ],
             [ 2585, 1555 ]
           ]
         }
@@ -289,11 +291,11 @@
         "type": "character",
         "position": [ 660, 1555 ],
         "style": "rus_heavy",
-		"health": 400,
+        "health": 400,
         "inventory": [ { "id": "mg42" } ],
         "ai": {
           "patrolPoints": [
-			[ 1440, 1555 ],
+            [ 1440, 1555 ],
             [ 660, 1555 ]
           ]
         }
@@ -305,7 +307,7 @@
         "inventory": [ { "id": "k1a" } ],
         "ai": {
           "bCamp": true,
-		  "bCampUntilLOS": true
+          "bCampUntilLOS": true
         }
       },
       {
@@ -315,7 +317,7 @@
         "inventory": [ { "id": "k1a" } ],
         "ai": {
           "bCamp": true,
-		  "bCampUntilLOS": true
+          "bCampUntilLOS": true
         }
       },
       {
@@ -325,7 +327,7 @@
         "inventory": [ { "id": "sr25" } ],
         "ai": {
           "bCamp": true,
-		  "bCampUntilLOS": true
+          "bCampUntilLOS": true
         }
       },
       {
@@ -407,7 +409,7 @@
         ],
         "ai": {
           "bCamp": true,
-		  "bCampUntilLOS": true
+          "bCampUntilLOS": true
         }
       },
       {
@@ -415,7 +417,7 @@
         "position": [ 3715, 1555 ],
         "heroId": "HERO_KARAMBITGUY",
         "ai": {
-		  "bCamp": true
+          "bCamp": true
         }
       }
     ]

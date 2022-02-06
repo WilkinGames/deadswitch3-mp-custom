@@ -1,9 +1,11 @@
 {
   "id": "op_custom_campaign_10",
-  "bCustom": true,
+  "packId": "campaign",
+  "requiredId": "op_custom_campaign_09",
+  "nextId": "op_custom_campaign_11",
   "info": {
-    "name": "New Information",
-    "desc": "\"I'm not yet convinced. But I suggest contacting AE Arms; they're UMS's weapons supplier. They might have info.\" - Arachnid."
+    "name": "STR_OP_CAMPAIGN_10",
+    "desc": "STR_OP_CAMPAIGN_10_DESC"
   },
   "requiredLevel": 1,
   "rewards": [],
@@ -15,7 +17,7 @@
     "settings": {
       "bAllowRespawns": false,
       "bSpawnProtection": false,
-	  "bDroppedWeapons": true,
+      "bDroppedWeapons": true,
       "preGameTimer": 0,
       "timeLimit": 5
     }
@@ -28,7 +30,7 @@
           "id": "fal",
           "mods": {
             "barrel": "barrel_m203",
-			"ammo": "ammo_hollow_point"
+            "ammo": "ammo_hollow_point"
           }
         },
         {
@@ -46,7 +48,7 @@
           "size": 200,
           "atlas": "atlas_cards",
           "icon": "hero_twoplayer",
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 125, 1555 ]
       },
@@ -55,11 +57,11 @@
         "messageData": {
           "message": "A visitor. Show me what you can do.",
           "width": 4000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_aetic",
-		  "timeTrigger": 4.83,
-		  "bRemove": true
+          "timeTrigger": 4.83,
+          "bRemove": true
         },
         "position": [ 2000, 1000 ]
       },
@@ -68,9 +70,9 @@
         "messageData": {
           "message": "AETIC! Peacekeeper and I need your weapons and support to push back the zombie outbreak.",
           "width": 4000,
-		  "height": 2000,
-		  "timeTrigger": 4.67,
-		  "bRemove": true
+          "height": 2000,
+          "timeTrigger": 4.67,
+          "bRemove": true
         },
         "position": [ 2000, 1000 ]
       },
@@ -79,11 +81,11 @@
         "messageData": {
           "message": "My weapons are already being used by UMS, and they can barely hold back the outbreak as it stands.",
           "width": 4000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_aetic",
-		  "timeTrigger": 4.58,
-		  "bRemove": true
+          "timeTrigger": 4.58,
+          "bRemove": true
         },
         "position": [ 2000, 1000 ]
       },
@@ -92,9 +94,9 @@
         "messageData": {
           "message": "We have to put a stop to Eric's infestor research or there may be another outbreak.",
           "width": 4000,
-		  "height": 2000,
-		  "timeTrigger": 4.50,
-		  "bRemove": true
+          "height": 2000,
+          "timeTrigger": 4.50,
+          "bRemove": true
         },
         "position": [ 2000, 1000 ]
       },
@@ -103,11 +105,11 @@
         "messageData": {
           "message": "So not even UMS can push back the infestors? But they also want me to kill the person trying to stop it?",
           "width": 4000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_twoplayer",
-		  "timeTrigger": 4.25,
-		  "bRemove": true
+          "timeTrigger": 4.25,
+          "bRemove": true
         },
         "position": [ 2000, 1000 ]
       },
@@ -116,11 +118,11 @@
         "messageData": {
           "message": "Company politics is a messed up business, Arachnid. You're a pawn.",
           "width": 4000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_ari",
-		  "timeTrigger": 4.17,
-		  "bRemove": true
+          "timeTrigger": 4.17,
+          "bRemove": true
         },
         "position": [ 2000, 1000 ]
       },
@@ -129,11 +131,11 @@
         "messageData": {
           "message": "I think the best way we can stop any more outbreaks is to destroy Eric's research labs and the infestors there.",
           "width": 4000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_aetic",
-		  "timeTrigger": 4.05,
-		  "bRemove": true
+          "timeTrigger": 4.05,
+          "bRemove": true
         },
         "position": [ 2000, 1000 ]
       },
@@ -142,9 +144,9 @@
         "messageData": {
           "message": "UMS won't like that.",
           "width": 4000,
-		  "height": 2000,
-		  "timeTrigger": 4.00,
-		  "bRemove": true
+          "height": 2000,
+          "timeTrigger": 4.00,
+          "bRemove": true
         },
         "position": [ 2000, 1000 ]
       },
@@ -153,7 +155,7 @@
         "messageData": {
           "message": "AETIC's railgun is an explosive weapon. This should protect me.",
           "size": 200,
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 2800, 1845 ]
       },
@@ -171,7 +173,7 @@
         "messageData": {
           "message": "Yes. The fabled Fucking Useless. Forged from the tears of a crying Peacekeeper.",
           "size": 200,
-		  "bRemove": true
+          "bRemove": true
         },
         "position": [ 3940, 1555 ]
       },
@@ -179,7 +181,7 @@
         "type": "droppedWeapon",
         "weaponId": "fiveseven",
         "position": [ 3940, 1555 ],
-		"bPersistant": true
+        "bPersistant": true
       }
     ],
     "enemies": [
@@ -190,7 +192,7 @@
         "scale": -1,
         "turretData": {
           "type": "sentry",
-		  "bUnlimitedAmmo": true
+          "bUnlimitedAmmo": true
         }
       },
       {
@@ -200,7 +202,7 @@
         "scale": -1,
         "turretData": {
           "type": "sentry",
-		  "bUnlimitedAmmo": true
+          "bUnlimitedAmmo": true
         }
       },
       {
@@ -210,7 +212,7 @@
         "scale": -1,
         "turretData": {
           "type": "sentry",
-		  "bUnlimitedAmmo": true
+          "bUnlimitedAmmo": true
         }
       },
       {
@@ -220,7 +222,7 @@
         "scale": -1,
         "turretData": {
           "type": "sentry",
-		  "bUnlimitedAmmo": true
+          "bUnlimitedAmmo": true
         }
       },
       {

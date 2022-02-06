@@ -1,9 +1,11 @@
 {
   "id": "op_custom_campaign_18",
-  "bCustom": true,
+  "packId": "campaign",
+  "requiredId": "op_custom_campaign_17",
+  "nextId": "op_custom_campaign_19",
   "info": {
-    "name": "Into the Breach",
-    "desc": "\"We need to get to the center of the outbreak. Here's some more high-yield explosives, see if you can blast a path through.\" - AETIC."
+    "name": "STR_OP_CAMPAIGN_18",
+    "desc": "STR_OP_CAMPAIGN_18_DESC"
   },
   "requiredLevel": 1,
   "rewards": [],
@@ -15,7 +17,7 @@
     "settings": {
       "bAllowRespawns": false,
       "bSpawnProtection": false,
-	  "bDroppedWeapons": true,
+      "bDroppedWeapons": true,
       "preGameTimer": 0,
       "timeLimit": 5
     }
@@ -29,17 +31,17 @@
           "ammo": 300,
           "mods": {
             "base": "base_marksman",
-			"barrel": "barrel_grip",
-			"ammo": "ammo_ap"
+            "barrel": "barrel_grip",
+            "ammo": "ammo_ap"
           }
         },
         {
           "id": "tec9",
           "ammo": 96,
           "mods": {
-		    "base": "base_damper",
-		    "barrel": "barrel_laser",
-			"ammo": "ammo_impact"
+            "base": "base_damper",
+            "barrel": "barrel_laser",
+            "ammo": "ammo_impact"
           }
         }
       ],
@@ -63,11 +65,11 @@
         "messageData": {
           "message": "We can't hold off them and the zombies!",
           "width": 8000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_moussa",
-		  "timeTrigger": 4.92,
-		  "bRemove": true
+          "timeTrigger": 4.92,
+          "bRemove": true
         },
         "position": [ 4000, 1000 ]
       },
@@ -76,11 +78,11 @@
         "messageData": {
           "message": "Oh, this is Touhou Hijack we're working with. I finally got one government to give us some help.",
           "width": 8000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
-		  "timeTrigger": 4.50,
-		  "bRemove": true
+          "timeTrigger": 4.50,
+          "bRemove": true
         },
         "position": [ 4000, 1000 ]
       },
@@ -89,11 +91,11 @@
         "messageData": {
           "message": "I'm just here to scout things out. If we think it's worth it, we'll give you more support.",
           "width": 8000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_touhou",
-		  "timeTrigger": 4.42,
-		  "bRemove": true
+          "timeTrigger": 4.42,
+          "bRemove": true
         },
         "position": [ 4000, 1000 ]
       },
@@ -102,11 +104,11 @@
         "messageData": {
           "message": "Who is that?",
           "width": 8000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_touhou",
-		  "timeTrigger": 3.75,
-		  "bRemove": true
+          "timeTrigger": 3.75,
+          "bRemove": true
         },
         "position": [ 4000, 1000 ]
       },
@@ -115,11 +117,11 @@
         "messageData": {
           "message": "Leave my infestors alone.",
           "width": 8000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_wilkin",
-		  "timeTrigger": 3.67,
-		  "bRemove": true
+          "timeTrigger": 3.67,
+          "bRemove": true
         },
         "position": [ 4000, 1000 ]
       },
@@ -128,11 +130,11 @@
         "messageData": {
           "message": "What do you mean \"your\" infestors?... Wait...",
           "width": 8000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_peacekeeper",
-		  "timeTrigger": 3.58,
-		  "bRemove": true
+          "timeTrigger": 3.58,
+          "bRemove": true
         },
         "position": [ 4000, 1000 ]
       },
@@ -141,11 +143,11 @@
         "messageData": {
           "message": "You'll never be able to stop the infestation. Not even your Deadswitch can kill them all.",
           "width": 8000,
-		  "height": 2000,
+          "height": 2000,
           "atlas": "atlas_cards",
           "icon": "hero_wilkin",
-		  "timeTrigger": 3.50,
-		  "bRemove": true
+          "timeTrigger": 3.50,
+          "bRemove": true
         },
         "position": [ 4000, 1000 ]
       },
@@ -153,10 +155,10 @@
         "type": "droppedWeapon",
         "weaponId": "matador",
         "options": {
-		  "ammo": 5,
+          "ammo": 5,
           "mods": {
-		    "barrel": "barrel_laser",
-			"ammo": "ammo_explosive"
+            "barrel": "barrel_laser",
+            "ammo": "ammo_explosive"
           }
         },
         "position": [ 850, 1420 ]
@@ -165,11 +167,11 @@
         "type": "droppedWeapon",
         "weaponId": "g3",
         "options": {
-		  "ammo": 150,
+          "ammo": 150,
           "mods": {
             "base": "base_speed",
-		    "barrel": "barrel_laser",
-			"ammo": "ammo_hollow_point"
+            "barrel": "barrel_laser",
+            "ammo": "ammo_hollow_point"
           }
         },
         "position": [ 950, 1420 ]
@@ -200,10 +202,11 @@
       {
         "type": "character",
         "position": [ 575, 1835 ],
-		"team": 0,
+        "team": 0,
         "heroId": "HERO_OBSV32",
+        "bFailIfKilled": true,
         "ai": {
-		  "bStayPatrol": true,
+          "bStayPatrol": true,
           "patrolPoints": [
             [ 7100, 1100 ]
           ]
@@ -212,10 +215,11 @@
       {
         "type": "character",
         "position": [ 600, 1420 ],
-		"team": 0,
+        "team": 0,
         "heroId": "HERO_VALIANT25",
+        "bFailIfKilled": true,
         "ai": {
-		  "bStayPatrol": true,
+          "bStayPatrol": true,
           "patrolPoints": [
             [ 7100, 1100 ]
           ]
@@ -224,42 +228,42 @@
       {
         "type": "character",
         "position": [ 2475, 1100 ],
-		"team": 2,
+        "team": 2,
         "heroId": "HERO_KARAMBITGUY"
       },
       {
         "type": "character",
         "position": [ 2540, 1700 ],
-		"team": 2,
+        "team": 2,
         "heroId": "HERO_MOUSSA"
       },
       {
         "type": "character",
         "position": [ 2665, 1425 ],
-		"team": 2,
+        "team": 2,
         "heroId": "HERO_CHRIST"
       },
       {
         "type": "character",
         "position": [ 2695, 1635 ],
-		"team": 2,
+        "team": 2,
         "preset": "juggernaut",
         "inventory": [ { "id": "m240" } ]
       },
-	  {
+      {
         "type": "character",
         "position": [ 4000, 1440 ],
         "style": "zombie_generic",
         "inventory": [ { "id": "pecheneg" } ],
         "ai": {
-		  "bCanInvestigate": false,
+          "bCanInvestigate": false,
           "patrolPoints": [
             [ 5685, 1835 ],
             [ 6530, 1425 ]
           ]
         }
       },
-	  {
+      {
         "type": "character",
         "position": [ 7550, 1835 ],
         "preset": "zombie_exploder_boss",
@@ -271,7 +275,7 @@
           ]
         }
       },
-	  {
+      {
         "type": "character",
         "position": [ 6840, 1790 ],
         "preset": "zombie_fat",
@@ -283,7 +287,7 @@
           ]
         }
       },
-	  {
+      {
         "type": "character",
         "position": [ 5350, 1430 ],
         "preset": "zombie_sprinter_boss",
@@ -294,7 +298,7 @@
           ]
         }
       },
-	  {
+      {
         "type": "character",
         "position": [ 5115, 1640 ],
         "preset": "zombie_spitter_boss",
@@ -306,7 +310,7 @@
           ]
         }
       },
-	  {
+      {
         "type": "character",
         "position": [ 4615, 1670 ],
         "preset": "zombie_fat",
@@ -318,24 +322,24 @@
           ]
         }
       },
-	  {
+      {
         "type": "character",
         "position": [ 5115, 1640 ],
         "preset": "zombie_spitter",
         "ai": {
-		  "bCanInvestigate": false,
+          "bCanInvestigate": false,
           "patrolPoints": [
             [ 6530, 1425 ],
             [ 4000, 1440 ]
           ]
         }
       },
-	  {
+      {
         "type": "character",
         "position": [ 5460, 1695 ],
         "preset": "zombie_spitter_boss",
         "ai": {
-		  "bCannInvestigate": false,
+          "bCannInvestigate": false,
           "patrolPoints": [
             [ 7550, 1835 ],
             [ 4300, 1635 ],
@@ -343,24 +347,24 @@
           ]
         }
       },
-	  {
+      {
         "type": "character",
         "position": [ 6300, 1425 ],
         "preset": "zombie_fat",
         "ai": {
-		  "bCanInvestigate": false,
+          "bCanInvestigate": false,
           "patrolPoints": [
             [ 3645, 1635 ],
             [ 6300, 1425 ]
           ]
         }
       },
-	  {
+      {
         "type": "character",
         "position": [ 6840, 1790 ],
         "preset": "zombie_sprinter",
         "ai": {
-		  "bCanInvestigate": false,
+          "bCanInvestigate": false,
           "patrolPoints": [
             [ 5685, 1835 ],
             [ 3400, 1670 ],
@@ -368,7 +372,7 @@
           ]
         }
       },
-	  {
+      {
         "type": "character",
         "position": [ 4990, 1425 ],
         "style": "zombie_generic",
@@ -380,12 +384,12 @@
           ]
         }
       },
-	  {
+      {
         "type": "character",
         "position": [ 4590, 1890 ],
         "preset": "zombie_sprinter",
         "ai": {
-		  "bCanInvestigate": false,
+          "bCanInvestigate": false,
           "patrolPoints": [
             [ 4000, 1635 ],
             [ 4590, 1890 ],
@@ -393,67 +397,67 @@
           ]
         }
       },
-	  {
+      {
         "type": "character",
         "position": [ 5100, 1835 ],
         "preset": "zombie_exploder_boss",
         "ai": {
-		  "bCanInvestigate": false,
+          "bCanInvestigate": false,
           "patrolPoints": [
             [ 5350, 1430 ],
             [ 4000, 1440 ]
           ]
         }
       },
-	  {
+      {
         "type": "infestor",
         "position": [ 7000, 1100 ],
-		"team": 2,
+        "team": 2,
         "preset": "infestor",
         "ai": {
-		  "bCanInvestigate": false,
+          "bCanInvestigate": false,
           "bCamp": true,
-		  "bCampUntilLOS": true
+          "bCampUntilLOS": true
         }
       },
-	  {
+      {
         "type": "infestor",
         "position": [ 7050, 1100 ],
         "preset": "infestor",
         "ai": {
-		  "bLOS": true,
+          "bLOS": true,
           "bCamp": true,
-		  "bCampUntilLOS": true
+          "bCampUntilLOS": true
         }
       },
-	  {
+      {
         "type": "infestor",
         "position": [ 7100, 1100 ],
         "preset": "infestor",
         "ai": {
-		  "bLOS": true,
+          "bLOS": true,
           "bCamp": true,
-		  "bCampUntilLOS": true
+          "bCampUntilLOS": true
         }
       },
-	  {
+      {
         "type": "infestor",
         "position": [ 7150, 1100 ],
         "preset": "infestor",
         "ai": {
-		  "bLOS": true,
+          "bLOS": true,
           "bCamp": true,
-		  "bCampUntilLOS": true
+          "bCampUntilLOS": true
         }
       },
-	  {
+      {
         "type": "infestor",
         "position": [ 7200, 1100 ],
         "preset": "infestor",
         "ai": {
-		  "bLOS": true,
+          "bLOS": true,
           "bCamp": true,
-		  "bCampUntilLOS": true
+          "bCampUntilLOS": true
         }
       },
       {
@@ -461,8 +465,8 @@
         "position": [ 7100, 1100 ],
         "heroId": "HERO_XWILKINX",
         "ai": {
-		  "bLOS": true,
-		  "bCamp": true,
+          "bLOS": true,
+          "bCamp": true,
           "bCampUntilLOS": true
         }
       }

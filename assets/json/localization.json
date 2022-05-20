@@ -16566,5 +16566,13 @@
     "tr": "Dokuları Önyükleme",
     "es": "Cargando Texturas",
     "it": "Precaricamento delle Trame"
+  },
+  "STR_BUNDLE_SANTA": {
+    "en": "Santa Supply Cache",
+    "ru": "",
+    "zh-CN": "",
+    "tr": "",
+    "es": "",
+    "it": ""
   }
 }

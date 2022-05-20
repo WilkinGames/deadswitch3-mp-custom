@@ -963,7 +963,6 @@
     "name": "STR_HEAD_BASIC_TACTICAL_HELMET",
     "type": "head",
     "bHideHair": true,
-    "bHideBeard": true,
     "cost": 3,
     "unlockLevel": 12
   },

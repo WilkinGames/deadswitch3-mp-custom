@@ -201,7 +201,7 @@
     "enemies": [
       {
         "type": "character",
-        "position": [ 575, 1835 ],
+        "position": [ 500, 1835 ],
         "team": 0,
         "heroId": "HERO_OBSV32",
         "bFailIfKilled": true,

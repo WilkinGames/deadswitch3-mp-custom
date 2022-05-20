@@ -114,6 +114,7 @@
         "position": [ 5805, 1350 ],
         "team": 0,
         "heroId": "HERO_MOUSSA",
+        "bFailIfKilled": true,
         "ai": {
           "bStayPatrol": true,
           "patrolPoints": [

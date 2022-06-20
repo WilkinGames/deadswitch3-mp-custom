@@ -11,7 +11,7 @@
   "numBots": 0,
   "bAllowJoinInProgress": true,
   "bAllowVotekick": true,
-  "welcomeMessage": null,
+  "welcomeMessage": "Osuruk kemiksiz kakadır yeğen",
   "bannedUsernames": [],
   "bannedSteamIds": []
 }

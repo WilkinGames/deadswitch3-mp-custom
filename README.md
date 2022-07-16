@@ -3,7 +3,7 @@
 © 2022 Wilkin Games
 
 ## Branches
-Please create a new branch if you wish to make any changes. Do not commit to main!
+Please fork/create a new branch if you wish to make any changes. Do not commit to main!
 
 ## Overview
 This repository allows you to host your own Deadswitch 3 multiplayer server.

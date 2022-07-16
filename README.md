@@ -58,9 +58,9 @@ You can use a free/cheap Node.js app service to host the multiplayer server whic
 ## Instructions
 Navigate to the directory in which you wish to install the Deadswitch 3 multiplayer server.
 
-Clone this repository:
+Fork this repository:
 
-`git clone https://github.com/XWILKINX/ds3mp-custom`
+`git fork https://github.com/XWILKINX/ds3mp-custom`
 
 Install the required dependencies:
 

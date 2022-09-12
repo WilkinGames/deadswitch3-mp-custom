@@ -6808,7 +6808,7 @@
     "it": "Per giocatori con esperienza."
   },
   "STR_OP_DIFFICULTY_3_DESC": {
-    "en": "Extremely difficult.",
+    "en": "Warning: Extremely difficult.",
     "ru": "Невероятно сложно.",
     "zh-CN": "极其困难。",
     "tr": "Oldukça zor.",

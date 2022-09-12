@@ -1,7 +1,7 @@
 {
   "maxSurvivalMoney": 100000,
   "smokeSize": 300,
-  "heliMaxY": 1300,
+  "heliMaxY": 750,
   "ladderWidth": 24,
   "perks": {
     "fastReloadMultiplier": 1.8,

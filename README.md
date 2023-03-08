@@ -1,9 +1,9 @@
 # Deadswitch 3 Multiplayer Server
 
-© 2022 Wilkin Games
+© 2023 Wilkin Games
 
 ## Branches
-Please fork/create a new branch if you wish to make any changes. Do not commit to main!
+Please fork/create a new branch if you wish to make any changes. **Do not commit to main!**
 
 ## Overview
 This repository allows you to host your own Deadswitch 3 multiplayer server.
@@ -60,7 +60,7 @@ Navigate to the directory in which you wish to install the Deadswitch 3 multipla
 
 Fork this repository:
 
-`git fork https://github.com/XWILKINX/ds3mp-custom`
+`git clone https://github.com/XWILKINX/ds3mp-custom`
 
 Install the required dependencies:
 

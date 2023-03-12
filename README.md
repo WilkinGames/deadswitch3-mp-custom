@@ -52,7 +52,7 @@ Note that this will only allow players on your LAN to connect, unless you have s
 You will need to add a local proxy for LAN players to connect, since they will not be able to connect to a `localhost` URL. You can use https://github.com/icflorescu/iisexpress-proxy for this.
 
 ### Hosting on External Server
-You can use a free/cheap Node.js app service to host the multiplayer server which will allow any player to join. Heroku is recommended.
+You can use a free/cheap Node.js app service to host the multiplayer server which will allow any player to join.
 
 ## Instructions
 Navigate to the directory in which you wish to install the Deadswitch 3 multiplayer server.
@@ -83,9 +83,11 @@ First, enable the `Use Custom Server` setting in-game.
 
 Enter the `Custom Server URL` the server is running on.
 
-**For local machines:** If you are hosting the server on your local PC, use the default (`localhost:8081`).
+**For local machines:** If you are hosting the server on your local PC, use the default (`http://localhost:8081`).
 
 **For external services:** Enter your external server IP address. Remember to include the port `8081` if necessary (for example `192.1.1.1:8081`).
+
+Make sure to include `http://` or `https://` in the URL when necessary.
 
 `Ranked > Multiplayer` will now connect to the custom server URL you have specified. Simply turn off the `Use Custom Server` setting to revert back to using the public server list.
 

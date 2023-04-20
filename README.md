@@ -59,7 +59,7 @@ Navigate to the directory in which you wish to install the Deadswitch 3 multipla
 
 Fork this repository:
 
-`git clone https://github.com/XWILKINX/ds3mp-custom`
+`git clone https://github.com/WilkinGames/deadswitch3-mp-custom`
 
 Install the required dependencies:
 

@@ -84,6 +84,19 @@
     },
 
     {
+      "type": "platform",
+      "width": 300,
+      "height": 300,
+      "position": [ 706, 1837 ]
+    },
+    {
+      "type": "platform",
+      "width": 300,
+      "height": 300,
+      "position": [ 3293, 1837 ]
+    },
+
+    {
       "type": "ladder",
       "id": "ladder_new_0",
       "height": 230,

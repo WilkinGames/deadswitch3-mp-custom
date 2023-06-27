@@ -14,11 +14,11 @@
     "height": 85,
     "crouchHeight": 68,
     "maxSpeed": 200,
-    "jumpHeight": 300,
+    "jumpHeight": 400,
     "damping": 0.2,
     "ladderCooldown": 30,
     "climbDamping": 0.2,
-    "climbSpeedMultiplier": 1,
+    "climbSpeedMultiplier": 1.1,
     "fixedRotation": true,
     "angularDamping": 1
   },

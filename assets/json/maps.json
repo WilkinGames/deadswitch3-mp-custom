@@ -160,19 +160,30 @@
     }
   },
   {
-    "id": "map_battleship",
-    "name": "STR_MAP_BATTLESHIP",
+    "id": "map_downturn_extended",
+    "name": "STR_MAP_DOWNTURN_EXTENDED",
+    "desc": "STR_MAP_DOWNTURN_DESC",
     "sliceData": {
+      "height": 3,
       "num": 14,
       "fg": [
-        [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ],
+        [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
         [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ],
         [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]
-      ],
-      "bg": [
-        [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
-        [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
-        [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      ]
+    }
+  },
+  {
+    "id": "map_battleship",
+    "name": "STR_MAP_BATTLESHIP",
+    "desc": "STR_MAP_BATTLESHIP_DESC",
+    "sliceData": {
+      "height": 3,
+      "num": 14,
+      "fg": [
+        [ 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0 ],
+        [ 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0 ],
+        [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]
       ]
     }
   }

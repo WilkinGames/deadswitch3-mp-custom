@@ -2,6 +2,7 @@
   "id": "map_factory",
   "width": 6000,
   "height": 2000,
+  "heliMaxY": 550,
   "ambience": "snow",
   "emitterType": "snow",
   "sky": "world_bg_sandstorm",

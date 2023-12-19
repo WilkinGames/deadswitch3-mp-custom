@@ -1,7 +1,7 @@
 {
   "id": "op_custom_campaign_00",
   "packId": "campaign",
-  "musicId": "music_game_ranked",
+  "musicId": "music_game_ranked_1",
   "nextId": "op_custom_campaign_01",
   "info": {
     "name": "STR_OP_CAMPAIGN_0",

@@ -243,6 +243,8 @@ const Character = {
     EYEWEAR_GOGGLES_ORANGE: "eyewear0004",
     EYEWEAR_GOGGLES_WHITE: "eyewear0005",
     EYEWEAR_GOGGLES_BLACK: "eyewear0006",
+    EYEWEAR_GOGGLES_RED: "eyewear0007",
+    EYEWEAR_GOGGLES_GREEN: "eyewear0008",
     FACEWEAR_NONE: "facewear0000",
     FACEWEAR_MASK: "facewear0001",
     FACEWEAR_SKULLMASK: "facewear0002",
@@ -540,7 +542,9 @@ const Heroes = {
     CHRIST: "HERO_CHRIST",
     TWOPLAYER: "HERO_TWOPLAYER",
     ERIC: "HERO_ERIC",
-    SANTA: "HERO_SANTA"
+    SANTA: "HERO_SANTA",
+    ALEXSEI: "HERO_ALEXSEI",
+    UPBOSS: "HERO_UPBOSS"
 };
 const SurvivalEnemyType = {    
     HELI_MH6: "HELI_MH6",
@@ -952,6 +956,72 @@ const SurvivalEnemyInfo = {
         beard: Character.BEARD_FULL,
         heads: [Character.HEAD_SANTA_HAT],
         body: Character.BODY_ZOMBIE_FAT,
+        botSkill: BotSkill.SKILL_INSANE,
+        killReward: 1000,
+        bHero: true
+    },
+    HERO_ALEXSEI: {
+        pawnName: "Alexsei",
+        health: 400,
+        damageMultipliers: {
+            2: 1,
+            1: 0.5,
+            3: 1
+        },
+        weapons: ["ak47"],
+        secondaryWeapons: ["rpg"],
+        mods: {
+            base: Mods.BASE_RANGE,
+            barrel: Mods.BARREL_LASER,
+            ammo: Mods.AMMO_HOLLOW_POINT
+        },
+        melee: "melee_katana",
+        perks: [
+            Perks.PERK_PLAYER_NINJA,
+            Perks.PERK_WEAPON_SHRAPNEL
+        ],
+        equipment: "napalm",
+        heads: [Character.HEAD_RUS_HELMET],
+        faces: [Character.FACE_DEFAULT],
+        eyewear: Character.EYEWEAR_GOGGLES_RED,
+        facewear: Character.FACEWEAR_SCARF_SPETSNAZ,
+        hair: Character.HAIR_SHORT,
+        hairColour: Character.HAIR_COLOUR_BROWN,
+        beard: Character.BEARD_NONE,
+        body: Character.BODY_JUGGERNAUT,
+        voice: "ru",
+        botSkill: BotSkill.SKILL_INSANE,
+        killReward: 1000,
+        bHero: true
+    },
+    HERO_UPBOSS: {
+        pawnName: "UPBoss111",
+        health: 400,
+        damageMultipliers: {
+            2: 1,
+            1: 0.5,
+            3: 1
+        },
+        weapons: ["ultimax"],
+        secondaryWeapons: ["l115a3"],
+        mods: {
+            base: Mods.BASE_RANGE,
+            barrel: Mods.BARREL_GRIP,
+            ammo: Mods.AMMO_HOLLOW_POINT
+        },
+        equipment: "stim",
+        heads: [Character.HEAD_NONE],
+        faces: [Character.FACE_DEFAULT],
+        perks: [
+            Perks.PERK_PLAYER_SPECIALIST,
+            Perks.PERK_WEAPON_VAMPIRE
+        ],
+        eyewear: Character.EYEWEAR_GOGGLES_GREEN,
+        facewear: Character.FACEWEAR_GAITER,
+        hair: Character.HAIR_SHORT,
+        hairColour: Character.HAIR_COLOUR_BLACK,
+        beard: Character.BEARD_NONE,
+        body: Character.BODY_GIGN_PARA,
         botSkill: BotSkill.SKILL_INSANE,
         killReward: 1000,
         bHero: true
@@ -1768,9 +1838,9 @@ class GameInstance
         this.lobbyId = _data["lobbyId"];
         this.data = _data["data"];
         this.batchData = [];
-        var fps = 60; //Tick rate
+        var fps = 30; //Tick rate
         var updateTimer = 1; //Number of frames before update is sent to clients
-        var fpsMult = fps / 60;
+        var fpsMult = fps / 60; //FPS multiplier
         this.localData = {
             settings: {
                 fps: fps,
@@ -1811,10 +1881,16 @@ class GameInstance
             gameModeData: null
         };
 
+        if (_data.settings.filterType == "random")
+        {
+            var worldTypes = [null, "dawn", "night"];
+            _data.settings.filterType = worldTypes[this.Random(0, worldTypes.length - 1)];
+        }
+
         //Adjust logic fps
         if (this.localData["bPerformanceMode"])
         {
-            this.setLogicFPS(30);
+            //this.setLogicFPS(30);
         }
         this.localData.settings.update_counter_max = Math.ceil(this.localData.settings.update_counter_max * this.localData.settings.fps_mult);
         console.log("GAME SETTINGS", this.localData.settings);
@@ -7921,12 +7997,12 @@ class GameInstance
         if (this.localData["bMultiplayer"])
         {
             world.solver.tolerance = 0.01;
-            world.solver.iterations = 10;
+            world.solver.iterations = 8;
         }
         else
         {
             world.solver.tolerance = 0.1;
-            world.solver.iterations = 2;
+            world.solver.iterations = 1;
         }
         world.emitImpactEvent = !this.localData["bPerformanceMode"];
         world.sleepMode = this.p2.World.BODY_SLEEPING;
@@ -11825,7 +11901,7 @@ class GameInstance
             this.cancelCharacterBoltPull(_body);
             var data = _body.data;
             data.weapon["bMeleeDelay"] = true;
-            data.weapon["meleeDelayTimer"] = Math.round(this.characterHasPerk(_body, Perks.PERK_PLAYER_NINJA) ? 15 : 35) * this.localData.settings.fps_mult;
+            data.weapon["meleeDelayTimer"] = Math.round(this.characterHasPerk(_body, Perks.PERK_PLAYER_NINJA) ? 10 : 20) * this.localData.settings.fps_mult;
             var damage = 100; //Melee damage
             if (!this.localData["bModeGame"] && _body.data["team"] === 1)
             {
@@ -12171,6 +12247,10 @@ class GameInstance
                         {
                             bShouldCamp = !data["bHasFlag"];
                         }
+                        else if (this.localData.gameModeData.id == GameMode.INFECTED && data.team == 1)
+                        {
+                            bShouldCamp = false;
+                        }
                         if (campChance == 1 && !data["bIsCapturingFlag"] && bShouldCamp && !this.isGuidingHostage(_body))
                         {
                             var map = this.getCurrentMapData();
@@ -12180,8 +12260,14 @@ class GameInstance
                                 campSpots = this.clone(campSpots);
                                 campSpots.sort((a, b) =>
                                 {
-
+                                    //TODO: Sort by distance
+                                    var distA = this.Dist(a[0], a[1], _body.position[0], _body.position[1]);
+                                    var distB = this.Dist(b[0], b[1], _body.position[0], _body.position[1]);
+                                    if (distA < distB) return -1;
+                                    if (distA > distB) return 1;
+                                    return 0;
                                 });
+                                campSpots.length = Math.min(campSpots.length, 3);
                                 ai["campPosition"] = campSpots[this.Random(0, campSpots.length - 1)];
                                 ai["bCamp"] = true;
                             }
@@ -19104,9 +19190,15 @@ class GameInstance
             var players = this.localData["playerStates"];
             for (var i = 0; i < players.length; i++)
             {
-                if (players[i]["team"] == 0)
+                let player = players[i];
+                if (player && player.team == 0)
                 {
-                    this.addPlayerMoney(players[i]["id"], waveBonus);
+                    this.addPlayerMoney(player.id, waveBonus);
+                    let reviver = this.getReviverByPlayerId(player.id);
+                    if (reviver)
+                    {
+                        this.revivePlayer(player.id, reviver.position, reviver.data.id);
+                    }
                 }
             }
         }
@@ -19455,7 +19547,7 @@ class GameInstance
         {
             for (var i = 0; i < revivers.length; i++)
             {
-                var reviver = revivers[i];
+                let reviver = revivers[i];
                 if (reviver.data.interactData["playerId"] === _playerId)
                 {
                     return reviver;
@@ -24544,7 +24636,9 @@ class GameInstance
                             enemyTypes[Heroes.KARAMBITGUY] = 1;
                             enemyTypes[Heroes.ERIC] = 1;
                             enemyTypes[Heroes.TWOPLAYER] = 1;
-                            enemyTypes[Heroes.MOUSSA] = 1;                            
+                            enemyTypes[Heroes.MOUSSA] = 1;
+                            enemyTypes[Heroes.ALEXSEI] = 1;
+                            enemyTypes[Heroes.UPBOSS] = 1;
                             if (wave >= 10)
                             {
                                 enemyTypes[Heroes.XWILKINX] = 1;
@@ -25092,6 +25186,11 @@ class GameInstance
                         revivedId: _playerId
                     }
                 });
+            }
+            var reviver = this.getReviverByPlayerId(ps.id);
+            if (reviver)
+            {
+                this.removeNextStep(reviver);
             }
         }
     }

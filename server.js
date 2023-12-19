@@ -1,1 +1,6550 @@
-const chalk=require("chalk"),log=console.log,serverSettings=require("./settings.json"),gameInstance=require("./assets/js/game");setInterval((function(){stats.emitsPerSecond=stats.emits,stats.emits=0}),1e3);const{RateLimiterMemory:RateLimiterMemory}=require("rate-limiter-flexible"),rateLimiter=new RateLimiterMemory({points:300,duration:1}),gameLimiter=new RateLimiterMemory({points:60,duration:1}),actionLimiter=new RateLimiterMemory({points:2,duration:1}),chatLimiter=new RateLimiterMemory({points:5,duration:5});var MathUtil={Random:function(e,a){return Math.floor(Math.random()*(a-e+1))+e},RandomBoolean:function(){return Math.random()>=.5}};const Server={VERSION:"1.1.0",GAME_VERSION:"1.6.7",OFFICIAL:!0},GameData={FACTION_DELTA_FORCE:"usmc",FACTION_GSG9:"gsg9",FACTION_GIGN:"gign",FACTION_OPFOR:"opfor",FACTION_SPETSNAZ:"rus",FACTION_MILITIA:"militia",BOT_SKILL_AUTO:-1,BOT_SKILL_EASY:0,BOT_SKILL_NORMAL:1,BOT_SKILL_HARD:2,BOT_SKILL_INSANE:3,BOT_SKILL_GOD:4,MAX_LEVEL:50,MAX_PRESTIGE:10};var lobbies={},lobbyTimers={},parties={},intervals={},stats={playersConnected:0,gamesPlayed:0,peakGamesInProgress:0,peakPlayersConnected:0,emits:0,emitsPerSecond:0},chatHistory=[];log(chalk.bgBlue("Deadswitch 3 Multiplayer Server v"+Server.VERSION));var serverStartTime=Date.now();log("Started:",new Date(serverStartTime).toString()),log(serverSettings,"\n"),log(chalk.yellow("Loading modules..."));var smile=require("smile2emoji"),express=require("express"),app=express(),server=require("http").Server(app),io=require("socket.io").listen(server,{pingInterval:serverSettings.pingInterval,pingTimeout:serverSettings.pingTimeout});io.set("transports",["websocket"]),io.origins("*:*");const shared=require("./assets/json/shared.json"),sprites=require("./assets/json/sprites.json"),atlas_weapons_world=require("./assets/images/world/atlas_weapons_world.json"),weapons=require("./assets/json/weapons.json"),mods=require("./assets/json/mods.json"),perks=require("./assets/json/perks.json"),killstreaks=require("./assets/json/killstreaks.json"),game_modes=require("./assets/json/modes.json"),botnames=require("./assets/json/botnames.json"),bots=require("./assets/json/bots.json"),titlecards_soldiers=require("./assets/json/titlecards_soldiers.json"),badwords=require("./assets/json/badwords.json"),maps=require("./assets/json/maps.json");for(var allMaps=[],i=0;i<maps.length;i++){let e=maps[i].id;try{allMaps.push(require("./assets/json/maps/"+e+".json"))}catch(a){console.warn("Missing map:",e)}}log("Loaded",allMaps.length,"maps");const operations=require("./assets/json/operations.json");var operationData={};for(i=0;i<operations.length;i++){let e=operations[i];try{operationData[e]=require("./assets/json/operations/"+e+".json")}catch(a){console.warn("Missing operation:",e)}}log("Loaded",Object.keys(operationData).length,"operations");const p2=require("p2"),ngraphGraph=require("ngraph.graph"),ngraphPath=require("ngraph.path"),MongoClient=require("mongodb").MongoClient,uri=null;log(chalk.green("Done\n")),app.get("/",(function(e,a){var t=getAllSockets(),r="12px Arial",o="<head><title>Deadswitch 3 Multiplayer Server</title>";o+="<style>h1 { font-weight: 400; } body { background-color: #141414; font: "+r+"; color: #EEEEEE; } table { margin-top: 5px; font: "+r+"; border-collapse: collapse; background-color: #00000033 } th { text-align: left; background-color: #EEEEEE33; } .empty { color: #EEEEEE33; }</style>",o+="</head>",o+="<body><div id='wrapper'><div class='container'><div class='row'>",o+="<h1>Deadswitch 3 Multiplayer Server</h1>",o+="<b>v"+Server.VERSION+"</b><br>Started: "+new Date(serverStartTime).toString();var n=convertMS(Date.now()-serverStartTime);o+="<br>Uptime: "+n.day+"d "+n.hour+"h "+n.minute+"m "+n.seconds+"s";var i=Object.keys(parties).length;o+="<br><br><b>"+i+"</b> part"+(1==i?"y":"ies");var l=getAllLobbies().length;if(o+="<br><b>"+l+"</b> lobb"+(1==l?"y":"ies"),o+="<br><b>"+getLobbiesInProgress().length+"</b> in progress",o+="<br><b>"+t.length+"</b> player"+(1==t.length?"":"s")+" online",t.length>0){o+="<div><table style='width:100%'><tr><th></th><th>Name</th><th>Username</th><th>Level</th><th>Status</th><th>Latency</th><th>Player ID</th><th>Version</th><th>Host</th><th>Steam ID</th></tr>";for(var s=0;s<t.length;s++){let e=t[s],a=e.info,r=e.player,n=getLobbyData(r.currentLobbyId),i=!1,l=!1;n&&(n.state===LobbyState.IN_PROGRESS?i=!0:n.bPrivate&&(l=!0)),o+="<tr><td>"+s+"</td><td>"+r.name+"</td><td>"+(a.username?a.username:"-")+"</td><td>Level "+r.level+(r.prestige>0?" (Prestige "+r.prestige+")":"")+"</td><td>"+(i?"In Game":n?l?"In Custom Lobby":"In Lobby":"Menu")+(r.currentPartyId?" / Party #"+getPartyIndex(r.currentPartyId):"")+"</td><td>"+(r.latency?r.latency+" ms":"-")+"</td><td>"+r.id+"</td><td>"+a.version+"</td><td>"+a.host+"</td><td>"+(r.steamId?r.steamId:"-")+"</td></tr>"}o+="</table></div>"}var y=getAllPublicLobbies();o+="<h3>Public Lobbies ("+y.length+")</h3>",o+="<div><table style='width:100%'><tr><th></th><th>Lobby ID</th><th>Game Mode</th><th>Players</th><th>State</th></tr>";for(s=0;s<y.length;s++){var b=y[s];o+="<tr "+(0==b.players.length?"class='empty'":"")+"><td>"+s+"</td><td>"+b.id+"</td><td>"+b.gameModeId+"</td><td>"+b.players.length+"</td><td>"+b.state+"</td></tr>"}o+="</table></div>";var d=lobbies.private;if(o+="<h3>Custom Lobbies ("+d.length+")</h3>",d.length>0)for(s=0;s<d.length;s++){let e=d[s];s>0&&(o+="<br>"),o+=e.gameModeId+" | "+e.gameData.mapId+" | <b>"+e.state+"</b>";let a=e.players;o+="<div><table style='width:100%'><tr><th></th><th>Name</th><th>Socket ID</th></tr>";for(var c=0;c<a.length;c++){let e=a[c];o+="<tr><td><center>"+c+"</center></td><td>"+e.name+"</td><td>"+e.id+"</td></tr>"}o+="</table></div>"}else o+="<font class='empty'>None</font>";if(o+="<h3>Global Chat</h3>",chatHistory.length>0)for(s=0;s<chatHistory.length;s++){var m=chatHistory[s];o+=m.date+" [<b>"+m.playerText+"</b>] "+m.messageText+"<br>"}else o+="<font class='empty'>None</font><br>";o+="<h3>Cumulative Stats</h3>";var g=Object.keys(stats);for(s=0;s<g.length;s++)o+=g[s]+": "+stats[g[s]]+"<br>";o+="<h3>Memory Usage</h3>";var _=process.memoryUsage();for(g=Object.keys(_),s=0;s<g.length;s++)o+=g[s]+": "+Number(_[g[s]]/1024/1024*100/100).toFixed(4)+"MB<br>";o+="</div></div><body></html>",a.send(o)})),app.get("/data",(function(e,a){var t={version:Server.VERSION,gameVersion:Server.GAME_VERSION,numClients:getNumClients(),maxClients:serverSettings.maxClients,time:Date.now()};serverSettings.welcomeMessage&&(t.welcomeMessage=serverSettings.welcomeMessage),a.setHeader("Access-Control-Allow-Origin","*"),a.setHeader("Access-Control-Allow-Methods","GET, POST, OPTIONS, PUT, PATCH, DELETE"),a.setHeader("Access-Control-Allow-Headers","X-Requested-With,content-type"),a.send(t)}));const LobbyState={INTERMISSION:"intermission",WAITING_HOST:"waiting_host",WAITING:"waiting",PREPARING:"preparing",STARTING:"starting",IN_PROGRESS:"in_progress"},Lobby={WAIT_TIMER:33,INTERMISSION_TIMER:15,COUNTDOWN_PREPARING:15,COUNTDOWN_STARTING:3,COUNTDOWN_STARTING_PRIVATE:3,JOIN_SUCCESS:"LOBBY_JOIN_SUCCESS",JOIN_FAIL_LOCKED:"JOIN_FAIL_LOCKED",JOIN_FAIL_CAPACITY:"JOIN_FAIL_CAPACITY",JOIN_FAIL_ERROR:"JOIN_FAIL_ERROR",MAX_PLAYERS:8},Party={JOIN_SUCCESS:"PARTY_JOIN_SUCCESS",JOIN_FAIL_CAPACITY:"PARTY_JOIN_FAIL_CAPACITY",JOIN_FAIL_LOBBY:"PARTY_JOIN_FAIL_LOBBY",JOIN_FAIL_ERROR:"PARTY_JOIN_FAIL_ERROR",MAX_PLAYERS:8},MatchState={PRE_GAME:"pre_game",IN_PROGRESS:"in_progress",POST_GAME:"post_game",END_RESULT_WIN:"end_result_win",END_RESULT_LOSS:"end_result_loss",END_RESULT_DRAW:"end_result_draw",END_CONDITION_TIME:"end_condition_time",END_CONDITION_SCORE:"end_condition_score",END_CONDITION_DEAD:"end_condition_dead",END_CONDITION_FORFEIT:"end_condition_forfeit"},GameServer={EVENT_BATCH:0,EVENT_GAME_INIT:1,EVENT_GAME_TIMER:2,EVENT_GAME_PRE_TIMER:3,EVENT_GAME_START:4,EVENT_GAME_END:5,EVENT_GAME_UPDATE:6,EVENT_STORE_BUY:7,EVENT_GAME_MONEY_ADD:8,EVENT_GAME_WAVE_START:9,EVENT_GAME_WAVE_COMPLETE:10,EVENT_GAME_PAUSE:11,EVENT_REQUEST_RANKED_CHARACTER:13,EVENT_CREATE_RANKED_CHARACTER:14,EVENT_CREATE_GENERIC_CHARACTER:15,EVENT_CREATE_INFESTOR:16,EVENT_OBJECT_UPDATE:17,EVENT_OBJECT_HIT:18,EVENT_PAWN_DAMAGE:19,EVENT_PAWN_DIE:20,EVENT_PAWN_ACTION:21,EVENT_SET_PLAYER_CONTROLLER_ID:22,EVENT_CREATE_AI_CONTROLLER:23,EVENT_PLAYER_JOIN:24,EVENT_PLAYER_LEAVE:25,EVENT_PLAYER_UPDATE:26,EVENT_PLAYER_RESPAWN:27,EVENT_PLAYER_EARN_KILLSTREAK:28,EVENT_PLAYER_USE_KILLSTREAK:29,EVENT_PLAYER_OPEN_WORLD_MENU:30,EVENT_PLAYER_CLOSE_WORLD_MENU:31,EVENT_PLAYER_SET_WORLD_POSITION:32,EVENT_PLAYER_EXECUTE_KILLSTREAK:33,EVENT_PLAYER_FLAG:34,EVENT_PLAYER_MULTI_KILL:35,EVENT_PLAYER_UPDATE_CONTROLLABLE:36,EVENT_PLAYER_INPUT:37,EVENT_PLAYER_INTERACT:38,EVENT_PLAYER_UPDATE_INVENTORY:39,EVENT_PLAYER_TRIGGER_WEAPON:40,EVENT_PLAYER_TRIGGER_EQUIPMENT:41,EVENT_PLAYER_TRIGGER_MELEE:42,EVENT_KILLSTREAKS_UPDATE:43,EVENT_ANNOUNCER_MESSAGE:44,EVENT_KILLFEED_ADD:45,EVENT_MESSAGE_ADD:46,EVENT_SPAWN_OBJECT:47,EVENT_SPAWN_BULLET:48,EVENT_SPAWN_EXPLOSION:49,EVENT_SPAWN_GRENADE:50,EVENT_SPAWN_PROJECTILE:51,EVENT_SPAWN_ROCKET:52,EVENT_SPAWN_DROPPED_WEAPON:53,EVENT_SPAWN_CRATE:54,EVENT_SPAWN_FLAG:55,EVENT_SPAWN_EQUIPMENT:56,EVENT_SPAWN_HELICOPTER:57,EVENT_SPAWN_TURRET:58,EVENT_SPAWN_REVIVER:59,EVENT_INTERACTABLE_USED:60,EVENT_REMOVE_OBJECT:61,EVENT_SANDBOX:62,EVENT_ROUND_END:63,EVENT_ROUND_START:64,EVENT_BATTLEZONE:65,EVENT_SWITCH_TEAMS:66},GameMode={SANDBOX:"sandbox",BATTLEZONE:"battlezone",DEATHMATCH:"deathmatch",TEAM_DEATHMATCH:"team_deathmatch",DOMINATION:"domination",CAPTURE_THE_FLAG:"capture_the_flag",DEFENDER:"defender",DEMOLITION:"demolition",HEADQUARTERS:"headquarters",GUN_GAME:"gun_game",INFECTED:"infected",SURVIVAL_BASIC:"survival_basic",SURVIVAL_UNDEAD:"survival_undead",SURVIVAL_CHAOS:"survival_chaos",SURVIVAL_STAKEOUT:"survival_stakeout",SURVIVAL_PRO:"survival_pro",RANDOM:"mode_random",OPERATION:"mode_operation",ROTATION_TEAM:"mode_rotation_team",ROTATION_SURVIVAL:"mode_rotation_survival",ROTATION_COMMUNITY:"mode_rotation_community",GROUND_WAR:"mode_ground_war",COMBAT_TRAINING:"mode_combat_training",HARDCORE:"mode_hardcore"},Map={RIVERSIDE:"map_riverside",DOWNTURN:"map_downturn",OUTPOST:"map_outpost",ESTATE:"map_estate",DISTRICT:"map_district",SANDSTORM:"map_sandstorm",OVERGROWN:"map_overgrown",WAREHOUSE:"map_warehouse",FACTORY:"map_factory",AIRPORT:"map_airport",DOWNTURN_EXTENDED:"map_downturn_extended",BATTLESHIP:"map_battleship",RANDOM:"map_random"},Character={TYPE_HAIR_COLOUR:"hairColour",TYPE_HAIR:"hair",TYPE_BEARD:"beard",TYPE_HEAD:"head",TYPE_BODY:"body",TYPE_FACE:"face",TYPE_FACEWEAR:"facewear",TYPE_EYEWEAR:"eyewear",TYPE_VOICE:"voice",VOICE_A:"a",VOICE_B:"b",VOICE_RU:"ru",VOICE_UK:"uk",VOICE_ZOMBIE:"zombie",HAIR_COLOUR_BROWN:"HAIR_COLOUR_BROWN",HAIR_COLOUR_BROWN_LIGHT:"HAIR_COLOUR_BROWN_LIGHT",HAIR_COLOUR_BLACK:"HAIR_COLOUR_BLACK",HAIR_COLOUR_BLONDE:"HAIR_COLOUR_BLONDE",HAIR_COLOUR_GINGER:"HAIR_COLOUR_GINGER",HAIR_COLOUR_GREY:"HAIR_COLOUR_GREY",HAIR_COLOUR_WHITE:"HAIR_COLOUR_WHITE",HAIR_COLOUR_RED:"HAIR_COLOUR_RED",HAIR_COLOUR_BLUE:"HAIR_COLOUR_BLUE",HAIR_COLOUR_GREEN:"HAIR_COLOUR_GREEN",FACE_DEFAULT:"face0000",FACE_ZOMBIE_1:"face0001",FACE_ZOMBIE_2:"face0002",FACE_ZOMBIE_3:"face0003",FACE_ZOMBIE_4:"face0004",FACE_ZOMBIE_FAT:"face0005",FACE_ZOMBIE_EXPLODER:"face0006",FACE_ZOMBIE_SPITTER:"face0007",FACE_ZOMBIE_SPRINTER:"face0008",HAIR_SHORT:"hair0000",HAIR_BALD:"hair0008",HAIR_LONG:"hair0002",HAIR_PONYTAIL:"hair0003",HAIR_UNDERCUT:"hair0006",HAIR_SPIKES:"hair0005",HAIR_BUZZED:"hair0004",HAIR_FLAT:"hair0001",HAIR_STYLED:"hair0007",HAIR_HORSESHOE:"hair0009",HAIR_MOHAWK:"hair0010",BEARD_NONE:"beard0000",BEARD_STUBBLE:"beard0001",BEARD_FULL:"beard0002",BEARD_CIRCLE:"beard0003",BEARD_GOATEE:"beard0004",BEARD_MOUSTACHE:"beard0005",BEARD_SIDEBURNS:"beard0006",EYEWEAR_NONE:"eyewear0000",EYEWEAR_SHADES:"eyewear0001",EYEWEAR_GLASSES:"eyewear0002",EYEWEAR_GOGGLES_YELLOW:"eyewear0003",EYEWEAR_GOGGLES_ORANGE:"eyewear0004",EYEWEAR_GOGGLES_WHITE:"eyewear0005",EYEWEAR_GOGGLES_BLACK:"eyewear0006",FACEWEAR_NONE:"facewear0000",FACEWEAR_MASK:"facewear0001",FACEWEAR_SKULLMASK:"facewear0002",FACEWEAR_GHILLIE:"facewear0003",FACEWEAR_SCARF_OPFOR:"facewear0004",FACEWEAR_BALACLAVA:"facewear0005",FACEWEAR_SCARF_SPETSNAZ:"facewear0006",FACEWEAR_BANDANA:"facewear0007",FACEWEAR_GAS_MASK:"facewear0008",FACEWEAR_BANDANA_GENERIC:"facewear0009",FACEWEAR_GAITER:"facewear0010",HEAD_DELTA_MEDIC_HELMET:"head0064",HEAD_GIGN_MEDIC_HELMET:"head0065",HEAD_GSG9_MEDIC_HELMET:"head0066",HEAD_MEDIC_HELMET:"head0067",HEAD_NONE:"head0000",HEAD_MASK:"head0001",HEAD_GAS_MASK:"head0002",HEAD_RADIO:"head0003",HEAD_USMC_MASK:"head0004",HEAD_USMC_CAP:"head0005",HEAD_USMC_CAP_BACKWARDS:"head0006",HEAD_USMC_SPEC_OPS:"head0007",HEAD_USMC_HELMET:"head0008",HEAD_USMC_HELMET_TACTICAL:"head0009",HEAD_USMC_BOONIE:"head0010",HEAD_USMC_GHILLIE:"head0011",HEAD_GIGN_HELMET:"head0012",HEAD_GIGN_HELMET_2:"head0013",HEAD_GIGN_CAP:"head0014",HEAD_GSG9_HELMET:"head0015",HEAD_GSG9_HELMET_2:"head0016",HEAD_GSG9_HELMET_3:"head0017",HEAD_OPFOR_SCARF:"head0018",HEAD_OPFOR_HELMET:"head0019",HEAD_OPFOR_HELMET_2:"head0020",HEAD_OPFOR_BERET:"head0021",HEAD_OPFOR_SHADES:"head0022",HEAD_OPFOR_COMMANDER:"head0023",HEAD_RUS_MASK:"head0024",HEAD_RUS_HAT:"head0025",HEAD_RUS_SCARF:"head0026",HEAD_RUS_TOQUE:"head0027",HEAD_RUS_BERET:"head0028",HEAD_RUS_CAP:"head0029",HEAD_RUS_RECON:"head0030",HEAD_RUS_HELMET:"head0031",HEAD_MILITIA_RADIO:"head0032",HEAD_MILITIA_BAND:"head0033",HEAD_MILITIA_BANDANA:"head0034",HEAD_MILITIA_CAP:"head0035",HEAD_MILITIA_SNIPER:"head0036",HEAD_JUGGERNAUT_HELMET:"head0037",BODY_VIP:"vip",BODY_HOSTAGE:"hostage",BODY_USMC_STANDARD:"usmc",BODY_USMC_GHILLIE:"usmc_ghillie",BODY_USMC_HEAVY:"usmc_heavy",BODY_USMC_PARA:"usmc_para",BODY_USMC_RECON:"usmc_recon",BODY_GIGN_STANDARD:"gign",BODY_GIGN_HEAVY:"gign_heavy",BODY_GIGN_PARA:"gign_para",BODY_GIGN_RECON:"gign_recon",BODY_GIGN_TACTICAL:"gign_tactical",BODY_GSG9_STANDARD:"gsg9",BODY_GSG9_HEAVY:"gsg9_heavy",BODY_GSG9_PARA:"gsg9_para",BODY_GSG9_RECON:"gsg9_recon",BODY_GSG9_TACTICAL:"gsg9_tactical",BODY_OPFOR_STANDARD:"opfor",BODY_OPFOR_ROCKETIER:"opfor_rocketier",BODY_OPFOR_HEAVY:"opfor_heavy",BODY_OPFOR_PARA:"opfor_para",BODY_OPFOR_RECON:"opfor_recon",BODY_RUS_STANDARD:"rus",BODY_RUS_BARE:"rus_bare",BODY_RUS_HEAVY:"rus_heavy",BODY_RUS_PARA:"rus_para",BODY_RUS_RECON:"rus_recon",BODY_RUS_ROCKETIER:"rus_rocketier",BODY_JUGGERNAUT:"rus_juggernaut",BODY_MILITIA_STANDARD:"militia",BODY_MILITIA_HEAVY:"militia_heavy",BODY_MILITIA_PARA:"militia_para",BODY_MILITIA_RECON:"militia_recon",BODY_MILITIA_TACTICAL:"militia_tactical",BODY_USMC_KEVLAR:"usmc_kevlar",BODY_GIGN_KEVLAR:"gign_kevlar",BODY_GSG9_KEVLAR:"gsg9_kevlar",BODY_OPFOR_KEVLAR:"opfor_kevlar",BODY_RUS_KEVLAR:"rus_kevlar",BODY_MILITIA_KEVLAR:"militia_kevlar",BODY_ZOMBIE:"zombie",BODY_ZOMBIE_2:"zombie_2",BODY_ZOMBIE_3:"zombie_3",BODY_ZOMBIE_FAT:"zombie_fat",BODY_ZOMBIE_EXPLODER:"zombie_exploder",BODY_ZOMBIE_EXPLODER_BOSS:"zombie_exploder_boss",BODY_ZOMBIE_SPITTER:"zombie_spitter",BODY_ZOMBIE_SPITTER_BOSS:"zombie_spitter_boss",BODY_ZOMBIE_SPRINTER:"zombie_sprinter",BODY_ZOMBIE_SPRINTER_BOSS:"zombie_sprinter_boss"};function removePlayerFromLobby(e,a,t){}function removeSocketPlayerFromLobby(e,a){var t=e.player.currentLobbyId;if(t){log(chalk.bgCyan(t),"Remove socket:",tracePlayer(e),"| Reason:",a),e.leave(t),e.emit("leaveLobby",a);var r=getLobbyData(t);if(r){var o=r.minPlayers;retractLobbyMapVote(getSocketPlayerId(e),t);for(var n=r.players,i=n.length-1;i>=0;i--){let a=n[i];if(a.id==getSocketPlayerId(e)){resetPlayer(a),n.splice(i,1);break}}var l=r.game;if(l&&(l.requestEvent({eventId:GameServer.EVENT_PLAYER_LEAVE,reason:a,playerId:getSocketPlayerId(e)}),r.bAddBots)){var s=getBotPlayerForLobby(r);if(s){initPlayerForGameInProgress(s,r.id),r.players.push(s);var y=clone(s);l.addPlayer(y)}}var b=n.length-getNumBotsInLobby(t);if(r.state===LobbyState.IN_PROGRESS){if(b<o)l&&(r.gameData.bSandbox||(log(chalk.bgCyan(t),"Not enough players in game:",b),r.gameData.bSurvival||r.gameData.bOperation?l.requestEvent({eventId:GameServer.EVENT_GAME_END,result:MatchState.END_RESULT_LOSS,condition:MatchState.END_CONDITION_FORFEIT}):l.requestEvent({eventId:GameServer.EVENT_GAME_END,result:MatchState.END_RESULT_WIN,condition:MatchState.END_CONDITION_FORFEIT}))),0==b&&(log("Lobby is empty, reset state"),resetMapVotes(r.id),setLobbyState(r.id,LobbyState.WAITING)),broadcastServerData();else if(o>1&&l&&isTeamGameMode(r.gameModeId)){var d=r.players,c=[0,0];for(i=0;i<d.length;i++){var m=d[i];m.team>=0&&c[m.team]++}0!=c[0]&&0!=c[1]||l.requestEvent({eventId:GameServer.EVENT_GAME_END,result:MatchState.END_RESULT_WIN,condition:MatchState.END_CONDITION_FORFEIT})}}else{checkLobbyReady(t),sendChatMessage(t,{messageText:(e.player?e.player.name:"Player")+("kicked"==a?" was kicked":" left"),locText:"kicked"==a?"STR_X_WAS_KICKED_LOBBY":"STR_X_LEFT_LOBBY",params:[e.player?e.player.name:"Player"]});o=r.gameModeId==GameMode.BATTLEZONE?1:2;if(r.bPrivate&&r.state===LobbyState.STARTING)setLobbyState(t,LobbyState.WAITING_HOST);else if(b<o&&(resetMapVotes(t),0===b||r.state!==LobbyState.INTERMISSION)){var g=r.bPrivate?LobbyState.WAITING_HOST:LobbyState.WAITING;r.state!==g&&setLobbyState(t,g)}io.sockets.in(t).emit("updateLobby",getSafeLobbyData(r))}switch(a){case"kicked":removePlayerFromParty(e),e.emit("showWindow",{titleText:"STR_PLAYER_KICKED",messageText:"STR_PLAYER_KICKED_HOST_DESC",bShowOkayButton:!0});break;case"latency":e.emit("showWindow",{titleText:"STR_PLAYER_KICKED",messageText:"STR_PLAYER_KICKED_LATENCY_DESC",bShowOkayButton:!0});break;case"idle":e.emit("showWindow",{titleText:"STR_PLAYER_KICKED",messageText:"STR_PLAYER_KICKED_IDLE_DESC",bShowOkayButton:!0})}if(r.bPrivate)getSocketPlayerId(e)==r.hostPlayerId&&(log(chalk.yellow("Host has left the lobby!")),e.player.currentPartyId||io.sockets.in(t).emit("showWindow",{titleText:"STR_CUSTOM_LOBBY_DISBANDED",messageText:"STR_HOST_LEFT_DESC",bShowOkayButton:!0}),removeLobby(r.id));else if(0===b){var _=r.rotationId?r.rotationId:r.gameModeId,E=lobbies[_];if(E)E.indexOf(r)>0&&removeLobby(r.id)}}}e&&e.player&&(delete e.player.bLobbyHost,delete e.player.team,delete e.player.currentLobbyId)}function broadcastServerData(){for(var e=getAllPlayers(),a=0;a<e.length;a++){var t=getSocketByPlayerId(e[a].id);t&&t.player&&!t.player.currentLobbyId&&t.emit("updateServerStats",getLatestServerData())}}function initLobbies(){for(var e=[GameMode.COMBAT_TRAINING,GameMode.GROUND_WAR,GameMode.ROTATION_TEAM,GameMode.ROTATION_SURVIVAL,GameMode.HARDCORE],a=0;a<e.length;a++){lobbies[r=e[a]]=[],createRotationLobby(r)}var t=[GameMode.BATTLEZONE,GameMode.DEATHMATCH,GameMode.TEAM_DEATHMATCH,GameMode.DOMINATION,GameMode.CAPTURE_THE_FLAG,GameMode.DEFENDER,GameMode.DEMOLITION,GameMode.HEADQUARTERS,GameMode.GUN_GAME,GameMode.INFECTED,GameMode.SURVIVAL_UNDEAD,GameMode.SURVIVAL_BASIC,GameMode.SURVIVAL_CHAOS,GameMode.SURVIVAL_STAKEOUT,GameMode.SURVIVAL_PRO];for(a=0;a<t.length;a++){var r;lobbies[r=t[a]]=[],createPublicLobby(r)}lobbies.private=[]}function createRotationLobby(e){log("Create rotation lobby:",chalk.cyan(e));var a=!0,t=!1,r=2,o=shared.maxPlayers[e];switch(e){case GameMode.ROTATION_SURVIVAL:r=1,a=!1,t=!0;break;case GameMode.GROUND_WAR:case GameMode.COMBAT_TRAINING:var n=!0;r=1;break;case GameMode.HARDCORE:var i=!0;r=2;break;default:r=2}var l=getRandomUniqueId(),s=shared.rotations[e],y=getRandomLobbyMaps(e,s),b=y[0].gameModeId,d=getDefaultGameModeSettings(b),c={id:l,rotationId:e,rotationModes:s,gameModeId:b,gameData:{lobbyId:l,bMultiplayer:!0,gameModeId:b,mapId:Map.RIVERSIDE,settings:d,maxPlayers:o,bRanked:a,bSurvival:t},minPlayers:r,maxPlayers:o,players:[],maps:y,state:LobbyState.WAITING,timer:-1,bLocked:!1,bAddBots:n,bHardcore:i};return lobbies[e].push(c),c}function createPublicLobby(e){log("Create public lobby:",chalk.cyan(e));var a=!0,t=!1,r=2,o=shared.maxPlayers[e];switch(e){case GameMode.SURVIVAL_BASIC:case GameMode.SURVIVAL_CHAOS:case GameMode.SURVIVAL_UNDEAD:case GameMode.SURVIVAL_STAKEOUT:case GameMode.SURVIVAL_PRO:r=2,a=!1,t=!0;break;case GameMode.GUN_GAME:case GameMode.DEATHMATCH:r=2;break;case GameMode.BATTLEZONE:r=1;break;default:r=2}var n=getRandomUniqueId(),i=getRandomLobbyMaps(e),l=getDefaultGameModeSettings(e),s={id:n,gameModeId:e,gameData:{lobbyId:n,bMultiplayer:!0,gameModeId:e,mapId:Map.RIVERSIDE,settings:l,maxPlayers:o,bRanked:a,bSurvival:t},minPlayers:r,maxPlayers:o,players:[],maps:i,state:LobbyState.WAITING,timer:-1,bLocked:!1};return lobbies[e].push(s),s}function getRandomLobbyMaps(e,a){var t=!0;switch(e){case GameMode.BATTLEZONE:var r=[Map.DOWNTURN,Map.SANDSTORM,Map.OVERGROWN,Map.AIRPORT,Map.DOWNTURN_EXTENDED];shuffleArray(r),r.splice(0,1),t=!1;break;default:r=[Map.RIVERSIDE,Map.DISTRICT,Map.WAREHOUSE,Map.OUTPOST,Map.ESTATE,Map.FACTORY,Map.DOWNTURN,Map.SANDSTORM,Map.OVERGROWN,Map.AIRPORT]}shuffleArray(r),a&&shuffleArray(a);for(var o=[],n=0;n<(t?2:r.length);n++)o.push({id:r[n],votes:[],gameModeId:a?a[n]:null});return t&&o.push({id:Map.RANDOM,votes:[],gameModeId:a?a[n]:null}),o}function getNumRealPlayersInLobby(e){var a=getLobbyData(e);if(a){for(var t=0,r=a.players,o=0;o<r.length;o++){var n=r[o];n.bBot&&!n.bDummy||t++}return t}return 0}function getNumRealTeamPlayersInLobby(e){var a=getLobbyData(e);if(a){for(var t=0,r={},o=a.players,n=0;n<o.length;n++){var i=o[n];i.bBot&&!i.bDummy||(i.currentPartyId?(r[i.currentPartyId]||t++,r[i.currentPartyId]=!0):t++)}return t}return 0}function removeBotsFromLobby(e){var a=getLobbyData(e);if(a){for(var t=a.players,r=0,o=t.length-1;o>=0;o--){var n=t[o];n.bBot&&!n.bDummy&&(t.splice(o,1),r++)}r>0&&log("Removed",r,"bots from",chalk.bgCyan(e))}}function getNumBotsInLobby(e){var a=getLobbyData(e);if(a){for(var t=0,r=a.players,o=0;o<r.length;o++){var n=r[o];n.bBot&&!n.bDummy&&t++}return t}return 0}function getNumDummiesInLobby(e){var a=getLobbyData(e);if(a){for(var t=0,r=a.players,o=0;o<r.length;o++){r[o].bDummy&&t++}return t}return 0}function removeLobby(e){log("Removing lobby: "+chalk.bgCyan(e));var a=getLobbyData(e);if(a){if(a.bPendingDestroy)return void log("Lobby is already destroyed");for(var t=clone(a.players),r=t.length-1;r>=0;r--){let a=t[r];if(a){var o=getSocketByPlayerId(a.id);o&&removeSocketPlayerFromLobby(o,"lobby_removed")}else console.warn(r,e,"Invalid player in lobby:",a)}if(destroyLobbyGame(a),a.bPrivate){(n=lobbies.private.indexOf(a))>=0&&lobbies.private.splice(n,1)}else{var n,i=a.rotationId?a.rotationId:a.gameModeId;if(i)(n=lobbies[i].indexOf(a))>=0&&lobbies[i].splice(n,1)}var l=Object.keys(a);for(r=0;r<l.length;r++)delete a[l[r]];a.bPendingDestroy=!0,broadcastServerData()}}function createPrivateLobby(e){if(log("Create private lobby: "+chalk.bgCyan(e)),getLobbyData(e))log("Lobby already exists!");else{var a=GameMode.DEATHMATCH,t=getDefaultGameModeSettings(a);t.bots=0,t.botSkill=-1,t.bPrivate=!0;var r={id:e,bPrivate:!0,gameModeId:a,gameData:{lobbyId:e,gameModeId:a,bMultiplayer:!0,bRanked:!0,mapId:Map.RANDOM,settings:t},maxPlayers:Lobby.MAX_PLAYERS,players:[],state:LobbyState.WAITING_HOST,timer:-1,bLocked:!1};lobbies.private.push(r),broadcastServerData()}}function getDefaultGameModeSettings(e){var a=shared.defaultGameSettings[e];return a?clone(a):(console.warn("Missing default settings:",e),{bKillstreaks:!0,bAllowRespawns:!0,bSpawnProtection:!0,timeLimit:10,respawnTime:5})}function createParty(e){if(log("Creating party..."),e.player)if(e.player.currentLobbyId)removeSocketPlayerFromLobby(e,"create_party");else{var a="P-"+String(e.id).substr(0,6);if(getParty(a))return log(chalk.yellow("Party already exists!")),void updatePartyClients(a);addParty(a)&&(joinParty(a,e),sendChatMessage(null,{bServer:!0,messageText:e.player.name+" created a new party."}))}}function addParty(e){if(!getParty(e)){log("Create party: "+chalk.bgCyan(e));var a={id:e,hostPlayerId:null,players:[]};return parties[e]=a,a}return log("Party already exists: "+e),null}function updatePartyClients(e){var a=getParty(e);if(a)for(var t=0;t<a.players.length;t++){var r=getSocketByPlayerId(a.players[t].id);r&&r.emit("updateParty",a)}}function removePlayerFromParty(e){if(e.player&&e.player.currentPartyId){log(chalk.bgCyan(e.player.currentPartyId),"Remove from party --\x3e",tracePlayer(e));var a=getParty(e.player.currentPartyId);if(a){for(var t=0;t<a.players.length;t++)if(a.players[t].id==getSocketPlayerId(e)){a.players.splice(t,1);break}a.players.length>0&&updatePartyClients(a.id),getSocketPlayerId(e)==a.hostPlayerId&&removeParty(a.id)}e.emit("leaveParty"),e.player&&(delete e.player.bPartyHost,delete e.player.currentPartyId)}}function removeParty(e){log("Remove party:",chalk.bgCyan(e));var a=parties[e];if(a)for(var t=a.players,r=t.length-1;r>=0;r--){var o=getSocketByPlayerId(t[r].id);o&&removePlayerFromParty(o)}delete parties[e]}function getParty(e){return e?parties[e]:null}function getNumPlayersInParty(e){var a=getParty(e);return a?a.players.length:1}function getAveragePlayerLevel(e){if(!e)return 1;for(var a=0,t=0;t<e.length;t++){var r=e[t];r.prestige>=1?a+=50:a+=r.level}return Math.round(a/e.length)}function getSafeLobbyDataById(e){return getSafeLobbyData(getLobbyData(e))}function getSafeLobbyData(e){var a=e,t=null;if(a){t={};for(var r=Object.keys(a),o=0;o<r.length;o++){let e=r[o];switch(e){case"game":break;default:t[e]=a[e]}}}return t}function getLobbyData(e){if(!e)return null;for(var a=getAllLobbies(),t=0;t<a.length;t++)if(a[t].id===e)return a[t];return null}function getLobbyPlayerById(e,a){var t=getLobbyData(e);if(t)for(var r=t.players,o=0;o<r.length;o++){var n=r[o];if(n.id===a)return n}return null}function getPartyPlayerById(e,a){var t=getParty(e);if(t)for(var r=t.players,o=0;o<r.length;o++){var n=r[o];if(n.id===a)return n}return null}function getGame(e){var a=getLobbyData(e);return a?a.game:null}function joinParty(e,a){var t=getParty(e);if(t){if(0==t.players.length)t.hostPlayerId=getSocketPlayerId(a),a.player.bPartyHost=!0,log(chalk.bgCyan(e),"Set host --\x3e",tracePlayer(a));else if(t.players.indexOf(a.player)>=0)return;a.player.currentPartyId=e,t.players.push(a.player),log("Party size:",t.players.length),updatePartyClients(e)}}function joinLobby(e,a){var t=getLobbyData(e);if(t){if(a.player.currentLobbyId)return void console.log(e,tracePlayer(a),"already in lobby:",a.player.currentLobbyId);a.player.currentLobbyId=e,log(tracePlayer(a),"Joined lobby",chalk.bgCyan(e)),a.join(e),a.info.autoJoinAttempts=0;var r=a.player,o=t.players,n=" (2)",i=r.name.indexOf(n);i>=0&&(r.name=r.name.substring(0,i));for(var l=0;l<o.length;l++)o[l].name===r.name&&(r.name+=n);o.push(r),t.bPrivate&&(1===o.length?(t.hostPlayerId=a.player.id,r.bLobbyHost=!0,r.desiredTeam=0):r.desiredTeam=o.length%2==0?1:0),t.game?joinGameInProgress(t,a):(a.emit("joinLobby",getSafeLobbyData(t)),io.sockets.in(e).emit("updateLobby",getSafeLobbyData(t)),sendChatMessage(e,{messageText:r.name+" joined",clan:r.clan,locText:"STR_X_JOINED_LOBBY",params:[r.name]}),checkLobbyReady(e))}else console.warn("joinLobby --\x3e Invalid lobby data:",e)}function joinGameInProgress(e,a){var t=e;log("Joining game in progress"),a.emit("joinLobby",{id:t.id,gameModeId:e.gameModeId,rotationId:e.rotationId,bInProgress:!0,bPrivate:t.bPrivate,players:t.players}),initPlayerForGameInProgress(a.player,t.id);var r=t.gameData,o={bInProgress:!0,bPrivate:t.bPrivate,settings:r.settings,gameModeId:r.gameModeId,mapId:r.mapId,players:t.players,bMultiplayer:!0,bRanked:r.bRanked,bSurvival:r.bSurvival};onSocketStartGame(a.id,o)}function onSocketStartGame(e,a){var t=getSocketById(e);t&&(t.player?(t.emit("startGame",a),setTimeout((()=>{onSocketEnterGame(e)}),3e3)):(console.warn("Invalid socket player data"),t.disconnect()))}function onSocketEnterGame(e){var a=getSocketById(e);a&&(a.player?(a.player.bReady=!0,a.emit("enterGame")):(console.warn("Invalid socket player data"),a.disconnect()))}function getAvailableLobbyIndexForGameMode(e,a=1){var t=lobbies[e];if(t)for(var r=t.slice().sort((function(e,a){return e.players.length>a.players.length?-1:e.players.length<a.players.length?1:0})),o=0;o<r.length;o++){var n=r[o],i=!n.bLocked||lobbyCanAcceptPlayers(n.id),l=getNumBotsInLobby(n.id);if(i&&n.players.length+a-l<=n.maxPlayers&&!n.bMerging)return t.indexOf(n)}return-1}function genIdFromSocket(e){return e.id.substr(2,6)}function tracePlayer(e){return e?chalk.bgMagenta(getSocketPlayerId(e))+(e.player?" ["+chalk.yellow(e.player.name)+chalk.green(e.info.username?"@"+e.info.username:"")+"]":""):null}function onLobbyAboutToStart(e){e&&!e.bPrivate&&(e.players.length<e.maxPlayers&&Object.keys(io.sockets.connected).forEach((function(a){var t=io.sockets.connected[a];t&&t.player&&!t.player.currentLobbyId&&t.emit("serverMessage",{type:"game_starting",lobbyId:e.id,rotationId:e.rotationId,gameModeId:e.gameModeId,id:e.id})})))}function mergeLobbies(e,a){if(e&&a){if(log("Merging lobbies:",chalk.bgCyan(e.id),"--\x3e",chalk.bgCyan(a.id)),e.bPrivate||a.bPrivate)return log("A lobby is private"),!1;if(e.bLocked||a.bLocked)return log("A lobby is locked"),!1;if(e.bMerging||a.bMerging)return log("A lobby is being merged"),!1;if(e.bPendingDestroy||a.bPendingDestroy)return log("A lobby is destroyed"),!1;var t=e.players.length+a.players.length;if(log("Combined players:",t),t<2)return log("Not enough players to merge"),!1;if(t>e.maxPlayers)return log("Not enough room to merge",t+"/"+e.maxPlayers),!1;var r=getLobbyData(e.id),o=r?r.id:null,n=clone(a.players);if(o&&n){r.bMerging=!0;for(var i=n.length,l=i-1;l>=0;l--){var s=n[l],y=s?getSocketByPlayerId(s.id):null;if(y){switch(canJoinLobby(o,y)){case Lobby.JOIN_SUCCESS:removeSocketPlayerFromLobby(y,"merge"),joinLobby(o,y)}}else{var b=n.indexOf(s);b>=0&&n.splice(b,1)}}return log("Merged",i,"player"+(1==i?"":"s")+" into",chalk.bgCyan(o)),delete r.bMerging,!0}return console.warn("mergeLobbies --\x3e Invalid lobby players:",a),!1}return console.warn("Invalid lobby data while trying to merge:",e,a),!1}function joinLobbyById(e,a){if(e){log(tracePlayer(e),"Wants to join lobby by id",chalk.bgCyan(a));var t=getLobbyData(a);if(t){if(t.bPrivate&&t.gameData.settings.bPrivate)return;switch(canJoinLobby(a,e)){case Lobby.JOIN_SUCCESS:var r=getParty(e.player.currentPartyId);if(r)for(i=0;i<r.players.length;i++){var o=getSocketByPlayerId(r.players[i].id);canJoinLobby(a,o)==Lobby.JOIN_SUCCESS&&joinLobby(a,o)}else joinLobby(a,e)}}}}function getPlayerValue(e){return e?e.level*(e.prestige+1):1}function joinLobbyByGameModeId(e,a,t){if(e.player&&(a?log(tracePlayer(e),"Wants to join game mode",chalk.bgCyan(a)):log(tracePlayer(e),"Auto join..."),validateClient(e)))if(e.player.currentLobbyId)a&&removeSocketPlayerFromLobby(e,"joining_different_lobby");else{var r=e.player.currentPartyId;if(r)if((c=getParty(r))&&getSocketPlayerId(e)!==c.hostPlayerId)return;if(!a){var o=getAllPublicLobbies();if(e.info.autoJoinAttempts++,e.info.autoJoinAttempts>=60){log(tracePlayer(e),"Joining random lobby..."),shuffleArray(o);for(var n=0;n<o.length;n++){if(((i=o[n]).gameModeId!=GameMode.BATTLEZONE||t)&&((i.rotationId!=GameMode.COMBAT_TRAINING||e.player.level<=25&&0==e.player.prestige)&&canJoinLobby(i.id,e)==Lobby.JOIN_SUCCESS)){a=i.rotationId?i.rotationId:i.gameModeId;break}}}else{o.sort((function(a,t){var r=getPlayerValue(e.player),o=getAveragePlayerLevel(a.players)-r,n=getAveragePlayerLevel(t.players)-r;return o>n?1:o<n||a.players.length>t.players.length?-1:a.players.length<t.players.length?1:0}));for(n=0;n<o.length;n++){var i;if(((i=o[n]).gameModeId!=GameMode.BATTLEZONE||t)&&((i.rotationId!=GameMode.COMBAT_TRAINING||e.player.level<=25&&0==e.player.prestige)&&i.players.length>0&&canJoinLobby(i.id,e)===Lobby.JOIN_SUCCESS)){a=i.rotationId?i.rotationId:i.gameModeId;break}}}}if(lobbies[a]){var l=getAvailableLobbyIndexForGameMode(a,getNumPlayersInParty(e.player.currentPartyId));if(-1==l){var s=lobbies[a];if(s&&s.length<serverSettings.maxPublicLobbies){if(isRotationGameMode(a))var y=createRotationLobby(a);else y=createPublicLobby(a);y&&(l=s.length-1,broadcastServerData())}}if(l>=0){var b=lobbies[a][l];if(b){var d=b.id;if(lobbies[a].length>0)switch(canJoinLobby(d,e)){case Lobby.JOIN_SUCCESS:var c;if(c=getParty(e.player.currentPartyId))for(n=0;n<c.players.length;n++){var m=getSocketByPlayerId(c.players[n].id);canJoinLobby(d,m)==Lobby.JOIN_SUCCESS&&joinLobby(d,m)}else joinLobby(d,e)}}}}}}function lobbyCanAcceptPlayers(e,a=1){if(!serverSettings.bAllowJoinInProgress)return!1;var t=getLobbyData(e);if(t){if(t.state==LobbyState.STARTING)return!1;var r=getNumBotsInLobby(t.id);if(t.players.length-r+a>t.maxPlayers)return!1;if(t.bPrivate&&t.gameData&&t.gameData.settings.bPrivate)return!1;var o=t.game;return!!o&&o.canAcceptNewPlayers()}return!1}function canJoinLobby(e,a){var t=getLobbyData(e);if(t){if(!a.player)return Lobby.JOIN_FAIL_ERROR;var r=getNumBotsInLobby(t.id),o=getNumPlayersInParty(a.player.currentPartyId);return t.players.length-r+o>t.maxPlayers?Lobby.JOIN_FAIL_CAPACITY:t.bLocked?lobbyCanAcceptPlayers(e,o)||a.player.bAdmin?Lobby.JOIN_SUCCESS:Lobby.JOIN_FAIL_LOCKED:Lobby.JOIN_SUCCESS}return Lobby.JOIN_FAIL_ERROR}function canJoinParty(e,a){var t=getParty(e);if(t){if(t.players.length+1>Party.MAX_PLAYERS)return Party.JOIN_FAIL_CAPACITY;var r=getSocketByPlayerId(t.hostPlayerId);if(r&&r.player.currentLobbyId){var o=canJoinLobby(r.player.currentLobbyId,a);switch(o){case Lobby.JOIN_SUCCESS:break;default:return o}}return Party.JOIN_SUCCESS}return Party.JOIN_FAIL_ERROR}function checkLobbyReady(e){if(e){var a=getLobbyData(e);if(a){if(a.bPrivate)return;if(a.state===LobbyState.INTERMISSION&&a.players.length>0)return;if(log(chalk.bgCyan(e),"Checking if lobby is ready to start..."),a.state===LobbyState.IN_PROGRESS)0===a.players.length&&(setLobbyState(e,a.bPrivate?LobbyState.WAITING_HOST:LobbyState.WAITING),stopLobbyInterval(e));else if(!a.bLocked){tryMerge(a);var t=a.minPlayers>=2?2:1;if(getNumRealPlayersInLobby(e)>=a.minPlayers&&getNumRealTeamPlayersInLobby(e)>=t||a.players.length==a.maxPlayers){var r=a.state;setLobbyState(e,LobbyState.PREPARING),intervals[e]||(r==LobbyState.PREPARING&&a.timer||(a.timer=Lobby.COUNTDOWN_PREPARING),stopLobbyInterval(e),intervals[e]=setInterval(onLobbyTimer,1e3,e)),onLobbyAboutToStart(a)}else setLobbyState(e,LobbyState.WAITING),stopLobbyInterval(e);io.sockets.in(e).emit("updateLobby",getSafeLobbyData(a))}}}}function tryMerge(e){if(e){var a=lobbies[e.rotationId?e.rotationId:e.gameModeId];if(a&&a.length>=2)for(var t=0;t<a.length;t++){var r=a[t];r&&r.id!=e.id&&mergeLobbies(e,r)}}}function sendChatMessageToSocket(e,a){if(a){var t=getSocketById(e);t&&t.emit("receiveLobbyChatMessage",a)}}function votekickPlayer(e,a,t){log("Votekick",t);var r=getLobbyPlayerById(e,t);if(r){r.bBot;var o=getLobbyData(e);if(o){var n=o.votekick;n||(n={}),n[t]||(n[t]={players:[]});var i=n[t];if(i.players.indexOf(a)>=0)return;i.players.push(a);var l=i.players.length,s=Math.ceil(.5*o.players.length);if(log(l,"/",s,"votes"),sendChatMessage(o.id,{bServer:!0,messageText:l+"/"+s+" votes needed to kick "+r.name}),l>=s){log("Kick player");var y=getSocketByPlayerId(t);y?removeSocketPlayerFromLobby(y,"kicked"):console.warn("Invalid socket for votekick")}}}}function sendChatMessage(e,a){if(a)if(a.date=(new Date).toISOString(),e)io.sockets.in(e).emit("receiveLobbyChatMessage",a);else{chatHistory.push(a),chatHistory.length>10&&chatHistory.splice(0,1);for(var t=getAllPlayers(),r=0;r<t.length;r++){var o=getSocketByPlayerId(t[r].id);o&&o.player&&!o.player.currentLobbyId&&o.emit("receiveLobbyChatMessage",a)}}}function onPlayerWaitTimer(e){var a=getLobbyData(e);if(a)if(a.state===LobbyState.IN_PROGRESS){if(a.waitTimer>0)io.sockets.in(e).emit("updateWaitTimer",{timer:a.waitTimer}),a.waitTimer--;else if(0===a.waitTimer){var t=a.players;if(t.length>0)for(var r=t.length-1;r>=0;r--){var o=t[r];if(o||console.warn("Invalid player",r,t),o&&!o.bReady){var n=getSocketByPlayerId(o.id);n&&(log(tracePlayer(n),"is idle"),disconnectSocket(n,{reason:"idle"}))}}if(stopLobbyInterval(e,"waitTimer"),console.log("Players after kicking:",t.length),t.length>1){var i=a.gameData;i?(i.players=clone(t),onInitGame(e,i)):console.warn("No gameData",a.gameData)}else log("Not enough players, end game!"),endLobbyGame(e,!1)}}else stopLobbyInterval(e,"waitTimer")}function onLobbyTimer(e){var a=getLobbyData(e);if(a){var t=a.timer;a.timer--,t<=0&&(stopLobbyInterval(e),delete a.timer,onLobbyTimerComplete(e)),io.sockets.in(e).emit("updateLobby",{state:a.state,timer:a.timer})}}function onLobbyTimerComplete(e){var a=getLobbyData(e);if(a)switch(a.state){case LobbyState.INTERMISSION:setLobbyState(e,LobbyState.WAITING),checkLobbyReady(e);break;case LobbyState.PREPARING:setLobbyState(e,LobbyState.STARTING),a.timer=Lobby.COUNTDOWN_STARTING,stopLobbyInterval(e),intervals[e]=setInterval(onLobbyTimer,1e3,e),io.sockets.in(e).emit("updateLobby",{state:a.state,timer:a.timer,players:a.players});break;case LobbyState.STARTING:setLobbyState(e,LobbyState.IN_PROGRESS);var t=a.gameData.operationId;if(t){var r=a.gameData.settings.difficulty,o=a.gameData.settings.bPrivate,n=a.gameData.settings.bDebug;log("Start operation:",chalk.yellow(t),"difficulty:",r,a.gameData.settings.bPrivate);var i=operationData[t];if(i)a.gameData=clone(i.gameData),a.gameData.settings.difficulty=r,a.gameData.settings.bPrivate=o,a.gameData.settings.bDebug=n,a.gameData.operation=clone(i),a.gameData.lobbyId=e,a.gameData.bMultiplayer=!0,a.gameData.bRanked=!0;else var l=!0,s="Invalid Operation data"}if(l)console.warn("An error occurred while starting match",s),endLobbyGame(e,!1),showWindowForSockets(getLobbyPlayerIds(a),{titleText:"STR_ERROR",messageText:"STR_ERROR_DESC",error:s,bShowOkayButton:!1,type:"TYPE_ERROR"});else{for(var y=[],b=0;b<a.players.length;b++)y.push(clone(a.players[b]));a.gameData.players=y,a.gameData.data={shared:shared,sprites:sprites,atlas_weapons_world:atlas_weapons_world,weapons:weapons,mods:mods,perks:perks,killstreaks:killstreaks,modes:game_modes,maps:allMaps,graph:ngraphGraph,path:ngraphPath},io.sockets.in(e).emit("startGame",a.gameData),stopLobbyInterval(e),intervals[e]=setInterval(onEnterGame,3e3,e)}}}function onEnterGame(e){stopLobbyInterval(e),io.sockets.in(e).emit("enterGame"),broadcastServerData()}function onInitGame(e,a){log(chalk.bgCyan(e),"Initialize game"),stats.gamesPlayed++,stats.peakGamesInProgress=Math.max(stats.peakGamesInProgress,getLobbiesInProgress().length);var t=getLobbyData(e);if(t){stopLobbyInterval(t.id),stopLobbyInterval(t.id,"waitTimer"),delete t.waitTimer,destroyLobbyGame(t);var r=new gameInstance.GameInstance;r.bInit?(console.warn("Game is already initialized"),r.destroy()):(a.players=clone(t.players),r.init(a,(e=>{if(e){var a=t.id;if(a){var r=io.sockets.adapter.rooms[a];if(r)for(var o=r.sockets,n=Object.keys(o),i=0;i<n.length;i++){let a=getSocketById(n[i]);a&&a.player&&(a.emit("gameEvent",e),stats.emits++)}}else console.warn("onGameInstanceEvent --\x3e Invalid lobby id",a)}}),p2),r.setEndCallback(onEndGame),t.game=r)}else log("Invalid lobby data!")}function onEndGame(e){stopLobbyTimeout(e),log(chalk.bgCyan(e),"Starting end game timer...");var a=setTimeout(onEndGameTimeout,15e3,e,!0);lobbyTimers[e]=a;var t=getLobbyData(e);if(!t.bPrivate&&t.gameData.bRanked)for(var r={},o=t.game.getWinner(),n=0;n<t.players.length;n++){var i=t.players[n];if(i.clan&&!i.bBot){var l=t.game.getPlayerStateById(i.id);if(l){var s=0;l.team==o&&(r[i.clan]||(r[i.clan]=!0,s++));for(var y=["score","captures","returns","plants","defuses"],b=0;b<y.length;b++){let e=y[b];if(l[e]>0){let a=l[e];"score"==e&&(a=Math.ceil(.05*a)),s+=a}}async_updateClanScore(i.clan,s,l.kills)}}}}function stopLobbyTimeout(e){var a=lobbyTimers[e];a&&(log(chalk.bgCyan(e),"Clearing lobby timer..."),clearTimeout(a),delete lobbyTimers[e])}function onEndGameTimeout(e){endLobbyGame(e,!0)}function endLobbyGame(e,a){log(chalk.bgCyan(e),"End lobby game");var t=getLobbyData(e);t?(t.bPrivate?setLobbyState(e,LobbyState.WAITING_HOST):setLobbyState(e,a?LobbyState.INTERMISSION:LobbyState.WAITING),io.sockets.in(e).emit("updateLobby",getSafeLobbyData(t)),broadcastServerData()):log("Lobby doesn't exist:",e)}function getNumPlayersOnTeam(e,a){var t=0;if(e)for(var r=e.players,o=0;o<r.length;o++)r[o].team==a&&t++;return t}function getTeamValue(e,a){for(var t=0,r=0;r<e.length;r++){var o=e[r];o.team===a&&(t+=o.level+50*o.prestige)}return t}function setLobbyTeams(e){if(e){var a=e.gameModeId,t=isTeamGameMode(a),r=e.gameData.settings,o=e.players;if(o){var n=r.factions;if(!e.bPrivate&&t){if(e.rotationId==GameMode.COMBAT_TRAINING&&getNumRealPlayersInLobby(e.id)<.5*e.maxPlayers)for(var i=MathUtil.RandomBoolean()?0:1,l=0;l<o.length;l++){let a=o[l];a.bBot?getNumPlayersOnTeam(e,0)>getNumPlayersOnTeam(e,1)?a.team=1:a.team=0:a.team=i}else{o.sort(((e,a)=>e.currentPartyId?a.currentPartyId?e.currentPartyId<a.currentPartyId?-1:e.currentPartyId>a.currentPartyId?1:0:-1:1));var s=[],y=[],b=[];for(l=0;l<o.length;l++){(m=o[l]).currentPartyId&&getNumPlayersInParty(m.currentPartyId)>1?(-1==s.indexOf(m.currentPartyId)&&s.push(m.currentPartyId),m.team=s.indexOf(m.currentPartyId)%2==0?0:1,y.push(m)):b.push(m)}b.sort(((e,a)=>e.prestige<a.prestige?1:e.prestige>a.prestige?-1:e.level<a.level?1:e.level>a.level?-1:0));for(l=0;l<b.length;l++)getNumPlayersOnTeam(e,0)>getNumPlayersOnTeam(e,1)?b[l].team=1:b[l].team=0;o=y.concat(b)}o.sort(((e,a)=>e.team<a.team?-1:e.team>a.team?1:0)),e.players=o}var d=!1,c=e.bPrivate&&t;for(l=0;l<o.length;l++){var m=o[l];switch(a){case GameMode.BATTLEZONE:getNumPlayersInParty(m.currentPartyId)>1?m.team=o.length+getPartyIndex(m.currentPartyId):m.team=l,d=!0;break;case GameMode.GUN_GAME:case GameMode.DEATHMATCH:m.team=l,d=!0;break;case GameMode.INFECTED:case GameMode.SURVIVAL_BASIC:case GameMode.SURVIVAL_UNDEAD:case GameMode.SURVIVAL_CHAOS:case GameMode.SURVIVAL_STAKEOUT:case GameMode.SURVIVAL_PRO:case GameMode.OPERATION:case GameMode.SANDBOX:m.team=0,d=!0;break;default:c?void 0!==m.desiredTeam?m.team=m.desiredTeam:m.bBot&&r.botTeam>=0?m.team=r.botTeam:m.team=getBestTeam(o):null==m.team&&(m.team=MathUtil.Random(0,1)),d=!1}var g=n?n[m.team]:null;g&&!d||(g=m.avatars.preferred),m.avatarData=m.avatars[g],d&&(m.avatarData.preferred=m.avatars.preferred)}o.sort((function(e,a){return e.team<a.team?-1:e.team>a.team?1:0}))}}else log("Invalid lobby data!")}function initPlayerForGameInProgress(e,a){var t=e;if(t){var r=getLobbyData(a);if(r){log("Initializing player for game...");var o=r.players,n=r.gameData.settings.factions,i=!1;switch(r.gameModeId){case GameMode.BATTLEZONE:for(var l=[],s=0;s<r.maxPlayers;s++)l.push(s);if(t.currentPartyId&&getNumPlayersInParty(t.currentPartyId)>1)t.team=r.maxPlayers+getPartyIndex(t.currentPartyId);else{for(s=0;s<o.length;s++){let e=o[s].team;null!=e&&l.splice(l.indexOf(e),1)}t.team=l[0]}i=!0;break;case GameMode.GUN_GAME:case GameMode.DEATHMATCH:for(l=[],s=0;s<r.maxPlayers;s++)l.push(s);for(s=0;s<o.length;s++){let e=o[s].team;null!=e&&l.splice(l.indexOf(e),1)}t.team=l[0],i=!0;break;case GameMode.SURVIVAL_BASIC:case GameMode.SURVIVAL_UNDEAD:case GameMode.SURVIVAL_CHAOS:case GameMode.SURVIVAL_STAKEOUT:case GameMode.SURVIVAL_PRO:case GameMode.OPERATION:t.team=0,i=!0;break;case GameMode.INFECTED:t.team=1,i=!0;break;default:var y=[0,0],b=null;for(s=0;s<o.length-1;s++){let e=o[s];null!=e.team&&y[e.team]++,t.currentPartyId&&e.currentPartyId===t.currentPartyId&&(b=e.team)}if(null!=b)t.team=b;else if(y[0]>y[1])t.team=1;else if(y[0]<y[1])t.team=0;else{var d=r.game;t.team=d?d.getNewPlayerDesiredTeam():MathUtil.Random(0,1)}}var c=n?n[t.team]:null;c&&!i||(c=t.avatars.preferred),t.avatarData=t.avatars?t.avatars[c]:null,t.avatarData?i&&(t.avatarData.preferred=t.avatars.preferred):console.warn("Invalid avatar data",t)}}}function getBestTeam(e){if(e){for(var a=[{team:0,num:0},{team:1,num:0}],t=0;t<e.length;t++){var r=e[t];if(void 0!==r.team)a[r.team].num++}return a.sort((function(e,a){return e.num-a.num})),a[0].team}return 0}function verifyPrivateLobbyTeams(e){if(e){var a=e.gameData.settings;if(a.bDebug)return!0;var t=e.players;if(isTeamGameMode(e.gameModeId)&&0===a.bots){for(var r=[!1,!1],o=0;o<t.length;o++){if(void 0!==(i=t[o]).desiredTeam&&(r[i.desiredTeam]=!0,r[0]&&r[1]))return!0}return!1}if(!(a.botTeam>=0))return!0;var n=1===a.botTeam?0:1;for(o=0;o<t.length;o++){var i;if(void 0===(i=t[o]).desiredTeam||i.desiredTeam===n)return!0}}return!1}function resetPlayers(e){if(e){for(var a=0;a<e.length;a++)resetPlayer(e[a]);e.sort((function(e,a){return e.bLobbyHost?-1:a.bLobbyHost?1:e.bPartyHost?-1:a.bPartyHost?1:0}))}}function resetPlayer(e){delete e.team,delete e.bReady,delete e.bInGame}function destroyLobbyGame(e){if(e){var a=e.game;a&&(a.destroy(),delete e.game)}}function setLobbyState(e,a){log(chalk.bgCyan(e),"--\x3e",chalk.inverse(a));var t=getLobbyData(e);if(t)switch(destroyLobbyGame(t),stopLobbyInterval(e),stopLobbyTimeout(e),t.state=a,t.state){case LobbyState.WAITING:removeBotsFromLobby(e),t.bLocked=!1,t.timer=-1,resetPlayers(t.players);break;case LobbyState.WAITING_HOST:removeBotsFromLobby(e),t.bLocked=!1,t.timer=-1,resetPlayers(t.players);var r=t.gameData;if(r.operation){log(chalk.bgCyan(e),"Resetting operation data"),t.gameModeId=GameMode.OPERATION,r.gameModeId=GameMode.OPERATION,r.operationId=r.operation.id;var o=r.settings.bDebug,n=r.settings.difficulty,i=r.settings.bPrivate;r.settings=getDefaultGameModeSettings(GameMode.OPERATION),r.settings.bDebug=o,r.settings.bPrivate=null==i||i,r.settings.difficulty=n,delete r.operation}break;case LobbyState.PREPARING:t.bLocked=!1;break;case LobbyState.STARTING:t.bLocked=!0;var l=t.maps;if(l){for(var s=0,y=0,b=0;b<l.length;b++){var d=l[b].votes.length;d>y&&(s=b,y=d)}t.gameData.mapId=l[s].id,t.rotationId&&(t.gameData.gameModeId=l[s].gameModeId,t.gameData.settings=getDefaultGameModeSettings(t.gameData.gameModeId),t.gameData.settings.bPrivate=t.bPrivate,null!=t.bHardcore&&(t.gameData.settings.bHardcore=t.bHardcore),t.gameModeId=t.gameData.gameModeId,log("Selected game mode:",chalk.yellow(t.gameModeId)))}if(t.gameData.mapId===Map.RANDOM){log("Getting random map...");var c=[Map.RIVERSIDE,Map.DISTRICT,Map.WAREHOUSE,Map.OUTPOST,Map.ESTATE,Map.FACTORY,Map.DOWNTURN,Map.SANDSTORM,Map.OVERGROWN,Map.AIRPORT];if(l)for(b=0;b<l.length;b++){var m=l[b],g=c.indexOf(m.id);g>=0&&c.splice(g,1)}t.gameData.mapId=c[MathUtil.Random(0,c.length-1)]}if(log("Selected map:",chalk.yellow(t.gameData.mapId)),t.bPrivate){var _=t.gameData.settings.bDebug,E=_?32:shared.maxPlayers[t.gameModeId]-1,I=Math.min(t.gameData.settings.bots,E),S=getAveragePlayerLevel(t.players),u=_?32:Lobby.MAX_PLAYERS;for(b=0;b<I&&t.players.length<u;b++){var A=t.gameData.settings.botSkill;A<0&&(A=Math.min(Math.floor(S/15),GameData.BOT_SKILL_HARD));var L=BotUtil.getLobbyData(A);t.players.push(L)}}else if(t.bAddBots){var v=t.maxPlayers-t.players.length;if(v>0)for(b=0;b<v;b++){(L=getBotPlayerForLobby(t))&&t.players.push(L)}}var p=t.gameData.settings.factions;if(p){var T=[GameData.FACTION_DELTA_FORCE,GameData.FACTION_GSG9,GameData.FACTION_GIGN,GameData.FACTION_OPFOR,GameData.FACTION_SPETSNAZ,GameData.FACTION_MILITIA],h=MathUtil.Random(0,T.length-1);p[0]=T[h],T.splice(h,1),p[1]=T[MathUtil.Random(0,T.length-1)],t.gameData.settings.factions=p}setLobbyTeams(t);break;case LobbyState.IN_PROGRESS:t.bLocked=!0,0==getNumRealPlayersInLobby(e).length?(log("Lobby is empty, reset state"),resetMapVotes(e),setLobbyState(e,LobbyState.WAITING)):(t.waitTimer=Lobby.WAIT_TIMER,stopLobbyInterval(e,"waitTimer"),intervals[e+"_waitTimer"]=setInterval(onPlayerWaitTimer,1e3,e));break;case LobbyState.INTERMISSION:removeBotsFromLobby(e),t.bLocked=!1,t.timer=Lobby.INTERMISSION_TIMER,stopLobbyInterval(e),intervals[e]=setInterval(onLobbyTimer,1e3,e),resetPlayers(t.players),t.maps=getRandomLobbyMaps(t.gameModeId,t.rotationModes),tryMerge(t)}}function getDummyBotPlayer(e,a){var t=BotUtil.getLobbyData(e);return t.bDummy=!0,t.id=getRandomUniqueId(),t.name=a||"Player"+MathUtil.Random(1,999),e>=3&&(t.prestige=MathUtil.Random(1,10)),t.card=titlecards_soldiers[MathUtil.Random(0,titlecards_soldiers.length-1)],t.callsign=null,t.bPremium=!0,t.latency=MathUtil.Random(10,100),t}function getBotPlayerForLobby(e){if(e){var a=1,t=getAveragePlayerLevel(e.players);return a=50==t?3:Math.min(2,Math.floor(t/15)),e.rotationId==GameMode.COMBAT_TRAINING&&(a=Math.min(a,GameData.BOT_SKILL_HARD)),BotUtil.getLobbyData(a)}return null}function stopLobbyInterval(e,a){var t=e;a&&(t+="_"+a);var r=intervals[t];r&&(clearInterval(r),delete intervals[e])}function retractLobbyMapVote(e,a){var t=getLobbyData(a);if(t){var r=t.maps;if(r)for(var o=0;o<r.length;o++){var n=r[o].votes;if(n){var i=n.indexOf(e);i>=0&&n.splice(i,1)}}}}function resetMapVotes(e){var a=getLobbyData(e);if(a){var t=a.maps;if(t)for(var r=0;r<t.length;r++)t[r].votes=[];delete a.votekick}}function getAllClanPlayers(e){async_getClanPlayers(e)}function getOnlinePlayersInClan(e){for(var a=getAllPlayers(),t=[],r=0;r<a.length;r++){var o=a[r];o.clan==e&&t.push(o)}return t}function getClanInvitablePlayers(){for(var e=getAllSockets(),a=[],t=0;t<e.length;t++){var r=e[t];r.info&&r.player&&r.info.username&&!r.player.clan&&!r.player.currentLobbyId&&r.player.bAllowPartyInvites&&a.push(r.player)}return a}function getAllPlayers(){var e=[];if(Object.keys(io.sockets.connected).forEach((function(a){var t=io.sockets.connected[a].player;if(t){var r=clone(t),o=getLobbyData(t.currentLobbyId);o&&(r.gameModeId=o.rotationId?o.rotationId:o.gameModeId,o.bPrivate&&(r.bPrivateLobby=!0),o.state==LobbyState.IN_PROGRESS&&(r.bInGame=!0)),e.push(r)}})),dummies)for(var a=0;a<dummies.length;a++)player=dummies[a],data=clone(player),curLobby=getLobbyData(player.currentLobbyId),curLobby&&(data.gameModeId=curLobby.rotationId?curLobby.rotationId:curLobby.gameModeId,curLobby.bPrivate&&(data.bPrivateLobby=!0),curLobby.state==LobbyState.IN_PROGRESS&&(data.bInGame=!0)),e.push(data);return e.sort(((e,a)=>e.prestige>a.prestige?-1:a.prestige<a.prestige?1:e.level>a.level?-1:a.level<a.level?1:0)),e}function getAllSockets(){var e=[];if(Object.keys(io.sockets.connected).forEach((function(a){var t=io.sockets.connected[a];t&&e.push(t)})),dummies)for(var a=0;a<dummies.length;a++)e.push({info:{version:Server.GAME_VERSION,host:"xwilkinx.com"},player:dummies[a]});return e.sort(((e,a)=>e.player.prestige>a.player.prestige?-1:e.player.prestige<a.player.prestige?1:e.player.level>a.player.level?-1:e.player.level<a.player.level?1:0)),e}function getNumClients(){return Object.keys(io.sockets.connected).length+(dummies?dummies.length:0)}function getSocketById(e){var a=io.sockets.connected[e];return a||getSocketByPlayerId(e)}function getSocketByPlayerId(e){for(var a=Object.keys(io.sockets.connected),t=0;t<a.length;t++){var r=a[t],o=io.sockets.connected[r];if(2==r.indexOf(e))return o}return null}function getSocketByUsername(e){for(var a=Object.keys(io.sockets.connected),t=0;t<a.length;t++){var r=io.sockets.connected[a[t]];if(r&&r.player&&r.info.username==e)return r}return null}function showClientDataFailedWindow(e){console.warn(tracePlayer(e),"Validation failed!"),e&&e.emit("showWindow",{titleText:"STR_MENU_MULTIPLAYER",messageText:"STR_ERROR_CLIENT_VALIDATION_FAILED_DESC",bShowOkayButton:!0})}function showMultiplayerLoginWindow(e){console.log(tracePlayer(e),"Player is not logged in"),e&&e.emit("showWindow",{id:"mpLogin",titleText:"STR_MENU_MULTIPLAYER",messageText:"STR_MULTIPLAYER_LOGIN",type:"TYPE_YES_NO",yesText:"STR_LOG_IN_REGISTER"})}function showBannedWindow(e){console.warn(tracePlayer(e),"Player is banned!"),e&&e.emit("showWindow",{titleText:"STR_MENU_MULTIPLAYER",messageText:"STR_ERROR_BANNED",bShowOkayButton:!0})}function getLobbyPlayerIds(e){var a=[];if(e)for(var t=0;t<e.players.length;t++)a.push(e.players[t].id);return a}function showWindowForSockets(e,a){if(e)for(var t=0;t<e.length;t++){var r=getSocketByPlayerId(e[t]);r&&r.emit("showWindow",a)}}function validateClient(e){return!!e&&(!!verifyClientPlayerData(e.player)||(showClientDataFailedWindow(e),e.disconnect(),!1))}function verifyClientPlayerData(e){if(e)try{if(e.level<0||e.level>GameData.MAX_LEVEL)return console.warn("Invalid level:",e.level),!1;if(e.prestige<0||e.prestige>GameData.MAX_PRESTIGE)return console.warn("Invalid prestige:",e.prestige),!1;var a=e.classes;if(!a)return console.warn("Invalid classes"),!1;for(var t=0;t<a.length;t++){var r=a[t];if(!r)return console.warn("Invalid class data"),!1;if(!isValidWeaponId(r.primary.id))return console.warn("Invalid primary id:",r.primary.id),!1;if(!isValidWeaponId(r.secondary.id))return console.warn("Invalid secondary id:",r.secondary.id),!1;if(!isValidWeaponId(r.equipment))return console.warn("Invalid equipment id:",r.equipment),!1;if("minigun"==r.primary.id||"minigun"==r.secondary.id)return console.warn("Using minigun"),!1;if("railgun"==r.primary.id||"railgun"==r.secondary.id)return console.warn("Using railgun"),!1}var o=e.killstreaks;if(!o)return!1;if(o.TYPE_ASSAULT.length>3)return console.warn("Invalid assault killstreaks:",o.TYPE_ASSAULT.length),!1;if(o.TYPE_SUPPORT.length>3)return console.warn("Invalid support killstreaks:",o.TYPE_SUPPORT.length),!1;if(o.TYPE_SPECIALIST.length>5)return console.warn("Invalid perk killstreaks:",o.TYPE_SPECIALIST.length),!1;var n=e.avatars;if(!n)return console.warn("Invalid avatars"),!1;var i=[GameData.FACTION_DELTA_FORCE,GameData.FACTION_OPFOR,GameData.FACTION_GSG9,GameData.FACTION_SPETSNAZ,GameData.FACTION_GIGN,GameData.FACTION_MILITIA];for(t=0;t<i.length;t++){if(!n[i[t]])return console.warn("Invalid avatar data"),!1}return!0}catch(e){return console.warn("An error occured while verifying client player data"),console.error(e),!1}return!1}function isValidWeaponId(e){if(weapons)for(var a=0;a<weapons.length;a++){let t=weapons[a];if(t.id===e)return!t.bHidden}return!1}function getLatestServerData(){for(var e=0,a=Object.keys(lobbies),t=0;t<a.length;t++)e+=lobbies[a[t]].length;var r=getAllPlayers();return{version:Server.VERSION,players:r.length,maxPlayers:serverSettings.maxClients,gamesInProgress:getLobbiesInProgress().length,lobbies:e}}function getPartyIndex(e){for(var a=Object.keys(parties),t=0;t<a.length;t++)if(parties[a[t]].id==e)return t;return null}function getAllLobbies(){for(var e=[],a=Object.keys(lobbies),t=0;t<a.length;t++)for(var r=a[t],o=0;o<lobbies[r].length;o++)e.push(lobbies[r][o]);return e}function getLobbyList(e){for(var a=[],t=Object.keys(lobbies),r=0;r<t.length;r++)for(var o=t[r],n=0;n<lobbies[o].length;n++){let t=lobbies[o][n];if("private"==o&&t.gameData.settings.bPrivate)continue;let r={id:t.id,bPrivate:"private"==o,numPlayers:getNumRealPlayersInLobby(t.id),maxPlayers:t.maxPlayers,gameModeId:t.gameModeId,rotationId:t.rotationId,state:t.state,bCanJoin:!!e&&canJoinLobby(t.id,e)==Lobby.JOIN_SUCCESS};t.state==LobbyState.IN_PROGRESS&&(r.mapId=t.gameData?t.gameData.mapId:null),a.push(r)}return a}function getAllPublicLobbies(){for(var e=[],a=Object.keys(lobbies),t=0;t<a.length;t++){var r=a[t];if("private"!==r)for(var o=0;o<lobbies[r].length;o++){let a=lobbies[r][o];e.push(a)}}return e}function getLobbiesInProgress(){for(var e=[],a=getAllLobbies(),t=0;t<a.length;t++){var r=a[t];r.state===LobbyState.IN_PROGRESS&&e.push(r)}return e}function getRandomUniqueId(){return Math.random().toString(36).substr(2,4)}function isRotationGameMode(e){switch(e){case GameMode.ROTATION_TEAM:case GameMode.ROTATION_SURVIVAL:case GameMode.GROUND_WAR:return!0}return!1}function isTeamGameMode(e){if(game_modes)for(var a=0;a<game_modes.length;a++){var t=game_modes[a];if(t.id===e)return t.bTeam}return!1}function shuffleArray(e){for(var a,t,r=e.length;0!==r;)t=Math.floor(Math.random()*r),a=e[r-=1],e[r]=e[t],e[t]=a;return e}function clone(e){return JSON.parse(JSON.stringify(e))}function convertMS(e){var a,t,r;return r=Math.floor(e/1e3),t=Math.floor(r/60),r%=60,a=Math.floor(t/60),t%=60,{day:Math.floor(a/24),hour:a%=24,minute:t,seconds:r}}function throttleSocket(e,a){return e&&rateLimiter.consume(e.id).then((()=>!0)).catch((a=>(disconnectSocket(e,{reason:"throttle"}),!1))),!1}function disconnectSocket(e,a){e&&(e.emit("disconnectInfo",a),e.disconnect())}server.listen(process.env.PORT||serverSettings.port,(function(){log("\nListening on "+server.address().family+" "+chalk.inverse(server.address().address)+":"+chalk.inverse(server.address().port)+"\n")})),log(chalk.yellow("Initializing server...")),initLobbies(),log(chalk.green("Done")),io.sockets.on("connection",(function(e){if(log(tracePlayer(e),chalk.green("Connected"),"|",getNumClients(),"connected"),stats.playersConnected++,stats.peakPlayersConnected=Math.max(stats.peakPlayersConnected,getNumClients()),e.player={id:genIdFromSocket(e),name:"Player",level:1,prestige:0},e.info={autoJoinAttempts:0},getNumClients()>serverSettings.maxClients)return console.warn("Maximum number of clients reached!",getNumClients()),e.emit("showWindow",{titleText:"STR_SERVER_FULL",messageText:"STR_SERVER_FULL_DESC",bShowOkayButton:!0}),void e.disconnect();e.emit("onConnect",Server.OFFICIAL,{welcomeMessage:serverSettings.welcomeMessage}),e.on("completeClanChallenge",(function(a){throttleSocket(e),actionLimiter.consume(e.id).then((()=>{if(e.player){var t=e.player.clan;t&&(log(tracePlayer(e),"Complete clan challenge",a),async_updateClanScore(t,1,0))}})).catch((e=>{}))})),e.on("updatePlayerData",(function(a){actionLimiter.consume(e.id).then((()=>{if(log(tracePlayer(e),"Update player data"),a){if(a.version){var t=Server.GAME_VERSION.split("."),r=a.version.split(".");if(3!=r.length||parseInt(r[0])<parseInt(t[0])||parseInt(r[1])<parseInt(t[1])||parseInt(r[2])<parseInt(t[2]))return log(tracePlayer(e),a.host,"Game version mismatch:",chalk.yellow("Required: "+Server.GAME_VERSION),"|",chalk.red("Client: "+a.version)),e.emit("showWindow",{id:"mp_mismatch",titleText:"STR_MENU_MULTIPLAYER",messageText:"STR_VERSION_MISMATCH_DESC",messageParams:[a.version,Server.GAME_VERSION],version:a.version,required:Server.GAME_VERSION,type:"TYPE_YES_NO",yesText:"STR_PLAY_LATEST_VERSION",yesURL:"https://xwilkinx.com/deadswitch-3"}),void e.disconnect();if(!a.username&&!a.steamId)return showMultiplayerLoginWindow(e),void e.disconnect();if(serverSettings.bannedUsernames&&a.username)for(var o=0;o<serverSettings.bannedUsernames.length;o++)if(a.username==serverSettings.bannedUsernames[o]){showBannedWindow(e),e.disconnect();break}if(serverSettings.bannedSteamIds&&a.steamId)for(o=0;o<serverSettings.bannedSteamIds.length;o++)if(a.steamId==serverSettings.bannedSteamIds[o]){showBannedWindow(e),e.disconnect();break}if(verifyClientPlayerData(a)){var n=e.player.latency,i=e.player.currentLobbyId,l=e.player.currentPartyId,s=getLobbyData(i);if(s&&s.game)e.player.level=a.level;else{if(e.player.version||(e.info.host=a.host,e.info.version=a.version),a.id=genIdFromSocket(e),e.player=clone(a),delete e.player.host,delete e.player.href,delete e.player.version,delete e.player.stats,e.player.latency=n,e.player.currentLobbyId=i,e.player.currentPartyId=l,s){var y=getLobbyPlayerById(i,getSocketPlayerId(e));y&&(y.name=e.player.name,y.level=e.player.level,y.prestige=e.player.prestige,y.card=e.player.card,y.callsign=e.player.callsign,y.avatars=e.player.avatars,y.killstreaks=e.player.killstreaks,io.sockets.in(i).emit("updateLobby",{players:s.players}))}if(l){var b=getPartyPlayerById(l,getSocketPlayerId(e));b&&(y.name=e.player.name,b.card=e.player.card,b.callsign=e.player.callsign),updatePartyClients(l)}}broadcastServerData()}else showClientDataFailedWindow(e),e.disconnect()}e.player&&e.info&&(void 0!==a.username&&(e.info.username=a.username,async_getClanForSocket(e)),void 0!==a.stats&&(e.stats=a.stats),void 0!==a.battlezone&&(e.player.battlezone=clone(a.battlezone)))}})).catch((e=>{}))})),e.on("updateClientLatency",(function(a){if(e.player){if(e.player.latency=a,a>=serverSettings.maxLatency)return void disconnectSocket(e,{reason:"latency"});if(e.player.currentLobbyId&&e.player.bReady){var t=getLobbyData(e.player.currentLobbyId);if(t)if(!t.bPrivate&&a>=serverSettings.maxLobbyLatency)removeSocketPlayerFromLobby(e,"latency");else{var r=t.game;r&&r.setPlayerLatency(getSocketPlayerId(e),a)}}}})),e.on("createClan",(function(a){if(throttleSocket(e),log(tracePlayer(e),"Wants to create clan:",a),e.player){if(e.player.clan)return void e.emit("onCreateClan",{bSuccess:!1,message:"You must leave your current clan before creating a new one.",key:"STR_ERROR_CLAN_LEAVE_CURRENT_CLAN"});if(!e.info.username)return void e.emit("onCreateClan",{bSuccess:!1,message:"You must be logged into a Deadswitch 3 account to create a new clan.",key:"STR_ERROR_CREATE_CLAN_NOT_LOGGED_IN"});async_createClan(e,a)}})),e.on("joinClan",(function(a){if(throttleSocket(e),log(tracePlayer(e),"Wants to join clan:",a),e.player){if(e.player.clan)return;e.info.username&&async_joinClan(e,a)}})),e.on("getClanData",(function(){throttleSocket(e),log(tracePlayer(e),"Wants to get clan data"),async_getClanData(e)})),e.on("leaveClan",(function(){throttleSocket(e),log(tracePlayer(e),"Wants to leave clan"),async_leaveClanBySocket(e)})),e.on("getPlayerData",(function(){throttleSocket(e),e.player&&e.emit("getPlayerData",e.player)})),e.on("requestQuit",(function(){if(throttleSocket(e),e.player){var a=e.player.currentLobbyId;log(tracePlayer(e),"Request quit in lobby",chalk.bgCyan(a)),(t=getParty(e.player.currentPartyId))&&t.hostPlayerId!=getSocketPlayerId(e)&&removePlayerFromParty(e);var t,r=getLobbyData(a);if(r)if(r.bPrivate)r.hostPlayerId==getSocketPlayerId(e)?(setLobbyState(a,LobbyState.WAITING_HOST),io.sockets.in(a).emit("updateLobby",getSafeLobbyData(r))):removeSocketPlayerFromLobby(e,"client_quit");else(t=getParty(e.player.currentPartyId))&&t.hostPlayerId==getSocketPlayerId(e)&&t.players.length>1&&removePlayerFromParty(e),removeSocketPlayerFromLobby(e,"client_quit")}})),e.on("requestGame",(function(){throttleSocket(e);var a=e.player.currentLobbyId;log(tracePlayer(e),"requests game in",chalk.bgCyan(a));var t=getLobbyData(a);if(t){var r=t.game;if(r){log(chalk.bgCyan(a),"Game in progress");var o=[];if(t.bAddBots){for(var n=0,i=0;i<t.players.length;i++){if(t.players.length>t.maxPlayers)(_=t.players[i]).bBot&&_.team==e.player.team&&(r.requestEvent({eventId:GameServer.EVENT_PLAYER_LEAVE,reason:"kicked",playerId:_.id}),t.players.splice(i,1),n++)}if(!n)for(i=0;i<t.players.length;i++){if(t.players.length>t.maxPlayers)(_=t.players[i]).bBot&&(r.requestEvent({eventId:GameServer.EVENT_PLAYER_LEAVE,reason:"kicked",playerId:_.id}),t.players.splice(i,1),n++)}}o.push(r.getInitEventData()),r.addPlayer(clone(e.player)),o.push(r.getGameModeEventData()),r.matchInProgress()&&o.push(r.getGameStartEventData());var l=r.getPlayerStates();for(i=0;i<l.length;i++){let a=l[i];a.id!=getSocketPlayerId(e)&&o.push({eventId:GameServer.EVENT_PLAYER_JOIN,playerId:a.id,data:a,bSilent:!0})}var s=r.getObjectsEventData();for(i=0;i<s.length;i++)o.push(s[i]);log(o.length,"events"),e.emit("gameEvent",{eventId:GameServer.EVENT_BATCH,lobbyId:a,items:o})}else{var y=t.players,b=0,d=getNumBotsInLobby(a),c=getNumDummiesInLobby(a),m=y.length-(d+c);for(i=0;i<y.length;i++)ps=y[i],ps.id==getSocketPlayerId(e)?(ps.bReady=!0,b++):ps.bReady&&b++;if(log(chalk.bgCyan(a),"Players ready:",b,"/",m),0==m)endLobbyGame(a,!1);else{var g=[];for(i=0;i<y.length;i++){var _=y[i];g.push(_)}if(io.sockets.in(a).emit("updatePlayersReady",{players:g,numReady:b,numNeeded:m}),b==m){log(chalk.bgCyan(a),chalk.green("All players ready"));var E=t.gameData;E.maxPlayers=t.maxPlayers,E.bPrivate=t.bPrivate,onInitGame(a,E)}}}}})),e.on("requestEvent",(function(a){if(e.player&&a){throttleSocket(e,a);var t=!1;if(gameLimiter.consume(e.id).then((()=>{t=!1})).catch((e=>{t=!0})),!t){var r=getGame(e.player.currentLobbyId);if(r){var o=!0,n=!0;switch(a.eventId){case GameServer.EVENT_PLAYER_UPDATE_INVENTORY:-1==e.id.indexOf(a.pawnId)&&(o=!1);break;case GameServer.EVENT_PLAYER_UPDATE_CONTROLLABLE:case GameServer.EVENT_PLAYER_INPUT:case GameServer.EVENT_BATTLEZONE:case GameServer.EVENT_SWITCH_TEAMS:-1==e.id.indexOf(a.playerId)&&(o=!1,n="playerController"!=a.playerId);break;case GameServer.EVENT_PLAYER_EARN_KILLSTREAK:o=!1,n=!0}o||(console.warn(tracePlayer(e),"Cheat detected",a),n&&e.disconnect()),o&&r.requestEvent(a)}}}else e.disconnect()})),e.on("joinParty",(function(a){if(throttleSocket(e),log(tracePlayer(e),"Wants to join party",chalk.bgCyan(a)),e.player.currentPartyId)log("Already in party!");else{var t=getParty(a);if(t)switch(canJoinParty(a,e)){case Party.JOIN_SUCCESS:joinParty(a,e);var r=getSocketByPlayerId(t.hostPlayerId);if(r)if(r.player.currentLobbyId)switch(canJoinLobby(r.player.currentLobbyId,e)){case Lobby.JOIN_SUCCESS:joinLobby(r.player.currentLobbyId,e)}break;case Party.JOIN_FAIL_CAPACITY:e.emit("showWindow",{titleText:"STR_ERROR",messageText:"STR_PARTY_MAX_CAPACITY_DESC",bShowOkayButton:!0});break;case Lobby.JOIN_FAIL_CAPACITY:e.emit("showWindow",{titleText:"STR_ERROR",messageText:"STR_CUSTOM_LOBBY_MAX_CAPACITY_DESC",bShowOkayButton:!0});break;case Lobby.JOIN_FAIL_LOCKED:e.emit("showWindow",{titleText:"STR_ERROR",messageText:"STR_PARTY_LOCKED_DESC",bShowOkayButton:!0});break;default:e.emit("showWindow",{titleText:"STR_ERROR",messageText:"STR_ERROR_DESC",bShowOkayButton:!0})}else e.emit("showWindow",{titleText:"STR_ERROR",messageText:"STR_PARTY_NON_EXISTANT_DESC",messageParams:[a],highlights:[a],bShowOkayButton:!0})}})),e.on("requestParty",(function(){if(throttleSocket(e),log(tracePlayer(e),"Requests party data"),e.player&&e.player.currentPartyId){var a=getParty(e.player.currentPartyId);a&&e.emit("updateParty",a)}})),e.on("leaveParty",(function(a){throttleSocket(e),log(tracePlayer(e),"Wants to leave party",chalk.bgCyan(e.player.currentPartyId)),removePlayerFromParty(e)})),e.on("getPlayerList",(function(){throttleSocket(e),actionLimiter.consume(e.id).then((()=>{log(tracePlayer(e),"Wants to get player list"),e.emit("receivePlayerList",{id:"players_all",players:getAllPlayers()})})).catch((e=>{}))})),e.on("getClanPlayerList",(function(){throttleSocket(e),actionLimiter.consume(e.id).then((()=>{e.player.clan&&(log(tracePlayer(e),"Wants to get clan player list"),getAllClanPlayers(e))})).catch((e=>{}))})),e.on("getClanInvitePlayerList",(function(){throttleSocket(e),actionLimiter.consume(e.id).then((()=>{e.player.clan&&(log(tracePlayer(e),"Wants to get clan invite player list"),e.emit("receivePlayerList",{id:"players_clan_invite",players:getClanInvitablePlayers()}))})).catch((e=>{}))})),e.on("getLobbyList",(function(){throttleSocket(e),actionLimiter.consume(e.id).then((()=>{log(tracePlayer(e),"Wants to get lobby list"),e.emit("receiveLobbyList",getLobbyList(e))})).catch((e=>{}))})),e.on("getClanList",(function(){throttleSocket(e),actionLimiter.consume(e.id).then((()=>{log(tracePlayer(e),"Wants to get clan list"),async_getClanList(e)})).catch((e=>{}))})),e.on("getPlayerInfo",(function(a){if(throttleSocket(e),log(tracePlayer(e),"Wants to get player info:",a),dummies)for(var t=0;t<dummies.length;t++){var r=dummies[t];if(r.id==a){var o={player:r,stats:{xp:r.level*MathUtil.Random(1e3,1e4),kills:MathUtil.Random(100,1e4),deaths:MathUtil.Random(50,1e3),challengesCompleted:MathUtil.Random(0,100),games_played:MathUtil.Random(10,1e3),games_won:MathUtil.Random(0,500)}};return(i=getLobbyData(r.currentLobbyId))&&(o.gameModeId=i.rotationId?i.rotationId:i.gameModeId,i.bPrivate&&(o.bPrivateLobby=!0),i.state==LobbyState.IN_PROGRESS&&(o.bInGame=!0),o.bCanJoin=canJoinLobby(i.id,e)==Lobby.JOIN_SUCCESS&&!i.gameData.settings.bPrivate),void e.emit("receivePlayerInfo",o)}}var n=getSocketByPlayerId(a);if(n){var i;o={player:n.player,stats:n.stats};(i=getLobbyData(n.player.currentLobbyId))&&(o.gameModeId=i.rotationId?i.rotationId:i.gameModeId,i.bPrivate&&(o.bPrivateLobby=!0),i.state==LobbyState.IN_PROGRESS&&(o.bInGame=!0),o.bCanJoin=canJoinLobby(i.id,e)==Lobby.JOIN_SUCCESS&&!i.gameData.settings.bPrivate),e.emit("receivePlayerInfo",o)}})),e.on("getChatHistory",(function(){throttleSocket(e),log(tracePlayer(e),"Wants to get chat history"),e.emit("receiveChatHistory",chatHistory)})),e.on("inviteToParty",(function(a){throttleSocket(e);var t=e.player?e.player.currentPartyId:null;if(t){var r=getSocketByPlayerId(a);r&&r.player&&r.player.bAllowPartyInvites&&r.player.currentPartyId!=t&&(log(tracePlayer(e),"Wants to invite",tracePlayer(r),"to their party"),r.emit("serverMessage",{type:"party_invite",partyId:t,player:e.player,id:t}))}})),e.on("inviteToClan",(function(a){throttleSocket(e);var t=e.player.clan;if(t){var r=getSocketByPlayerId(a);r&&r.player&&r.player.bAllowPartyInvites&&(r.player.clan||(log(tracePlayer(e),"Wants to invite",tracePlayer(r),"to clan"),r.emit("serverMessage",{type:"clan_invite",clan:t,player:e.player,id:t})))}})),e.on("joinLobby",(function(a){throttleSocket(e),a&&("string"==typeof a?joinLobbyByGameModeId(e,a,!1):joinLobbyByGameModeId(e,a.gameModeId,a.bBattlezone))})),e.on("joinLobbyById",(function(a){throttleSocket(e),joinLobbyById(e,a)})),e.on("createParty",(function(){throttleSocket(e),log(tracePlayer(e),"Wants to create party"),createParty(e)})),e.on("createPrivateLobby",(function(){if(throttleSocket(e),log(tracePlayer(e),"Wants to create private lobby"),validateClient(e))if(e.player.currentLobbyId)removeSocketPlayerFromLobby(e,"create_private_lobby");else{var a=e.player.currentPartyId;if(a)if((t=getParty(a))&&getSocketPlayerId(e)!=t.hostPlayerId)return;if(lobbies.private.length<serverSettings.maxCustomLobbies){var t,r="L-"+getRandomUniqueId();if(createPrivateLobby(r),t=getParty(e.player.currentPartyId))for(i=0;i<t.players.length;i++){var o=getSocketByPlayerId(t.players[i].id);canJoinLobby(r,o)==Lobby.JOIN_SUCCESS&&joinLobby(r,o)}else joinLobby(r,e),sendChatMessage(null,{bServer:!0,messageText:e.player.name+" created a new custom lobby."})}else e.emit("showWindow",{titleText:"STR_ERROR",messageText:"STR_CUSTOM_LOBBY_MAX_CAPACITY_DESC",bShowOkayButton:!0})}})),e.on("changePrivateGameSettings",(function(a){if(throttleSocket(e),e.player){if(log(tracePlayer(e),"Wants to change private game settings",chalk.bgCyan(e.player.currentLobbyId)),log(a),a){var t=getLobbyData(e.player.currentLobbyId);if(t){if(t.hostPlayerId!=getSocketPlayerId(e))return void disconnectSocket(e,{reason:"kicked"});if(t.bPrivate){for(var r=t.id,o=t.gameData,n=o.settings.bDebug,i=o.settings.bPrivate,l=o.settings.bots,s=o.settings.botSkill,y=o.settings.botTeam,b=o.settings.difficulty,d=Object.keys(a),c=0;c<d.length;c++){var m=d[c];if(a.bSettings){if("bSettings"!==m){var g=a[m];switch(m){case"bDebug":log("Setting private game debug:",g);break;case"botTeam":g=Math.max(-1,Math.min(1,g));break;case"botSkill":g=Math.max(-1,Math.min(4,g));break;case"bots":g=Math.max(0,g);break;case"timeLimit":case"respawnTime":case"scoreLimit":case"bombTimerMax":g=Math.max(1,g)}o.settings[m]=g}}else if(o[m]=a[m],"gameModeId"==m){switch(delete o.operation,delete o.operationId,delete o.bSurvival,delete o.bOperation,delete o.bSandbox,t.gameModeId=a[m],o.settings=getDefaultGameModeSettings(a[m]),o.settings.bAutoBalance=!1,o.settings.bDebug=n,o.settings.bPrivate=null==i||i,o.settings.bots=l,o.settings.botSkill=s,o.settings.botTeam=y,a[m]){case GameMode.BATTLEZONE:o.bBattlezone=!0,o.bRanked=!0,o.settings.bots=0;break;case GameMode.SANDBOX:o.bRanked=!1,o.bSandbox=!0,o.settings.bots=0;break;case GameMode.SURVIVAL_BASIC:case GameMode.SURVIVAL_CHAOS:case GameMode.SURVIVAL_UNDEAD:case GameMode.SURVIVAL_STAKEOUT:case GameMode.SURVIVAL_PRO:o.bRanked=!1,o.bSurvival=!0,o.settings.bots=0;break;case GameMode.OPERATION:o.operationId="op_riverside_assault",o.bRanked=!0,o.settings.bots=0,o.settings.difficulty=b||1;break;default:o.bRanked=!0}log("Loaded default game mode settings"),t.bTeamSelection=isTeamGameMode(o.gameModeId)}}if(log("Updated",d.length,"keys"),t.game)return void console.warn("Game exists in private lobby while updating settings!");io.sockets.in(r).emit("updateLobby",getSafeLobbyData(t))}}}}else disconnectSocket(e,{reason:"Error"})})),e.on("startPrivateGame",(function(){throttleSocket(e),log(tracePlayer(e),"Wants to start private game");var a=getLobbyData(e.player.currentLobbyId);if(a){if(a.hostPlayerId!=getSocketPlayerId(e))return;var t=a.id;if(a.bPrivate)if(a.state===LobbyState.STARTING)setLobbyState(t,LobbyState.WAITING_HOST),io.sockets.in(t).emit("updateLobby",getSafeLobbyData(a));else{var r=a.players.length,o=a.gameData.settings.bDebug?Lobby.MAX_PLAYERS:shared.maxPlayers[a.gameModeId];r>o?e.emit("showWindow",{titleText:"STR_TOO_MANY_PLAYERS",messageText:"STR_TOO_MANY_PLAYERS_DESC",messageParams:[o],bShowOkayButton:!0}):r<1?e.emit("showWindow",{titleText:"STR_NOT_ENOUGH_PLAYERS",messageText:"STR_NOT_ENOUGH_PLAYERS_DESC",bShowOkayButton:!0}):verifyPrivateLobbyTeams(a)?a.state===LobbyState.WAITING_HOST&&(setLobbyState(t,LobbyState.STARTING),intervals[t]||(a.timer=Lobby.COUNTDOWN_STARTING_PRIVATE,intervals[t]=setInterval(onLobbyTimer,1e3,t)),io.sockets.in(t).emit("updateLobby",getSafeLobbyData(a))):e.emit("showWindow",{titleText:"STR_INVALID_TEAMS",messageText:"STR_INVALID_TEAMS_DESC",bShowOkayButton:!0})}else log(chalk.red("Insufficient permissions"))}})),e.on("setPrivatePlayerTeam",(function(a,t){throttleSocket(e),log(tracePlayer(e),"Wants to set private player team",tracePlayer(getSocketByPlayerId(a)),t);var r=getLobbyData(e.player.currentLobbyId);if(r){if(r.hostPlayerId!=getSocketPlayerId(e))return;if(r.bPrivate){var o=getLobbyPlayerById(r.id,a);o&&(t>=0?o.desiredTeam=Math.min(t,1):delete o.desiredTeam,io.sockets.in(r.id).emit("updateLobby",{players:r.players}))}else log(chalk.red("Insufficient permissions"))}})),e.on("kickPrivatePlayer",(function(a){throttleSocket(e),log(tracePlayer(e),"Wants to kick private player",a);var t=getParty(e.player.currentPartyId);if(t){if(t.hostPlayerId!=getSocketPlayerId(e))return;(o=getSocketByPlayerId(a))&&(removePlayerFromParty(o),removeSocketPlayerFromLobby(o,"kicked"))}else{var r=getLobbyData(e.player.currentLobbyId);if(r){if(!r.bPrivate||r.hostPlayerId!=getSocketPlayerId(e))return;var o;(o=getSocketByPlayerId(a))&&removeSocketPlayerFromLobby(o,"kicked")}}})),e.on("kickClanPlayer",(function(a){if(throttleSocket(e),log(tracePlayer(e),"Wants to kick clan player",a),e.player.clan&&e.player.bClanLeader){var t=getSocketByPlayerId(a);t?(log("Kicking socket player..."),async_leaveClanBySocket(t)):(log("Kicking by username..."),async_leaveClanByUsername(e,a))}})),e.on("joinPrivateLobby",(function(a){if(throttleSocket(e),e.player)if(log(tracePlayer(e),"Wants to join private lobby",chalk.bgCyan(a)),e.player.currentLobbyId)removeSocketPlayerFromLobby(e,"joining_private_lobby");else{var t=getLobbyData(a);if(t){var r=t.id;switch(canJoinLobby(r,e)){case Lobby.JOIN_SUCCESS:var o=getParty(e.player.currentPartyId);if(o)for(var n=0;n<o.players.length;n++){var i=getSocketByPlayerId(o.players[n].id);canJoinLobby(r,i)==Lobby.JOIN_SUCCESS&&joinLobby(r,i)}else joinLobby(r,e);break;case Lobby.JOIN_FAIL_LOCKED:e.emit("showWindow",{titleText:"STR_ERROR",messageText:"STR_CUSTOM_LOBBY_LOCKED_DESC",bShowOkayButton:!0});break;case Lobby.JOIN_FAIL_CAPACITY:e.emit("showWindow",{titleText:"STR_ERROR",messageText:"STR_CUSTOM_LOBBY_MAX_CAPACITY_DESC",bShowOkayButton:!0})}}else e.emit("showWindow",{titleText:"STR_ERROR",messageText:"STR_CUSTOM_LOBBY_NON_EXISTANT_DESC",messageParams:[a],highlights:[a],bShowOkayButton:!0})}})),e.on("votekick",(function(a){throttleSocket(e),serverSettings.bAllowVotekick&&(log(tracePlayer(e),"wants to votekick player",tracePlayer(getSocketByPlayerId(a))),a&&e.player&&e.player.currentLobbyId&&votekickPlayer(e.player.currentLobbyId,e.id,a))})),e.on("sendLobbyChatMessage",(function(a,t){if(e.player&&(throttleSocket(e),t)){var r=t.replace(/<(?:.|\n)*?>/gm,"");if(0==r.length)return;var o=e.player.currentLobbyId;r=smile.checkText(r),chatLimiter.consume(e.id).then((()=>{log(tracePlayer(e),chalk.cyan("<Chat: "+(o||"Global")+">"),r),r.split(" ")[0];for(var a=r.toLowerCase(),t=null,n=getAllLobbies(),i=0;i<n.length;i++){let e=n[i];if(a.indexOf(e.id.toLowerCase())>=0){t=e.id;break}}var l=null;if(!t){var s=Object.keys(parties);for(i=0;i<s.length;i++){let e=parties[s[i]];a.indexOf(e.id.toLowerCase())>=0&&(l=e.id)}}sendChatMessage(o,{playerId:e.player.id,currentPartyId:e.player.currentPartyId,bAdmin:e.player.bAdmin,bClanLeader:e.player.bClanLeader,playerText:e.player.name,clan:e.player.clan,messageText:r,lobbyId:t,partyId:l})})).catch((a=>{sendChatMessageToSocket(e.id,{messageText:"You've sent too many messages."})}))}})),e.on("setLobbyMapVote",(function(a,t){throttleSocket(e),log(tracePlayer(e),"Map vote",chalk.yellow(t));var r=getLobbyData(a);if(r){var o=r.maps;if(o){for(var n=0;n<o.length;n++){var i=o[n],l=i.votes,s=l.indexOf(getSocketPlayerId(e));s>=0?l.splice(s,1):i.id==t&&l.push(getSocketPlayerId(e))}io.sockets.in(a).emit("updateLobby",{timer:r.timer,maps:r.maps})}else console.warn("Invalid maps reference",r)}})),e.on("leaveLobby",(function(){if(throttleSocket(e),e.player){var a=e.player.currentLobbyId;if(a)if(log(tracePlayer(e),"Wants to leave lobby",chalk.bgCyan(a)),getLobbyData(a)){var t=getParty(e.player.currentPartyId);if(t)if(t.hostPlayerId==getSocketPlayerId(e))for(var r=0;r<t.players.length;r++){removeSocketPlayerFromLobby(getSocketByPlayerId(t.players[r].id),"party_host_leave")}else removePlayerFromParty(e),removeSocketPlayerFromLobby(e,"leave");else removeSocketPlayerFromLobby(e,"leave")}else console.warn("socket.on(leaveLobby) --\x3e Lobby doesn't exist:",e.player.currentLobbyId),e.player.currentLobbyId&&removeSocketPlayerFromLobby(e,"leave")}})),e.on("getLobbyData",(function(a){throttleSocket(e);var t=getSafeLobbyDataById(a);e.emit("getLobbyData",t)})),e.on("getServerData",(function(){throttleSocket(e),e.emit("getServerData",getLatestServerData())})),e.on("getCurrentLobbyData",(function(){throttleSocket(e);var a=getLobbyData(e.player.currentLobbyId);a&&e.emit("updateLobby",getSafeLobbyData(a))})),e.on("disconnect",(function(){e.player.currentLobbyId&&removeSocketPlayerFromLobby(e,"disconnect"),e.player.currentPartyId&&removePlayerFromParty(e),log(tracePlayer(e),chalk.red("Disconnected"),"|",getNumClients(),"connected"),delete e.player,delete e.info,broadcastServerData()}))}));var BotUtil={getLobbyData:function(e){var a=1,t=0,r=e;switch(e){case 1:a=MathUtil.Random(10,30);break;case 2:a=MathUtil.Random(30,49);break;case 3:a=GameData.MAX_LEVEL;break;case 4:a=GameData.MAX_LEVEL,t=GameData.MAX_PRESTIGE;break;case 0:default:a=MathUtil.Random(1,10)}var o=botnames[r],n=[GameData.FACTION_DELTA_FORCE,GameData.FACTION_GSG9,GameData.FACTION_GIGN,GameData.FACTION_OPFOR,GameData.FACTION_SPETSNAZ,GameData.FACTION_MILITIA];return{id:getRandomUniqueId(),name:"BOT "+o[MathUtil.Random(0,o.length-1)],bBot:!0,botSkill:r,level:a,prestige:t,card:"wilkin",callsign:"soldier_1",avatars:{usmc:BotUtil.getAvatarData(GameData.FACTION_DELTA_FORCE),gsg9:BotUtil.getAvatarData(GameData.FACTION_GSG9),gign:BotUtil.getAvatarData(GameData.FACTION_GIGN),opfor:BotUtil.getAvatarData(GameData.FACTION_OPFOR),rus:BotUtil.getAvatarData(GameData.FACTION_SPETSNAZ),militia:BotUtil.getAvatarData(GameData.FACTION_MILITIA),preferred:n[MathUtil.Random(0,n.length-1)]}}},getAvatarData:function(e){var a=[Character.HAIR_COLOUR_BROWN,Character.HAIR_COLOUR_BROWN_LIGHT,Character.HAIR_COLOUR_BLACK,Character.HAIR_COLOUR_BLONDE,Character.HAIR_COLOUR_GINGER],t=[Character.HAIR_SHORT,Character.HAIR_LONG,Character.HAIR_BUZZED,Character.HAIR_BALD],r=[Character.HEAD_NONE];switch(e){case GameData.FACTION_DELTA_FORCE:r=[Character.HEAD_NONE,Character.HEAD_USMC_HELMET,Character.HEAD_USMC_HELMET_TACTICAL,Character.HEAD_USMC_CAP,Character.HEAD_USMC_BOONIE,Character.HEAD_DELTA_MEDIC_HELMET];break;case GameData.FACTION_GSG9:r=[Character.HEAD_NONE,Character.HEAD_GSG9_HELMET,Character.HEAD_GSG9_HELMET_2,Character.HEAD_GSG9_HELMET_3,Character.HEAD_GSG9_MEDIC_HELMET];break;case GameData.FACTION_GIGN:r=[Character.HEAD_NONE,Character.HEAD_GIGN_HELMET,Character.HEAD_GIGN_HELMET_2,Character.HEAD_GIGN_CAP,Character.HEAD_GIGN_MEDIC_HELMET];break;case GameData.FACTION_OPFOR:r=[Character.HEAD_NONE,Character.HEAD_OPFOR_SCARF,Character.HEAD_OPFOR_HELMET_2,Character.HEAD_OPFOR_HELMET,Character.HEAD_MEDIC_HELMET];break;case GameData.FACTION_SPETSNAZ:r=[Character.HEAD_NONE,Character.HEAD_RUS_HELMET,Character.HEAD_RUS_TOQUE,Character.HEAD_RUS_SCARF,Character.HEAD_MEDIC_HELMET];break;case GameData.FACTION_MILITIA:r=[Character.HEAD_NONE,Character.HEAD_MILITIA_BANDANA,Character.HEAD_MILITIA_RADIO,Character.HEAD_MILITIA_BAND,Character.HEAD_MEDIC_HELMET]}var o=[Character.FACEWEAR_NONE,Character.FACEWEAR_MASK,Character.FACEWEAR_BALACLAVA,Character.FACEWEAR_GAITER],n=[Character.EYEWEAR_NONE];switch(e){case GameData.FACTION_OPFOR:case GameData.FACTION_SPETSNAZ:var i=Character.VOICE_RU;break;case GameData.FACTION_GIGN:case GameData.FACTION_MILITIA:i=Character.VOICE_UK;break;case GameData.FACTION_DELTA_FORCE:case GameData.FACTION_GSG9:i=MathUtil.RandomBoolean()?Character.VOICE_A:Character.VOICE_B}var l={};l[Character.TYPE_HAIR_COLOUR]=a[MathUtil.Random(0,a.length-1)],l[Character.TYPE_HAIR]=t[MathUtil.Random(0,t.length-1)],l[Character.TYPE_BEARD]=Character.BEARD_NONE,l[Character.TYPE_HEAD]=r[MathUtil.Random(0,r.length-1)],l[Character.TYPE_FACEWEAR]=o[MathUtil.Random(0,o.length-1)],l[Character.TYPE_EYEWEAR]=n[MathUtil.Random(0,n.length-1)];var s=e,y=["","_recon","_para","_rocketier","_heavy","_kevlar"];return l[Character.TYPE_BODY]=s+y[MathUtil.Random(0,y.length-1)],l[Character.TYPE_VOICE]=i,l}};function getSocketPlayerId(e){return e?e.player?e.player.id:e.id:null}function onUpdatePlayerClan(e){if(e){var a=getLobbyData(e.player.currentLobbyId);if(a){var t=a.id,r=a.game;if(r)r.requestEvent({eventId:GameServer.EVENT_PLAYER_UPDATE,playerId:getSocketPlayerId(e),data:{clan:e.player.clan?e.player.clan:null}});else{var o=getLobbyPlayerById(t,getSocketPlayerId(e));o&&(o.clan=e.player.clan,io.sockets.in(t).emit("updateLobby",{players:a.players}))}}var n=e.player.currentPartyId;if(n){var i=getPartyPlayerById(n,getSocketPlayerId(e));i&&(i.clan=e.player.clan),updatePartyClients(n)}e.emit("onUpdatePlayerData",e.player),broadcastServerData(),e.player.clan&&broadcastClanUpdate(e.player.clan)}}function broadcastClanUpdate(e){for(var a=getOnlinePlayersInClan(e),t=0;t<a.length;t++){var r=getSocketByPlayerId(a[t].id);r&&r.emit("onClanUpdated")}}async function async_updateClanScore(e,a,t){return null}async function async_leaveClanByUsername(e,a){return null}async function async_leaveClanBySocket(e){return null}async function async_getClanPlayers(e){return null}async function async_getClanData(e){return null}async function async_getClanList(e){return null}async function async_getClanForSocket(e){}async function async_joinClan(e,a){return null}async function async_createClan(e,a){return null}function addDummyToLobby(e,a){a&&(a.players.push(e),e.currentLobbyId=a.id,checkLobbyReady(a.id))}function createDummyPlayer(e){let a=getDummyBotPlayer(MathUtil.Random(0,3),e),t=getAllPublicLobbies();var r=[1,1,2,2,3,5];if(1==MathUtil.Random(1,4))for(var o=0;o<10;o++){let e=t[r[MathUtil.Random(0,r.length-1)]];if(e&&e.players.length<e.maxPlayers){addDummyToLobby(a,e);break}}return dummies.push(a),a}function removeDummyPlayer(){dummies&&(dummies[0]&&dummies.splice(0,1))}var dummies=[];if(serverSettings.numBots>0){log(chalk.yellow("\nAdding",serverSettings.numBots,"bots...")),shuffleArray(bots);for(i=0;i<serverSettings.numBots;i++)createDummyPlayer(bots[i]);log(chalk.green("Done"))}if(serverSettings.maxUptimeHours>0){log(chalk.yellow("\nMax Uptime Enabled")),log("Server will stop after",serverSettings.maxUptimeHours,"hours");var iterations=0,iterationTime=36e5;setInterval((function(){iterations++,(0==getLobbiesInProgress().length||0==getNumClients()||iterations>=serverSettings.maxUptimeHours)&&(log("Max uptime reached"),process.exit(0))}),iterationTime)}
+﻿/**
+ * Deadswitch 3 Multiplayer Server
+ * (c) 2022 Wilkin Games
+ * https://xwilkinx.com
+ */
+
+const chalk = require("chalk");
+const log = console.log;
+const serverSettings = require("./settings.json");
+const gameInstance = require("./assets/js/game");
+
+//Track emits
+setInterval(function ()
+{
+    stats.emitsPerSecond = stats.emits;
+    stats.emits = 0;
+}, 1000);
+
+//Rate limiters
+const { RateLimiterMemory } = require("rate-limiter-flexible");
+const rateLimiter = new RateLimiterMemory({
+    points: 300,
+    duration: 1
+});
+const gameLimiter = new RateLimiterMemory({
+    points: 60,
+    duration: 1
+});
+const actionLimiter = new RateLimiterMemory({
+    points: 2,
+    duration: 1
+});
+const chatLimiter = new RateLimiterMemory({
+    points: 5,
+    duration: 5
+});
+
+//Math
+var MathUtil = {
+    Random: function (_min, _max)
+    {
+        return Math.floor(Math.random() * (_max - _min + 1)) + _min;
+    },
+    RandomBoolean: function()
+    {
+        return Math.random() >= 0.5;
+    }
+};
+
+//Server data
+const Server = {
+    VERSION: "1.1.1",
+    GAME_VERSION: "1.6.8",
+    OFFICIAL: true
+};
+const GameData = {
+    FACTION_DELTA_FORCE: "usmc",
+    FACTION_GSG9: "gsg9",
+    FACTION_GIGN: "gign",
+    FACTION_OPFOR: "opfor",
+    FACTION_SPETSNAZ: "rus",
+    FACTION_MILITIA: "militia",
+    BOT_SKILL_AUTO: -1,
+    BOT_SKILL_EASY: 0,
+    BOT_SKILL_NORMAL: 1,
+    BOT_SKILL_HARD: 2,
+    BOT_SKILL_INSANE: 3,
+    BOT_SKILL_GOD: 4,
+    MAX_LEVEL: 50,
+    MAX_PRESTIGE: 10
+};
+var lobbies = {};
+var lobbyTimers = {};
+var parties = {};
+var intervals = {};
+var stats = {
+    playersConnected: 0,
+    gamesPlayed: 0,  
+    peakGamesInProgress: 0,
+    peakPlayersConnected: 0,
+    emits: 0,
+    emitsPerSecond: 0
+};
+var chatHistory = [];
+
+log(chalk.bgBlue("Deadswitch 3 Multiplayer Server v" + Server.VERSION));
+var serverStartTime = Date.now();
+log("Started:", (new Date(serverStartTime).toString()));
+log(serverSettings, "\n");
+
+//Load all modules
+log(chalk.yellow("Loading modules..."));
+var smile = require("smile2emoji");
+var express = require("express");
+var app = express();
+var server = require("http").Server(app);
+var io = require("socket.io").listen(server, { pingInterval: serverSettings.pingInterval, pingTimeout: serverSettings.pingTimeout });
+io.set("transports", ["websocket"]);
+io.origins("*:*");
+
+const shared = require("./assets/json/shared.json");
+const sprites = require("./assets/json/sprites.json");
+const atlas_weapons_world = require("./assets/images/world/atlas_weapons_world.json");
+const weapons = require("./assets/json/weapons.json");
+const mods = require("./assets/json/mods.json");
+const perks = require("./assets/json/perks.json");
+const killstreaks = require("./assets/json/killstreaks.json");
+const game_modes = require("./assets/json/modes.json");
+const botnames = require("./assets/json/botnames.json");
+const bots = require("./assets/json/bots.json");
+const titlecards_soldiers = require("./assets/json/titlecards_soldiers.json");
+const badwords = require("./assets/json/badwords.json");
+
+const maps = require("./assets/json/maps.json");
+var allMaps = [];
+for (var i = 0; i < maps.length; i++)
+{
+    let id = maps[i].id;
+    try
+    {
+        allMaps.push(require("./assets/json/maps/" + id + ".json"));
+    }
+    catch (e)
+    {
+        console.warn("Missing map:", id);
+    }
+}
+log("Loaded", allMaps.length, "maps");
+
+const operations = require("./assets/json/operations.json");
+var operationData = {};
+for (var i = 0; i < operations.length; i++)
+{
+    let id = operations[i];
+    try
+    {
+        operationData[id] = require("./assets/json/operations/" + id + ".json");
+    }
+    catch (e)
+    {
+        console.warn("Missing operation:", id);
+    }
+}
+log("Loaded", Object.keys(operationData).length, "operations");
+
+const p2 = require("p2");
+const ngraphGraph = require("ngraph.graph");
+const ngraphPath = require("ngraph.path");
+
+//MongoDB
+const { MongoClient } = require("mongodb");
+const uri = null;
+
+log(chalk.green("Done\n"));
+
+app.get("/", function (req, res)
+{
+    //res.sendFile(__dirname + "/server.html");
+    var sockets = getAllSockets();
+    var font = "12px Arial";
+    var str = "<head><title>Deadswitch 3 Multiplayer Server</title>";
+    str += "<style>h1 { font-weight: 400; } body { background-color: #141414; font: " + font + "; color: #EEEEEE; } table { margin-top: 5px; font: " + font + "; border-collapse: collapse; background-color: #00000033 } th { text-align: left; background-color: #EEEEEE33; } .empty { color: #EEEEEE33; }</style>";
+    str += "</head>";
+    str += "<body><div id='wrapper'><div class='container'><div class='row'>";
+    str += "<h1>Deadswitch 3 Multiplayer Server</h1>";
+    str += "<b>v" + Server.VERSION + "</b><br>Started: " + (new Date(serverStartTime).toString());
+    var upTime = convertMS(Date.now() - serverStartTime);
+    str += "<br>Uptime: " + upTime.day + "d " + upTime.hour + "h " + upTime.minute + "m " + upTime.seconds + "s";  
+    //Info
+    var numParties = Object.keys(parties).length;
+    str += "<br><br><b>" + numParties + "</b> part" + (numParties == 1 ? "y" : "ies");
+    var numLobbies = getAllLobbies().length;
+    str += "<br><b>" + numLobbies + "</b> lobb" + (numLobbies == 1 ? "y" : "ies");    
+    var numGames = getLobbiesInProgress().length;
+    str += "<br><b>" + numGames + "</b> in progress";
+    str += "<br><b>" + sockets.length + "</b> player" + (sockets.length == 1 ? "" : "s") + " online";
+    //Players
+    if (sockets.length > 0)
+    {
+        str += "<div><table style='width:100%'><tr><th></th><th>Name</th><th>Username</th><th>Level</th><th>Status</th><th>Latency</th><th>Player ID</th><th>Version</th><th>Host</th><th>Steam ID</th></tr>";
+        for (var i = 0; i < sockets.length; i++)
+        {
+            let socket = sockets[i];
+            let info = socket.info;
+            let player = socket.player;
+            let curLobby = getLobbyData(player.currentLobbyId);
+            let bInGame = false;
+            let bPrivateLobby = false;
+            if (curLobby)
+            {
+                if (curLobby.state === LobbyState.IN_PROGRESS)
+                {
+                    bInGame = true;
+                }
+                else if (curLobby.bPrivate)
+                {
+                    bPrivateLobby = true;
+                }
+            }
+            str += "<tr><td>" + i + "</td><td>" + player.name + "</td><td>" + (info.username ? info.username : "-") + "</td><td>Level " + player.level + (player.prestige > 0 ? (" (Prestige " + player.prestige + ")") : "") + "</td><td>" + (bInGame ? "In Game" : (curLobby ? (bPrivateLobby ? "In Custom Lobby" : "In Lobby") : "Menu")) + (player.currentPartyId ? (" / Party #" + getPartyIndex(player.currentPartyId)) : "") + "</td><td>" + (player.latency ? (player.latency + " ms") : "-") + "</td><td>" + player.id + "</td><td>" + info.version + "</td><td>" + info.host + "</td><td>" + (player.steamId ? player.steamId : "-") + "</td></tr>";
+        }
+        str += "</table></div>";
+    }  
+    //Public lobbies
+    var pubs = getAllPublicLobbies();
+    str += "<h3>Public Lobbies (" + pubs.length + ")</h3>";
+    str += "<div><table style='width:100%'><tr><th></th><th>Lobby ID</th><th>Game Mode</th><th>Players</th><th>State</th></tr>";
+    for (var i = 0; i < pubs.length; i++)
+    {
+        var lobby = pubs[i];
+        str += "<tr " + (lobby.players.length == 0 ? "class='empty'" : "") + "><td>" + i + "</td><td>" + lobby.id + "</td><td>" + lobby.gameModeId + "</td><td>" + lobby.players.length + "</td><td>" + lobby.state + "</td></tr>";
+    }
+    str += "</table></div>";
+    //Custom lobbies
+    var privateLobbies = lobbies["private"];
+    str += "<h3>Custom Lobbies (" + privateLobbies.length + ")</h3>";
+    if (privateLobbies.length > 0)
+    {
+        for (var i = 0; i < privateLobbies.length; i++)
+        {
+            let lobby = privateLobbies[i];
+            if (i > 0)
+            {
+                str += "<br>";
+            }
+            str += lobby.gameModeId + " | " + lobby.gameData.mapId + " | <b>" + lobby.state + "</b>";
+            let players = lobby.players;
+            str += "<div><table style='width:100%'><tr><th></th><th>Name</th><th>Socket ID</th></tr>";
+            for (var j = 0; j < players.length; j++)
+            {             
+                let player = players[j];
+                str += "<tr><td><center>" + j + "</center></td><td>" + player.name + "</td><td>" + player.id + "</td></tr>";                
+            }
+            str += "</table></div>";
+        }        
+    }
+    else
+    {
+        str += "<font class='empty'>None</font>";
+    }
+    //Chat
+    str += "<h3>Global Chat</h3>";
+    if (chatHistory.length > 0)
+    {
+        for (var i = 0; i < chatHistory.length; i++)
+        {
+            var msg = chatHistory[i];
+            str += msg.date + " [<b>" + msg.playerText + "</b>] " + msg.messageText + "<br>";
+        }
+    }
+    else
+    {
+        str += "<font class='empty'>None</font><br>";
+    }
+    //Stats
+    str += "<h3>Cumulative Stats</h3>";
+    var keys = Object.keys(stats);
+    for (var i = 0; i < keys.length; i++)
+    {
+        str += keys[i] + ": " + stats[keys[i]] + "<br>";
+    }
+    str += "<h3>Memory Usage</h3>";
+    var mem = process.memoryUsage();
+    var keys = Object.keys(mem);    
+    for (var i = 0; i < keys.length; i++)
+    {
+        str += keys[i] + ": " + Number((mem[keys[i]] / 1024 / 1024 * 100) / 100).toFixed(4) + "MB<br>";
+    }       
+    //Links
+    //str += "<br><hr><a href='https://xwilkinx.com'>Wilkin Games</a> | <a href='https://xwilkinx.com/deadswitch-3'>Play Deadswitch 3</a>";
+    str += "</div></div><body></html>";
+    res.send(str);
+});
+
+app.get("/data", function (req, res)
+{
+    var data = {
+        version: Server.VERSION,
+        gameVersion: Server.GAME_VERSION,
+        numClients: getNumClients(),
+        maxClients: serverSettings.maxClients,
+        time: Date.now()
+    }
+    if (serverSettings.welcomeMessage)
+    {
+        data.welcomeMessage = serverSettings.welcomeMessage;
+    }
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "X-Requested-With,content-type");
+    res.send(data);
+});
+
+const LobbyState = {
+    INTERMISSION: "intermission",
+    WAITING_HOST: "waiting_host",
+    WAITING: "waiting",
+    PREPARING: "preparing",
+    STARTING: "starting",
+    IN_PROGRESS: "in_progress"
+};
+
+const Lobby = {
+    WAIT_TIMER: 33,
+    INTERMISSION_TIMER: 15,    
+    COUNTDOWN_PREPARING: 15,
+    COUNTDOWN_STARTING: 3,
+    COUNTDOWN_STARTING_PRIVATE: 3,
+    JOIN_SUCCESS: "LOBBY_JOIN_SUCCESS",
+    JOIN_FAIL_LOCKED: "JOIN_FAIL_LOCKED",
+    JOIN_FAIL_CAPACITY: "JOIN_FAIL_CAPACITY",  
+    JOIN_FAIL_ERROR: "JOIN_FAIL_ERROR",  
+    MAX_PLAYERS: 8
+};
+
+const Party = {
+    JOIN_SUCCESS: "PARTY_JOIN_SUCCESS",
+    JOIN_FAIL_CAPACITY: "PARTY_JOIN_FAIL_CAPACITY",
+    JOIN_FAIL_LOBBY: "PARTY_JOIN_FAIL_LOBBY",
+    JOIN_FAIL_ERROR: "PARTY_JOIN_FAIL_ERROR",
+    MAX_PLAYERS: 8
+};
+
+const MatchState = {
+    PRE_GAME: "pre_game",
+    IN_PROGRESS: "in_progress",
+    POST_GAME: "post_game",
+    END_RESULT_WIN: "end_result_win",
+    END_RESULT_LOSS: "end_result_loss",
+    END_RESULT_DRAW:  "end_result_draw",
+    END_CONDITION_TIME: "end_condition_time",
+    END_CONDITION_SCORE:  "end_condition_score",
+    END_CONDITION_DEAD:  "end_condition_dead",
+    END_CONDITION_FORFEIT: "end_condition_forfeit"
+};
+
+const GameServer = {
+    EVENT_BATCH: 0,
+    EVENT_GAME_INIT: 1,
+    EVENT_GAME_TIMER: 2,
+    EVENT_GAME_PRE_TIMER: 3,
+    EVENT_GAME_START: 4,
+    EVENT_GAME_END: 5,
+    EVENT_GAME_UPDATE: 6,
+    EVENT_STORE_BUY: 7,
+    EVENT_GAME_MONEY_ADD: 8,
+    EVENT_GAME_WAVE_START: 9,
+    EVENT_GAME_WAVE_COMPLETE: 10,
+    EVENT_GAME_PAUSE: 11,
+    EVENT_REQUEST_RANKED_CHARACTER: 13,
+    EVENT_CREATE_RANKED_CHARACTER: 14,
+    EVENT_CREATE_GENERIC_CHARACTER: 15,
+    EVENT_CREATE_INFESTOR: 16,
+    EVENT_OBJECT_UPDATE: 17,
+    EVENT_OBJECT_HIT: 18,
+    EVENT_PAWN_DAMAGE: 19,
+    EVENT_PAWN_DIE: 20,
+    EVENT_PAWN_ACTION: 21,
+    EVENT_SET_PLAYER_CONTROLLER_ID: 22,
+    EVENT_CREATE_AI_CONTROLLER: 23,
+    EVENT_PLAYER_JOIN: 24,
+    EVENT_PLAYER_LEAVE: 25,
+    EVENT_PLAYER_UPDATE: 26,
+    EVENT_PLAYER_RESPAWN: 27,
+    EVENT_PLAYER_EARN_KILLSTREAK: 28,
+    EVENT_PLAYER_USE_KILLSTREAK: 29,
+    EVENT_PLAYER_OPEN_WORLD_MENU: 30,
+    EVENT_PLAYER_CLOSE_WORLD_MENU: 31,
+    EVENT_PLAYER_SET_WORLD_POSITION: 32,
+    EVENT_PLAYER_EXECUTE_KILLSTREAK: 33,
+    EVENT_PLAYER_FLAG: 34,
+    EVENT_PLAYER_MULTI_KILL: 35,
+    EVENT_PLAYER_UPDATE_CONTROLLABLE: 36,
+    EVENT_PLAYER_INPUT: 37,
+    EVENT_PLAYER_INTERACT: 38,
+    EVENT_PLAYER_UPDATE_INVENTORY: 39,
+    EVENT_PLAYER_TRIGGER_WEAPON: 40,
+    EVENT_PLAYER_TRIGGER_EQUIPMENT: 41,
+    EVENT_PLAYER_TRIGGER_MELEE: 42,
+    EVENT_KILLSTREAKS_UPDATE: 43,
+    EVENT_ANNOUNCER_MESSAGE: 44,
+    EVENT_KILLFEED_ADD: 45,
+    EVENT_MESSAGE_ADD: 46,
+    EVENT_SPAWN_OBJECT: 47,
+    EVENT_SPAWN_BULLET: 48,
+    EVENT_SPAWN_EXPLOSION: 49,
+    EVENT_SPAWN_GRENADE: 50,
+    EVENT_SPAWN_PROJECTILE: 51,
+    EVENT_SPAWN_ROCKET: 52,
+    EVENT_SPAWN_DROPPED_WEAPON: 53,
+    EVENT_SPAWN_CRATE: 54,
+    EVENT_SPAWN_FLAG: 55,
+    EVENT_SPAWN_EQUIPMENT: 56,
+    EVENT_SPAWN_HELICOPTER: 57,
+    EVENT_SPAWN_TURRET: 58,
+    EVENT_SPAWN_REVIVER: 59,
+    EVENT_INTERACTABLE_USED: 60,
+    EVENT_REMOVE_OBJECT: 61,
+    EVENT_SANDBOX: 62,
+    EVENT_ROUND_END: 63,
+    EVENT_ROUND_START: 64,
+    EVENT_BATTLEZONE: 65,
+    EVENT_SWITCH_TEAMS: 66
+};
+
+const GameMode = {
+    SANDBOX: "sandbox",
+    BATTLEZONE: "battlezone",
+    DEATHMATCH: "deathmatch",
+    TEAM_DEATHMATCH: "team_deathmatch",
+    DOMINATION: "domination",
+    CAPTURE_THE_FLAG: "capture_the_flag",
+    DEFENDER: "defender",
+    DEMOLITION: "demolition",
+    HEADQUARTERS: "headquarters",
+    GUN_GAME: "gun_game",
+    INFECTED: "infected",
+    SURVIVAL_BASIC: "survival_basic",
+    SURVIVAL_UNDEAD: "survival_undead",
+    SURVIVAL_CHAOS: "survival_chaos",
+    SURVIVAL_STAKEOUT: "survival_stakeout",
+    SURVIVAL_PRO: "survival_pro",
+    RANDOM: "mode_random",
+    OPERATION: "mode_operation",
+    ROTATION_TEAM: "mode_rotation_team",
+    ROTATION_SURVIVAL: "mode_rotation_survival",
+    ROTATION_COMMUNITY: "mode_rotation_community",
+    GROUND_WAR: "mode_ground_war",
+    COMBAT_TRAINING: "mode_combat_training",
+    HARDCORE: "mode_hardcore"
+};
+
+const Map = {
+    RIVERSIDE: "map_riverside",
+    DOWNTURN: "map_downturn",
+    OUTPOST: "map_outpost",
+    ESTATE: "map_estate",
+    DISTRICT: "map_district",
+    SANDSTORM: "map_sandstorm",
+    OVERGROWN: "map_overgrown",
+    WAREHOUSE: "map_warehouse",
+    FACTORY: "map_factory",
+    AIRPORT: "map_airport",
+    DOWNTURN_EXTENDED: "map_downturn_extended",
+    BATTLESHIP: "map_battleship",
+    RANDOM: "map_random"
+};
+
+const Character = {
+    TYPE_HAIR_COLOUR: "hairColour",
+    TYPE_HAIR: "hair",
+    TYPE_BEARD: "beard",
+    TYPE_HEAD: "head",
+    TYPE_BODY: "body",
+    TYPE_FACE: "face",
+    TYPE_FACEWEAR: "facewear",
+    TYPE_EYEWEAR: "eyewear",
+    TYPE_VOICE: "voice",
+    VOICE_A: "a",
+    VOICE_B: "b",
+    VOICE_RU: "ru",
+    VOICE_UK: "uk",
+    VOICE_ZOMBIE: "zombie",
+    HAIR_COLOUR_BROWN: "HAIR_COLOUR_BROWN",
+    HAIR_COLOUR_BROWN_LIGHT: "HAIR_COLOUR_BROWN_LIGHT",
+    HAIR_COLOUR_BLACK: "HAIR_COLOUR_BLACK",
+    HAIR_COLOUR_BLONDE: "HAIR_COLOUR_BLONDE",
+    HAIR_COLOUR_GINGER: "HAIR_COLOUR_GINGER",
+    HAIR_COLOUR_GREY: "HAIR_COLOUR_GREY",
+    HAIR_COLOUR_WHITE: "HAIR_COLOUR_WHITE",
+    HAIR_COLOUR_RED: "HAIR_COLOUR_RED",
+    HAIR_COLOUR_BLUE: "HAIR_COLOUR_BLUE",
+    HAIR_COLOUR_GREEN: "HAIR_COLOUR_GREEN",
+    FACE_DEFAULT: "face0000",
+    FACE_ZOMBIE_1: "face0001",
+    FACE_ZOMBIE_2: "face0002",
+    FACE_ZOMBIE_3: "face0003",
+    FACE_ZOMBIE_4: "face0004",
+    FACE_ZOMBIE_FAT: "face0005",
+    FACE_ZOMBIE_EXPLODER: "face0006",
+    FACE_ZOMBIE_SPITTER: "face0007",
+    FACE_ZOMBIE_SPRINTER: "face0008",
+    HAIR_SHORT: "hair0000",
+    HAIR_BALD: "hair0008",
+    HAIR_LONG: "hair0002",
+    HAIR_PONYTAIL: "hair0003",
+    HAIR_UNDERCUT: "hair0006",
+    HAIR_SPIKES: "hair0005",
+    HAIR_BUZZED: "hair0004",
+    HAIR_FLAT: "hair0001",
+    HAIR_STYLED: "hair0007",
+    HAIR_HORSESHOE: "hair0009",
+    HAIR_MOHAWK: "hair0010",
+    BEARD_NONE: "beard0000",
+    BEARD_STUBBLE: "beard0001",
+    BEARD_FULL: "beard0002",
+    BEARD_CIRCLE: "beard0003",
+    BEARD_GOATEE: "beard0004",
+    BEARD_MOUSTACHE: "beard0005",
+    BEARD_SIDEBURNS: "beard0006",
+    EYEWEAR_NONE: "eyewear0000",
+    EYEWEAR_SHADES: "eyewear0001",
+    EYEWEAR_GLASSES: "eyewear0002",
+    EYEWEAR_GOGGLES_YELLOW: "eyewear0003",
+    EYEWEAR_GOGGLES_ORANGE: "eyewear0004",
+    EYEWEAR_GOGGLES_WHITE: "eyewear0005",
+    EYEWEAR_GOGGLES_BLACK: "eyewear0006",
+    FACEWEAR_NONE: "facewear0000",
+    FACEWEAR_MASK: "facewear0001",
+    FACEWEAR_SKULLMASK: "facewear0002",
+    FACEWEAR_GHILLIE: "facewear0003",
+    FACEWEAR_SCARF_OPFOR: "facewear0004",
+    FACEWEAR_BALACLAVA: "facewear0005",
+    FACEWEAR_SCARF_SPETSNAZ: "facewear0006",
+    FACEWEAR_BANDANA: "facewear0007",
+    FACEWEAR_GAS_MASK: "facewear0008",
+    FACEWEAR_BANDANA_GENERIC: "facewear0009",
+    FACEWEAR_GAITER: "facewear0010",
+    HEAD_DELTA_MEDIC_HELMET: "head0064",
+    HEAD_GIGN_MEDIC_HELMET: "head0065",
+    HEAD_GSG9_MEDIC_HELMET: "head0066",
+    HEAD_MEDIC_HELMET: "head0067",
+    HEAD_NONE: "head0000",
+    HEAD_MASK: "head0001",
+    HEAD_GAS_MASK: "head0002",
+    HEAD_RADIO: "head0003",
+    HEAD_USMC_MASK: "head0004",
+    HEAD_USMC_CAP: "head0005",
+    HEAD_USMC_CAP_BACKWARDS: "head0006",
+    HEAD_USMC_SPEC_OPS: "head0007",
+    HEAD_USMC_HELMET: "head0008",
+    HEAD_USMC_HELMET_TACTICAL: "head0009",
+    HEAD_USMC_BOONIE: "head0010",
+    HEAD_USMC_GHILLIE: "head0011",
+    HEAD_GIGN_HELMET: "head0012",
+    HEAD_GIGN_HELMET_2: "head0013",
+    HEAD_GIGN_CAP: "head0014",
+    HEAD_GSG9_HELMET: "head0015",
+    HEAD_GSG9_HELMET_2: "head0016",
+    HEAD_GSG9_HELMET_3: "head0017",
+    HEAD_OPFOR_SCARF: "head0018",
+    HEAD_OPFOR_HELMET: "head0019",
+    HEAD_OPFOR_HELMET_2: "head0020",
+    HEAD_OPFOR_BERET: "head0021",
+    HEAD_OPFOR_SHADES: "head0022",
+    HEAD_OPFOR_COMMANDER: "head0023",
+    HEAD_RUS_MASK: "head0024",
+    HEAD_RUS_HAT: "head0025",
+    HEAD_RUS_SCARF: "head0026",
+    HEAD_RUS_TOQUE: "head0027",
+    HEAD_RUS_BERET: "head0028",
+    HEAD_RUS_CAP: "head0029",
+    HEAD_RUS_RECON: "head0030",
+    HEAD_RUS_HELMET: "head0031",
+    HEAD_MILITIA_RADIO: "head0032",
+    HEAD_MILITIA_BAND: "head0033",
+    HEAD_MILITIA_BANDANA: "head0034",
+    HEAD_MILITIA_CAP: "head0035",
+    HEAD_MILITIA_SNIPER: "head0036",
+    HEAD_JUGGERNAUT_HELMET: "head0037",
+    BODY_VIP: "vip",
+    BODY_HOSTAGE: "hostage",
+    BODY_USMC_STANDARD: "usmc",
+    BODY_USMC_GHILLIE: "usmc_ghillie",
+    BODY_USMC_HEAVY: "usmc_heavy",
+    BODY_USMC_PARA: "usmc_para",
+    BODY_USMC_RECON: "usmc_recon",
+    BODY_GIGN_STANDARD: "gign",
+    BODY_GIGN_HEAVY: "gign_heavy",
+    BODY_GIGN_PARA: "gign_para",
+    BODY_GIGN_RECON: "gign_recon",
+    BODY_GIGN_TACTICAL: "gign_tactical",
+    BODY_GSG9_STANDARD: "gsg9",
+    BODY_GSG9_HEAVY: "gsg9_heavy",
+    BODY_GSG9_PARA: "gsg9_para",
+    BODY_GSG9_RECON: "gsg9_recon",
+    BODY_GSG9_TACTICAL: "gsg9_tactical",
+    BODY_OPFOR_STANDARD: "opfor",
+    BODY_OPFOR_ROCKETIER: "opfor_rocketier",
+    BODY_OPFOR_HEAVY: "opfor_heavy",
+    BODY_OPFOR_PARA: "opfor_para",
+    BODY_OPFOR_RECON: "opfor_recon",
+    BODY_RUS_STANDARD: "rus",
+    BODY_RUS_BARE: "rus_bare",
+    BODY_RUS_HEAVY: "rus_heavy",
+    BODY_RUS_PARA: "rus_para",
+    BODY_RUS_RECON: "rus_recon",
+    BODY_RUS_ROCKETIER: "rus_rocketier",
+    BODY_JUGGERNAUT: "rus_juggernaut",
+    BODY_MILITIA_STANDARD: "militia",
+    BODY_MILITIA_HEAVY: "militia_heavy",
+    BODY_MILITIA_PARA: "militia_para",
+    BODY_MILITIA_RECON: "militia_recon",
+    BODY_MILITIA_TACTICAL: "militia_tactical",
+    BODY_USMC_KEVLAR: "usmc_kevlar",
+    BODY_GIGN_KEVLAR: "gign_kevlar",
+    BODY_GSG9_KEVLAR: "gsg9_kevlar",
+    BODY_OPFOR_KEVLAR: "opfor_kevlar",
+    BODY_RUS_KEVLAR: "rus_kevlar",
+    BODY_MILITIA_KEVLAR: "militia_kevlar",
+    BODY_ZOMBIE: "zombie",
+    BODY_ZOMBIE_2: "zombie_2",
+    BODY_ZOMBIE_3: "zombie_3",
+    BODY_ZOMBIE_FAT: "zombie_fat",
+    BODY_ZOMBIE_EXPLODER: "zombie_exploder",
+    BODY_ZOMBIE_EXPLODER_BOSS: "zombie_exploder_boss",
+    BODY_ZOMBIE_SPITTER: "zombie_spitter",
+    BODY_ZOMBIE_SPITTER_BOSS: "zombie_spitter_boss",
+    BODY_ZOMBIE_SPRINTER: "zombie_sprinter",
+    BODY_ZOMBIE_SPRINTER_BOSS: "zombie_sprinter_boss"
+};
+
+server.listen(process.env.PORT || serverSettings.port, function ()
+{
+    log("\nListening on " + server.address().family + " " + chalk.inverse(server.address().address) + ":" + chalk.inverse(server.address().port) + "\n");
+});
+
+//Initialize server
+log(chalk.yellow("Initializing server..."));
+initLobbies();
+log(chalk.green("Done"));
+
+io.sockets.on("connection", function (socket)
+{
+    log(tracePlayer(socket), chalk.green("Connected"), "|", getNumClients(), "connected");
+    stats.playersConnected++;
+    stats.peakPlayersConnected = Math.max(stats.peakPlayersConnected, getNumClients());
+    socket.player = {
+        id: genIdFromSocket(socket),
+        name: "Player",
+        level: 1,
+        prestige: 0
+    };   
+    socket.info = {
+        autoJoinAttempts: 0
+    };
+    if (getNumClients() > serverSettings.maxClients)
+    {
+        console.warn("Maximum number of clients reached!", getNumClients());
+        socket.emit("showWindow", {
+            titleText: "STR_SERVER_FULL",
+            messageText: "STR_SERVER_FULL_DESC",
+            bShowOkayButton: true
+        });
+        socket.disconnect();
+        return;
+    }
+
+    socket.emit("onConnect", Server.OFFICIAL, {
+        welcomeMessage: serverSettings.welcomeMessage
+    });
+
+    socket.on("completeClanChallenge", function (_data)
+    {
+        throttleSocket(socket);        
+        actionLimiter.consume(socket.id).
+            then(() =>
+            {
+                if (socket.player)
+                {
+                    var clan = socket.player.clan;
+                    if (clan)
+                    {
+                        log(tracePlayer(socket), "Complete clan challenge", _data);
+                        async_updateClanScore(clan, 1, 0);
+                    }
+                }
+            }).catch(r =>
+            {
+                //...
+            });
+    });
+
+    socket.on("updatePlayerData", function (_data)
+    {
+        //throttleSocket(socket);
+        actionLimiter.consume(socket.id).
+            then(() =>
+            {
+                log(tracePlayer(socket), "Update player data");
+                if (!_data)
+                {
+                    return;
+                }
+                if (_data.version)
+                {
+                    //Version format: [MAJOR].[MINOR].[PATCH]
+                    var required = Server.GAME_VERSION.split(".");
+                    var version = _data.version.split(".");
+                    if (version.length != 3 || parseInt(version[0]) < parseInt(required[0]) || parseInt(version[1]) < parseInt(required[1]) || parseInt(version[2]) < parseInt(required[2]))
+                    {
+                        log(tracePlayer(socket), _data["host"], "Game version mismatch:", chalk.yellow("Required: " + Server.GAME_VERSION), "|", chalk.red("Client: " + _data.version));
+                        socket.emit("showWindow", {
+                            id: "mp_mismatch",
+                            titleText: "STR_MENU_MULTIPLAYER",
+                            messageText: "STR_VERSION_MISMATCH_DESC",
+                            messageParams: [_data.version, Server.GAME_VERSION],
+                            version: _data.version,
+                            required: Server.GAME_VERSION,
+                            type: "TYPE_YES_NO",
+                            yesText: "STR_PLAY_LATEST_VERSION",
+                            yesURL: "https://xwilkinx.com/deadswitch-3"
+                        });
+                        socket.disconnect();
+                        return;
+                    }
+                    /*
+                    if (!_data.username && !_data.steamId)
+                    {
+                        showMultiplayerLoginWindow(socket);
+                        socket.disconnect();
+                        return;
+                    }
+                    */
+                    if (serverSettings.bannedUsernames && _data.username)
+                    {
+                        for (var i = 0; i < serverSettings.bannedUsernames.length; i++)
+                        {
+                            if (_data.username == serverSettings.bannedUsernames[i])
+                            {
+                                showBannedWindow(socket);
+                                socket.disconnect();
+                                break;
+                            }
+                        }
+                    }
+                    if (serverSettings.bannedSteamIds && _data.steamId)
+                    {
+                        for (var i = 0; i < serverSettings.bannedSteamIds.length; i++)
+                        {
+                            if (_data.steamId == serverSettings.bannedSteamIds[i])
+                            {
+                                showBannedWindow(socket);
+                                socket.disconnect();
+                                break;
+                            }
+                        }
+                    }
+                    if (verifyClientPlayerData(_data))
+                    {
+                        var latency = socket.player.latency;
+                        var lobbyId = socket.player.currentLobbyId;
+                        var partyId = socket.player.currentPartyId;
+                        var lobbyData = getLobbyData(lobbyId);
+                        if (lobbyData && lobbyData.game)
+                        {
+                            socket.player.level = _data.level;
+                        }
+                        else
+                        {
+                            //Initial update
+                            if (!socket.player.version)
+                            {
+                                socket.info.host = _data.host;
+                                socket.info.version = _data.version;
+                            }
+
+                            //Create player object
+                            _data.id = genIdFromSocket(socket);
+                            socket.player = clone(_data);
+                            delete socket.player.host;
+                            delete socket.player.href;
+                            delete socket.player.version;
+                            delete socket.player.stats;
+
+                            //Update previous values
+                            socket.player.latency = latency;
+                            socket.player.currentLobbyId = lobbyId;
+                            socket.player.currentPartyId = partyId;
+                            if (lobbyData)
+                            {
+                                var lobbyPlayer = getLobbyPlayerById(lobbyId, getSocketPlayerId(socket));
+                                if (lobbyPlayer)
+                                {
+                                    lobbyPlayer.name = socket.player.name;
+                                    lobbyPlayer.level = socket.player.level;
+                                    lobbyPlayer.prestige = socket.player.prestige;
+                                    lobbyPlayer.card = socket.player.card;
+                                    lobbyPlayer.callsign = socket.player.callsign;
+                                    lobbyPlayer.avatars = socket.player.avatars;
+                                    lobbyPlayer.killstreaks = socket.player.killstreaks;
+                                    io.sockets.in(lobbyId).emit("updateLobby", {
+                                        players: lobbyData.players
+                                    });
+                                }
+                            }
+                            if (partyId)
+                            {
+                                var partyPlayer = getPartyPlayerById(partyId, getSocketPlayerId(socket));
+                                if (partyPlayer)
+                                {
+                                    lobbyPlayer.name = socket.player.name;
+                                    partyPlayer.card = socket.player.card;
+                                    partyPlayer.callsign = socket.player.callsign;
+                                }
+                                updatePartyClients(partyId);
+                            }
+                        }
+                        broadcastServerData();
+                    }
+                    else
+                    {
+                        showClientDataFailedWindow(socket);
+                        socket.disconnect();
+                    }
+                }
+                if (socket.player && socket.info)
+                {
+                    if (_data.username !== undefined)
+                    {
+                        socket.info.username = _data.username;
+                        async_getClanForSocket(socket);                        
+                    }
+                    if (_data.stats !== undefined)
+                    {
+                        socket.stats = _data.stats;
+                    }
+                    if (_data.battlezone !== undefined)
+                    {
+                        socket.player.battlezone = clone(_data.battlezone);
+                    }
+                }
+            }).
+            catch(r =>
+            {
+                //...
+            });
+    });
+
+    socket.on("updateClientLatency", function (_ms)
+    {
+        //throttleSocket(socket);
+        if (socket.player)
+        {
+            socket.player["latency"] = _ms;
+            if (_ms >= serverSettings.maxLatency)
+            {
+                disconnectSocket(socket, { reason: "latency" });
+                return;
+            }
+            if (socket.player.currentLobbyId && socket.player.bReady)
+            {
+                var lobbyData = getLobbyData(socket.player.currentLobbyId);
+                if (lobbyData)
+                {
+                    if (!lobbyData["bPrivate"] && _ms >= serverSettings.maxLobbyLatency)
+                    {
+                        removeSocketPlayerFromLobby(socket, "latency");
+                    }
+                    else
+                    {
+                        var game = lobbyData["game"];
+                        if (game)
+                        {
+                            game.setPlayerLatency(getSocketPlayerId(socket), _ms);
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    socket.on("createClan", function (_name)
+    {
+        throttleSocket(socket);
+        log(tracePlayer(socket), "Wants to create clan:", _name);
+        if (socket.player)
+        {
+            if (socket.player.clan)
+            {
+                socket.emit("onCreateClan", {
+                    bSuccess: false,
+                    message: "You must leave your current clan before creating a new one.",
+                    key: "STR_ERROR_CLAN_LEAVE_CURRENT_CLAN"
+                });
+                return;
+            }
+            if (socket.info.username)
+            {
+                var clanName = _name;
+                async_createClan(socket, clanName);
+            }
+            else
+            {
+                socket.emit("onCreateClan", {
+                    bSuccess: false,
+                    message: "You must be logged into a Deadswitch 3 account to create a new clan.",
+                    key: "STR_ERROR_CREATE_CLAN_NOT_LOGGED_IN"
+                });
+                return;
+            }
+        }
+    });
+
+    socket.on("joinClan", function (_name)
+    {
+        throttleSocket(socket);
+        log(tracePlayer(socket), "Wants to join clan:", _name);
+        if (socket.player)
+        {
+            if (socket.player.clan)
+            {
+                return;
+            }
+            if (socket.info.username)
+            {
+                async_joinClan(socket, _name);
+            }
+        }
+    });
+
+    socket.on("getClanData", function ()
+    {
+        throttleSocket(socket);
+        log(tracePlayer(socket), "Wants to get clan data");
+        async_getClanData(socket);
+    });
+
+    socket.on("leaveClan", function ()
+    {
+        throttleSocket(socket);
+        log(tracePlayer(socket), "Wants to leave clan");
+        async_leaveClanBySocket(socket);
+    });
+
+    socket.on("getPlayerData", function ()
+    {
+        throttleSocket(socket);
+        if (socket.player)
+        {
+            socket.emit("getPlayerData", socket.player);
+        }
+    });
+
+    socket.on("requestQuit", function ()
+    {
+        throttleSocket(socket);
+        if (!socket.player)
+        {
+            return;
+        }
+        var lobbyId = socket.player.currentLobbyId;
+        log(tracePlayer(socket), "Request quit in lobby", chalk.bgCyan(lobbyId));
+        var party = getParty(socket.player.currentPartyId);
+        if (party)
+        {
+            if (party.hostPlayerId != getSocketPlayerId(socket))
+            {
+                removePlayerFromParty(socket);
+            }
+        }
+        var lobbyData = getLobbyData(lobbyId);
+        if (lobbyData)
+        {
+            if (lobbyData["bPrivate"])
+            {
+                if (lobbyData.hostPlayerId == getSocketPlayerId(socket))
+                {
+                    setLobbyState(lobbyId, LobbyState.WAITING_HOST);
+                    io.sockets.in(lobbyId).emit("updateLobby", getSafeLobbyData(lobbyData));
+                }
+                else
+                {
+                    removeSocketPlayerFromLobby(socket, "client_quit");
+                }
+            }
+            else
+            {
+                var party = getParty(socket.player.currentPartyId);
+                if (party)
+                {
+                    if (party.hostPlayerId == getSocketPlayerId(socket) && party.players.length > 1)
+                    {
+                        removePlayerFromParty(socket);
+                    }
+                }
+                removeSocketPlayerFromLobby(socket, "client_quit");
+            }
+        }
+    });
+
+    socket.on("requestGame", function ()
+    {
+        throttleSocket(socket);
+        var lobbyId = socket.player.currentLobbyId;
+        log(tracePlayer(socket), "requests game in", chalk.bgCyan(lobbyId));
+        var lobbyData = getLobbyData(lobbyId);
+        if (lobbyData)
+        {
+            var game = lobbyData["game"];
+            if (game)
+            {
+                //Add player to game in progress
+                log(chalk.bgCyan(lobbyId), "Game in progress");   
+
+                var items = [];
+
+                if (lobbyData["bAddBots"])
+                {
+                    var numKicked = 0;
+                    for (var i = 0; i < lobbyData.players.length; i++)
+                    {
+                        if (lobbyData.players.length > lobbyData.maxPlayers)
+                        {
+                            var curPlayer = lobbyData.players[i];
+                            if (curPlayer["bBot"] && curPlayer["team"] == socket.player.team)
+                            {
+                                game.requestEvent({
+                                    eventId: GameServer.EVENT_PLAYER_LEAVE,
+                                    reason: "kicked",
+                                    playerId: curPlayer["id"]
+                                });
+                                lobbyData.players.splice(i, 1);
+                                numKicked++;
+                            }
+                        }
+                    }
+                    if (!numKicked)
+                    {
+                        for (var i = 0; i < lobbyData.players.length; i++)
+                        {
+                            if (lobbyData.players.length > lobbyData.maxPlayers)
+                            {
+                                var curPlayer = lobbyData.players[i];
+                                if (curPlayer["bBot"])
+                                {
+                                    game.requestEvent({
+                                        eventId: GameServer.EVENT_PLAYER_LEAVE,
+                                        reason: "kicked",
+                                        playerId: curPlayer["id"]
+                                    });
+                                    lobbyData.players.splice(i, 1);
+                                    numKicked++;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                items.push(game.getInitEventData());
+                game.addPlayer(clone(socket.player));
+                items.push(game.getGameModeEventData());
+
+                if (game.matchInProgress())
+                {
+                    items.push(game.getGameStartEventData());
+                }                
+                var gamePlayers = game.getPlayerStates(); 
+                for (var i = 0; i < gamePlayers.length; i++)
+                {
+                    let curPlayerState = gamePlayers[i];
+                    if (curPlayerState["id"] != getSocketPlayerId(socket))
+                    {
+                        items.push({
+                            eventId: GameServer.EVENT_PLAYER_JOIN,
+                            playerId: curPlayerState["id"],
+                            data: curPlayerState,
+                            bSilent: true
+                        });
+                    }
+                }
+                var all = game.getObjectsEventData();
+                for (var i = 0; i < all.length; i++)
+                {
+                    items.push(all[i]);
+                }     
+
+                log(items.length, "events");
+
+                socket.emit("gameEvent", {
+                    eventId: GameServer.EVENT_BATCH,
+                    lobbyId: lobbyId,
+                    items: items
+                }); 
+            }
+            else
+            {
+                var players = lobbyData["players"];
+                var numReady = 0;
+                var numBots = getNumBotsInLobby(lobbyId);
+                var numDummies = getNumDummiesInLobby(lobbyId);
+                var numNeeded = players.length - (numBots + numDummies);
+                for (i = 0; i < players.length; i++)
+                {
+                    ps = players[i];
+                    if (ps["id"] == getSocketPlayerId(socket))
+                    {
+                        ps["bReady"] = true;
+                        numReady++;
+                    }
+                    else if (ps["bReady"])
+                    {
+                        numReady++;
+                    }
+                }
+                log(chalk.bgCyan(lobbyId), "Players ready:", numReady, "/", numNeeded);                
+                if (numNeeded == 0)
+                {
+                    endLobbyGame(lobbyId, false);
+                }
+                else
+                {
+                    var playerDetails = [];
+                    for (var i = 0; i < players.length; i++)
+                    {
+                        var curPlayer = players[i];
+                        playerDetails.push(curPlayer);
+                    }
+                    io.sockets.in(lobbyId).emit("updatePlayersReady", {
+                        players: playerDetails,
+                        numReady: numReady,
+                        numNeeded: numNeeded
+                    });
+                    if (numReady == numNeeded)
+                    {
+                        log(chalk.bgCyan(lobbyId), chalk.green("All players ready"));
+                        var gameData = lobbyData["gameData"];
+                        gameData["maxPlayers"] = lobbyData["maxPlayers"];
+                        gameData["bPrivate"] = lobbyData["bPrivate"];
+                        onInitGame(lobbyId, gameData);
+                    }
+                }                
+            }
+        }
+    });
+
+    socket.on("requestEvent", function (_data)
+    {
+        if (!socket.player || !_data)
+        {
+            //console.warn(tracePlayer(socket), "Invalid player data", _data);
+            socket.disconnect();
+            return;
+        }
+        throttleSocket(socket, _data);
+        var bThrottle = false;
+        gameLimiter.consume(socket.id).
+            then(() =>
+            {
+                bThrottle = false;
+            }).
+            catch(r =>
+            {
+                bThrottle = true;
+            });
+        if (!bThrottle)
+        {
+            //Events requested by client directly
+            var lobbyId = socket.player.currentLobbyId;
+            var game = getGame(lobbyId);
+            if (game)
+            {
+                var bProcess = true;
+                var bKickPlayer = true;
+                switch (_data["eventId"])
+                {
+                    case GameServer.EVENT_PLAYER_UPDATE_INVENTORY:
+                        if (socket.id.indexOf(_data["pawnId"]) == -1)
+                        {
+                            bProcess = false;
+                        }
+                        break;
+
+                    case GameServer.EVENT_PLAYER_UPDATE_CONTROLLABLE:
+                    case GameServer.EVENT_PLAYER_INPUT:
+                    case GameServer.EVENT_BATTLEZONE:
+                    case GameServer.EVENT_SWITCH_TEAMS:
+                        if (socket.id.indexOf(_data["playerId"]) == -1)
+                        {
+                            bProcess = false;
+                            bKickPlayer = _data["playerId"] != "playerController";
+                        }
+                        break;
+
+                    case GameServer.EVENT_PLAYER_EARN_KILLSTREAK:
+                        bProcess = false;
+                        bKickPlayer = true;
+                        break;
+                }
+                if (!bProcess)
+                {
+                    console.warn(tracePlayer(socket), "Cheat detected", _data);
+                    //removePlayerFromLobby(socket, "cheating");
+                    if (bKickPlayer)
+                    {
+                        socket.disconnect();
+                    }
+                }
+                if (bProcess)
+                {
+                    game.requestEvent(_data);
+                }
+            }
+        }
+    });
+
+    socket.on("joinParty", function (_id)
+    {
+        throttleSocket(socket);
+        log(tracePlayer(socket), "Wants to join party", chalk.bgCyan(_id));
+        if (socket.player.currentPartyId)
+        {
+            log("Already in party!");
+            return;
+        }
+        var party = getParty(_id);
+        if (party)
+        {
+            var result = canJoinParty(_id, socket);
+            switch (result)
+            {
+                case Party.JOIN_SUCCESS:
+                    joinParty(_id, socket);
+                    var host = getSocketByPlayerId(party.hostPlayerId);
+                    if (host)
+                    {
+                        if (host.player.currentLobbyId)
+                        {
+                            var result = canJoinLobby(host.player.currentLobbyId, socket);
+                            switch (result)
+                            {
+                                case Lobby.JOIN_SUCCESS:
+                                    joinLobby(host.player.currentLobbyId, socket);
+                                    break;
+                            }
+                        }
+                    }
+                    break;
+
+                case Party.JOIN_FAIL_CAPACITY:
+                    socket.emit("showWindow", {
+                        titleText: "STR_ERROR",
+                        messageText: "STR_PARTY_MAX_CAPACITY_DESC",
+                        bShowOkayButton: true
+                    });
+                    break;               
+
+                case Lobby.JOIN_FAIL_CAPACITY:
+                    socket.emit("showWindow", {
+                        titleText: "STR_ERROR",
+                        messageText: "STR_CUSTOM_LOBBY_MAX_CAPACITY_DESC",
+                        bShowOkayButton: true
+                    });
+                    break;
+
+                case Lobby.JOIN_FAIL_LOCKED:
+                    socket.emit("showWindow", {
+                        titleText: "STR_ERROR",
+                        messageText: "STR_PARTY_LOCKED_DESC",
+                        bShowOkayButton: true
+                    });
+                    break;
+
+                default:
+                    socket.emit("showWindow", {
+                        titleText: "STR_ERROR",
+                        messageText: "STR_ERROR_DESC",
+                        bShowOkayButton: true
+                    });
+                    break;
+            }
+        }
+        else
+        {
+            socket.emit("showWindow", {
+                titleText: "STR_ERROR",
+                messageText: "STR_PARTY_NON_EXISTANT_DESC",
+                messageParams: [_id],
+                highlights: [_id],
+                bShowOkayButton: true
+            });
+        }
+    });
+
+    socket.on("requestParty", function ()
+    {
+        throttleSocket(socket);
+        log(tracePlayer(socket), "Requests party data");
+        if (socket.player && socket.player.currentPartyId)
+        {
+            var party = getParty(socket.player.currentPartyId);
+            if (party)
+            {
+                socket.emit("updateParty", party);
+            }
+        }
+    });
+
+    socket.on("leaveParty", function (_id)
+    {
+        throttleSocket(socket);
+        log(tracePlayer(socket), "Wants to leave party", chalk.bgCyan(socket.player.currentPartyId));
+        removePlayerFromParty(socket);
+    });
+
+    socket.on("getPlayerList", function ()
+    {
+        throttleSocket(socket);
+        actionLimiter.consume(socket.id).
+            then(() =>
+            {
+                log(tracePlayer(socket), "Wants to get player list");
+                socket.emit("receivePlayerList", {
+                    id: "players_all",
+                    players: getAllPlayers()
+                });
+            }).
+            catch(r =>
+            {
+                //...
+            });        
+    });
+
+    socket.on("getClanPlayerList", function ()
+    {
+        throttleSocket(socket);
+        actionLimiter.consume(socket.id).
+            then(() =>
+            {
+                if (socket.player.clan)
+                {
+                    log(tracePlayer(socket), "Wants to get clan player list");
+                    getAllClanPlayers(socket);
+                }                
+            }).
+            catch(r =>
+            {
+                //...
+            });
+    });
+
+    socket.on("getClanInvitePlayerList", function ()
+    {
+        throttleSocket(socket);
+        actionLimiter.consume(socket.id).
+            then(() =>
+            {
+                if (socket.player.clan)
+                {
+                    log(tracePlayer(socket), "Wants to get clan invite player list");
+                    socket.emit("receivePlayerList", {
+                        id: "players_clan_invite",
+                        players: getClanInvitablePlayers()
+                    });
+                }
+            }).
+            catch(r =>
+            {
+                //...
+            });
+    });
+
+    socket.on("getLobbyList", function ()
+    {
+        throttleSocket(socket);       
+        actionLimiter.consume(socket.id).
+            then(() =>
+            {
+                log(tracePlayer(socket), "Wants to get lobby list");
+                socket.emit("receiveLobbyList", getLobbyList(socket));
+            }).
+            catch(r =>
+            {
+                //...
+            }); 
+    });
+
+    socket.on("getClanList", function ()
+    {
+        throttleSocket(socket);
+        actionLimiter.consume(socket.id).
+            then(() =>
+            {
+                log(tracePlayer(socket), "Wants to get clan list");
+                async_getClanList(socket);
+            }).
+            catch(r =>
+            {
+                //...
+            });
+    });
+
+    socket.on("getPlayerInfo", function (_id)
+    {
+        throttleSocket(socket);
+        log(tracePlayer(socket), "Wants to get player info:", _id);
+        if (dummies)
+        {
+            for (var i = 0; i < dummies.length; i++)
+            {
+                var bot = dummies[i];
+                if (bot.id == _id)
+                {
+                    var playerData = {
+                        player: bot,
+                        stats: {
+                            xp: bot.level * (MathUtil.Random(1000, 10000)),
+                            kills: MathUtil.Random(100, 10000),
+                            deaths: MathUtil.Random(50, 1000),
+                            challengesCompleted: MathUtil.Random(0, 100),
+                            games_played: MathUtil.Random(10, 1000),
+                            games_won: MathUtil.Random(0, 500)
+                        }
+                    };
+                    var curLobby = getLobbyData(bot.currentLobbyId);
+                    if (curLobby)
+                    {
+                        playerData["gameModeId"] = curLobby.rotationId ? curLobby.rotationId : curLobby.gameModeId;
+                        if (curLobby.bPrivate)
+                        {
+                            playerData["bPrivateLobby"] = true;
+                        }
+                        if (curLobby.state == LobbyState.IN_PROGRESS)
+                        {
+                            playerData["bInGame"] = true;
+                        }
+                        playerData["bCanJoin"] = canJoinLobby(curLobby.id, socket) == Lobby.JOIN_SUCCESS && !curLobby.gameData.settings["bPrivate"];
+                    }
+                    socket.emit("receivePlayerInfo", playerData);
+                    return;
+                }
+            }
+        }
+        var infoSocket = getSocketByPlayerId(_id);
+        if (infoSocket)
+        {
+            var playerData = {
+                player: infoSocket.player,
+                stats: infoSocket.stats
+            };
+            var curLobby = getLobbyData(infoSocket.player.currentLobbyId);
+            if (curLobby)
+            {
+                playerData["gameModeId"] = curLobby.rotationId ? curLobby.rotationId : curLobby.gameModeId;
+                if (curLobby.bPrivate)
+                {
+                    playerData["bPrivateLobby"] = true;
+                }
+                if (curLobby.state == LobbyState.IN_PROGRESS)
+                {
+                    playerData["bInGame"] = true;
+                }
+                playerData["bCanJoin"] = canJoinLobby(curLobby.id, socket) == Lobby.JOIN_SUCCESS && !curLobby.gameData.settings["bPrivate"];
+            }
+            socket.emit("receivePlayerInfo", playerData);
+        }
+    });
+
+    socket.on("getChatHistory", function ()
+    {
+        throttleSocket(socket);
+        log(tracePlayer(socket), "Wants to get chat history");
+        socket.emit("receiveChatHistory", chatHistory);
+    });
+
+    socket.on("inviteToParty", function (_playerId)
+    {
+        throttleSocket(socket);
+        var partyId = socket.player ? socket.player.currentPartyId : null;
+        if (partyId)
+        {
+            var invitedSocket = getSocketByPlayerId(_playerId);
+            if (invitedSocket && invitedSocket.player && invitedSocket.player["bAllowPartyInvites"])
+            {
+                if (invitedSocket.player.currentPartyId != partyId)
+                {
+                    log(tracePlayer(socket), "Wants to invite", tracePlayer(invitedSocket), "to their party");
+                    invitedSocket.emit("serverMessage", {
+                        type: "party_invite",
+                        partyId: partyId,
+                        player: socket.player,
+                        id: partyId
+                    });
+                }
+            }
+        }
+    });
+
+    socket.on("inviteToClan", function (_playerId)
+    {
+        throttleSocket(socket);
+        var clan = socket.player.clan;
+        if (clan)
+        {
+            var invitedSocket = getSocketByPlayerId(_playerId);
+            if (invitedSocket && invitedSocket.player && invitedSocket.player["bAllowPartyInvites"])
+            {
+                if (!invitedSocket.player.clan)
+                {
+                    log(tracePlayer(socket), "Wants to invite", tracePlayer(invitedSocket), "to clan");
+                    invitedSocket.emit("serverMessage", {
+                        type: "clan_invite",
+                        clan: clan,
+                        player: socket.player,
+                        id: clan
+                    });
+                }
+            }
+        }
+    });
+
+    socket.on("joinLobby", function (_data)
+    {
+        throttleSocket(socket);
+        if (_data)
+        {
+            if (typeof _data === "string")
+            {
+                joinLobbyByGameModeId(socket, _data, false);
+            }
+            else
+            {
+                joinLobbyByGameModeId(socket, _data.gameModeId, _data.bBattlezone);
+            }
+        }
+    });
+
+    socket.on("joinLobbyById", function (_lobbyId)
+    {
+        throttleSocket(socket);
+        joinLobbyById(socket, _lobbyId);
+    })
+
+    socket.on("createParty", function ()
+    {
+        throttleSocket(socket);
+        log(tracePlayer(socket), "Wants to create party");
+        createParty(socket);
+    });
+
+    socket.on("createPrivateLobby", function ()
+    {
+        throttleSocket(socket);
+        log(tracePlayer(socket), "Wants to create private lobby");
+        if (!validateClient(socket))
+        {
+            return;
+        }
+        var currentLobbyId = socket.player.currentLobbyId;
+        if (currentLobbyId)
+        {
+            removeSocketPlayerFromLobby(socket, "create_private_lobby");
+            return;
+        }
+        var currentPartyId = socket.player.currentPartyId;
+        if (currentPartyId)
+        {
+            var party = getParty(currentPartyId);
+            if (party)
+            {
+                if (getSocketPlayerId(socket) != party.hostPlayerId)
+                {
+                    return;
+                }
+            }
+        }
+        if (lobbies["private"].length < serverSettings.maxCustomLobbies)
+        {
+            var newLobbyId = "L-" + getRandomUniqueId();
+            createPrivateLobby(newLobbyId);
+            var party = getParty(socket.player.currentPartyId);
+            if (party)
+            {
+                for (i = 0; i < party.players.length; i++)
+                {
+                    var partySocket = getSocketByPlayerId(party.players[i]["id"]);
+                    if (canJoinLobby(newLobbyId, partySocket) == Lobby.JOIN_SUCCESS)
+                    {
+                        joinLobby(newLobbyId, partySocket);
+                    }
+                }
+            }
+            else
+            {
+                joinLobby(newLobbyId, socket);
+                sendChatMessage(null, {
+                    bServer: true,
+                    messageText: socket.player.name + " created a new custom lobby."
+                });
+            }
+        }
+        else
+        {
+            socket.emit("showWindow", {
+                titleText: "STR_ERROR",
+                messageText: "STR_CUSTOM_LOBBY_MAX_CAPACITY_DESC",
+                bShowOkayButton: true
+            });
+        }
+    });
+
+    socket.on("changePrivateGameSettings", function (_data)
+    {
+        throttleSocket(socket);
+        if (!socket.player)
+        {
+            disconnectSocket(socket, { reason: "Error" } );
+            return;
+        }
+        log(tracePlayer(socket), "Wants to change private game settings", chalk.bgCyan(socket.player.currentLobbyId));
+        log(_data);
+        if (!_data)
+        {
+            return;
+        }
+        var lobbyData = getLobbyData(socket.player.currentLobbyId);
+        if (lobbyData)
+        {
+            if (lobbyData.hostPlayerId != getSocketPlayerId(socket))
+            {
+                disconnectSocket(socket, { reason: "kicked" });
+                return;
+            }
+            if (lobbyData["bPrivate"])
+            {
+                var lobbyId = lobbyData.id;
+                //Validate new keys to make sure they can't corrupt the lobby
+                var gameData = lobbyData.gameData;
+                var prevDebug = gameData.settings["bDebug"];
+                var prevPrivate = gameData.settings["bPrivate"];
+                var prevBots = gameData.settings["bots"];
+                var prevBotSkill = gameData.settings["botSkill"];
+                var prevBotTeam = gameData.settings["botTeam"];
+                var prevDifficulty = gameData.settings["difficulty"];
+                var keys = Object.keys(_data);
+                for (var i = 0; i < keys.length; i++)
+                {
+                    var key = keys[i];
+                    if (_data["bSettings"])
+                    {
+                        if (key !== "bSettings")
+                        {
+                            var value = _data[key];
+                            switch (key)
+                            {
+                                case "bDebug":
+                                    log("Setting private game debug:", value);
+                                    break;
+
+                                case "botTeam":
+                                    value = Math.max(-1, Math.min(1, value));
+                                    break;
+
+                                case "botSkill":
+                                    value = Math.max(-1, Math.min(4, value));
+                                    break;
+
+                                case "bots":
+                                    value = Math.max(0, value);
+                                    break;
+
+                                case "timeLimit":
+                                    value = Math.max(1, value);
+                                    break;
+
+                                case "respawnTime":
+                                    value = Math.max(1, value);
+                                    break;
+
+                                case "scoreLimit":
+                                    value = Math.max(1, value);
+                                    break;
+
+                                case "bombTimerMax":
+                                    value = Math.max(1, value);
+                                    break;
+                            }
+                            gameData.settings[key] = value;
+                        }
+                    }
+                    else
+                    {
+                        gameData[key] = _data[key];
+                        if (key == "gameModeId")
+                        {                            
+                            delete gameData["operation"];
+                            delete gameData["operationId"];
+                            delete gameData["bSurvival"];
+                            delete gameData["bOperation"];
+                            delete gameData["bSandbox"];
+                            lobbyData["gameModeId"] = _data[key];
+                            gameData.settings = getDefaultGameModeSettings(_data[key]);
+                            gameData.settings["bAutoBalance"] = false;
+                            gameData.settings["bDebug"] = prevDebug;
+                            gameData.settings["bPrivate"] = prevPrivate != null ? prevPrivate : true;
+                            gameData.settings["bots"] = prevBots;
+                            gameData.settings["botSkill"] = prevBotSkill;
+                            gameData.settings["botTeam"] = prevBotTeam;
+                            switch (_data[key])
+                            {
+                                case GameMode.BATTLEZONE:
+                                    gameData["bBattlezone"] = true;
+                                    gameData["bRanked"] = true;
+                                    gameData.settings["bots"] = 0;
+                                    break;
+
+                                case GameMode.SANDBOX:
+                                    gameData["bRanked"] = false;
+                                    gameData["bSandbox"] = true;
+                                    gameData.settings["bots"] = 0;
+                                    break;
+
+                                case GameMode.SURVIVAL_BASIC:
+                                case GameMode.SURVIVAL_CHAOS:
+                                case GameMode.SURVIVAL_UNDEAD:
+                                case GameMode.SURVIVAL_STAKEOUT:
+                                case GameMode.SURVIVAL_PRO:
+                                    gameData["bRanked"] = false;
+                                    gameData["bSurvival"] = true;
+                                    gameData.settings["bots"] = 0;
+                                    break;
+
+                                case GameMode.OPERATION:
+                                    gameData["operationId"] = "op_riverside_assault";
+                                    gameData["bRanked"] = true;
+                                    gameData.settings["bots"] = 0;
+                                    gameData.settings["difficulty"] = prevDifficulty ? prevDifficulty : 1;
+                                    break;
+
+                                default:
+                                    gameData["bRanked"] = true;
+                                    break;
+                            }
+                            log("Loaded default game mode settings");
+                            lobbyData["bTeamSelection"] = isTeamGameMode(gameData["gameModeId"]);
+                        }
+                    }
+                }
+                log("Updated", keys.length, "keys");
+                if (lobbyData.game)
+                {
+                    console.warn("Game exists in private lobby while updating settings!");
+                    return;
+                }
+                io.sockets.in(lobbyId).emit("updateLobby", getSafeLobbyData(lobbyData));
+            }
+        }
+    });
+
+    socket.on("startPrivateGame", function ()
+    {
+        throttleSocket(socket);
+        log(tracePlayer(socket), "Wants to start private game");
+        var lobbyData = getLobbyData(socket.player.currentLobbyId);
+        if (lobbyData)
+        {
+            if (lobbyData.hostPlayerId != getSocketPlayerId(socket))
+            {
+                return;
+            }
+            var lobbyId = lobbyData.id;
+            if (lobbyData["bPrivate"])
+            {
+                if (lobbyData["state"] === LobbyState.STARTING)
+                {
+                    setLobbyState(lobbyId, LobbyState.WAITING_HOST);
+                    io.sockets.in(lobbyId).emit("updateLobby", getSafeLobbyData(lobbyData));
+                }
+                else
+                {
+                    var numPlayers = lobbyData["players"].length;
+                    var minPlayers = 1; //lobbyData.gameData.settings["bDebug"] ? 1 : 2;
+                    var maxPlayers = lobbyData.gameData.settings["bDebug"] ? Lobby.MAX_PLAYERS : shared["maxPlayers"][lobbyData["gameModeId"]];
+                    if (numPlayers > maxPlayers)
+                    {
+                        socket.emit("showWindow", {
+                            titleText: "STR_TOO_MANY_PLAYERS",
+                            messageText: "STR_TOO_MANY_PLAYERS_DESC",
+                            messageParams: [maxPlayers],
+                            bShowOkayButton: true
+                        });
+                    }
+                    else if (numPlayers < minPlayers)
+                    {
+                        socket.emit("showWindow", {
+                            titleText: "STR_NOT_ENOUGH_PLAYERS",
+                            messageText: "STR_NOT_ENOUGH_PLAYERS_DESC",
+                            bShowOkayButton: true
+                        });
+                    }
+                    else if (!verifyPrivateLobbyTeams(lobbyData))
+                    {
+                        socket.emit("showWindow", {
+                            titleText: "STR_INVALID_TEAMS",
+                            messageText: "STR_INVALID_TEAMS_DESC",
+                            bShowOkayButton: true
+                        });
+                    }
+                    else
+                    {
+                        if (lobbyData["state"] === LobbyState.WAITING_HOST)
+                        {
+                            setLobbyState(lobbyId, LobbyState.STARTING);
+                            if (!intervals[lobbyId])
+                            {
+                                lobbyData["timer"] = Lobby.COUNTDOWN_STARTING_PRIVATE;
+                                intervals[lobbyId] = setInterval(onLobbyTimer, 1000, lobbyId);
+                            }
+                            io.sockets.in(lobbyId).emit("updateLobby", getSafeLobbyData(lobbyData));
+                        }
+                    }
+                }
+            }
+            else
+            {
+                log(chalk.red("Insufficient permissions"));
+            }
+        }
+    });
+
+    socket.on("setPrivatePlayerTeam", function (_id, _team)
+    {
+        throttleSocket(socket);
+        log(tracePlayer(socket), "Wants to set private player team", tracePlayer(getSocketByPlayerId(_id)), _team);
+        var lobbyData = getLobbyData(socket.player.currentLobbyId);
+        if (lobbyData)
+        {
+            if (lobbyData.hostPlayerId != getSocketPlayerId(socket))
+            {
+                return;
+            }
+            if (lobbyData["bPrivate"])
+            {
+                var player = getLobbyPlayerById(lobbyData["id"], _id);
+                if (player)
+                {
+                    if (_team >= 0)
+                    {
+                        player["desiredTeam"] = Math.min(_team, 1);
+                    }
+                    else
+                    {
+                        delete player["desiredTeam"];
+                    }
+                    io.sockets.in(lobbyData["id"]).emit("updateLobby", {
+                        players: lobbyData.players
+                    });
+                }
+            }
+            else
+            {
+                log(chalk.red("Insufficient permissions"));
+            }
+        }
+    });
+
+    socket.on("kickPrivatePlayer", function (_id)
+    {
+        throttleSocket(socket);
+        log(tracePlayer(socket), "Wants to kick private player", _id);
+        var party = getParty(socket.player.currentPartyId);
+        if (party)
+        {
+            if (party.hostPlayerId == getSocketPlayerId(socket))
+            {
+                var kickSocket = getSocketByPlayerId(_id);
+                if (kickSocket)
+                {
+                    removePlayerFromParty(kickSocket);
+                    removeSocketPlayerFromLobby(kickSocket, "kicked")
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+        else
+        {
+            var lobbyData = getLobbyData(socket.player.currentLobbyId);
+            if (lobbyData)
+            {
+                if (lobbyData["bPrivate"] && lobbyData.hostPlayerId == getSocketPlayerId(socket))
+                {
+                    var kickSocket = getSocketByPlayerId(_id);
+                    if (kickSocket)
+                    {
+                        removeSocketPlayerFromLobby(kickSocket, "kicked");
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+        }
+    });
+
+    socket.on("kickClanPlayer", function (_id)
+    {
+        throttleSocket(socket);
+        log(tracePlayer(socket), "Wants to kick clan player", _id);
+        if (socket.player.clan && socket.player.bClanLeader)
+        {
+            var kicked = getSocketByPlayerId(_id);
+            if (kicked)
+            {
+                log("Kicking socket player...");
+                async_leaveClanBySocket(kicked);
+            }
+            else
+            {
+                log("Kicking by username...");
+                async_leaveClanByUsername(socket, _id);
+            }
+        }
+    });
+
+    socket.on("joinPrivateLobby", function (_id)
+    {
+        throttleSocket(socket);
+        if (!socket.player)
+        {
+            return;
+        }
+        log(tracePlayer(socket), "Wants to join private lobby", chalk.bgCyan(_id));        
+        var currentLobbyId = socket.player.currentLobbyId;
+        if (currentLobbyId)
+        {
+            removeSocketPlayerFromLobby(socket, "joining_private_lobby");
+            return;
+        }
+        var lobbyData = getLobbyData(_id);
+        if (lobbyData)
+        {
+            var lobbyId = lobbyData["id"];
+            var result = canJoinLobby(lobbyId, socket);
+            switch (result)
+            {
+                case Lobby.JOIN_SUCCESS:
+                    var party = getParty(socket.player.currentPartyId);
+                    if (party)
+                    {
+                        for (var i = 0; i < party.players.length; i++)
+                        {
+                            var partySocket = getSocketByPlayerId(party.players[i]["id"]);
+                            if (canJoinLobby(lobbyId, partySocket) == Lobby.JOIN_SUCCESS)
+                            {
+                                joinLobby(lobbyId, partySocket);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        joinLobby(lobbyId, socket);
+                    }
+                    break;
+
+                case Lobby.JOIN_FAIL_LOCKED:
+                    socket.emit("showWindow", {
+                        titleText: "STR_ERROR",
+                        messageText: "STR_CUSTOM_LOBBY_LOCKED_DESC",
+                        bShowOkayButton: true
+                    });
+                    break;
+
+                case Lobby.JOIN_FAIL_CAPACITY:
+                    socket.emit("showWindow", {
+                        titleText: "STR_ERROR",
+                        messageText: "STR_CUSTOM_LOBBY_MAX_CAPACITY_DESC",
+                        bShowOkayButton: true
+                    });
+                    break;
+            }
+        }
+        else
+        {
+            socket.emit("showWindow", {
+                titleText: "STR_ERROR",
+                messageText: "STR_CUSTOM_LOBBY_NON_EXISTANT_DESC",
+                messageParams: [_id],
+                highlights: [_id],
+                bShowOkayButton: true
+            });
+        }
+    });
+
+    socket.on("votekick", function (_playerId)
+    {
+        throttleSocket(socket);
+        if (!serverSettings.bAllowVotekick)
+        {
+            return;
+        }
+        log(tracePlayer(socket), "wants to votekick player", tracePlayer(getSocketByPlayerId(_playerId)));
+        if (_playerId)
+        {
+            if (socket.player && socket.player.currentLobbyId)
+            {
+                votekickPlayer(socket.player.currentLobbyId, socket.id, _playerId);
+            }
+        }
+    });
+
+    socket.on("sendLobbyChatMessage", function (_lobbyId, _message)
+    {
+        if (!socket.player)
+        {
+            return;
+        }
+        //TODO: Deprecated _lobbyId parameter
+        throttleSocket(socket);
+        if (_message)
+        {
+            var message = _message.replace(/<(?:.|\n)*?>/gm, '');  
+            if (message.length == 0)
+            {
+                return;
+            }
+            var lobbyId = socket.player.currentLobbyId;           
+            message = smile.checkText(message);
+            chatLimiter.consume(socket.id).
+                then(() =>
+                {
+                    log(tracePlayer(socket), chalk.cyan("<Chat: " + (lobbyId ? lobbyId : "Global") + ">"), message);
+                    var split = message.split(" ");
+                    switch (split[0])
+                    {
+                        default:
+                            var msg = message.toLowerCase();
+                            var sendLobbyId = null;
+                            var lobbies = getAllLobbies();
+                            for (var i = 0; i < lobbies.length; i++)
+                            {
+                                let lobby = lobbies[i];
+                                if (msg.indexOf(lobby.id.toLowerCase()) >= 0)
+                                {
+                                    sendLobbyId = lobby.id;
+                                    break;
+                                }
+                            }
+                            var partyId = null;
+                            if (!sendLobbyId)
+                            {
+                                var keys = Object.keys(parties);
+                                for (var i = 0; i < keys.length; i++)
+                                {
+                                    let party = parties[keys[i]];
+                                    if (msg.indexOf(party.id.toLowerCase()) >= 0)
+                                    {
+                                        partyId = party.id;
+                                    }
+                                }
+                            }
+                            sendChatMessage(lobbyId, {
+                                playerId: socket.player.id,
+                                currentPartyId: socket.player.currentPartyId,
+                                bAdmin: socket.player.bAdmin,
+                                bClanLeader: socket.player.bClanLeader,
+                                playerText: socket.player["name"],
+                                clan: socket.player.clan,
+                                messageText: message,
+                                lobbyId: sendLobbyId,
+                                partyId: partyId
+                            });
+                            break;
+                    }     
+                }).
+                catch(r =>
+                {
+                    //console.warn(tracePlayer(socket), "Exceeded chat limit!", message, r);
+                    sendChatMessageToSocket(socket.id, {
+                        messageText: "You've sent too many messages."
+                        //locText: "STR_TOO_MANY_MESSAGES"
+                    });
+                });
+        }
+    });
+
+    socket.on("setLobbyMapVote", function (_lobbyId, _mapId)
+    {
+        throttleSocket(socket);
+        log(tracePlayer(socket), "Map vote", chalk.yellow(_mapId));
+        var lobbyData = getLobbyData(_lobbyId);
+        if (lobbyData)
+        {
+            var maps = lobbyData["maps"];
+            if (maps)
+            {
+                for (var i = 0; i < maps.length; i++)
+                {
+                    var mapData = maps[i];
+                    var votes = mapData["votes"];
+                    var voteIndex = votes.indexOf(getSocketPlayerId(socket));
+                    if (voteIndex >= 0)
+                    {
+                        votes.splice(voteIndex, 1);
+                    }
+                    else if (mapData["id"] == _mapId)
+                    {
+                        votes.push(getSocketPlayerId(socket));
+                    }
+                }
+                io.sockets.in(_lobbyId).emit("updateLobby", {
+                    timer: lobbyData["timer"],
+                    maps: lobbyData["maps"]
+                });
+            }
+            else
+            {
+                console.warn("Invalid maps reference", lobbyData);
+            }
+        }
+    });
+
+    socket.on("leaveLobby", function ()
+    {
+        throttleSocket(socket);
+        if (!socket.player)
+        {
+            return;
+        }
+        var lobbyId = socket.player.currentLobbyId;        
+        if (lobbyId)
+        {
+            log(tracePlayer(socket), "Wants to leave lobby", chalk.bgCyan(lobbyId));
+            var lobbyData = getLobbyData(lobbyId);
+            if (lobbyData)
+            {
+                var party = getParty(socket.player.currentPartyId);
+                if (party)
+                {
+                    if (party["hostPlayerId"] == getSocketPlayerId(socket))
+                    {
+                        for (var i = 0; i < party.players.length; i++)
+                        {
+                            var curSocket = getSocketByPlayerId(party.players[i]["id"]);
+                            removeSocketPlayerFromLobby(curSocket, "party_host_leave");
+                        }
+                    }
+                    else
+                    {
+                        removePlayerFromParty(socket);
+                        removeSocketPlayerFromLobby(socket, "leave");
+                    }
+                }
+                else
+                {
+                    removeSocketPlayerFromLobby(socket, "leave");
+                }
+            }
+            else
+            {
+                console.warn("socket.on(leaveLobby) --> Lobby doesn't exist:", socket.player.currentLobbyId);
+                if (socket.player.currentLobbyId)
+                {
+                    removeSocketPlayerFromLobby(socket, "leave");
+                }
+            }
+        }
+    });
+
+    socket.on("getLobbyData", function (_lobbyId)
+    {
+        throttleSocket(socket);
+        var lobbyData = getSafeLobbyDataById(_lobbyId);
+        socket.emit("getLobbyData", lobbyData);
+    }); 
+
+    socket.on("getServerData", function ()
+    {
+        throttleSocket(socket);
+        socket.emit("getServerData", getLatestServerData());
+    }); 
+
+    socket.on("getCurrentLobbyData", function ()
+    {
+        throttleSocket(socket);
+        var lobbyData = getLobbyData(socket.player.currentLobbyId);
+        if (lobbyData)
+        {
+            socket.emit("updateLobby", getSafeLobbyData(lobbyData));
+        }
+    });
+
+    socket.on("disconnect", function ()
+    {
+        var lobbyId = socket.player.currentLobbyId;
+        if (lobbyId)
+        {
+            removeSocketPlayerFromLobby(socket, "disconnect");
+        }
+        var partyId = socket.player.currentPartyId;
+        if (partyId)
+        {
+            removePlayerFromParty(socket);
+        }        
+        log(tracePlayer(socket), chalk.red("Disconnected"), "|", getNumClients(), "connected");
+        delete socket.player;
+        delete socket.info;
+        broadcastServerData();
+    });
+});
+
+function removePlayerFromLobby(_lobbyId, _playerId, _reason)
+{
+
+}
+
+function removeSocketPlayerFromLobby(_socket, _reason)
+{
+    var currentLobbyId = _socket.player.currentLobbyId;
+    if (currentLobbyId)
+    {
+        log(chalk.bgCyan(currentLobbyId), "Remove socket:", tracePlayer(_socket), "| Reason:", _reason);
+        _socket.leave(currentLobbyId);
+        _socket.emit("leaveLobby", _reason);
+        var lobbyData = getLobbyData(currentLobbyId);
+        if (lobbyData)
+        {
+            var requiredPlayers = lobbyData["minPlayers"]; //lobbyData["gameModeId"] == GameMode.BATTLEZONE ? 1 : 2;
+            retractLobbyMapVote(getSocketPlayerId(_socket), currentLobbyId);
+            var lobbyPlayers = lobbyData["players"];
+            for (var i = lobbyPlayers.length - 1; i >= 0; i--)
+            {
+                let curPlayer = lobbyPlayers[i];
+                if (curPlayer["id"] == getSocketPlayerId(_socket))
+                {
+                    resetPlayer(curPlayer);
+                    lobbyPlayers.splice(i, 1);
+                    break;
+                }
+            }
+            var game = lobbyData["game"];
+            if (game)
+            {
+                game.requestEvent({
+                    eventId: GameServer.EVENT_PLAYER_LEAVE,
+                    reason: _reason,
+                    playerId: getSocketPlayerId(_socket)
+                });
+
+                //Add bot to replace player that left
+                if (lobbyData["bAddBots"])
+                {
+                    var bot = getBotPlayerForLobby(lobbyData);
+                    if (bot)
+                    {
+                        initPlayerForGameInProgress(bot, lobbyData["id"]);
+                        lobbyData.players.push(bot);
+                        var clonedBot = clone(bot);
+                        game.addPlayer(clonedBot);
+                    }
+                }
+            }
+            var numPlayers = lobbyPlayers.length - getNumBotsInLobby(currentLobbyId);
+            if (lobbyData["state"] === LobbyState.IN_PROGRESS)
+            {                
+                if (numPlayers < requiredPlayers)
+                {
+                    if (game)
+                    {
+                        if (!lobbyData.gameData["bSandbox"])
+                        {
+                            log(chalk.bgCyan(currentLobbyId), "Not enough players in game:", numPlayers);
+                            if (lobbyData.gameData["bSurvival"] || lobbyData.gameData["bOperation"])
+                            {
+                                game.requestEvent({
+                                    eventId: GameServer.EVENT_GAME_END,
+                                    result: MatchState.END_RESULT_LOSS,
+                                    condition: MatchState.END_CONDITION_FORFEIT
+                                });
+                            }
+                            else
+                            {
+                                game.requestEvent({
+                                    eventId: GameServer.EVENT_GAME_END,
+                                    result: MatchState.END_RESULT_WIN,
+                                    condition: MatchState.END_CONDITION_FORFEIT
+                                });
+                            }
+                        }
+                    }
+                    if (numPlayers == 0)
+                    {
+                        log("Lobby is empty, reset state");
+                        resetMapVotes(lobbyData["id"]);
+                        setLobbyState(lobbyData["id"], LobbyState.WAITING);
+                    }
+                    broadcastServerData();
+                }
+                else if (requiredPlayers > 1)
+                {
+                    //Make sure both teams have players
+                    if (game)
+                    {
+                        if (isTeamGameMode(lobbyData["gameModeId"]))
+                        {
+                            var players = lobbyData.players;
+                            var teams = [0, 0];
+                            for (var i = 0; i < players.length; i++)
+                            {
+                                var player = players[i];
+                                if (player.team >= 0)
+                                {
+                                    teams[player.team]++;
+                                }
+                            }
+                            if (teams[0] == 0 || teams[1] == 0)
+                            {
+                                game.requestEvent({
+                                    eventId: GameServer.EVENT_GAME_END,
+                                    result: MatchState.END_RESULT_WIN,
+                                    condition: MatchState.END_CONDITION_FORFEIT
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                checkLobbyReady(currentLobbyId);
+                sendChatMessage(currentLobbyId, {
+                    messageText: (_socket.player ? _socket.player.name : "Player") + (_reason == "kicked" ? " was kicked" : " left"),
+                    locText: _reason == "kicked" ? "STR_X_WAS_KICKED_LOBBY" : "STR_X_LEFT_LOBBY",
+                    params: [_socket.player ? _socket.player.name : "Player"]
+                });
+                var requiredPlayers = lobbyData["gameModeId"] == GameMode.BATTLEZONE ? 1 : 2;
+                if (lobbyData["bPrivate"] && lobbyData["state"] === LobbyState.STARTING)
+                {
+                    setLobbyState(currentLobbyId, LobbyState.WAITING_HOST);
+                }
+                else if (numPlayers < requiredPlayers)
+                {
+                    resetMapVotes(currentLobbyId);
+                    if (numPlayers === 0 || lobbyData["state"] !== LobbyState.INTERMISSION)
+                    {
+                        var desiredState = lobbyData["bPrivate"] ? LobbyState.WAITING_HOST : LobbyState.WAITING;
+                        if (lobbyData["state"] !== desiredState)
+                        {
+                            setLobbyState(currentLobbyId, desiredState);
+                        }
+                    }
+                }
+                io.sockets.in(currentLobbyId).emit("updateLobby", getSafeLobbyData(lobbyData));
+            }
+
+            switch (_reason)
+            {
+                case "kicked":
+                    removePlayerFromParty(_socket);
+                    _socket.emit("showWindow", {
+                        titleText: "STR_PLAYER_KICKED",
+                        messageText: "STR_PLAYER_KICKED_HOST_DESC",
+                        bShowOkayButton: true
+                    });
+                    break;
+
+                case "latency":
+                    _socket.emit("showWindow", {
+                        titleText: "STR_PLAYER_KICKED",
+                        messageText: "STR_PLAYER_KICKED_LATENCY_DESC",
+                        bShowOkayButton: true
+                    });
+                    break;
+
+                case "idle":
+                    _socket.emit("showWindow", {
+                        titleText: "STR_PLAYER_KICKED",
+                        messageText: "STR_PLAYER_KICKED_IDLE_DESC",
+                        bShowOkayButton: true
+                    });
+                    break;
+            }
+
+            if (lobbyData["bPrivate"])
+            {
+                if (getSocketPlayerId(_socket) == lobbyData.hostPlayerId)
+                {
+                    log(chalk.yellow("Host has left the lobby!"));
+                    if (!_socket.player.currentPartyId)
+                    {
+                        io.sockets.in(currentLobbyId).emit("showWindow", {
+                            titleText: "STR_CUSTOM_LOBBY_DISBANDED",
+                            messageText: "STR_HOST_LEFT_DESC",
+                            bShowOkayButton: true
+                        });
+                    }
+                    removeLobby(lobbyData["id"]);
+                }
+            }
+            else
+            {
+                if (numPlayers === 0)
+                {
+                    var useId = lobbyData["rotationId"] ? lobbyData["rotationId"] : lobbyData["gameModeId"];
+                    var arr = lobbies[useId];
+                    if (arr)
+                    {
+                        var index = arr.indexOf(lobbyData);
+                        if (index > 0)
+                        {
+                            removeLobby(lobbyData["id"]);
+                        }
+                    }
+                }
+            }
+        }        
+    } 
+    if (_socket && _socket.player)
+    {
+        delete _socket.player.bLobbyHost;
+        delete _socket.player.team;
+        delete _socket.player.currentLobbyId;
+    }
+}
+
+function broadcastServerData()
+{
+    var players = getAllPlayers();
+    for (var i = 0; i < players.length; i++)
+    {
+        var socket = getSocketByPlayerId(players[i]["id"]);
+        if (socket && socket.player && !socket.player.currentLobbyId)
+        {
+            socket.emit("updateServerStats", getLatestServerData());
+        }
+    }
+}
+
+function initLobbies()
+{
+    var rotations = [
+        GameMode.COMBAT_TRAINING,
+        GameMode.GROUND_WAR,
+        GameMode.ROTATION_COMMUNITY,
+        GameMode.ROTATION_SURVIVAL,
+        GameMode.HARDCORE
+    ];
+    for (var i = 0; i < rotations.length; i++)
+    {
+        var curId = rotations[i];
+        lobbies[curId] = [];
+        createRotationLobby(curId);
+    }
+    var gameModes = [
+        GameMode.BATTLEZONE,
+        GameMode.DEATHMATCH,
+        GameMode.TEAM_DEATHMATCH,
+        GameMode.DOMINATION,
+        GameMode.CAPTURE_THE_FLAG,
+        GameMode.DEFENDER,
+        GameMode.DEMOLITION,
+        GameMode.HEADQUARTERS,
+        GameMode.GUN_GAME,
+        GameMode.INFECTED,
+        GameMode.SURVIVAL_UNDEAD,
+        GameMode.SURVIVAL_BASIC,
+        GameMode.SURVIVAL_CHAOS,
+        GameMode.SURVIVAL_STAKEOUT,
+        GameMode.SURVIVAL_PRO
+    ];
+    for (var i = 0; i < gameModes.length; i++)
+    {
+        var curId = gameModes[i];
+        lobbies[curId] = [];
+        createPublicLobby(curId);
+    }
+    lobbies["private"] = [];
+}
+
+function createRotationLobby(_gameModeId)
+{
+    log("Create rotation lobby:", chalk.cyan(_gameModeId));
+    var bRanked = true;
+    var bSurvival = false;
+    var minPlayers = 2;
+    var maxPlayers = shared["maxPlayers"][_gameModeId];
+    switch (_gameModeId)
+    {
+        case GameMode.ROTATION_SURVIVAL:
+            minPlayers = 1;
+            bRanked = false;
+            bSurvival = true;
+            break;
+
+        case GameMode.GROUND_WAR:
+        case GameMode.COMBAT_TRAINING:
+            var bAddBots = true;
+            minPlayers = 1;
+            break;
+
+        case GameMode.HARDCORE:
+            var bHardcore = true;
+            minPlayers = 2;
+            break;
+
+        default:
+            minPlayers = 2;
+            break;
+    }
+    var id = getRandomUniqueId(); // _gameModeId + lobbies[_gameModeId].length;
+    var rotationModes = shared.rotations[_gameModeId];
+    var maps = getRandomLobbyMaps(_gameModeId, rotationModes);
+    var useMode = maps[0]["gameModeId"];
+    var settings = getDefaultGameModeSettings(useMode);
+    var gameData = {
+        lobbyId: id,
+        bMultiplayer: true,        
+        gameModeId: useMode,
+        mapId: Map.RIVERSIDE,
+        settings: settings,
+        maxPlayers: maxPlayers,
+        bRanked: bRanked,
+        bSurvival: bSurvival
+    };
+    var lobby = {
+        id: id,
+        rotationId: _gameModeId,
+        rotationModes: rotationModes,
+        gameModeId: useMode,
+        gameData: gameData,
+        minPlayers: minPlayers,
+        maxPlayers: maxPlayers,
+        players: [],
+        maps: maps,
+        state: LobbyState.WAITING,
+        timer: -1,
+        bLocked: false,
+        bAddBots: bAddBots,
+        bHardcore: bHardcore
+    };
+    lobbies[_gameModeId].push(lobby);
+    return lobby;
+}
+
+function createPublicLobby(_gameModeId)
+{
+    log("Create public lobby:", chalk.cyan(_gameModeId));
+    var bRanked = true;
+    var bSurvival = false;
+    var minPlayers = 2;
+    var maxPlayers = shared["maxPlayers"][_gameModeId];    
+    switch (_gameModeId)
+    {
+        case GameMode.SURVIVAL_BASIC:
+        case GameMode.SURVIVAL_CHAOS:
+        case GameMode.SURVIVAL_UNDEAD:
+        case GameMode.SURVIVAL_STAKEOUT:
+        case GameMode.SURVIVAL_PRO:
+            minPlayers = 2;
+            bRanked = false;
+            bSurvival = true;
+            break;
+
+        case GameMode.GUN_GAME:
+        case GameMode.DEATHMATCH:
+            minPlayers = 2;
+            break;
+
+        case GameMode.BATTLEZONE:
+            minPlayers = 1;
+            break;
+
+        default:
+            minPlayers = 2;
+            break;
+    }
+    var id = getRandomUniqueId(); //_gameModeId + lobbies[_gameModeId].length;
+    var maps = getRandomLobbyMaps(_gameModeId);
+    var settings = getDefaultGameModeSettings(_gameModeId);
+    settings.filterType = "random";
+    var gameData = {
+        lobbyId: id,
+        bMultiplayer: true,
+        gameModeId: _gameModeId,
+        mapId: Map.RIVERSIDE,
+        settings: settings,
+        maxPlayers: maxPlayers,
+        bRanked: bRanked,
+        bSurvival: bSurvival
+    };
+    var lobby = {
+        id: id,
+        gameModeId: _gameModeId,
+        gameData: gameData,
+        minPlayers: minPlayers,
+        maxPlayers: maxPlayers,
+        players: [],
+        maps: maps,
+        state: LobbyState.WAITING,
+        timer: -1,
+        bLocked: false
+    };
+    lobbies[_gameModeId].push(lobby);
+    return lobby;
+}
+
+function getRandomLobbyMaps(_gameModeId, _rotationModes)
+{
+    var bAddRandom = true;
+    switch (_gameModeId)
+    {
+        case GameMode.BATTLEZONE:
+            var maps = [
+                Map.DOWNTURN,
+                Map.SANDSTORM,
+                Map.OVERGROWN,
+                Map.AIRPORT,
+                Map.DOWNTURN_EXTENDED
+            ];
+            shuffleArray(maps);
+            maps.splice(0, 1);
+            bAddRandom = false;
+            break;
+        default:
+            maps = [
+                Map.RIVERSIDE,
+                Map.DISTRICT,
+                Map.WAREHOUSE,
+                Map.OUTPOST,
+                Map.ESTATE,
+                Map.FACTORY,
+                Map.DOWNTURN,
+                Map.SANDSTORM,
+                Map.OVERGROWN,
+                Map.AIRPORT
+            ];
+            break;
+    }    
+    shuffleArray(maps);
+    if (_rotationModes)
+    {
+        shuffleArray(_rotationModes);
+    }
+    var arr = [];
+    for (var i = 0; i < (bAddRandom ? 2 : maps.length); i++)
+    {
+        arr.push({
+            id: maps[i],
+            votes: [],
+            gameModeId: _rotationModes ? _rotationModes[i] : null
+        });
+    }
+    if (bAddRandom)
+    {
+        arr.push({
+            id: Map.RANDOM,
+            votes: [],
+            gameModeId: _rotationModes ? _rotationModes[i] : null
+        });
+    }
+    return arr;
+}
+
+function getNumRealPlayersInLobby(_lobbyId)
+{
+    var lobbyData = getLobbyData(_lobbyId);
+    if (lobbyData)
+    {
+        var numPlayers = 0;
+        var players = lobbyData.players;
+        for (var i = 0; i < players.length; i++)
+        {
+            var player = players[i];
+            if (!player.bBot || player.bDummy)
+            {
+                numPlayers++;
+            }
+        }
+        return numPlayers;
+    }
+    return 0;
+}
+
+function getNumRealTeamPlayersInLobby(_lobbyId)
+{
+    var lobbyData = getLobbyData(_lobbyId);
+    if (lobbyData)
+    {
+        var numPlayers = 0;
+        var parties = {};
+        var players = lobbyData.players;
+        for (var i = 0; i < players.length; i++)
+        {
+            var player = players[i];
+            if (!player.bBot || player.bDummy)
+            {
+                if (player.currentPartyId)
+                {
+                    if (!parties[player.currentPartyId])
+                    {
+                        numPlayers++;
+                    }
+                    parties[player.currentPartyId] = true;
+                }
+                else
+                {
+                    numPlayers++;
+                }
+            }
+        }
+        return numPlayers;
+    }
+    return 0;
+}
+
+function removeBotsFromLobby(_lobbyId)
+{
+    var lobbyData = getLobbyData(_lobbyId);
+    if (lobbyData)
+    {
+        var players = lobbyData.players;
+        var num = 0;
+        for (var i = players.length - 1; i >= 0; i--)
+        {
+            var player = players[i];
+            if (player.bBot && !player.bDummy)
+            {
+                players.splice(i, 1);
+                num++;
+            }
+        }
+        if (num > 0)
+        {
+            log("Removed", num, "bots from", chalk.bgCyan(_lobbyId));
+        }
+    }
+}
+
+function getNumBotsInLobby(_lobbyId)
+{
+    var lobbyData = getLobbyData(_lobbyId);
+    if (lobbyData)
+    {
+        var numBots = 0;
+        var players = lobbyData.players;
+        for (var i = 0; i < players.length; i++)
+        {
+            var player = players[i];
+            if (player.bBot && !player.bDummy)
+            {
+                numBots++;
+            }
+        }
+        return numBots;
+    }
+    return 0;
+}
+
+function getNumDummiesInLobby(_lobbyId)
+{
+    var lobbyData = getLobbyData(_lobbyId);
+    if (lobbyData)
+    {
+        var numDummies = 0;
+        var players = lobbyData.players;
+        for (var i = 0; i < players.length; i++)
+        {
+            var player = players[i];
+            if (player.bDummy)
+            {
+                numDummies++;
+            }
+        }
+        return numDummies;
+    }
+    return 0;
+}
+
+function removeLobby(_id)
+{
+    log("Removing lobby: " + chalk.bgCyan(_id));
+    var lobbyData = getLobbyData(_id);
+    if (lobbyData)
+    {
+        if (lobbyData["bPendingDestroy"])
+        {
+            log("Lobby is already destroyed");
+            return;
+        }
+        var players = clone(lobbyData["players"]);
+        for (var i = players.length - 1; i >= 0; i--)
+        {
+            let curPlayer = players[i];
+            if (curPlayer)
+            {
+                var socket = getSocketByPlayerId(curPlayer["id"]);
+                if (socket)
+                {
+                    removeSocketPlayerFromLobby(socket, "lobby_removed");
+                }
+            }
+            else
+            {
+                console.warn(i, _id, "Invalid player in lobby:", curPlayer);
+            }
+        }
+        destroyLobbyGame(lobbyData);
+        if (lobbyData["bPrivate"])
+        {
+            var index = lobbies.private.indexOf(lobbyData);
+            if (index >= 0)
+            {
+                lobbies.private.splice(index, 1);
+            }
+        }
+        else
+        {
+            var gameModeId = lobbyData["rotationId"] ? lobbyData["rotationId"] : lobbyData["gameModeId"];
+            if (gameModeId)
+            {
+                var index = lobbies[gameModeId].indexOf(lobbyData);
+                if (index >= 0)
+                {
+                    lobbies[gameModeId].splice(index, 1);
+                }
+            }
+        }
+        var keys = Object.keys(lobbyData);
+        for (var i = 0; i < keys.length; i++)
+        {
+            delete lobbyData[keys[i]];
+        }
+        lobbyData["bPendingDestroy"] = true;
+        broadcastServerData();
+    }
+}
+
+function createPrivateLobby(_id)
+{
+    log("Create private lobby: " + chalk.bgCyan(_id));
+    var lobby = getLobbyData(_id);
+    if (lobby)
+    {
+        log("Lobby already exists!");
+    }
+    else
+    {
+        var defaultGameModeId = GameMode.DEATHMATCH;
+        var settings = getDefaultGameModeSettings(defaultGameModeId);
+        settings["bots"] = 0;
+        settings["botSkill"] = -1;
+        settings["bPrivate"] = true;
+        var gameData = {
+            lobbyId: _id,
+            gameModeId: defaultGameModeId,
+            bMultiplayer: true,
+            bRanked: true,
+            mapId: Map.RANDOM,
+            settings: settings
+        };
+        var newLobby = {
+            id: _id,
+            bPrivate: true,
+            gameModeId: defaultGameModeId,
+            gameData: gameData,
+            maxPlayers: Lobby.MAX_PLAYERS,
+            players: [],
+            state: LobbyState.WAITING_HOST,
+            timer: -1,
+            bLocked: false
+        };
+        lobbies["private"].push(newLobby);
+        broadcastServerData();        
+    }
+}
+
+function getDefaultGameModeSettings(_gameModeId)
+{
+    var defaults = shared["defaultGameSettings"];
+    var settings = defaults[_gameModeId];
+    if (settings)
+    {
+        return clone(settings);
+    }
+    else
+    {
+        console.warn("Missing default settings:", _gameModeId);
+        return {
+            bKillstreaks: true,
+            bAllowRespawns: true,
+            bSpawnProtection: true,
+            timeLimit: 10,
+            respawnTime: 5
+        };
+    }
+    return null;
+}
+
+function createParty(_socket)
+{
+    log("Creating party...");
+    if (!_socket.player)
+    {
+        return;
+    }
+    var currentLobbyId = _socket.player.currentLobbyId;
+    if (currentLobbyId)
+    {
+        removeSocketPlayerFromLobby(_socket, "create_party");
+        return;
+    }
+    var partyId = "P-" + String(_socket.id).substr(0, 6);
+    var party = getParty(partyId);
+    if (party)
+    {
+        log(chalk.yellow("Party already exists!"));
+        updatePartyClients(partyId);
+        return;
+    }
+    var party = addParty(partyId);
+    if (party)
+    {
+        joinParty(partyId, _socket);
+        sendChatMessage(null, {
+            bServer: true,
+            messageText: _socket.player.name + " created a new party."
+        });
+    }
+}
+
+function addParty(_id)
+{
+    if (!getParty(_id))
+    {
+        log("Create party: " + chalk.bgCyan(_id));
+        var party = {
+            id: _id,
+            hostPlayerId: null,
+            players: []
+        }
+        parties[_id] = party;        
+        return party;
+    }
+    else
+    {
+        log("Party already exists: " + _id);
+    }
+    return null;
+}
+
+function updatePartyClients(_partyId)
+{
+    var party = getParty(_partyId);
+    if (party)
+    {
+        for (var i = 0; i < party.players.length; i++)
+        {
+            var player = party.players[i];
+            var socket = getSocketByPlayerId(player["id"]);
+            if (socket)
+            {
+                socket.emit("updateParty", party);
+            }
+        }
+    }
+}
+
+function removePlayerFromParty(_socket)
+{
+    if (!_socket.player || !_socket.player.currentPartyId)
+    {
+        return;
+    }
+    log(chalk.bgCyan(_socket.player.currentPartyId), "Remove from party -->", tracePlayer(_socket)); 
+    var party = getParty(_socket.player.currentPartyId);
+    if (party)
+    {
+        for (var i = 0; i < party.players.length; i++)
+        {
+            if (party.players[i]["id"] == getSocketPlayerId(_socket))
+            {
+                party.players.splice(i, 1);
+                break;
+            }
+        }
+        if (party.players.length > 0)
+        {
+            updatePartyClients(party["id"]);
+        }
+        if (getSocketPlayerId(_socket) == party["hostPlayerId"])
+        {
+            removeParty(party.id);
+        }
+    }
+    _socket.emit("leaveParty");
+    if (_socket.player)
+    {
+        delete _socket.player.bPartyHost;
+        delete _socket.player.currentPartyId;
+    }
+}
+
+function removeParty(_id)
+{
+    log("Remove party:", chalk.bgCyan(_id));
+    var partyData = parties[_id];
+    if (partyData)
+    {
+        var players = partyData["players"];
+        for (var i = players.length - 1; i >= 0; i--)
+        {
+            var socket = getSocketByPlayerId(players[i]["id"]);
+            if (socket)
+            {
+                removePlayerFromParty(socket);
+            }
+        }
+    }
+    delete parties[_id];
+}
+
+function getParty(_id)
+{
+    if (!_id)
+    {
+        return null;
+    }
+    return parties[_id];
+}
+
+function getNumPlayersInParty(_id)
+{
+    var party = getParty(_id);
+    if (party)
+    {
+        return party.players.length;
+    }
+    return 1;
+}
+
+function getAveragePlayerLevel(_players)
+{
+    if (!_players)
+    {
+        return 1;
+    }
+    var sum = 0;
+    for (var i = 0; i < _players.length; i++)
+    {
+        var player = _players[i];
+        if (player["prestige"] >= 1)
+        {
+            sum += 50;
+        }
+        else
+        {
+            sum += player["level"];
+        }
+    }
+    return Math.round(sum / _players.length);
+}
+
+function getSafeLobbyDataById(_lobbyId)
+{
+    var lobbyData = getLobbyData(_lobbyId);
+    return getSafeLobbyData(lobbyData);
+}
+
+function getSafeLobbyData(_lobbyData)
+{
+    var lobbyData = _lobbyData;
+    var safeData = null;
+    if (lobbyData)
+    {
+        safeData = {};
+        var keys = Object.keys(lobbyData);
+        for (var i = 0; i < keys.length; i++)
+        {
+            let key = keys[i];
+            switch (key)
+            {
+                case "game":
+                    //Ignore
+                    break;
+
+                default:
+                    safeData[key] = lobbyData[key];
+                    break;
+            }
+        }
+    }
+    return safeData;
+}
+
+function getLobbyData(_lobbyId)
+{
+    if (!_lobbyId)
+    {
+        return null;
+    }
+    var all = getAllLobbies();
+    for (var i = 0; i < all.length; i++)
+    {
+        if (all[i]["id"] === _lobbyId)
+        {
+            return all[i];
+        }
+    }
+    return null;
+}
+
+function getLobbyPlayerById(_lobbyId, _playerId)
+{
+    var lobbyData = getLobbyData(_lobbyId);
+    if (lobbyData)
+    {
+        var players = lobbyData["players"];
+        for (var i = 0; i < players.length; i++)
+        {
+            var player = players[i];
+            if (player["id"] === _playerId)
+            {
+                return player;
+            }
+        }
+    }
+    return null;
+}
+
+function getPartyPlayerById(_partyId, _playerId)
+{
+    var party = getParty(_partyId);
+    if (party)
+    {
+        var players = party["players"];
+        for (var i = 0; i < players.length; i++)
+        {
+            var player = players[i];
+            if (player["id"] === _playerId)
+            {
+                return player;
+            }
+        }
+    }
+    return null;
+}
+
+function getGame(_lobbyId)
+{
+    var lobbyData = getLobbyData(_lobbyId);
+    if (lobbyData)
+    {
+        return lobbyData["game"];
+    }
+    return null;
+}
+
+function joinParty(_partyId, _socket)
+{
+    var party = getParty(_partyId);
+    if (party)
+    {
+        if (party.players.length == 0)
+        {
+            party["hostPlayerId"] = getSocketPlayerId(_socket);
+            _socket.player["bPartyHost"] = true;
+            log(chalk.bgCyan(_partyId), "Set host -->", tracePlayer(_socket));
+        }
+        else
+        {
+            if (party.players.indexOf(_socket.player) >= 0)
+            {
+                return;
+            }
+        }
+        _socket.player.currentPartyId = _partyId;
+        party.players.push(_socket.player);
+        log("Party size:", party.players.length);
+        updatePartyClients(_partyId);        
+    }
+}
+
+function joinLobby(_lobbyId, _socket)
+{    
+    var lobbyData = getLobbyData(_lobbyId);
+    if (lobbyData)
+    {
+        if (_socket.player.currentLobbyId)
+        {
+            console.log(_lobbyId, tracePlayer(_socket), "already in lobby:", _socket.player.currentLobbyId);
+            return;
+        }
+        _socket.player.currentLobbyId = _lobbyId;
+        log(tracePlayer(_socket), "Joined lobby", chalk.bgCyan(_lobbyId));
+        _socket.join(_lobbyId);
+        _socket.info.autoJoinAttempts = 0;
+        var player = _socket.player;
+        var players = lobbyData["players"];
+        var suffix = " (2)";
+        var index = player.name.indexOf(suffix);
+        if (index >= 0)
+        {
+            player.name = player.name.substring(0, index);
+        }
+        for (var i = 0; i < players.length; i++)
+        {
+            if (players[i].name === player.name)
+            {
+                player.name += suffix;
+            }
+        }
+        players.push(player);
+        if (lobbyData["bPrivate"])
+        {
+            if (players.length === 1)
+            {
+                lobbyData.hostPlayerId = _socket.player.id;
+                player["bLobbyHost"] = true;
+                player["desiredTeam"] = 0;
+            }
+            else
+            {
+                player["desiredTeam"] = players.length % 2 === 0 ? 1 : 0; //getBestTeam(lobbyData["players"]);
+            }
+        }
+        if (lobbyData["game"])
+        {
+            joinGameInProgress(lobbyData, _socket);
+        }
+        else
+        {
+            _socket.emit("joinLobby", getSafeLobbyData(lobbyData));
+            io.sockets.in(_lobbyId).emit("updateLobby", getSafeLobbyData(lobbyData));
+            sendChatMessage(_lobbyId, {
+                messageText: player.name + " joined",
+                clan: player.clan,
+                locText: "STR_X_JOINED_LOBBY",
+                params: [player.name]
+            });
+            checkLobbyReady(_lobbyId);
+        }
+    }
+    else
+    {
+        console.warn("joinLobby --> Invalid lobby data:", _lobbyId)
+    }
+}
+
+function joinGameInProgress(_lobbyData, _socket)
+{
+    //Join game in progress
+    var lobbyData = _lobbyData;
+    log("Joining game in progress");
+    _socket.emit("joinLobby", {
+        id: lobbyData["id"],
+        gameModeId: _lobbyData.gameModeId,
+        rotationId: _lobbyData.rotationId,
+        bInProgress: true,
+        bPrivate: lobbyData["bPrivate"],
+        players: lobbyData["players"] //Need this to get lobby team
+    });
+    initPlayerForGameInProgress(_socket.player, lobbyData["id"]);
+    var gameData = lobbyData.gameData;
+    var startGameData = {
+        bInProgress: true,
+        bPrivate: lobbyData["bPrivate"],
+        settings: gameData.settings,
+        gameModeId: gameData.gameModeId,
+        mapId: gameData.mapId,
+        players: lobbyData["players"],
+        bMultiplayer: true,
+        bRanked: gameData.bRanked,
+        bSurvival: gameData.bSurvival
+    };
+    onSocketStartGame(_socket.id, startGameData);    
+}
+
+function onSocketStartGame(_socketId, _data)
+{
+    var socket = getSocketById(_socketId);
+    if (socket)
+    {
+        if (socket.player)
+        {
+            socket.emit("startGame", _data); //Pre-game menu
+            setTimeout(() =>
+            {
+                onSocketEnterGame(_socketId);
+            }, 3000);
+        }
+        else
+        {
+            console.warn("Invalid socket player data");
+            socket.disconnect();
+        }
+    }
+    else
+    {
+        //console.warn("Socket doesn't exist");
+    }
+}
+
+function onSocketEnterGame(_socketId)
+{
+    var socket = getSocketById(_socketId);
+    if (socket)
+    {        
+        if (socket.player)
+        {
+            socket.player["bReady"] = true;
+            socket.emit("enterGame");
+        }
+        else
+        {
+            console.warn("Invalid socket player data");
+            socket.disconnect();
+        }
+    }
+    else
+    {
+        //console.warn("Socket doesn't exist");
+    }
+}
+
+function getAvailableLobbyIndexForGameMode(_gameMode, _numPlayersToJoin = 1)
+{
+    var arr = lobbies[_gameMode];
+    if (arr)
+    {
+        var tmp = arr.slice().sort(function (a, b)
+        {
+            if (a.players.length > b.players.length) return -1;
+            if (a.players.length < b.players.length) return 1;
+            return 0;
+        });
+        for (var i = 0; i < tmp.length; i++)
+        {
+            var lobby = tmp[i];
+            var bCanAccept = !lobby["bLocked"] || lobbyCanAcceptPlayers(lobby["id"]);
+            var numBots = getNumBotsInLobby(lobby["id"]);
+            if (bCanAccept && ((lobby["players"].length + _numPlayersToJoin) - numBots) <= lobby["maxPlayers"] && !lobby["bMerging"])
+            {
+                return arr.indexOf(lobby);
+            }
+        }
+    }
+    return -1;
+}
+
+function genIdFromSocket(_socket)
+{
+    return _socket.id.substr(2, 6); //This has to match clientside ID
+}
+
+function tracePlayer(_socket)
+{
+    if (!_socket)
+    {
+        return null;
+    }
+    return chalk.bgMagenta(getSocketPlayerId(_socket)) + (_socket.player ? (" [" + chalk.yellow(_socket.player.name) + chalk.green(_socket.info.username ? ("@" + _socket.info.username) : "") + "]") : "");
+}
+
+function onLobbyAboutToStart(_lobby)
+{
+    if (_lobby && !_lobby["bPrivate"])
+    {
+        var players = _lobby["players"];
+        if (players.length < _lobby["maxPlayers"])
+        {
+            Object.keys(io.sockets.connected).forEach(function (_socketId)
+            {
+                var socket = io.sockets.connected[_socketId];
+                if (socket && socket.player && !socket.player.currentLobbyId)
+                {
+                    socket.emit("serverMessage", {
+                        type: "game_starting",
+                        lobbyId: _lobby["id"],
+                        rotationId: _lobby["rotationId"],
+                        gameModeId: _lobby["gameModeId"],
+                        id: _lobby["id"]
+                    });
+                }
+            });
+        }
+    }
+}
+
+function mergeLobbies(_lobby1, _lobby2)
+{    
+    if (_lobby1 && _lobby2)
+    {
+        log("Merging lobbies:", chalk.bgCyan(_lobby1.id), "-->", chalk.bgCyan(_lobby2.id));
+        if (_lobby1["bPrivate"] || _lobby2["bPrivate"])
+        {
+            log("A lobby is private");
+            return false;
+        }
+        if (_lobby1["bLocked"] || _lobby2["bLocked"])
+        {
+            log("A lobby is locked");
+            return false;
+        }
+        if (_lobby1["bMerging"] || _lobby2["bMerging"])
+        {
+            log("A lobby is being merged");
+            return false;
+        }
+        if (_lobby1["bPendingDestroy"] || _lobby2["bPendingDestroy"])
+        {
+            log("A lobby is destroyed");
+            return false;
+        }
+        var combinedPlayers = _lobby1.players.length + _lobby2.players.length;
+        log("Combined players:", combinedPlayers)
+        if (combinedPlayers < 2)
+        {
+            log("Not enough players to merge");
+            return false;
+        }
+        else if (combinedPlayers > _lobby1["maxPlayers"])
+        {
+            log("Not enough room to merge", combinedPlayers + "/" + _lobby1["maxPlayers"]);
+            return false;
+        }
+        var newLobbyData = getLobbyData(_lobby1.id);
+        var newLobbyId = newLobbyData ? newLobbyData.id : null;
+        var lobby2Players = clone(_lobby2.players);
+        if (newLobbyId && lobby2Players)
+        {
+            newLobbyData["bMerging"] = true;
+            var numPlayers = lobby2Players.length;
+            for (var i = numPlayers - 1; i >= 0; i--)
+            {
+                var lobby2Player = lobby2Players[i];
+                var curSocket = lobby2Player ? getSocketByPlayerId(lobby2Player.id) : null;
+                if (curSocket)
+                {
+                    var result = canJoinLobby(newLobbyId, curSocket);
+                    switch (result)
+                    {
+                        case Lobby.JOIN_SUCCESS:
+                            removeSocketPlayerFromLobby(curSocket, "merge");
+                            joinLobby(newLobbyId, curSocket);
+                            break;
+                    }
+                }
+                else
+                {
+                    //console.warn("mergeLobbies --> Socket doesn't exist:", lobby2Player.id);
+                    var index = lobby2Players.indexOf(lobby2Player);
+                    if (index >= 0)
+                    {
+                        lobby2Players.splice(index, 1);
+                    }
+                }
+            }
+            log("Merged", numPlayers, "player" + (numPlayers == 1 ? "" : "s") + " into", chalk.bgCyan(newLobbyId));
+            delete newLobbyData["bMerging"];
+            return true;
+        }
+        else
+        {
+            console.warn("mergeLobbies --> Invalid lobby players:", _lobby2);
+            return false;
+        }
+    }
+    else
+    {
+        console.warn("Invalid lobby data while trying to merge:", _lobby1, _lobby2);
+    }
+    return false;
+}
+
+function joinLobbyById(_socket, _lobbyId)
+{
+    if (_socket)
+    {
+        log(tracePlayer(_socket), "Wants to join lobby by id", chalk.bgCyan(_lobbyId));
+        var lobbyData = getLobbyData(_lobbyId);
+        if (lobbyData)
+        {
+            if (lobbyData["bPrivate"] && lobbyData.gameData.settings["bPrivate"])
+            {
+                return;
+            }
+            var result = canJoinLobby(_lobbyId, _socket);
+            switch (result)
+            {
+                case Lobby.JOIN_SUCCESS:
+                    var party = getParty(_socket.player.currentPartyId);
+                    if (party)
+                    {
+                        for (i = 0; i < party.players.length; i++)
+                        {
+                            var partySocket = getSocketByPlayerId(party.players[i]["id"]);
+                            if (canJoinLobby(_lobbyId, partySocket) == Lobby.JOIN_SUCCESS)
+                            {
+                                joinLobby(_lobbyId, partySocket);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        joinLobby(_lobbyId, _socket);
+                    }
+                    break;
+            }
+        }
+    }
+}
+
+function getPlayerValue(_player)
+{
+    if (_player)
+    {
+        return _player.level * (_player.prestige + 1);
+    }
+    return 1;
+}
+
+function joinLobbyByGameModeId(_socket, _gameModeId, _bBattlezone)
+{
+    if (!_socket.player)
+    {
+        return;
+    }
+    if (_gameModeId)
+    {
+        log(tracePlayer(_socket), "Wants to join game mode", chalk.bgCyan(_gameModeId));
+    }
+    else
+    {
+        log(tracePlayer(_socket), "Auto join...");
+    }
+    if (!validateClient(_socket))
+    {
+        return;
+    }
+    var currentLobbyId = _socket.player.currentLobbyId;
+    if (currentLobbyId)
+    {
+        if (_gameModeId)
+        {
+            removeSocketPlayerFromLobby(_socket, "joining_different_lobby");
+        }
+        return;
+    }
+    var currentPartyId = _socket.player.currentPartyId;
+    if (currentPartyId)
+    {
+        var party = getParty(currentPartyId);
+        if (party)
+        {
+            if (getSocketPlayerId(_socket) !== party.hostPlayerId)
+            {
+                return;
+            }
+        }
+    }
+    //Auto join
+    if (!_gameModeId)
+    {
+        var all = getAllPublicLobbies();
+        _socket.info.autoJoinAttempts++;
+        if (_socket.info.autoJoinAttempts >= 60)
+        {
+            log(tracePlayer(_socket), "Joining random lobby...");
+            shuffleArray(all);
+            for (var i = 0; i < all.length; i++)
+            {
+                var cur = all[i];
+                if (cur["gameModeId"] == GameMode.BATTLEZONE && !_bBattlezone)
+                {
+                    continue;
+                }
+                if (cur["rotationId"] == GameMode.COMBAT_TRAINING && !(_socket.player.level <= 25 && _socket.player.prestige == 0))
+                {
+                    continue;
+                }
+                if (canJoinLobby(cur["id"], _socket) == Lobby.JOIN_SUCCESS)
+                {
+                    _gameModeId = cur["rotationId"] ? cur["rotationId"] : cur["gameModeId"];
+                    break;
+                }
+            }
+        }
+        else
+        {
+            all.sort(function (a, b)
+            {
+                var playerVal = getPlayerValue(_socket.player);
+                var avgA = getAveragePlayerLevel(a.players) - playerVal;
+                var avgB = getAveragePlayerLevel(b.players) - playerVal;
+                if (avgA > avgB) return 1;
+                if (avgA < avgB) return -1;
+                if (a.players.length > b.players.length) return -1;
+                if (a.players.length < b.players.length) return 1;
+                return 0;
+            });
+            for (var i = 0; i < all.length; i++)
+            {
+                var cur = all[i];
+                if (cur["gameModeId"] == GameMode.BATTLEZONE && !_bBattlezone)
+                {
+                    continue;
+                }
+                if (cur["rotationId"] == GameMode.COMBAT_TRAINING && !(_socket.player.level <= 25 && _socket.player.prestige == 0))
+                {
+                    continue;
+                }
+                if (cur["players"].length > 0 && canJoinLobby(cur["id"], _socket) === Lobby.JOIN_SUCCESS)
+                {
+                    _gameModeId = cur["rotationId"] ? cur["rotationId"] : cur["gameModeId"];
+                    break;
+                }
+            }
+        }
+    }
+    if (lobbies[_gameModeId])
+    {
+        var numPlayersToJoin = getNumPlayersInParty(_socket.player.currentPartyId);
+        var desiredIndex = getAvailableLobbyIndexForGameMode(_gameModeId, numPlayersToJoin);
+        if (desiredIndex == -1)
+        {
+            var lob = lobbies[_gameModeId];
+            if (lob && lob.length < serverSettings.maxPublicLobbies)
+            {
+                if (isRotationGameMode(_gameModeId))
+                {
+                    var lobby = createRotationLobby(_gameModeId);
+                }
+                else
+                {
+                    var lobby = createPublicLobby(_gameModeId);
+                }
+                if (lobby)
+                {
+                    desiredIndex = lob.length - 1;
+                    broadcastServerData();
+                }
+            }
+        }
+        if (desiredIndex >= 0)
+        {
+            var lobbyData = lobbies[_gameModeId][desiredIndex];
+            if (lobbyData)
+            {
+                var lobbyId = lobbyData["id"];
+                if (lobbies[_gameModeId].length > 0)
+                {
+                    var result = canJoinLobby(lobbyId, _socket);
+                    switch (result)
+                    {
+                        case Lobby.JOIN_SUCCESS:
+                            var party = getParty(_socket.player.currentPartyId);
+                            if (party)
+                            {
+                                for (i = 0; i < party.players.length; i++)
+                                {
+                                    var partySocket = getSocketByPlayerId(party.players[i]["id"]);
+                                    if (canJoinLobby(lobbyId, partySocket) == Lobby.JOIN_SUCCESS)
+                                    {
+                                        joinLobby(lobbyId, partySocket);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                joinLobby(lobbyId, _socket);
+                            }
+                            break;
+                    }
+                }
+            }
+        }
+    }
+    else
+    {
+        //log("No lobby to join");
+    }
+}
+
+function lobbyCanAcceptPlayers(_lobbyId, _numPlayers = 1)
+{
+    if (!serverSettings.bAllowJoinInProgress)
+    {
+        return false;
+    }
+    var lobbyData = getLobbyData(_lobbyId);
+    if (lobbyData)
+    {
+        if (lobbyData["state"] == LobbyState.STARTING)
+        {
+            return false;
+        }
+        var numBots = getNumBotsInLobby(lobbyData["id"]);
+        var numDummies = getNumDummiesInLobby(lobbyData.id);
+        if ((lobbyData.players.length - numBots - numDummies) + _numPlayers > lobbyData["maxPlayers"])
+        {
+            return false;
+        }
+        if (lobbyData["bPrivate"])
+        {
+            if (lobbyData.gameData && lobbyData.gameData.settings.bPrivate)
+            {
+                return false;
+            }
+        }
+        var game = lobbyData["game"];
+        if (game)
+        {
+            return game.canAcceptNewPlayers();
+        }
+        else
+        {
+            return false;
+        }
+    }
+    return false;
+}
+
+function canJoinLobby(_lobbyId, _socket)
+{
+    var lobbyData = getLobbyData(_lobbyId);
+    if (lobbyData)
+    {        
+        if (!_socket.player)
+        {
+            return Lobby.JOIN_FAIL_ERROR;
+        }
+        if (_socket.player.bAdmin)
+        {
+            return Lobby.JOIN_SUCCESS;
+        }
+        var numBots = getNumBotsInLobby(lobbyData["id"]);
+        var numDummies = getNumDummiesInLobby(lobbyData.id);
+        var numInParty = getNumPlayersInParty(_socket.player.currentPartyId);
+        if (((lobbyData["players"].length - numBots - numDummies) + numInParty) > lobbyData["maxPlayers"])
+        {
+            return Lobby.JOIN_FAIL_CAPACITY;
+        }
+        else if (lobbyData["bLocked"])
+        {
+            if (lobbyCanAcceptPlayers(_lobbyId, numInParty))
+            {
+                return Lobby.JOIN_SUCCESS;
+            }
+            else
+            {
+                return Lobby.JOIN_FAIL_LOCKED;
+            }
+        }
+        else
+        {
+            return Lobby.JOIN_SUCCESS;
+        }
+    }
+    return Lobby.JOIN_FAIL_ERROR;
+}
+
+function canJoinParty(_partyId, _socket)
+{
+    var party = getParty(_partyId);
+    if (party)
+    {       
+        var numInParty = 1; //getNumPlayersInParty(_socket.player.currentPartyId);
+        if ((party["players"].length + numInParty) > Party.MAX_PLAYERS)
+        {
+            return Party.JOIN_FAIL_CAPACITY;
+        }
+        else
+        {
+            var host = getSocketByPlayerId(party.hostPlayerId);
+            if (host)
+            {
+                if (host.player.currentLobbyId)
+                {
+                    var result = canJoinLobby(host.player.currentLobbyId, _socket);
+                    switch (result)
+                    {
+                        case Lobby.JOIN_SUCCESS:
+                            //joinLobby(host.player.currentLobbyId, _socket);
+                            break;
+
+                        default:
+                            return result;
+                    }
+                }
+            }
+            return Party.JOIN_SUCCESS;
+        }
+    }
+    return Party.JOIN_FAIL_ERROR;
+}
+
+function checkLobbyReady(_lobbyId)
+{    
+    if (_lobbyId)
+    {
+        var lobbyData = getLobbyData(_lobbyId);
+        if (lobbyData)
+        {
+            if (lobbyData["bPrivate"])
+            {
+                return;
+            }            
+            if (lobbyData["state"] === LobbyState.INTERMISSION && lobbyData["players"].length > 0)
+            {
+                return;
+            }           
+            log(chalk.bgCyan(_lobbyId), "Checking if lobby is ready to start...");
+            if (lobbyData["state"] === LobbyState.IN_PROGRESS)
+            {
+                if (lobbyData["players"].length === 0)
+                {
+                    setLobbyState(_lobbyId, lobbyData["bPrivate"] ? LobbyState.WAITING_HOST : LobbyState.WAITING);
+                    stopLobbyInterval(_lobbyId);
+                }                
+            }
+            else if (!lobbyData["bLocked"])
+            {
+                tryMerge(lobbyData);
+                var minTeams = lobbyData.minPlayers >= 2 ? 2 : 1; //TODO: SHOULD BE 2
+                if ((getNumRealPlayersInLobby(_lobbyId) >= lobbyData.minPlayers && getNumRealTeamPlayersInLobby(_lobbyId) >= minTeams) || lobbyData.players.length == lobbyData.maxPlayers)
+                {
+                    var prevState = lobbyData["state"];
+                    setLobbyState(_lobbyId, LobbyState.PREPARING);
+                    if (!intervals[_lobbyId])
+                    {
+                        if (prevState != LobbyState.PREPARING || !lobbyData["timer"])
+                        {
+                            lobbyData["timer"] = Lobby.COUNTDOWN_PREPARING;
+                        }
+                        stopLobbyInterval(_lobbyId);  
+                        intervals[_lobbyId] = setInterval(onLobbyTimer, 1000, _lobbyId);
+                    }
+                    onLobbyAboutToStart(lobbyData);
+                }
+                else
+                {
+                    setLobbyState(_lobbyId, LobbyState.WAITING);
+                    stopLobbyInterval(_lobbyId);                    
+                }
+                io.sockets.in(_lobbyId).emit("updateLobby", getSafeLobbyData(lobbyData));
+            }
+        }
+    }
+}
+
+function tryMerge(_lobbyData)
+{
+    if (_lobbyData)
+    {
+        var sameModeLobbies = lobbies[_lobbyData["rotationId"] ? _lobbyData["rotationId"] : _lobbyData["gameModeId"]];
+        if (sameModeLobbies && sameModeLobbies.length >= 2)
+        {
+            for (var i = 0; i < sameModeLobbies.length; i++)
+            {
+                var curLobby = sameModeLobbies[i];
+                if (curLobby && curLobby["id"] != _lobbyData["id"])
+                {
+                    mergeLobbies(_lobbyData, curLobby);
+                }
+            }
+        }
+    }
+}
+
+function sendChatMessageToSocket(_socketId, _data)
+{
+    if (_data)
+    {
+        var socket = getSocketById(_socketId);
+        if (socket)
+        {
+            socket.emit("receiveLobbyChatMessage", _data);
+        }
+    }
+}
+
+function votekickPlayer(_lobbyId, _playerId, _playerToKickId)
+{
+    log("Votekick", _playerToKickId);
+    var ps = getLobbyPlayerById(_lobbyId, _playerToKickId);
+    if (ps)
+    {
+        if (ps.bBot)
+        {
+            //return;
+        }        
+        var lobby = getLobbyData(_lobbyId);
+        if (lobby)
+        {
+            var votekick = lobby.votekick;
+            if (!votekick)
+            {
+                votekick = {};
+            }
+            if (!votekick[_playerToKickId])
+            {
+                votekick[_playerToKickId] = {
+                    players: []
+                };
+            }
+            var cur = votekick[_playerToKickId];
+            if (cur.players.indexOf(_playerId) >= 0)
+            {
+                return;
+            }
+            cur.players.push(_playerId);
+            var numVotes = cur.players.length;
+            var neededVotes = Math.ceil(lobby.players.length * 0.5);
+            log(numVotes, "/", neededVotes, "votes");
+            sendChatMessage(lobby.id, {
+                bServer: true,
+                messageText: numVotes + "/" + neededVotes + " votes needed to kick " + ps.name
+            });
+            if (numVotes >= neededVotes)
+            {
+                log("Kick player");
+                var socket = getSocketByPlayerId(_playerToKickId);
+                if (socket)
+                {
+                    removeSocketPlayerFromLobby(socket, "kicked");
+                }
+                else
+                {
+                    console.warn("Invalid socket for votekick");
+                }
+            }
+        }
+    }
+}
+
+function sendChatMessage(_lobbyId, _data)
+{
+    if (_data)
+    {
+        _data["date"] = new Date().toISOString();
+        if (_lobbyId)
+        {
+            //Lobby chat
+            io.sockets.in(_lobbyId).emit("receiveLobbyChatMessage", _data);
+        }
+        else
+        {
+            //Global chat
+            chatHistory.push(_data);
+            if (chatHistory.length > 10)
+            {
+                chatHistory.splice(0, 1);
+            }
+            var players = getAllPlayers();
+            for (var i = 0; i < players.length; i++)
+            {
+                var socket = getSocketByPlayerId(players[i]["id"]);
+                if (socket && socket.player && !socket.player.currentLobbyId)
+                {
+                    socket.emit("receiveLobbyChatMessage", _data);
+                }
+            }
+        }
+    }
+}
+
+function onPlayerWaitTimer(_lobbyId)
+{
+    var lobbyData = getLobbyData(_lobbyId);
+    if (lobbyData)
+    {
+        if (lobbyData["state"] === LobbyState.IN_PROGRESS)
+        {
+            if (lobbyData["waitTimer"] > 0)
+            {
+                io.sockets.in(_lobbyId).emit("updateWaitTimer", { timer: lobbyData["waitTimer"] });
+                lobbyData["waitTimer"]--;
+            }
+            else if (lobbyData["waitTimer"] === 0)
+            {
+                var players = lobbyData["players"];
+                if (players.length > 0)
+                {
+                    for (var i = players.length - 1; i >= 0; i--)
+                    {
+                        var player = players[i];
+                        if (!player)
+                        {
+                            console.warn("Invalid player", i, players);
+                        }
+                        if (player && !player["bReady"])
+                        {
+                            var socket = getSocketByPlayerId(player["id"]);
+                            if (socket)
+                            {
+                                log(tracePlayer(socket), "is idle");
+                                disconnectSocket(socket, { reason: "idle" });
+                            }
+                        }
+                    }
+                }
+                stopLobbyInterval(_lobbyId, "waitTimer");
+
+                console.log("Players after kicking:", players.length);
+                if (players.length > 1)
+                {
+                    var gameData = lobbyData.gameData;
+                    if (gameData)
+                    {
+                        gameData.players = clone(players);
+                        onInitGame(_lobbyId, gameData);
+                    }
+                    else
+                    {
+                        console.warn("No gameData", lobbyData.gameData)
+                    }
+                }
+                else
+                {
+                    log("Not enough players, end game!");
+                    endLobbyGame(_lobbyId, false);
+                }
+            }
+        }
+        else
+        {
+            stopLobbyInterval(_lobbyId, "waitTimer");
+        }
+    }
+}
+
+function onLobbyTimer(_lobbyId)
+{
+    var lobbyData = getLobbyData(_lobbyId);
+    if (lobbyData)
+    {
+        var timerValue = lobbyData["timer"];
+        lobbyData["timer"]--;
+        if (timerValue <= 0)
+        {
+            stopLobbyInterval(_lobbyId);
+            delete lobbyData["timer"];
+            onLobbyTimerComplete(_lobbyId);
+        }
+        io.sockets.in(_lobbyId).emit("updateLobby", {
+            state: lobbyData["state"],
+            timer: lobbyData["timer"]
+        });
+    }
+}
+
+function onLobbyTimerComplete(_lobbyId)
+{
+    var lobbyData = getLobbyData(_lobbyId);
+    if (lobbyData)
+    {
+
+        switch (lobbyData["state"])
+        {
+            case LobbyState.INTERMISSION:
+                setLobbyState(_lobbyId, LobbyState.WAITING);
+                checkLobbyReady(_lobbyId);
+                break;
+
+            case LobbyState.PREPARING:
+                setLobbyState(_lobbyId, LobbyState.STARTING);
+                lobbyData["timer"] = Lobby.COUNTDOWN_STARTING;
+                stopLobbyInterval(_lobbyId);
+                intervals[_lobbyId] = setInterval(onLobbyTimer, 1000, _lobbyId);
+                io.sockets.in(_lobbyId).emit("updateLobby", {
+                    state: lobbyData["state"],
+                    timer: lobbyData["timer"],
+                    players: lobbyData["players"]
+                });
+                break;
+
+            case LobbyState.STARTING:
+                setLobbyState(_lobbyId, LobbyState.IN_PROGRESS);
+                var operationId = lobbyData.gameData["operationId"];
+                if (operationId)
+                {                    
+                    var difficulty = lobbyData.gameData.settings.difficulty;
+                    var prevPrivate = lobbyData.gameData.settings.bPrivate;
+                    var prevDebug = lobbyData.gameData.settings.bDebug;
+                    log("Start operation:", chalk.yellow(operationId), "difficulty:", difficulty, lobbyData.gameData.settings.bPrivate);
+                    var operation = operationData[operationId];
+                    if (operation)
+                    {             
+                        lobbyData.gameData = clone(operation.gameData);
+                        //Remember previous settings since operation will overwrite game data
+                        lobbyData.gameData.settings["difficulty"] = difficulty;
+                        lobbyData.gameData.settings["bPrivate"] = prevPrivate;
+                        lobbyData.gameData.settings["bDebug"] = prevDebug;
+                        lobbyData.gameData["operation"] = clone(operation);
+                        lobbyData.gameData["lobbyId"] = _lobbyId;
+                        lobbyData.gameData["bMultiplayer"] = true;
+                        lobbyData.gameData["bRanked"] = true;
+                    }
+                    else
+                    {                        
+                        var bError = true;
+                        var errorMessage = "Invalid Operation data";
+                    }
+                }
+                if (bError)
+                {
+                    console.warn("An error occurred while starting match", errorMessage);
+                    endLobbyGame(_lobbyId, false);
+                    showWindowForSockets(getLobbyPlayerIds(lobbyData), {
+                        titleText: "STR_ERROR",
+                        messageText: "STR_ERROR_DESC",
+                        error: errorMessage,
+                        bShowOkayButton: false,
+                        type: "TYPE_ERROR"
+                    });
+                }
+                else
+                {
+                    //lobbyData.gameData["players"] = lobbyData["players"];
+                    var gamePlayers = [];
+                    for (var i = 0; i < lobbyData["players"].length; i++)
+                    {
+                        gamePlayers.push(clone(lobbyData["players"][i]));
+                    }
+                    lobbyData.gameData["players"] = gamePlayers;
+                    lobbyData.gameData["data"] = {
+                        shared: shared,
+                        sprites: sprites,
+                        atlas_weapons_world: atlas_weapons_world,
+                        weapons: weapons,
+                        mods: mods,
+                        perks: perks,
+                        killstreaks: killstreaks,
+                        modes: game_modes,
+                        maps: allMaps,
+                        graph: ngraphGraph,
+                        path: ngraphPath
+                    };
+                    io.sockets.in(_lobbyId).emit("startGame", lobbyData.gameData);
+                    //Start game
+                    stopLobbyInterval(_lobbyId);
+                    intervals[_lobbyId] = setInterval(onEnterGame, 3000, _lobbyId);
+                }
+                break;
+        }
+    }
+}
+
+/*
+function onGameInstanceEvent(_data)
+{
+    if (_data)
+    {
+        if (_data["lobbyId"])
+        {
+            io.sockets.in(_data["lobbyId"]).emit("gameEvent", _data);
+        }
+        else
+        {
+            console.warn("onGameInstanceEvent --> Invalid lobby", _data);
+        }
+    }
+}
+*/
+
+function onEnterGame(_lobbyId)
+{
+    stopLobbyInterval(_lobbyId);
+    io.sockets.in(_lobbyId).emit("enterGame");
+    broadcastServerData();
+}
+
+function onInitGame(_lobbyId, _gameData)
+{
+    log(chalk.bgCyan(_lobbyId), "Initialize game");
+    stats.gamesPlayed++; 
+    stats.peakGamesInProgress = Math.max(stats.peakGamesInProgress, getLobbiesInProgress().length);
+    var lobbyData = getLobbyData(_lobbyId);
+    if (lobbyData)
+    {
+        stopLobbyInterval(lobbyData["id"]);
+        stopLobbyInterval(lobbyData["id"], "waitTimer");
+        delete lobbyData["waitTimer"];
+
+        destroyLobbyGame(lobbyData);
+        //delete require.cache[require.resolve("./assets/js/game")]; //Delete game instance cache
+        //var game = new (require("./assets/js/game").GameInstance)();
+        var game = new gameInstance.GameInstance();
+        if (game.bInit)
+        {
+            console.warn("Game is already initialized");
+            game.destroy();
+        }
+        else
+        {
+            _gameData.players = clone(lobbyData.players);
+            //TODO: Check if enough players to start game
+            //Send events to clients
+            game.init(_gameData, (_data) =>
+            {
+                if (_data)
+                {
+                    var lobbyId = lobbyData["id"];
+                    if (lobbyId)
+                    {
+                        var room = io.sockets.adapter.rooms[lobbyId];
+                        if (room)
+                        {
+                            var sockets = room.sockets;
+                            var keys = Object.keys(sockets);
+                            for (var i = 0; i < keys.length; i++)
+                            {
+                                let socket = getSocketById(keys[i]);
+                                if (socket && socket.player)
+                                {
+                                    socket.emit("gameEvent", _data);
+                                    stats.emits++;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        console.warn("onGameInstanceEvent --> Invalid lobby id", lobbyId);
+                    }
+                }
+            }, p2);
+            game.setEndCallback(onEndGame);
+            lobbyData["game"] = game;
+        }
+    }
+    else
+    {
+        log("Invalid lobby data!");
+    }
+}
+
+function onEndGame(_lobbyId)
+{
+    stopLobbyTimeout(_lobbyId);
+    log(chalk.bgCyan(_lobbyId), "Starting end game timer...");
+    var timeout = setTimeout(onEndGameTimeout, 15000, _lobbyId, true);
+    lobbyTimers[_lobbyId] = timeout;
+    //Update clans
+    var lobbyData = getLobbyData(_lobbyId);
+    if (!lobbyData["bPrivate"] && lobbyData.gameData["bRanked"])
+    {
+        var clanWins = {};
+        var winner = lobbyData.game.getWinner();
+        for (var i = 0; i < lobbyData.players.length; i++)
+        {
+            var ps = lobbyData.players[i];
+            if (ps.clan && !ps.bBot)
+            {
+                var playerData = lobbyData["game"].getPlayerStateById(ps.id);
+                if (playerData)
+                {
+                    var score = 0;
+                    if (playerData.team == winner)
+                    {
+                        if (!clanWins[ps.clan])
+                        {
+                            clanWins[ps.clan] = true;
+                            score++;
+                        }
+                    }
+                    var keys = ["score", "captures", "returns", "plants", "defuses"];
+                    for (var j = 0; j < keys.length; j++)
+                    {
+                        let key = keys[j];
+                        if (playerData[key] > 0)
+                        {
+                            let val = playerData[key];
+                            if (key == "score")
+                            {
+                                val = Math.ceil(val * 0.05);
+                            }
+                            score += val;
+                        }
+                    }
+                    async_updateClanScore(ps.clan, score, playerData["kills"]);
+                }
+            }
+        }
+    }
+}
+
+function stopLobbyTimeout(_lobbyId)
+{    
+    var timeout = lobbyTimers[_lobbyId];
+    if (timeout)
+    {
+        log(chalk.bgCyan(_lobbyId), "Clearing lobby timer...");
+        clearTimeout(timeout);
+        delete lobbyTimers[_lobbyId];
+    }
+}
+
+function onEndGameTimeout(_lobbyId)
+{
+    endLobbyGame(_lobbyId, true);
+}
+
+function endLobbyGame(_lobbyId, _bStartIntermission)
+{  
+    log(chalk.bgCyan(_lobbyId), "End lobby game");
+    var lobbyData = getLobbyData(_lobbyId); 
+    if (lobbyData)
+    {       
+        
+        if (lobbyData["bPrivate"])
+        {
+            setLobbyState(_lobbyId, LobbyState.WAITING_HOST);
+        }
+        else
+        {
+            setLobbyState(_lobbyId, _bStartIntermission ? LobbyState.INTERMISSION : LobbyState.WAITING);
+        }
+        io.sockets.in(_lobbyId).emit("updateLobby", getSafeLobbyData(lobbyData));
+        broadcastServerData();        
+    }
+    else
+    {
+        log("Lobby doesn't exist:", _lobbyId);
+    }
+}
+
+function getNumPlayersOnTeam(_lobbyData, _team)
+{
+    var num = 0;
+    if (_lobbyData)
+    {
+        var players = _lobbyData.players;
+        for (var i = 0; i < players.length; i++)
+        {
+            if (players[i].team == _team)
+            {
+                num++;
+            }
+        }
+    }
+    return num;
+}
+
+function getTeamValue(_players, _team)
+{
+    var val = 0;
+    for (var i = 0; i < _players.length; i++)
+    {
+        var player = _players[i];
+        if (player.team === _team)
+        {
+            val += player.level + (player.prestige * 50);
+        }
+    }
+    return val;
+}
+
+function setLobbyTeams(_lobbyData)
+{
+    if (!_lobbyData)
+    {
+        log("Invalid lobby data!");
+        return;
+    }
+    var gameModeId = _lobbyData["gameModeId"];
+    var bTeamGameMode = isTeamGameMode(gameModeId);
+    var settings = _lobbyData.gameData["settings"];
+    var players = _lobbyData["players"];
+    if (players)
+    {
+        var factions = settings["factions"];
+        if (!_lobbyData["bPrivate"])
+        {
+            //Sort players into teams for public lobbies
+            if (bTeamGameMode)
+            {
+                if (_lobbyData.rotationId == GameMode.COMBAT_TRAINING && getNumRealPlayersInLobby(_lobbyData.id) < (_lobbyData.maxPlayers * 0.5))
+                {
+                    var combatTeam = MathUtil.RandomBoolean() ? 0 : 1;
+                    for (var i = 0; i < players.length; i++)
+                    {
+                        let player = players[i];
+                        if (player.bBot)
+                        {
+                            if (getNumPlayersOnTeam(_lobbyData, 0) > getNumPlayersOnTeam(_lobbyData, 1))
+                            {
+                                player.team = 1;
+                            }
+                            else
+                            {
+                                player.team = 0;
+                            }
+                        }
+                        else
+                        {
+                            player.team = combatTeam;
+                        }
+                    }
+                }
+                else
+                {
+
+                    players.sort((a, b) =>
+                    {
+                        if (!a.currentPartyId) return 1;
+                        if (!b.currentPartyId) return -1;
+                        if (a.currentPartyId < b.currentPartyId) return -1;
+                        if (a.currentPartyId > b.currentPartyId) return 1;
+                        return 0;
+                    });
+
+                    var parties = [];
+                    var partyPlayers = [];
+                    var lonePlayers = [];
+                    for (var i = 0; i < players.length; i++)
+                    {
+                        var player = players[i];
+                        if (player.currentPartyId && getNumPlayersInParty(player.currentPartyId) > 1)
+                        {
+                            if (parties.indexOf(player.currentPartyId) == -1)
+                            {
+                                parties.push(player.currentPartyId);
+                            }
+                            player.team = parties.indexOf(player.currentPartyId) % 2 == 0 ? 0 : 1;
+                            partyPlayers.push(player);
+                        }
+                        else 
+                        {
+                            lonePlayers.push(player);
+                        }
+                    }
+
+                    lonePlayers.sort((a, b) =>
+                    {
+                        if (a.prestige < b.prestige) return 1;
+                        if (a.prestige > b.prestige) return -1;
+                        if (a.level < b.level) return 1;
+                        if (a.level > b.level) return -1;
+                        return 0;
+                    });
+
+                    for (var i = 0; i < lonePlayers.length; i++)
+                    {
+                        if (getNumPlayersOnTeam(_lobbyData, 0) > getNumPlayersOnTeam(_lobbyData, 1))
+                        {
+                            lonePlayers[i].team = 1;
+                        }
+                        else
+                        {
+                            lonePlayers[i].team = 0;
+                        }
+                    }
+
+                    /*
+                    for (var i = 0; i < lonePlayers.length; i++)
+                    {
+                        if (getNumPlayersOnTeam(_lobbyData, 0) > getNumPlayersOnTeam(_lobbyData, 1) + 1)
+                        {
+                            lonePlayers[i].team = 1;
+                        }
+                        else if (getNumPlayersOnTeam(_lobbyData, 1) > getNumPlayersOnTeam(_lobbyData, 0) + 1)
+                        {
+                            lonePlayers[i].team = 0;
+                        }
+                        else
+                        {
+                            lonePlayers[i].team = (getTeamValue(lonePlayers, 0) > getTeamValue(lonePlayers, 1)) ? 1 : 0;
+                        }
+                    }
+                    */
+
+                    players = partyPlayers.concat(lonePlayers);                    
+                }
+
+                players.sort((a, b) =>
+                {
+                    if (a.team < b.team) return -1;
+                    if (a.team > b.team) return 1;
+                    return 0;
+                });
+                _lobbyData["players"] = players;
+            }
+        }
+        var bUsePreferred = false;
+        var bUseDesiredTeam = _lobbyData["bPrivate"] && bTeamGameMode;
+        for (var i = 0; i < players.length; i++)
+        {
+            var player = players[i];            
+            switch (gameModeId)
+            {
+                case GameMode.BATTLEZONE:
+                    if (getNumPlayersInParty(player.currentPartyId) > 1)
+                    {
+                        player["team"] = players.length + getPartyIndex(player.currentPartyId);
+                    }
+                    else
+                    {
+                        player["team"] = i;
+                    }
+                    bUsePreferred = true;
+                    break;
+
+                case GameMode.GUN_GAME:
+                case GameMode.DEATHMATCH:
+                    player["team"] = i;
+                    bUsePreferred = true;
+                    break;
+
+                case GameMode.INFECTED:
+                case GameMode.SURVIVAL_BASIC:
+                case GameMode.SURVIVAL_UNDEAD:
+                case GameMode.SURVIVAL_CHAOS:
+                case GameMode.SURVIVAL_STAKEOUT:
+                case GameMode.SURVIVAL_PRO:
+                case GameMode.OPERATION:
+                case GameMode.SANDBOX:
+                    player["team"] = 0;
+                    bUsePreferred = true;
+                    break;
+
+                default:
+                    if (bUseDesiredTeam)
+                    {
+                        if (player["desiredTeam"] !== undefined)
+                        {
+                            player["team"] = player["desiredTeam"];
+                        }
+                        else
+                        {
+                            if (player["bBot"] && settings["botTeam"] >= 0)
+                            {
+                                player["team"] = settings["botTeam"];
+                            }
+                            else
+                            {
+                                player["team"] = getBestTeam(players);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (player["team"] == null)
+                        {
+                            player["team"] = MathUtil.Random(0, 1);
+                        }
+                    }
+                    bUsePreferred = false;
+                    break;
+            }
+            var factionId = factions ? factions[player["team"]] : null;
+            if (!factionId || bUsePreferred)
+            {
+                factionId = player.avatars["preferred"];
+            }
+            player["avatarData"] = player.avatars[factionId];
+            if (bUsePreferred)
+            {
+                player.avatarData["preferred"] = player.avatars["preferred"];
+            }
+        }
+
+        players.sort(function (a, b)
+        {
+            if (a.team < b.team) return -1;
+            if (a.team > b.team) return 1;
+            return 0;
+        });
+    }
+}
+
+function initPlayerForGameInProgress(_playerData, _lobbyId)
+{
+    var player = _playerData;
+    if (player)
+    {
+        var lobbyData = getLobbyData(_lobbyId);
+        if (lobbyData)
+        {
+            log("Initializing player for game...");
+            var players = lobbyData["players"];
+            var factions = lobbyData.gameData.settings["factions"];
+            var bUsePreferred = false;
+            switch (lobbyData["gameModeId"])
+            {
+                case GameMode.BATTLEZONE:
+                    var availableTeams = [];
+                    for (var i = 0; i < lobbyData["maxPlayers"]; i++)
+                    {
+                        availableTeams.push(i);
+                    }            
+                    if (player.currentPartyId && getNumPlayersInParty(player.currentPartyId) > 1)
+                    {
+                        player["team"] = lobbyData.maxPlayers + getPartyIndex(player.currentPartyId);
+                    }
+                    else
+                    {
+                        for (var i = 0; i < players.length; i++)
+                        {
+                            let curTeam = players[i]["team"];
+                            if (curTeam != null)
+                            {
+                                availableTeams.splice(availableTeams.indexOf(curTeam), 1);
+                            }
+                        }
+                        player["team"] = availableTeams[0];
+                    }
+                    bUsePreferred = true;
+                    break;
+
+                case GameMode.GUN_GAME:
+                case GameMode.DEATHMATCH:
+                    var availableTeams = [];
+                    for (var i = 0; i < lobbyData["maxPlayers"]; i++)
+                    {
+                        availableTeams.push(i);
+                    }
+                    for (var i = 0; i < players.length; i++)
+                    {
+                        let curTeam = players[i]["team"];
+                        if (curTeam != null)
+                        {
+                            availableTeams.splice(availableTeams.indexOf(curTeam), 1);
+                        }
+                    }
+                    player["team"] = availableTeams[0];
+                    bUsePreferred = true;
+                    break;
+
+                case GameMode.SURVIVAL_BASIC:
+                case GameMode.SURVIVAL_UNDEAD:
+                case GameMode.SURVIVAL_CHAOS:
+                case GameMode.SURVIVAL_STAKEOUT:
+                case GameMode.SURVIVAL_PRO:   
+                case GameMode.OPERATION:
+                    player["team"] = 0;
+                    bUsePreferred = true;
+                    break;
+
+                case GameMode.INFECTED:
+                    player["team"] = 1;
+                    bUsePreferred = true;
+                    break;
+
+                default:
+                    var playersPerTeam = [0, 0];
+                    var partyTeam = null;
+                    for (var i = 0; i < players.length - 1; i++)
+                    {
+                        let curPlayer = players[i];
+                        if (curPlayer["team"] != undefined)
+                        {
+                            playersPerTeam[curPlayer["team"]]++;
+                        }
+                        if (player.currentPartyId && curPlayer.currentPartyId === player.currentPartyId)
+                        {
+                            partyTeam = curPlayer["team"];
+                        }
+                    }
+                    if (partyTeam != null)
+                    {
+                        player["team"] = partyTeam;
+                    }
+                    else
+                    {
+                        if (playersPerTeam[0] > playersPerTeam[1])
+                        {
+                            player["team"] = 1;
+                        }
+                        else if (playersPerTeam[0] < playersPerTeam[1])
+                        {
+                            player["team"] = 0;
+                        }
+                        else
+                        {
+                            var game = lobbyData["game"];
+                            if (game)
+                            {
+                                player["team"] = game.getNewPlayerDesiredTeam();
+                            }
+                            else
+                            {
+                                player["team"] = MathUtil.Random(0, 1);
+                            }
+                        }
+                    }
+                    break;
+            }
+            var factionId = factions ? factions[player["team"]] : null;
+            if (!factionId || bUsePreferred)
+            {
+                factionId = player.avatars["preferred"];
+            }
+            player["avatarData"] = player.avatars ? player.avatars[factionId] : null;
+            if (player["avatarData"])
+            {
+                if (bUsePreferred)
+                {
+                    player.avatarData["preferred"] = player.avatars["preferred"]
+                }
+            }
+            else
+            {
+                console.warn("Invalid avatar data", player);
+            }
+        }
+    }
+}
+
+function getBestTeam(_players)
+{
+    if (_players)
+    {
+        var arr = [
+            {
+                team: 0,
+                num: 0
+            },
+            {
+                team: 1,
+                num: 0
+            }
+        ];
+        for (var i = 0; i < _players.length; i++)
+        {
+            var player = _players[i];
+            if (player["team"] !== undefined)
+            {
+                var obj = arr[player["team"]];
+                obj.num++;
+            }
+        }
+        arr.sort(function (a, b) { return a.num - b.num });
+        return arr[0].team;
+    }
+    return 0;
+}
+
+function verifyPrivateLobbyTeams(_lobbyData)
+{
+    if (_lobbyData)
+    {
+        var settings = _lobbyData.gameData["settings"];
+        if (settings["bDebug"])
+        {
+            return true;
+        }
+        var players = _lobbyData["players"];
+        if (isTeamGameMode(_lobbyData["gameModeId"]) && settings["bots"] === 0)
+        {
+            var teams = [false, false];
+            for (var i = 0; i < players.length; i++)
+            {
+                var player = players[i];
+                if (player["desiredTeam"] !== undefined)
+                {
+                    teams[player["desiredTeam"]] = true;
+                    if (teams[0] && teams[1])
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        else
+        {
+            if (settings["botTeam"] >= 0)
+            {
+                var botTeam = settings["botTeam"];
+                var requiredPlayerTeam = botTeam === 1 ? 0 : 1;
+                for (var i = 0; i < players.length; i++)
+                {
+                    var player = players[i];
+                    if (player["desiredTeam"] === undefined || player["desiredTeam"] === requiredPlayerTeam)
+                    {
+                        return true;
+                    }
+                }
+            }
+            else
+            {
+                return true;
+            }
+        }        
+    }
+    return false;
+}
+
+function resetPlayers(_players)
+{
+    if (_players)
+    {
+        for (var i = 0; i < _players.length; i++)
+        {
+            resetPlayer(_players[i]);
+        }
+        _players.sort(function (a, b)
+        {
+            if (a.bLobbyHost) return -1;
+            if (b.bLobbyHost) return 1;
+            if (a.bPartyHost) return -1;
+            if (b.bPartyHost) return 1; 
+            return 0;
+        })
+    }
+}
+
+function resetPlayer(_player)
+{
+    delete _player["team"];
+    delete _player["bReady"];
+    delete _player["bInGame"];
+    //delete _player["desiredTeam"];
+}
+
+function destroyLobbyGame(_lobbyData)
+{
+    if (_lobbyData)
+    {
+        var game = _lobbyData["game"];
+        if (game)
+        {
+            game.destroy();
+            delete _lobbyData["game"];
+        }
+    }
+}
+
+function setLobbyState(_lobbyId, _state)
+{
+    log(chalk.bgCyan(_lobbyId), "-->", chalk.inverse(_state));
+    var lobbyData = getLobbyData(_lobbyId);
+    if (lobbyData)
+    {
+        destroyLobbyGame(lobbyData);
+        stopLobbyInterval(_lobbyId);
+        stopLobbyTimeout(_lobbyId); 
+        
+        lobbyData["state"] = _state;
+        switch (lobbyData["state"])
+        {
+            case LobbyState.WAITING:
+                removeBotsFromLobby(_lobbyId);
+                lobbyData["bLocked"] = false;
+                lobbyData["timer"] = -1;
+                resetPlayers(lobbyData["players"]);
+                break;
+
+            case LobbyState.WAITING_HOST:
+                removeBotsFromLobby(_lobbyId);
+                lobbyData["bLocked"] = false;
+                lobbyData["timer"] = -1;
+                resetPlayers(lobbyData["players"]);
+                var gameData = lobbyData["gameData"];
+                if (gameData.operation)
+                {
+                    log(chalk.bgCyan(_lobbyId), "Resetting operation data");
+                    lobbyData["gameModeId"] = GameMode.OPERATION;
+                    gameData["gameModeId"] = GameMode.OPERATION;
+                    gameData["operationId"] = gameData.operation["id"];
+                    var prevDebug = gameData.settings["bDebug"];
+                    var prevDifficulty = gameData.settings["difficulty"];
+                    var prevPrivate = gameData.settings["bPrivate"];
+                    gameData["settings"] = getDefaultGameModeSettings(GameMode.OPERATION);
+                    gameData.settings["bDebug"] = prevDebug;
+                    gameData.settings["bPrivate"] = prevPrivate != null ? prevPrivate : true;
+                    gameData.settings["difficulty"] = prevDifficulty;
+                    delete gameData.operation;
+                }
+                break;
+
+            case LobbyState.PREPARING:
+                lobbyData["bLocked"] = false;
+                break;
+
+            case LobbyState.STARTING:
+                lobbyData["bLocked"] = true;
+                var lobbyMaps = lobbyData["maps"];
+                if (lobbyMaps)
+                {
+                    var bestIndex = 0;
+                    var mostVotes = 0;
+                    for (var i = 0; i < lobbyMaps.length; i++)
+                    {
+                        var votes = lobbyMaps[i]["votes"].length;
+                        if (votes > mostVotes)
+                        {
+                            bestIndex = i;
+                            mostVotes = votes;
+                        }
+                    }
+                    lobbyData.gameData["mapId"] = lobbyMaps[bestIndex]["id"]; 
+                    if (lobbyData["rotationId"])
+                    {
+                        lobbyData.gameData.gameModeId = lobbyMaps[bestIndex]["gameModeId"];
+                        lobbyData.gameData.settings = getDefaultGameModeSettings(lobbyData.gameData.gameModeId);
+                        lobbyData.gameData.settings["bPrivate"] = lobbyData["bPrivate"];
+                        if (lobbyData.bHardcore != undefined)
+                        {
+                            lobbyData.gameData.settings["bHardcore"] = lobbyData.bHardcore;
+                        }
+                        lobbyData.gameModeId = lobbyData.gameData.gameModeId;
+                        log("Selected game mode:", chalk.yellow(lobbyData.gameModeId));
+                    }
+                }                
+                if (lobbyData.gameData["mapId"] === Map.RANDOM)
+                {
+                    log("Getting random map...");
+                    var maps = [
+                        Map.RIVERSIDE,
+                        Map.DISTRICT,
+                        Map.WAREHOUSE,
+                        Map.OUTPOST,
+                        Map.ESTATE,
+                        Map.FACTORY,
+                        Map.DOWNTURN,
+                        Map.SANDSTORM,
+                        Map.OVERGROWN,
+                        Map.AIRPORT
+                    ];
+                    if (lobbyMaps)
+                    {
+                        for (var i = 0; i < lobbyMaps.length; i++)
+                        {
+                            var curLobbyMap = lobbyMaps[i];
+                            var index = maps.indexOf(curLobbyMap.id);
+                            if (index >= 0)
+                            {
+                                maps.splice(index, 1);
+                            }
+                        }
+                    }
+                    lobbyData.gameData["mapId"] = maps[MathUtil.Random(0, maps.length - 1)];
+                }
+                log("Selected map:", chalk.yellow(lobbyData.gameData["mapId"]));                
+                if (lobbyData["bPrivate"])
+                {
+                    var bDebug = lobbyData.gameData.settings["bDebug"];
+                    var debugPlayers = 32; //Debugging
+                    var maxBots = bDebug ? debugPlayers : (shared["maxPlayers"][lobbyData["gameModeId"]] - 1);
+                    var numBots = Math.min(lobbyData.gameData.settings["bots"], maxBots); 
+                    var avg = getAveragePlayerLevel(lobbyData["players"]); 
+                    var maxLobbyPlayers = bDebug ? debugPlayers : Lobby.MAX_PLAYERS;
+                    for (i = 0; i < numBots; i++)
+                    {
+                        if (lobbyData["players"].length < maxLobbyPlayers)
+                        {
+                            var botSkill = lobbyData.gameData.settings["botSkill"];
+                            if (botSkill < 0)
+                            {
+                                botSkill = Math.min(Math.floor(avg / 15), GameData.BOT_SKILL_HARD);
+                            }
+                            var bot = BotUtil.getLobbyData(botSkill);
+                            lobbyData["players"].push(bot);
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    if (lobbyData["bAddBots"])
+                    {
+                        var numNeeded = lobbyData["maxPlayers"] - lobbyData["players"].length;
+                        if (numNeeded > 0)
+                        {
+                            for (i = 0; i < numNeeded; i++)
+                            {
+                                var bot = getBotPlayerForLobby(lobbyData);
+                                if (bot)
+                                {
+                                    lobbyData["players"].push(bot);
+                                }
+                            }
+                        }
+                    }
+                }    
+                var factions = lobbyData.gameData.settings["factions"];
+                if (factions)
+                {
+                    var arr = [GameData.FACTION_DELTA_FORCE, GameData.FACTION_GSG9, GameData.FACTION_GIGN, GameData.FACTION_OPFOR, GameData.FACTION_SPETSNAZ, GameData.FACTION_MILITIA];
+                    var factionA = MathUtil.Random(0, arr.length - 1);
+                    factions[0] = arr[factionA];
+                    arr.splice(factionA, 1);
+                    factions[1] = arr[MathUtil.Random(0, arr.length - 1)];
+                    lobbyData.gameData.settings["factions"] = factions;
+                }
+                setLobbyTeams(lobbyData);
+                break;
+
+            case LobbyState.IN_PROGRESS:
+                lobbyData["bLocked"] = true;
+                if (getNumRealPlayersInLobby(_lobbyId).length == 0)
+                {
+                    log("Lobby is empty, reset state");
+                    resetMapVotes(_lobbyId);
+                    setLobbyState(_lobbyId, LobbyState.WAITING);
+                }
+                else
+                {
+                    lobbyData["waitTimer"] = Lobby.WAIT_TIMER;
+                    stopLobbyInterval(_lobbyId, "waitTimer");
+                    intervals[_lobbyId + "_waitTimer"] = setInterval(onPlayerWaitTimer, 1000, _lobbyId);
+                }
+                break;
+
+            case LobbyState.INTERMISSION:
+                removeBotsFromLobby(_lobbyId);
+                lobbyData["bLocked"] = false;
+                lobbyData["timer"] = Lobby.INTERMISSION_TIMER;
+                stopLobbyInterval(_lobbyId);                
+                intervals[_lobbyId] = setInterval(onLobbyTimer, 1000, _lobbyId);
+                resetPlayers(lobbyData["players"]);
+                lobbyData["maps"] = getRandomLobbyMaps(lobbyData["gameModeId"], lobbyData["rotationModes"]);
+                tryMerge(lobbyData);
+                break;
+        }
+    }
+}
+
+function getDummyBotPlayer(_botSkill, _name)
+{                       
+    var bot = BotUtil.getLobbyData(_botSkill);
+    bot.bDummy = true;
+    bot.id = getRandomUniqueId();
+    bot.name = _name ? _name : ("Player" + MathUtil.Random(1, 999));
+    if (_botSkill >= 3)
+    {
+        bot.prestige = MathUtil.Random(1, 10);
+    }
+    bot.card = titlecards_soldiers[MathUtil.Random(0, titlecards_soldiers.length - 1)];
+    bot.callsign = null; //MathUtil.Random(1, 4) == 1 ? null : ("soldier_" + (bot.prestige > 0 ? MathUtil.Random(5, 6) : MathUtil.Random(1, 4)));
+    bot.bPremium = true;
+    bot.latency = MathUtil.Random(10, 100);
+    return bot;
+}
+
+function getBotPlayerForLobby(_lobbyData)
+{
+    if (_lobbyData)
+    {
+        var botSkill = 1;
+        var avg = getAveragePlayerLevel(_lobbyData["players"]);
+        if (avg == 50)
+        {
+            botSkill = 3; //Insane
+        }
+        else
+        {
+            botSkill = Math.min(2, Math.floor(avg / 15));
+        }
+        if (_lobbyData.rotationId == GameMode.COMBAT_TRAINING)
+        {
+            botSkill = Math.min(botSkill, GameData.BOT_SKILL_HARD);
+        }
+        var bot = BotUtil.getLobbyData(botSkill);
+        return bot;
+    }
+    return null;
+}
+
+function stopLobbyInterval(_lobbyId, _id)
+{
+    var id = _lobbyId;
+    if (_id)
+    {
+        id += "_" + _id;
+    }
+    var interval = intervals[id];
+    if (interval)
+    {
+        clearInterval(interval);
+        delete intervals[_lobbyId];
+    }
+}
+
+function retractLobbyMapVote(_socketId, _lobbyId)
+{
+    var lobbyData = getLobbyData(_lobbyId);
+    if (lobbyData)
+    {
+        var maps = lobbyData["maps"];
+        if (maps)
+        {
+            for (var i = 0; i < maps.length; i++)
+            {
+                var mapData = maps[i];
+                var votes = mapData["votes"];
+                if (votes)
+                {
+                    var voteIndex = votes.indexOf(_socketId);
+                    if (voteIndex >= 0)
+                    {
+                        votes.splice(voteIndex, 1);
+                    }
+                }
+            }
+        }
+    }
+}
+
+function resetMapVotes(_lobbyId)
+{
+    var lobbyData = getLobbyData(_lobbyId);
+    if (lobbyData)
+    {
+        var maps = lobbyData["maps"];
+        if (maps)
+        {
+            for (var i = 0; i < maps.length; i++)
+            {
+                maps[i]["votes"] = [];
+            }
+        }
+        delete lobbyData.votekick;
+    }
+}
+
+function getAllClanPlayers(_socket)
+{
+    async_getClanPlayers(_socket);
+}
+
+function getOnlinePlayersInClan(_clan)
+{
+    var players = getAllPlayers();
+    var arr = [];
+    for (var i = 0; i < players.length; i++)
+    {
+        var ps = players[i];
+        if (ps.clan == _clan)
+        {
+            arr.push(ps);
+        }
+    }
+    return arr;
+}
+
+function getClanInvitablePlayers()
+{
+    var sockets = getAllSockets();
+    var arr = [];
+    for (var i = 0; i < sockets.length; i++)
+    {
+        var socket = sockets[i];
+        if (socket.info && socket.player)
+        {
+            if (socket.info.username && !socket.player.clan && !socket.player.currentLobbyId && socket.player["bAllowPartyInvites"])
+            {
+                arr.push(socket.player);
+            }
+        }
+    }
+    return arr;
+}
+
+function getAllPlayers()
+{
+    var players = [];
+    Object.keys(io.sockets.connected).forEach(function (_socketId)
+    {
+        var player = io.sockets.connected[_socketId].player;
+        if (player)
+        {
+            var data = clone(player);            
+            var curLobby = getLobbyData(player.currentLobbyId);            
+            if (curLobby)
+            {
+                data["gameModeId"] = curLobby.rotationId ? curLobby.rotationId : curLobby.gameModeId;
+                if (curLobby.bPrivate)
+                {
+                    data["bPrivateLobby"] = true;
+                }
+                if (curLobby.state == LobbyState.IN_PROGRESS)
+                {
+                    data["bInGame"] = true;                    
+                }
+            }
+            players.push(data);
+        }
+    });
+    if (dummies)
+    {
+        for (var i = 0; i < dummies.length; i++)
+        {
+            player = dummies[i];
+            data = clone(player);
+            curLobby = getLobbyData(player.currentLobbyId);
+            if (curLobby)
+            {
+                data["gameModeId"] = curLobby.rotationId ? curLobby.rotationId : curLobby.gameModeId;
+                if (curLobby.bPrivate)
+                {
+                    data["bPrivateLobby"] = true;
+                }
+                if (curLobby.state == LobbyState.IN_PROGRESS)
+                {
+                    data["bInGame"] = true;
+                }
+            }
+            players.push(data);
+        }
+    }
+    players.sort((a, b) =>
+    {
+        if (a.prestige > b.prestige) return -1;
+        if (b.prestige < b.prestige) return 1;
+        if (a.level > b.level) return -1;
+        if (b.level < b.level) return 1;
+        return 0;
+    });
+    return players;
+}
+
+function getAllSockets()
+{
+    var sockets = [];
+    Object.keys(io.sockets.connected).forEach(function (_socketId)
+    {
+        var socket = io.sockets.connected[_socketId];
+        if (socket)
+        {
+            sockets.push(socket);
+        }
+    });
+    if (dummies)
+    {
+        for (var i = 0; i < dummies.length; i++)
+        {
+            sockets.push({
+                info: {
+                    version: Server.GAME_VERSION,
+                    host: "xwilkinx.com",
+                },
+                player: dummies[i]
+            });
+        }
+    }
+    sockets.sort((a, b) =>
+    {
+        if (a.player.prestige > b.player.prestige) return -1;
+        if (a.player.prestige < b.player.prestige) return 1;
+        if (a.player.level > b.player.level) return -1;
+        if (a.player.level < b.player.level) return 1;
+        return 0;
+    })
+    return sockets;
+}
+
+function getNumClients()
+{
+    var keys = Object.keys(io.sockets.connected);
+    return keys.length + (dummies ? dummies.length : 0);
+}
+
+function getSocketById(_id)
+{
+    var socket = io.sockets.connected[_id];
+    if (socket)
+    {
+        return socket;
+    }
+    return getSocketByPlayerId(_id);
+}
+
+function getSocketByPlayerId(_id)
+{
+    var keys = Object.keys(io.sockets.connected);
+    for (var i = 0; i < keys.length; i++)
+    {
+        var key = keys[i];
+        var socket = io.sockets.connected[key];
+        if (key.indexOf(_id) == 2)
+        {
+            return socket;
+        }
+    }
+    return null;
+}
+
+function getSocketByUsername(_id)
+{
+    var keys = Object.keys(io.sockets.connected);
+    for (var i = 0; i < keys.length; i++)
+    {
+        var socket = io.sockets.connected[keys[i]];
+        if (socket && socket.player && socket.info.username == _id)
+        {
+            return socket;
+        }
+    }
+    return null;
+}
+
+function showClientDataFailedWindow(_socket)
+{
+    console.warn(tracePlayer(_socket), "Validation failed!");
+    if (_socket)
+    {
+        _socket.emit("showWindow", {
+            titleText: "STR_MENU_MULTIPLAYER",
+            messageText: "STR_ERROR_CLIENT_VALIDATION_FAILED_DESC",
+            bShowOkayButton: true
+        });
+    }
+}
+
+function showMultiplayerLoginWindow(_socket)
+{
+    console.log(tracePlayer(_socket), "Player is not logged in");
+    if (_socket)
+    {
+        _socket.emit("showWindow", {
+            id: "mpLogin",
+            titleText: "STR_MENU_MULTIPLAYER",
+            messageText: "STR_MULTIPLAYER_LOGIN",
+            type: "TYPE_YES_NO",
+            yesText: "STR_LOG_IN_REGISTER"
+        });
+    }
+}
+
+function showBannedWindow(_socket)
+{
+    console.warn(tracePlayer(_socket), "Player is banned!");
+    if (_socket)
+    {
+        _socket.emit("showWindow", {
+            titleText: "STR_MENU_MULTIPLAYER",
+            messageText: "STR_ERROR_BANNED",
+            bShowOkayButton: true
+        });
+    }
+}
+
+function getLobbyPlayerIds(_lobbyData)
+{
+    var arr = [];
+    if (_lobbyData)
+    {
+        for (var i = 0; i < _lobbyData.players.length; i++)
+        {
+            arr.push(_lobbyData.players[i].id);
+        }
+    }
+    return arr;
+}
+
+function showWindowForSockets(_ids, _windowData)
+{
+    if (_ids)
+    {
+        for (var i = 0; i < _ids.length; i++)
+        {
+            var socket = getSocketByPlayerId(_ids[i]);
+            if (socket)
+            {
+                socket.emit("showWindow", _windowData);
+            }
+        }
+    }
+}
+
+function validateClient(_socket)
+{
+    if (_socket)
+    {
+        if (verifyClientPlayerData(_socket.player))
+        {
+            return true;
+        }
+        else
+        {            
+            showClientDataFailedWindow(_socket);
+            _socket.disconnect();
+            return false;
+        }
+    }
+    return false;
+}
+
+function verifyClientPlayerData(_data)
+{
+    if (_data)
+    {
+        try
+        {
+            //Check level and prestige
+            if (_data.level < 0 || _data.level > GameData.MAX_LEVEL)
+            {
+                console.warn("Invalid level:", _data.level);
+                return false;
+            }
+            if (_data.prestige < 0 || _data.prestige > GameData.MAX_PRESTIGE)
+            {
+                console.warn("Invalid prestige:", _data.prestige);
+                return false;
+            }
+
+            //Check custom classes
+            var classes = _data.classes;
+            if (classes)
+            {
+                for (var i = 0; i < classes.length; i++)
+                {
+                    var curClass = classes[i];
+                    if (curClass)
+                    {
+                        if (!isValidWeaponId(curClass.primary.id))
+                        {
+                            console.warn("Invalid primary id:", curClass.primary.id);
+                            return false;
+                        }
+                        if (!isValidWeaponId(curClass.secondary.id))
+                        {
+                            console.warn("Invalid secondary id:", curClass.secondary.id);
+                            return false;
+                        }
+                        if (!isValidWeaponId(curClass.equipment))
+                        {
+                            console.warn("Invalid equipment id:", curClass.equipment);
+                            return false;
+                        }
+                        if (curClass.primary.id == "minigun" || curClass.secondary.id == "minigun")
+                        {
+                            console.warn("Using minigun");
+                            return false;
+                        }
+                        if (curClass.primary.id == "railgun" || curClass.secondary.id == "railgun")
+                        {
+                            console.warn("Using railgun");
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        console.warn("Invalid class data");
+                        return false;
+                    }
+                }
+            }
+            else
+            {
+                console.warn("Invalid classes");
+                return false;
+            }
+
+            //Check killstreaks
+            var killstreaks = _data.killstreaks;
+            if (killstreaks)
+            {
+                if (killstreaks["TYPE_ASSAULT"].length > 3)
+                {
+                    console.warn("Invalid assault killstreaks:", killstreaks["TYPE_ASSAULT"].length);
+                    return false;
+                }
+                if (killstreaks["TYPE_SUPPORT"].length > 3)
+                {
+                    console.warn("Invalid support killstreaks:", killstreaks["TYPE_SUPPORT"].length);
+                    return false;
+                }
+                if (killstreaks["TYPE_SPECIALIST"].length > 5)
+                {
+                    console.warn("Invalid perk killstreaks:", killstreaks["TYPE_SPECIALIST"].length);
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+
+            //Check avatar data
+            var avatars = _data.avatars;
+            if (avatars)
+            {
+                var factions = [
+                    GameData.FACTION_DELTA_FORCE,
+                    GameData.FACTION_OPFOR,
+                    GameData.FACTION_GSG9,
+                    GameData.FACTION_SPETSNAZ,
+                    GameData.FACTION_GIGN,
+                    GameData.FACTION_MILITIA
+                ];
+                for (var i = 0; i < factions.length; i++)
+                {
+                    var curFaction = factions[i];
+                    var curAvatar = avatars[curFaction];
+                    if (curAvatar)
+                    {
+                        /*
+                        if (curAvatar.body.indexOf(curFaction) === -1)
+                        {
+                            log("Invalid avatar data (body does not contain faction id)");
+                            return false;
+                        }
+                        */
+                    }
+                    else
+                    {
+                        console.warn("Invalid avatar data");
+                        return false;
+                    }
+                }
+            }
+            else
+            {
+                console.warn("Invalid avatars");
+                return false;
+            }
+            //Validation passed
+            return true;
+        }
+        catch (e)
+        {
+            console.warn("An error occured while verifying client player data");
+            console.error(e);            
+            return false;
+        }
+    }
+    return false;
+}
+
+function isValidWeaponId(_id)
+{
+    if (weapons)
+    {
+        for (var i = 0; i < weapons.length; i++)
+        {
+            let wpn = weapons[i];
+            if (wpn.id === _id)
+            {
+                if (wpn.bHidden)
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+function getLatestServerData()
+{
+    var numLobbies = 0;
+    var keys = Object.keys(lobbies);
+    for (var i = 0; i < keys.length; i++)
+    {
+        numLobbies += lobbies[keys[i]].length;
+    }
+    var playerList = getAllPlayers();
+    var serverData = {
+        version: Server.VERSION,
+        players: playerList.length,
+        maxPlayers: serverSettings.maxClients,        
+        gamesInProgress: getLobbiesInProgress().length,
+        lobbies: numLobbies
+    };
+    return serverData;
+}
+
+function getPartyIndex(_partyId)
+{
+    var keys = Object.keys(parties);
+    for (var i = 0; i < keys.length; i++)
+    {
+        if (parties[keys[i]].id == _partyId)
+        {
+            return i;
+        }
+    }
+    return null;
+}
+
+function getAllLobbies()
+{
+    var arr = [];
+    var ids = Object.keys(lobbies);
+    for (var i = 0; i < ids.length; i++)
+    {
+        var curId = ids[i];
+        for (var j = 0; j < lobbies[curId].length; j++)
+        {
+            arr.push(lobbies[curId][j]);
+        }
+    }
+    return arr;
+}
+
+function getLobbyList(_socket)
+{
+    var arr = [];
+    var ids = Object.keys(lobbies);
+    for (var i = 0; i < ids.length; i++)
+    {
+        var curId = ids[i];
+        //if (curId !== "private")
+        for (var j = 0; j < lobbies[curId].length; j++)
+        {
+            let cur = lobbies[curId][j];
+            if (curId == "private" && cur.gameData.settings["bPrivate"])
+            {
+                continue;
+            }
+            let data = {
+                id: cur.id,
+                bPrivate: curId == "private",
+                numPlayers: getNumRealPlayersInLobby(cur.id),
+                maxPlayers: cur.maxPlayers,                    
+                gameModeId: cur.gameModeId,
+                rotationId: cur.rotationId,
+                state: cur.state,
+                bCanJoin: _socket ? (canJoinLobby(cur.id, _socket) == Lobby.JOIN_SUCCESS) : false
+            };
+            if (cur.state == LobbyState.IN_PROGRESS)
+            {
+                data["mapId"] = cur.gameData ? cur.gameData.mapId : null;
+            }
+            arr.push(data);
+        }
+    }
+    return arr;
+}
+
+function getAllPublicLobbies()
+{
+    var arr = [];
+    var ids = Object.keys(lobbies);
+    for (var i = 0; i < ids.length; i++)
+    {
+        var curId = ids[i];
+        if (curId !== "private")
+        {
+            for (var j = 0; j < lobbies[curId].length; j++)
+            {
+                let lobby = lobbies[curId][j];
+                arr.push(lobby);
+            }
+        }
+    }
+    return arr;
+}
+
+function getLobbiesInProgress()
+{
+    var arr = [];
+    var lobbies = getAllLobbies();
+    for (var i = 0; i < lobbies.length; i++)
+    {
+        var lobby = lobbies[i];
+        if (lobby["state"] === LobbyState.IN_PROGRESS)
+        {
+            arr.push(lobby);
+        }
+    }
+    return arr;
+}
+
+function getRandomUniqueId()
+{
+    return Math.random().toString(36).substr(2, 4);
+}
+
+function isRotationGameMode(_id)
+{
+    switch (_id)
+    {
+        case GameMode.ROTATION_TEAM:
+        case GameMode.ROTATION_SURVIVAL:
+        case GameMode.ROTATION_COMMUNITY:
+        case GameMode.GROUND_WAR:
+            return true;
+    }
+    return false;
+}
+
+function isTeamGameMode(_id)
+{
+    if (game_modes)
+    {
+        for (var i = 0; i < game_modes.length; i++)
+        {
+            var mode = game_modes[i];
+            if (mode["id"] === _id)
+            {
+                return mode["bTeam"];
+            }
+        }
+    }
+    return false;
+}
+
+function shuffleArray(array)
+{
+    var currentIndex = array.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex)
+    {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+    return array;
+}
+
+function clone(_data)
+{
+    return JSON.parse(JSON.stringify(_data));
+}
+
+function convertMS(milliseconds)
+{
+    var day, hour, minute, seconds;
+    seconds = Math.floor(milliseconds / 1000);
+    minute = Math.floor(seconds / 60);
+    seconds = seconds % 60;
+    hour = Math.floor(minute / 60);
+    minute = minute % 60;
+    day = Math.floor(hour / 24);
+    hour = hour % 24;
+    return {
+        day: day,
+        hour: hour,
+        minute: minute,
+        seconds: seconds
+    };
+}
+
+function throttleSocket(_socket, _data)
+{
+    if (_socket)
+    {
+        rateLimiter.consume(_socket.id).
+            then(() =>
+            {
+                return true;
+            }).
+            catch(r =>
+            {
+                //console.warn(tracePlayer(_socket), "Exceeded throttle limit!");
+                disconnectSocket(_socket, { reason: "throttle" });
+                return false;
+            });
+    }
+    return false;
+}
+
+function disconnectSocket(_socket, _data)
+{
+    if (_socket)
+    {
+        _socket.emit("disconnectInfo", _data);
+        _socket.disconnect();
+    }
+}
+
+//BotUtil
+var BotUtil = {
+    getLobbyData: function (_botSkill)
+    {
+        var level = 1;
+        var prestige = 0;
+        var botSkill = _botSkill;
+        switch (_botSkill)
+        {            
+            case 1:
+                level = MathUtil.Random(10, 30);
+                break;
+            case 2:
+                level = MathUtil.Random(30, 49);
+                break;
+            case 3:
+                level = GameData.MAX_LEVEL;
+                break;
+            case 4:
+                level = GameData.MAX_LEVEL;
+                prestige = GameData.MAX_PRESTIGE;
+                break;            
+            case 0:
+            default:
+                level = MathUtil.Random(1, 10);
+                break;
+        }
+        var names = botnames[botSkill];
+        var factions = [
+            GameData.FACTION_DELTA_FORCE,
+            GameData.FACTION_GSG9,
+            GameData.FACTION_GIGN,
+            GameData.FACTION_OPFOR,
+            GameData.FACTION_SPETSNAZ,
+            GameData.FACTION_MILITIA
+        ];
+        var player = {
+            id: getRandomUniqueId(),
+            name: "BOT " + names[MathUtil.Random(0, names.length - 1)],
+            bBot: true,
+            botSkill: botSkill,
+            level: level,
+            prestige: prestige,
+            card: "wilkin",
+            callsign: "soldier_1",
+            avatars: {
+                usmc: BotUtil.getAvatarData(GameData.FACTION_DELTA_FORCE),
+                gsg9: BotUtil.getAvatarData(GameData.FACTION_GSG9),
+                gign: BotUtil.getAvatarData(GameData.FACTION_GIGN),
+                opfor: BotUtil.getAvatarData(GameData.FACTION_OPFOR),
+                rus: BotUtil.getAvatarData(GameData.FACTION_SPETSNAZ),
+                militia: BotUtil.getAvatarData(GameData.FACTION_MILITIA),
+                preferred: factions[MathUtil.Random(0, factions.length - 1)]
+            }
+        };
+        return player;
+    },
+    getAvatarData: function (_faction)
+    {
+        var hairColours = [
+            Character.HAIR_COLOUR_BROWN,
+            Character.HAIR_COLOUR_BROWN_LIGHT,
+            Character.HAIR_COLOUR_BLACK,
+            Character.HAIR_COLOUR_BLONDE,
+            Character.HAIR_COLOUR_GINGER
+        ];
+        var hairs = [
+            Character.HAIR_SHORT,
+            Character.HAIR_LONG,
+            Character.HAIR_BUZZED,
+            Character.HAIR_BALD
+        ];
+        var heads = [Character.HEAD_NONE];
+        switch (_faction)
+        {
+            case GameData.FACTION_DELTA_FORCE:
+                heads = [Character.HEAD_NONE, Character.HEAD_USMC_HELMET, Character.HEAD_USMC_HELMET_TACTICAL, Character.HEAD_USMC_CAP, Character.HEAD_USMC_BOONIE, Character.HEAD_DELTA_MEDIC_HELMET];
+                break;
+            case GameData.FACTION_GSG9:
+                heads = [Character.HEAD_NONE, Character.HEAD_GSG9_HELMET, Character.HEAD_GSG9_HELMET_2, Character.HEAD_GSG9_HELMET_3, Character.HEAD_GSG9_MEDIC_HELMET];
+                break;
+            case GameData.FACTION_GIGN:
+                heads = [Character.HEAD_NONE, Character.HEAD_GIGN_HELMET, Character.HEAD_GIGN_HELMET_2, Character.HEAD_GIGN_CAP, Character.HEAD_GIGN_MEDIC_HELMET];
+                break;
+            case GameData.FACTION_OPFOR:
+                heads = [Character.HEAD_NONE, Character.HEAD_OPFOR_SCARF, Character.HEAD_OPFOR_HELMET_2, Character.HEAD_OPFOR_HELMET, Character.HEAD_MEDIC_HELMET];
+                break;
+            case GameData.FACTION_SPETSNAZ:
+                heads = [Character.HEAD_NONE, Character.HEAD_RUS_HELMET, Character.HEAD_RUS_TOQUE, Character.HEAD_RUS_SCARF, Character.HEAD_MEDIC_HELMET];
+                break;
+            case GameData.FACTION_MILITIA:
+                heads = [Character.HEAD_NONE, Character.HEAD_MILITIA_BANDANA, Character.HEAD_MILITIA_RADIO, Character.HEAD_MILITIA_BAND, Character.HEAD_MEDIC_HELMET];
+                break;
+        }
+        var facewears = [Character.FACEWEAR_NONE, Character.FACEWEAR_MASK, Character.FACEWEAR_BALACLAVA, Character.FACEWEAR_GAITER];
+        var eyewears = [Character.EYEWEAR_NONE];
+        switch (_faction)
+        {
+            case GameData.FACTION_OPFOR:
+            case GameData.FACTION_SPETSNAZ:
+                var vox = Character.VOICE_RU;
+                break;
+            case GameData.FACTION_GIGN:
+            case GameData.FACTION_MILITIA:
+                vox = Character.VOICE_UK;
+                break;
+            case GameData.FACTION_DELTA_FORCE:
+            case GameData.FACTION_GSG9:
+                vox = MathUtil.RandomBoolean() ? Character.VOICE_A : Character.VOICE_B;
+                break;
+        }
+        var avatar = {};
+        avatar[Character.TYPE_HAIR_COLOUR] = hairColours[MathUtil.Random(0, hairColours.length - 1)];
+        avatar[Character.TYPE_HAIR] = hairs[MathUtil.Random(0, hairs.length - 1)];
+        avatar[Character.TYPE_BEARD] = Character.BEARD_NONE;
+        avatar[Character.TYPE_HEAD] = heads[MathUtil.Random(0, heads.length - 1)];
+        avatar[Character.TYPE_FACEWEAR] = facewears[MathUtil.Random(0, facewears.length - 1)];
+        avatar[Character.TYPE_EYEWEAR] = eyewears[MathUtil.Random(0, eyewears.length - 1)];        
+        var body = _faction;
+        var bodies = ["", "_recon", "_para", "_rocketier", "_heavy", "_kevlar"];
+        avatar[Character.TYPE_BODY] = body + bodies[MathUtil.Random(0, bodies.length - 1)];
+        avatar[Character.TYPE_VOICE] = vox;
+        return avatar;
+    }
+};
+
+function getSocketPlayerId(_socket)
+{
+    if (!_socket)
+    {
+        return null;
+    }
+    if (_socket.player)
+    {
+        return _socket.player.id;
+    }
+    return _socket.id;
+}
+
+function onUpdatePlayerClan(_socket)
+{
+    if (_socket)
+    {
+        var lobbyData = getLobbyData(_socket.player.currentLobbyId);
+        if (lobbyData)
+        {
+            var lobbyId = lobbyData["id"];
+            var game = lobbyData.game;
+            if (game)
+            {
+                game.requestEvent({
+                    eventId: GameServer.EVENT_PLAYER_UPDATE,
+                    playerId: getSocketPlayerId(_socket),
+                    data: {
+                        clan: _socket.player.clan ? _socket.player.clan : null
+                    }
+                });
+            }
+            else
+            {
+                var lobbyPlayer = getLobbyPlayerById(lobbyId, getSocketPlayerId(_socket));
+                if (lobbyPlayer)
+                {
+                    lobbyPlayer.clan = _socket.player.clan;
+                    io.sockets.in(lobbyId).emit("updateLobby", {
+                        players: lobbyData.players
+                    });
+                }
+            }
+        }
+        var partyId = _socket.player.currentPartyId;
+        if (partyId)
+        {
+            var partyPlayer = getPartyPlayerById(partyId, getSocketPlayerId(_socket));
+            if (partyPlayer)
+            {
+                partyPlayer.clan = _socket.player.clan;
+            }
+            updatePartyClients(partyId);
+        }
+        _socket.emit("onUpdatePlayerData", _socket.player);
+        broadcastServerData();
+        if (_socket.player.clan)
+        {
+            broadcastClanUpdate(_socket.player.clan);
+        }
+    }
+}
+
+function broadcastClanUpdate(_clan)
+{
+    var players = getOnlinePlayersInClan(_clan);
+    for (var i = 0; i < players.length; i++)
+    {
+        var socket = getSocketByPlayerId(players[i]["id"]);
+        if (socket)
+        {
+            socket.emit("onClanUpdated");
+        }
+    }
+}
+
+async function async_updateClanScore(_clan, _score, _kills)
+{
+    if (!uri)
+    {
+        return null;
+    }
+    const client = await MongoClient.connect(uri).catch(e => { log(e) });
+    if (!client)
+    {
+        return;
+    }
+    try 
+    {
+        const db = client.db("deadswitch3");
+        let collection = db.collection("clans");
+
+        let res = await collection.findOne({
+            name: _clan
+        });
+        if (res)
+        {
+            let resUpdate = await collection.updateOne(
+                {
+                    name: _clan
+                },
+                {
+                    $inc: {
+                        score: _score,
+                        kills: _kills,
+                        lastUpdated: Date.now()
+                    }
+                }
+            );
+            if (resUpdate)
+            {
+                log("Updated clan", _clan, _score, _kills);
+                broadcastClanUpdate(_clan);
+            }
+        }
+    }
+    catch (e)
+    {
+        log(e);
+    }
+    finally
+    {
+        client.close();
+    }
+    return null;
+}
+
+async function async_leaveClanByUsername(_socket, _username)
+{
+    if (!uri)
+    {
+        return null;
+    }
+    var username = _username;
+    const client = await MongoClient.connect(uri).catch(e => { log(e) });
+    if (!client)
+    {
+        return;
+    }
+    try 
+    {
+        const db = client.db("deadswitch3");
+        let collection = db.collection("clans");
+
+        let res = await collection.findOne({
+            players: username
+        });
+        if (res)
+        {
+            if (res.leader == username)
+            {
+                log("Remove clan");
+                await collection.deleteOne({
+                    players: username
+                });
+                broadcastClanUpdate(res.name);
+            }
+            else
+            {
+                log("Remove from clan");
+                await collection.updateOne(
+                    {
+                        players: username
+                    },
+                    {
+                        $pull: {
+                            players: username
+                        }
+                    }
+                );
+            }
+            onUpdatePlayerClan(_socket);
+            async_getClanForSocket(_socket);
+            broadcastClanUpdate(res.name);
+        }
+    }
+    catch (e)
+    {
+        log(e);
+    }
+    finally
+    {
+        client.close();
+    }
+    return null;
+}
+
+async function async_leaveClanBySocket(_socket)
+{
+    if (!uri)
+    {
+        return null;
+    }
+    var username = _socket.info.username;
+    const client = await MongoClient.connect(uri).catch(e => { log(e) });
+    if (!client)
+    {
+        return;
+    }
+    try 
+    {
+        const db = client.db("deadswitch3");
+        let collection = db.collection("clans");
+
+        let res = await collection.findOne({
+            players: username
+        });
+        if (res)
+        {
+            if (res.leader == username)
+            {
+                log("Remove clan");
+                await collection.deleteOne({
+                    players: username
+                });
+                broadcastClanUpdate(res.name);
+            }
+            else
+            {
+                log("Remove from clan");
+                await collection.updateOne(
+                    {
+                        players: username
+                    },
+                    {
+                        $pull: {
+                            players: username
+                        }
+                    }
+                );
+            }
+            _socket.player.bClanLeader = false;
+            _socket.player.clan = null;
+            onUpdatePlayerClan(clanSocket);
+            async_getClanForSocket(_socket);
+            broadcastClanUpdate(res.name);
+        }
+    }
+    catch (e)
+    {
+        log(e);
+    }
+    finally
+    {
+        client.close();
+    }
+    return null;
+}
+
+async function async_getClanPlayers(_socket)
+{
+    if (!uri)
+    {
+        return null;
+    }
+    var clanName = _socket.player.clan;
+    const client = await MongoClient.connect(uri).catch(e => { log(e) });
+    if (!client)
+    {
+        return;
+    }
+    try 
+    {
+        const db = client.db("deadswitch3");
+        let collection = db.collection("clans");
+
+        var rank = 0;
+        var bMatch = false;
+        let res = await collection.find().sort({ score: -1, kills: -1 }).forEach((_item) =>
+        {
+            rank++;
+            if (_item.name == clanName)
+            {
+                bMatch = true;
+                var clanPlayers = [];
+                for (var i = 0; i < _item.players.length; i++)
+                {
+                    var s = getSocketByUsername(_item.players[i]);
+                    if (s)
+                    {
+                        clanPlayers.push(s.player);
+                    }
+                    else
+                    {
+                        clanPlayers.push({
+                            bOffline: true,
+                            id: _item.players[i],
+                            name: _item.players[i]
+                        });
+                    }
+                }
+                _socket.emit("receivePlayerList", {
+                    id: "players_clan",
+                    clan: _socket.player.clan,
+                    players: clanPlayers
+                });
+                return;
+            }
+        });
+        if (!bMatch)
+        {
+            _socket.emit("onReceiveClanData", null);
+        }
+    }
+    catch (e)
+    {
+        log(e);
+    }
+    finally
+    {
+        client.close();
+    }
+    return null;
+}
+
+async function async_getClanData(_socket)
+{
+    if (!uri)
+    {
+        return null;
+    }
+    var clanName = _socket.player.clan;
+    const client = await MongoClient.connect(uri).catch(e => { log(e) });
+    if (!client)
+    {
+        return;
+    }
+    try 
+    {
+        const db = client.db("deadswitch3");
+        let collection = db.collection("clans");
+
+        var rank = 0;
+        var bMatch = false;
+        let res = await collection.find().sort({ score: -1, kills: -1 }).forEach((_item) =>
+        {
+            rank++;
+            if (_item.name == clanName)
+            {
+                bMatch = true;
+                _socket.emit("onReceiveClanData", {
+                    name: _item.name,
+                    rank: rank,
+                    score: _item.score,
+                    kills: _item.kills,
+                    numPlayers: _item.players.length,
+                    leader: _item.leader
+                });
+                return;
+            }
+        });
+        if (!bMatch)
+        {
+            _socket.emit("onReceiveClanData", null);
+        }
+    }
+    catch (e)
+    {
+        log(e);
+    }
+    finally
+    {
+        client.close();
+    }
+    return null;
+}
+
+async function async_getClanList(_socket)
+{
+    if (!uri)
+    {
+        return null;
+    }
+    const client = await MongoClient.connect(uri).catch(e => { log(e) });
+    if (!client)
+    {
+        return;
+    }
+    try 
+    {
+        const db = client.db("deadswitch3");
+        let collection = db.collection("clans");
+
+        var clans = [];
+        let res = await collection.find().sort({ score: -1, kills: -1 }).forEach((_item) =>
+        {
+            clans.push({
+                name: _item.name,
+                rank: clans.length + 1,
+                numPlayers: _item.players.length,
+                score: _item.score,
+                kills: _item.kills
+            });
+        });
+        if (_socket)
+        {
+            _socket.emit("receiveClanList", clans)
+        }
+    }
+    catch (e)
+    {
+        log(e);
+    }
+    finally
+    {
+        client.close();
+    }
+    return null;
+}
+
+async function async_getClanForSocket(_socket)
+{
+    if (!uri || !_socket.player || !_socket.info)
+    {
+        return;
+    }
+    var username = _socket.info.username;
+    const client = await MongoClient.connect(uri).catch(e => { log(e) });
+    if (!client)
+    {
+        return;
+    }
+    try 
+    {
+        const db = client.db("deadswitch3");
+        let collection = db.collection("clans");
+
+        var rank = 0;
+        var bMatch = false;
+        let res = await collection.find().sort({ score: -1, kills: -1 }).forEach((_item) =>
+        {
+            rank++;
+            if (_item.players.indexOf(username) >= 0)
+            {
+                bMatch = true;
+                if (_socket.player)
+                {
+                    _socket.player.bClanLeader = _item.leader == username;
+                    _socket.player.clan = _item.name;
+                    onUpdatePlayerClan(_socket);
+                    _socket.emit("onReceiveClanData", {
+                        name: _item.name,
+                        rank: rank,
+                        score: _item.score,
+                        kills: _item.kills,
+                        numPlayers: _item.players.length,
+                        leader: _item.leader
+                    });
+                }
+                return;
+            }
+        });
+        if (!bMatch)
+        {
+            _socket.player.bClanLeader = false;
+            _socket.player.clan = null;
+            onUpdatePlayerClan(_socket);
+            _socket.emit("onReceiveClanData", null);
+        }
+    }
+    catch (e)
+    {
+        log(e);
+    }
+    finally
+    {
+        client.close();
+    }
+    return null;
+}
+
+async function async_joinClan(_socket, _clanName)
+{
+    if (!uri)
+    {
+        return null;
+    }
+    const client = await MongoClient.connect(uri).catch(e => { log(e) });
+    if (!client)
+    {
+        return;
+    }
+    try 
+    {
+        const db = client.db("deadswitch3");
+        let collection = db.collection("clans");
+
+        let firstCheck = await collection.findOne({
+            players: _socket.info.username
+        });
+        if (!firstCheck)
+        {
+            let res = await collection.updateOne(
+                {
+                    name: _clanName
+                },
+                {
+                    $push: {
+                        players: _socket.info.username
+                    }
+                }
+            );
+            if (res)
+            {
+                _socket.player.clan = _clanName;
+                onUpdatePlayerClan(_socket);
+                _socket.emit("onJoinClan", {
+                    bSuccess: true
+                });
+            }
+            else
+            {
+                _socket.emit("onJoinClan", {
+                    bSuccess: false
+                });
+            }
+        }
+    }
+    catch (e)
+    {
+        log(e);
+    }
+    finally
+    {
+        client.close();
+    }
+    return null;
+}
+
+async function async_createClan(_socket, _clanName)
+{    
+    if (!uri)
+    {
+        return null;
+    }
+    const client = await MongoClient.connect(uri).catch(e => { log(e) });
+    if (!client)
+    {
+        return;
+    }
+    try 
+    {
+        const db = client.db("deadswitch3");
+        let collection = db.collection("clans");
+        let query = {
+            name: _clanName
+        };
+        let res = await collection.findOne(query);
+        if (res)
+        {
+            _socket.emit("onCreateClan", {
+                bSuccess: false,
+                message: "Clan name is already in use."
+            });
+        }
+        else 
+        {
+            if (_clanName.length < 2 || badwords.includes(_clanName.toLowerCase()))
+            {
+                _socket.emit("onCreateClan", {
+                    bSuccess: false,
+                    message: "Invalid clan name."
+                });
+                return;
+            }
+            //New clan data
+            let query = {
+                name: _clanName,
+                score: 0,
+                kills: 0,
+                leader: _socket.info.username,
+                players: [
+                    _socket.info.username
+                ],
+                date: Date.now(),
+                lastUpdated: Date.now()
+            };
+            let res = await collection.insertOne(query);
+            if (res)
+            {
+                _socket.emit("onCreateClan", {
+                    bSuccess: true
+                });
+                _socket.player.bClanLeader = true;
+                _socket.player.clan = _clanName;
+                onUpdatePlayerClan(_socket);
+            }
+            else 
+            {
+                _socket.emit("onCreateClan", {
+                    bSuccess: false,
+                    message: "Error"
+                });
+            }
+        }
+    }
+    catch (e)
+    {
+        log(e);
+    }
+    finally
+    {
+        client.close();
+    }
+    return null;
+}
+
+function addDummyToLobby(_bot, _lobbyData)
+{
+    if (_lobbyData)
+    {
+        _lobbyData.players.push(_bot);
+        _bot.currentLobbyId = _lobbyData.id;
+        checkLobbyReady(_lobbyData.id);
+    }
+}
+
+function createDummyPlayer(_name)
+{
+    let bot = getDummyBotPlayer(MathUtil.Random(0, 3), _name);
+    let lobbies = getAllPublicLobbies();
+    var lobbiesToJoin = [1, 1, 2, 2, 3, 4];
+    if (MathUtil.Random(1, 4) == 1)
+    {
+        for (var i = 0; i < 10; i++)
+        {
+            let lobby = lobbies[lobbiesToJoin[MathUtil.Random(0, lobbiesToJoin.length - 1)]];
+            if (lobby && lobby.players.length < lobby.maxPlayers)
+            {
+                addDummyToLobby(bot, lobby);
+                break;
+            }
+        }
+    }
+    dummies.push(bot);
+    return bot;
+}
+
+function removeDummyPlayer()
+{
+    if (dummies)
+    {
+        var bot = dummies[0];
+        if (bot)
+        {
+            dummies.splice(0, 1);
+        }
+    }
+}
+
+//Add dummy bots
+var dummies = [];
+if (serverSettings.numBots > 0)
+{
+    log(chalk.yellow("\nAdding", serverSettings.numBots, "bots..."));
+    shuffleArray(bots);
+    for (var i = 0; i < serverSettings.numBots; i++)
+    {
+        createDummyPlayer(bots[i]);
+    }
+    log(chalk.green("Done"));
+}
+
+//Auto restart app
+if (serverSettings.maxUptimeHours > 0)
+{
+    log(chalk.yellow("\nMax Uptime Enabled"));
+    log("Server will stop after", serverSettings.maxUptimeHours, "hours")
+    var iterations = 0;
+    var iterationTime = 3600000;
+    setInterval(function ()
+    {
+        iterations++;
+        if (getLobbiesInProgress().length == 0 || getNumClients() == 0 || iterations >= serverSettings.maxUptimeHours)
+        {
+            log("Max uptime reached");
+            process.exit(0);
+        }
+    }, iterationTime);
+}

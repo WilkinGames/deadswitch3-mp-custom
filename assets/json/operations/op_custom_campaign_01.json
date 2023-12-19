@@ -214,6 +214,7 @@
         "type": "character",
         "position": [ 335, 1350 ],
         "preset": "juggernaut",
+        "pawnName": "Juggernaut",
         "inventory": [ { "id": "m60e4" } ]
       }
     ]

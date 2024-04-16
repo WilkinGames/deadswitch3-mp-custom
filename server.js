@@ -8,6 +8,7 @@ const chalk = require("chalk");
 const log = console.log;
 const serverSettings = require("./settings.json");
 const gameInstance = require("./assets/js/game");
+const auth = require("./auth.json");
 
 //Track emits
 setInterval(function ()
@@ -49,7 +50,7 @@ var MathUtil = {
 
 //Server data
 const Server = {
-    VERSION: "1.1.1",
+    VERSION: "1.2.0",
     GAME_VERSION: "1.6.8",
     OFFICIAL: true
 };
@@ -149,7 +150,7 @@ const ngraphPath = require("ngraph.path");
 
 //MongoDB
 const { MongoClient } = require("mongodb");
-const uri = null;
+const uri = "mongodb+srv://" + auth.user + ":" + auth.pass + "@cluster0.ecgzr.mongodb.net/?retryWrites=true&w=majority";
 
 log(chalk.green("Done\n"));
 
@@ -4066,7 +4067,8 @@ function onLobbyTimerComplete(_lobbyId)
                     var prevPrivate = lobbyData.gameData.settings.bPrivate;
                     var prevDebug = lobbyData.gameData.settings.bDebug;
                     log("Start operation:", chalk.yellow(operationId), "difficulty:", difficulty, lobbyData.gameData.settings.bPrivate);
-                    var operation = operationData[operationId];
+                    log(lobbyData);
+                    var operation = lobbyData.gameData.operationData ? lobbyData.gameData.operationData : operationData[operationId];
                     if (operation)
                     {             
                         lobbyData.gameData = clone(operation.gameData);
@@ -4081,18 +4083,17 @@ function onLobbyTimerComplete(_lobbyId)
                     }
                     else
                     {                        
-                        var bError = true;
-                        var errorMessage = "Invalid Operation data";
+                        var error = "Server error: Invalid Operation data";
                     }
                 }
-                if (bError)
+                if (error)
                 {
-                    console.warn("An error occurred while starting match", errorMessage);
+                    console.warn("An error occurred while starting match", error);
                     endLobbyGame(_lobbyId, false);
                     showWindowForSockets(getLobbyPlayerIds(lobbyData), {
                         titleText: "STR_ERROR",
                         messageText: "STR_ERROR_DESC",
-                        error: errorMessage,
+                        error: error,
                         bShowOkayButton: false,
                         type: "TYPE_ERROR"
                     });

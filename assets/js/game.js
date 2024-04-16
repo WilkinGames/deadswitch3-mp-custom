@@ -5,7 +5,7 @@
  */
 const Settings = {
     BATCH_MAX: 8,
-    FLAMES_MAX: 40,
+    FLAMES_MAX: 38,
     SCAVENGER_PACKS_MAX: 5,
     CRATES_MAX: 5,
     TURRETS_MAX: 2,
@@ -13,7 +13,7 @@ const Settings = {
     SURVIVAL_WAVE_START: 0,
     SURVIVAL_MONEY_START: 0,
     SURVIVAL_MULTIPLIER_MAX: 5,
-    SANDBOX_MAX_PAWNS_PER_TEAM: 8,
+    SANDBOX_MAX_PAWNS_PER_TEAM: 6,
     SANDBOX_MAX_SPAWNERS: 6,
     LOG_PREFIX: "[GameInstance]",
     LOG_SUFFIX: "color: mediumslateblue"
@@ -497,7 +497,8 @@ const Helicopter = {
     TYPE_SCOUT: "scout"
 };
 const Car = {
-    TYPE_RCXD: "rcxd"
+    TYPE_RCXD: "rcxd",
+    TYPE_UGV: "ugv"
 };
 const Turret = {
     TYPE_SAM: "sam",
@@ -544,7 +545,8 @@ const Heroes = {
     ERIC: "HERO_ERIC",
     SANTA: "HERO_SANTA",
     ALEXSEI: "HERO_ALEXSEI",
-    UPBOSS: "HERO_UPBOSS"
+    UPBOSS: "HERO_UPBOSS",
+    NORMAL: "HERO_NORMAL"
 };
 const SurvivalEnemyType = {    
     HELI_MH6: "HELI_MH6",
@@ -641,6 +643,33 @@ const SurvivalEnemyInfo = {
         body: Character.BODY_USMC_KEVLAR,
         botSkill: BotSkill.SKILL_GOD,
         killReward: 2000,
+        bHero: true
+    },
+    HERO_NORMAL: {
+        pawnName: "Agent 1237",
+        health: 400,
+        damageMultipliers: {
+            2: 1,
+            1: 0.5,
+            3: 1
+        },
+        weapons: ["uzi"],
+        mods: {
+            base: Mods.BASE_RAPID_FIRE,
+            barrel: Mods.BARREL_LASER,
+            barrel2: Mods.BARREL_GRIP,
+            ammo: Mods.AMMO_HOLLOW_POINT
+        },
+        secondaryWeapons: ["m9"],
+        equipment: "molotov",
+        perks: [
+            Perks.PERK_PLAYER_HELMET
+        ],
+        eyewear: Character.EYEWEAR_SHADES,
+        heads: [Character.HEAD_USMC_HELMET_TACTICAL],
+        body: Character.BODY_USMC_KEVLAR,
+        botSkill: BotSkill.SKILL_INSANE,
+        killReward: 1000,
         bHero: true
     },
     HERO_ARI: {
@@ -2271,7 +2300,7 @@ class GameInstance
                             var newSpawn = spawns[i];
                             if (newSpawn)
                             {
-                                char.position[0] = newSpawn[0];
+                                char.position[0] = newSpawn[0] + this.Random(-20, 20);
                                 char.position[1] = newSpawn[1];
                             }
                         }
@@ -2765,6 +2794,13 @@ class GameInstance
                                         break;
 
                                     case "helicopter":
+                                        if (curObj.heliData)
+                                        {
+                                            if (curObj.helicopterType)
+                                            {
+                                                curObj.heliData.type = curObj.helicopterType;
+                                            }
+                                        }
                                         var heli = this.createHelicopter(curObj.position, curObj.team, curObj.heliData);
                                         if (curObj.heliData)
                                         {
@@ -2791,13 +2827,12 @@ class GameInstance
                                         this.createEquipment(curObj.position, curObj.team, curObj.scale, null, this.getWeaponData(curObj.weaponId));
                                         break;
 
-                                    case "destructableObject":
-                                        switch (curObj["destructableType"])
+                                    case "destructibleObject":
+                                        switch (curObj["destructibleType"])
                                         {
                                             case "box_small":
                                                 this.createSmallBox(useId, curObj.position);
                                                 break;
-
                                             case "box_large":
                                                 this.createLargeBox(useId, curObj.position);
                                                 break;
@@ -2810,7 +2845,7 @@ class GameInstance
 
                                     case "droppedWeapon":
                                         var weaponData = this.getWeaponData(curObj["weaponId"], curObj["options"]);
-                                        if (weaponData.mods)
+                                        if (weaponData && weaponData.mods)
                                         {
                                             this.applyWeaponMods(weaponData, weaponData.mods);
                                         }
@@ -2931,10 +2966,27 @@ class GameInstance
                                         break;
 
                                     case "helicopter":
-                                        var heli = this.createHelicopter(enemy.position, enemyTeam, {
-                                            type: enemy.helicopterType,
-                                            destination: enemy.destination ? enemy.destination : enemy.position
-                                        });
+                                        var heliData = enemy.heliData;
+                                        if (heliData)
+                                        {
+                                            heliData.type = enemy.helicopterType;
+                                        }
+                                        else
+                                        {
+                                            heliData = {
+                                                type: enemy.helicopterType,
+                                                destination: enemy.destination ? enemy.destination : enemy.position
+                                            };
+                                        }
+                                        var heli = this.createHelicopter(enemy.position, enemyTeam, heliData);
+                                        if (heliData.defendTimer != null)
+                                        {
+                                            heli.data.dropTimerMax = this.localData.settings.fps * heliData.dropTimerMax;
+                                        }
+                                        if (heliData.defendTimer != null)
+                                        {
+                                            heli.data.defendTimer = this.localData.settings.fps * heliData.defendTimer;
+                                        }
                                         heli.data["health"] += 250 * botSkill;
                                         heli.data["maxHealth"] = heli.data.health;
                                         heli.data["maxRange"] += 300 * botSkill;
@@ -2968,6 +3020,10 @@ class GameInstance
                                         };
                                         if (enemy.ai)
                                         {
+                                            if (enemy.ai["bIgnoreOutOfSight"] != undefined)
+                                            {
+                                                enemyAI["bIgnoreOutOfSight"] = enemy.ai["bIgnoreOutOfSight"];
+                                            }
                                             if (enemy.ai["bCanInvestigate"] != undefined)
                                             {
                                                 enemyAI["bCanInvestigate"] = enemy.ai["bCanInvestigate"];
@@ -4025,9 +4081,9 @@ class GameInstance
                                             bHit = true;
                                         }
                                     }
-                                    else if (body.data["type"] == "destructableObject")
+                                    else if (body.data["type"] == "destructibleObject")
                                     {
-                                        if (body.data.destructableData["type"] == "deployable_cover")
+                                        if (body.data.destructibleData["type"] == "deployable_cover")
                                         {
                                             if (_data["bIgnoreObstacles"])
                                             {
@@ -5901,16 +5957,17 @@ class GameInstance
                                         switch (pawnToDamage.data["obstacleId"])
                                         {
                                             case "barrel_explosive":
+                                            case "barrel_poison":
+                                            case "barrel_oil":
                                                 this.detonate(pawnToDamage);
                                                 break;
-
                                             default:
                                                 this.removeNextStep(pawnToDamage);
                                                 break;
                                         }
                                         break;
 
-                                    case "destructableObject":
+                                    case "destructibleObject":
                                         this.removeNextStep(pawnToDamage);
                                         break;
 
@@ -6157,8 +6214,8 @@ class GameInstance
                                         }                                        
                                         break;
 
-                                    case "destructableObject":
-                                        if (pawnToDamage.data.destructableData["type"] == "deployable_cover")
+                                    case "destructibleObject":
+                                        if (pawnToDamage.data.destructibleData["type"] == "deployable_cover")
                                         {
                                             _data["bDeployableCover"] = 1;
                                         }
@@ -7003,7 +7060,7 @@ class GameInstance
                                 }
                                 else if (body.data.destroyTimer % body.data.ticker == 0)
                                 {
-                                    var pawns = this.getPawns().concat(this.getEquipment()).concat(this.getObstaclesWithHealth());
+                                    var pawns = this.getFireTargets();
                                     for (var j = 0; j < pawns.length; j++)
                                     {
                                         let pawn = pawns[j];
@@ -7018,7 +7075,7 @@ class GameInstance
                                             {
                                                 continue;
                                             }
-                                            var bOverlaps = body.getAABB().overlaps(pawn.getAABB());
+                                            var bOverlaps = this.Dist(body.position[0], body.position[1], pawn.position[0], pawn.position[1]) < 50; // body.getAABB().overlaps(pawn.getAABB());
                                             if (bOverlaps)
                                             {
                                                 this.requestEvent({
@@ -7991,13 +8048,13 @@ class GameInstance
         var world = new this.p2.World({
             gravity: [0, 800],
             //broadphase: new this.p2.NaiveBroadphase(),
-            islandSplit: false
+            islandSplit: true
         });
         world.defaultContactMaterial.friction = 0.5;
         if (this.localData["bMultiplayer"])
         {
             world.solver.tolerance = 0.01;
-            world.solver.iterations = 8;
+            world.solver.iterations = 4;
         }
         else
         {
@@ -8317,13 +8374,25 @@ class GameInstance
             sleepSpeedLimit: 1,
             sleepTimeLimit: 1
         });
-        var shared = this.getSharedData(_data["obstacleId"]);
+        var sharedId = _data["obstacleId"];
+        if (sharedId.indexOf("barrel") == 0)
+        {
+            sharedId = "barrel";
+        }
+        var shared = this.getSharedData(sharedId);
+        if (!shared)
+        {
+            console.warn("Invalid obstacle", _data.obstacleId);
+            return null;
+        }
         var useWidth = shared.width;
         var useHeight = shared.height;
         var material;
         switch (_data["obstacleId"])
         {
             case "barrel_explosive":
+            case "barrel_poison":
+            case "barrel_oil":
                 var health = 25;
                 material = "metal";
                 break;
@@ -8913,7 +8982,7 @@ class GameInstance
                                 break;
 
                             case "obstacle":
-                            case "destructableObject":
+                            case "destructibleObject":
                                 if (this.localData["bSurvival"])
                                 {
                                     if (dataA.rocketData["team"] == 0)
@@ -10580,7 +10649,7 @@ class GameInstance
                         case Weapon.MODE_BURST:
                             weapon["bFireDelay"] = true;
                             var burstFireRate = curInvItem["burstFireRate"]; // + (this.localData.settings.fps == 60 ? 1 : 0); 
-                            weapon["fireDelayTimer"] = Math.round(burstFireRate * this.localData.settings.fps_mult);
+                            weapon["fireDelayTimer"] = Math.floor(burstFireRate * this.localData.settings.fps_mult);
                             curInvItem["bursts"] = (curInvItem["numBursts"] ? curInvItem["numBursts"] : 3) - 1;
                             var fireRate = curInvItem["fireRate"] + (this.localData.settings.fps == 60 ? 1 : 0);
                             weapon["burstTimer"] = Math.floor(fireRate * this.localData.settings.fps_mult);
@@ -12884,9 +12953,37 @@ class GameInstance
                                 break;
 
                             case Weapon.TYPE_EXPLOSIVE:
-                                if (!enemyPawn || enemyDist > (ai["lookRange"] * 0.5))
+                                if (equipment.id == "molotov")
                                 {
-                                    this.useCharacterEquipment(_body, _body.position[0], _body.position[1]);
+                                    bThrowGrenade = false;
+                                    if (enemyPawn)
+                                    {
+                                        if (enemyDist > (ai["lookRange"] * 0.5) && enemyDist < ai["lookRange"])
+                                        {
+                                            bThrowGrenade = Math.random() > 0.95;
+                                        }
+                                        else if (!ai["bHasLOS"] && enemyDist < ai["lookRange"] * 0.5)
+                                        {
+                                            bThrowGrenade = Math.random() > 0.8;
+                                        }
+                                        else if (enemyPawn.data["type"] === "turret")
+                                        {
+                                            bThrowGrenade = Math.random() > 0.8;
+                                        }
+                                    }
+                                    if (bThrowGrenade)
+                                    {
+                                        rad = this.Angle(_body.position[0], _body.position[1], enemyPawn.position[0], enemyPawn.position[1]);
+                                        halfDist = enemyDist * 0.3;
+                                        this.useCharacterEquipment(_body, _body.position[0] + (Math.cos(rad) * halfDist), (_body.position[1] + (Math.sin(rad) * halfDist)) - (enemyDist * 0.3));
+                                    }
+                                }
+                                else
+                                {
+                                    if (!enemyPawn || enemyDist > (ai["lookRange"] * 0.5))
+                                    {
+                                        this.useCharacterEquipment(_body, _body.position[0], _body.position[1]);
+                                    }
                                 }
                                 break;
 
@@ -13727,7 +13824,7 @@ class GameInstance
                     break;
             }
         }
-        var carSpeed = 2250;
+        var carSpeed = data.speed ? data.speed : 2250;
         if (data["moveX"] != 0)
         {
             _body.applyForce([carSpeed * data["moveX"], 0]);
@@ -14328,21 +14425,44 @@ class GameInstance
             switch (data["type"])
             {
                 case "obstacle":
-                    if (data["obstacleId"] == "barrel_explosive")
+                    switch (data.obstacleId)
                     {
-                        this.createExplosion({
-                            eventId: GameServer.EVENT_SPAWN_EXPLOSION,
-                            x: _body.position[0],
-                            y: _body.position[1],
-                            radius: 400,
-                            damage: 500,
-                            playerId: data["playerId"] ? data["playerId"] : data["id"],
-                            causerId: data["id"],
-                            weaponId: "barrel",
-                            bDirectlyCausedByPlayer: true,
-                            directHitId: _directHitId
-                        });
-                        this.removeNextStep(_body);
+                        case "barrel_explosive":
+                            this.createExplosion({
+                                eventId: GameServer.EVENT_SPAWN_EXPLOSION,
+                                x: _body.position[0],
+                                y: _body.position[1],
+                                radius: 400,
+                                damage: 500,
+                                playerId: data["playerId"] ? data["playerId"] : data["id"],
+                                causerId: data["id"],
+                                weaponId: "barrel",
+                                bDirectlyCausedByPlayer: true,
+                                directHitId: _directHitId
+                            });
+                            this.removeNextStep(_body);
+                            break;
+                        case "barrel_oil":
+                        case "barrel_poison":
+                            this.createExplosion({
+                                eventId: GameServer.EVENT_SPAWN_EXPLOSION,
+                                x: _body.position[0],
+                                y: _body.position[1],
+                                radius: 400,
+                                damage: 200,
+                                playerId: data["playerId"] ? data["playerId"] : data["id"],
+                                causerId: data["id"],
+                                weaponId: "barrel",
+                                bDirectlyCausedByPlayer: true,
+                                directHitId: _directHitId
+                            });
+                            this.removeNextStep(_body);
+                            var numFlames = 10;
+                            for (var i = 0; i < numFlames; i++)
+                            {
+                                this.createFlame(_body.position, [this.Random(-500, 500), this.Random(-500, -100)], data.team, data["playerId"] ? data["playerId"] : data["id"], "napalm");
+                            }
+                            break;
                     }
                     break;
 
@@ -15120,6 +15240,7 @@ class GameInstance
                     }
                     else
                     {
+                        weaponData["fireTime"] = 1.5;
                         weaponData["bFlame"] = true;
                     }
                     break;
@@ -15422,8 +15543,16 @@ class GameInstance
         }
         var collisionGroup = CollisionGroups.FLAME;
         var collisionMask = CollisionGroups.GROUND;
+        /*
         var shape = new this.p2.Circle({
             radius: 20,
+            collisionGroup: collisionGroup,
+            collisionMask: collisionMask
+        });
+        */
+        var shape = new this.p2.Box({
+            width: 20,
+            height: 20,
             collisionGroup: collisionGroup,
             collisionMask: collisionMask
         });
@@ -15739,10 +15868,21 @@ class GameInstance
             healthMax: 100,
             moveX: 0,
             bBot: _data.bBot,
-            killstreakId: Killstreaks.KILLSTREAK_RCXD,
-            xpReward: 100
+            xpReward: 100,
+            speed: 2250
         };
-        body.data.health = body.data.healthMax;
+        var data = body.data;
+        switch (_data.type)
+        {
+            case Car.TYPE_RCXD:
+                data.killstreakId = Killstreaks.KILLSTREAK_RCXD;
+                break;
+            case Car.TYPE_UGV:
+                data.healthMax = 200;
+                data.speed = 1;
+                break;
+        }
+        data.health = data.healthMax;
         var shared = this.getSharedData(_data.carType);
         var shape = new this.p2.Box({
             width: shared.width,
@@ -15755,14 +15895,14 @@ class GameInstance
         this.requestEvent({
             eventId: GameServer.EVENT_SPAWN_OBJECT,
             position: body.position,
-            data: body.data
+            data: data
         });
         if (bControllable)
         {
             var ps = this.getPlayerStateById(_data["playerId"]);
             if (ps)
             {
-                body.data["team"] = ps["team"];
+                data["team"] = ps["team"];
                 this.setPlayerControllable(ps, body);
             }
         }
@@ -15771,6 +15911,11 @@ class GameInstance
 
     createHelicopter(_position, _team, _heliData)
     {
+        if (!_heliData)
+        {
+            console.warn("Invalid helicopter data");
+            return null;
+        }
         var body = new this.p2.Body({
             mass: 1,
             position: _position,
@@ -16129,6 +16274,10 @@ class GameInstance
         if (data.behaviour == "deliver" || data.bAirdrop)
         {
             bCollide = false;
+        }
+        if (!data.bPlayerControlled && this.getCurrentMapData().id == "map_factory")
+        {
+            bCollide = false
         }
         var shape = new this.p2.Box({
             width: shared.width,
@@ -16736,7 +16885,8 @@ class GameInstance
             position: _position,
             allowSleep: true,
             sleepSpeedLimit: 1,
-            sleepTimeLimit: 1
+            sleepTimeLimit: 1,
+            damping: 0.5
         });
         body.data = {
             id: _id,
@@ -16775,7 +16925,7 @@ class GameInstance
         return body;
     }
 
-    createDestructableObject(_id, _position, _data)
+    createDestructibleObject(_id, _position, _data)
     {
         var body = new this.p2.Body({
             mass: _data["mass"],
@@ -16788,12 +16938,12 @@ class GameInstance
             id: _id,
             x: _position[0],
             y: _position[1],
-            type: "destructableObject",
+            type: "destructibleObject",
             material: _data["material"],
             damageMultipliers: _data["damageMultipliers"],
             health: _data["health"],
             playerId: _data["playerId"],
-            destructableData: _data
+            destructibleData: _data
         };
         var collisionGroup = undefined;
         var collisionMask = CollisionGroups.GROUND | CollisionGroups.PLATFORM | CollisionGroups.PROJECTILE;
@@ -16858,7 +17008,7 @@ class GameInstance
     {
         var ps = this.getPlayerStateById(_playerId);
         var shared = this.getSharedData("deployable_cover");
-        this.createDestructableObject(_id, _position, {
+        this.createDestructibleObject(_id, _position, {
             type: "deployable_cover",
             mass: 10,
             fixedRotation: true,
@@ -16883,7 +17033,7 @@ class GameInstance
 
     createLargeBox(_id, _position)
     {
-        this.createDestructableObject(_id, _position, {
+        this.createDestructibleObject(_id, _position, {
             type: "box_large",
             mass: 10,
             width: 69,
@@ -16895,7 +17045,7 @@ class GameInstance
 
     createSmallBox(_id, _position)
     {
-        this.createDestructableObject(_id, _position, {
+        this.createDestructibleObject(_id, _position, {
             type: "box_small",
             mass: 5,
             width: 35,
@@ -19241,7 +19391,7 @@ class GameInstance
         }
     }
 
-    getDestructableObjects(_type)
+    getDestructibleObjects(_type)
     {
         var world = this.localData.world;
         var arr = [];
@@ -19252,8 +19402,8 @@ class GameInstance
             {
                 switch (cur.data["type"])
                 {
-                    case "destructableObject":
-                        if (_type && cur.data.destructableData["type"] == _type)
+                    case "destructibleObject":
+                        if (_type && cur.data.destructibleData["type"] == _type)
                         {
                             arr.push(cur);
                         }
@@ -19279,7 +19429,7 @@ class GameInstance
             {
                 switch (cur.data["type"])
                 {
-                    case "destructableObject":
+                    case "destructibleObject":
                         if (cur.data.playerId === _playerId)
                         {
                             arr.push(cur);
@@ -20043,8 +20193,8 @@ class GameInstance
         this.requestEvent({
             eventId: GameServer.EVENT_PAWN_ACTION,
             pawnId: data["id"],
-            position: this.roundNumberArray(_body.position),
-            velocity: _body.velocity,
+            //position: this.roundNumberArray(_body.position),
+            //velocity: _body.velocity,
             type: GameServer.PAWN_LEAVE_LADDER
         });
     }
@@ -20113,6 +20263,47 @@ class GameInstance
                 {
                     case "spawner":
                         arr.push(cur);
+                        break;
+                }
+            }
+        }
+        return arr;
+    }
+
+    getFireTargets(_team)
+    {
+        //var pawns = this.getPawns().concat(this.getEquipment()).concat(this.getObstaclesWithHealth());
+        var world = this.localData.world;
+        var arr = [];
+        for (var i = 0; i < world.bodies.length; i++)
+        {
+            let cur = world.bodies[i];
+            if (cur.data)
+            {
+                if (!cur.data.health)
+                {
+                    continue;
+                }
+                switch (cur.data["type"])
+                {
+                    case "infestor":
+                    case "character":
+                    case "turret":
+                    case "helicopter":
+                    case "car":
+                    case "equipment":
+                    case "obstacle":
+                        if (_team != undefined)
+                        {
+                            if (cur.data["team"] === _team)
+                            {
+                                arr.push(cur);
+                            }
+                        }
+                        else
+                        {
+                            arr.push(cur);
+                        }
                         break;
                 }
             }
@@ -21177,7 +21368,7 @@ class GameInstance
                                         pawnId: pawn.data.id,
                                         index: i,
                                         type: GameServer.INV_AMMO_ADD,
-                                        value: curInvItem["magSize"],
+                                        value: curInvItem.magSize,
                                         barrelAmmo: 1
                                     });
                                 }
@@ -24639,6 +24830,7 @@ class GameInstance
                             enemyTypes[Heroes.MOUSSA] = 1;
                             enemyTypes[Heroes.ALEXSEI] = 1;
                             enemyTypes[Heroes.UPBOSS] = 1;
+                            enemyTypes[Heroes.NORMAL] = 1;
                             if (wave >= 10)
                             {
                                 enemyTypes[Heroes.XWILKINX] = 1;
@@ -25384,8 +25576,13 @@ class GameInstance
     {
         if (this.localData.bOperation)
         {
-            if (!this.localData.gameModeData.bHostageHeli && this.localData.difficulty >= 3)
+            if (this.localData.gameModeData.bHostageHeli)
             {
+                return;
+            }
+            if (this.localData.difficulty >= 3)
+            {
+                //Create enemy MH6 when player tries to rescue a hostage (Veteran only)
                 var rescueZone = this.getRescueZone();
                 var heli = this.createHelicopter([rescueZone[0], -200], 1, {
                     type: Helicopter.TYPE_MH6_ATTACK,
@@ -25862,10 +26059,17 @@ class GameInstance
                 delete data["desc"];
                 switch (data.type)
                 {
+                    case Weapon.TYPE_SNIPER:
+                        data.range += 200;
+                        break;
                     case Weapon.TYPE_RIFLE:
                     case Weapon.TYPE_SMG:
                     case Weapon.TYPE_LMG:
                         data.range += 400;
+                        break;
+                    case Weapon.TYPE_PISTOL:
+                    case Weapon.TYPE_MACHINE_PISTOL:
+                        data.range += 100;
                         break;
                 }
                 return data;
@@ -27365,7 +27569,7 @@ class GameInstance
         var objects = this.getPawns();
         objects = objects.concat(this.getEquipment());
         objects = objects.concat(this.getGrenades());
-        objects = objects.concat(this.getDestructableObjects());
+        objects = objects.concat(this.getDestructibleObjects());
         objects = objects.concat(this.getObstaclesWithHealth());
         objects = objects.concat(this.getDoors());
         for (var i = 0; i < objects.length; i++)
@@ -27395,9 +27599,9 @@ class GameInstance
                     continue;
                 }
             }
-            else if (cur.data["type"] == "destructableObject")
+            else if (cur.data["type"] == "destructibleObject")
             {
-                if (cur.data.destructableData["type"] == "deployable_cover")
+                if (cur.data.destructibleData["type"] == "deployable_cover")
                 {
                     if (this.localData["bSurvival"] && causerTeam == cur.data["team"])
                     {
@@ -27772,6 +27976,7 @@ class GameInstance
             mode: p2.Ray.ALL,
             from: [_startX, _startY],
             to: [_endX, _endY],
+            skipBackfaces: true,
             callback(result)
             {
                 var hitPoint = p2.vec2.create();

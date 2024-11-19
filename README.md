@@ -1,22 +1,20 @@
 # Deadswitch 3: Multiplayer Server
 
-© 2023 Wilkin Games
+© 2024 Wilkin Games
 
-Read the full guide: https://steamcommunity.com/sharedfiles/filedetails/?id=2541598398
+This repository allows you to configure and host your own [Deadswitch 3](https://deadswitch3.com) multiplayer server.
+
+**Read the full guide:** https://steamcommunity.com/sharedfiles/filedetails/?id=2541598398
+
+**Join the official Discord Server:** https://discord.com/invite/kfQCPWZk 
 
 ## Overview
-This repository allows you to host your own Deadswitch 3 multiplayer server.
-
-Hosting your own Deadswitch 3 multiplayer server is easy to do. The entire process only takes about 5 minutes.
-
-It's recommended to have a basic understanding of command line use and git.
-
 Decide on where you want to install and run the server. You can host it on your local machine for LAN play or on an external cloud service like Heroku, Google Cloud, AWS, etc. These services typically provide free tiers that don't have any costs.
 
 Note that access to clans is not available when using a custom multiplayer server for security reasons.
 
 ## Requirements
-You will need Node.js installed on the machine you wish to host the server on. Node.js is free and easy to install.
+You will need Node installed on the machine you want to host the server on. Node is free and easy to install.
 
 Note: It's recommended to have access to at least 1 CPU and 2GB of RAM on the machine the server is running on. These requirements scale as the number of concurrent games in progress grows.
 
@@ -36,7 +34,7 @@ Visit the Node.js website for installation instructions: https://nodejs.org/en/d
 
 ### Verify Node.js Version
 
-To verify you have Node.js v14 installed: 
+To verify you have Node.js v14 (minimum) installed: 
 
 `node -v`
 
@@ -57,7 +55,7 @@ You can use a free/cheap Node.js app service to host the multiplayer server whic
 ## Instructions
 Navigate to the directory in which you wish to install the Deadswitch 3 multiplayer server.
 
-Fork this repository:
+Clone this repository:
 
 `git clone https://github.com/WilkinGames/deadswitch3-mp-custom`
 

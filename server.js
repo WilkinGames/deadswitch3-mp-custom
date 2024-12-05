@@ -5962,13 +5962,13 @@ async function async_updateClanScore(_clan, _score, _kills)
         let collection = db.collection("clans");
 
         let res = await collection.findOne({
-            name: _clan
+            name: { $eq: _clan }
         });
         if (res)
         {
             let resUpdate = await collection.updateOne(
                 {
-                    name: _clan
+                    name: { $eq: _clan }
                 },
                 {
                     $inc: {
